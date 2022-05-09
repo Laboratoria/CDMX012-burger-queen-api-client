@@ -1,18 +1,60 @@
+import { loginWithEmail } from "../../lib/firebaseAuth";
+import React from 'react';
+
+
 export const Login = () => 
     {
+
+        const [values, setValues] = React.useState({
+            email: '',
+            password: ''
+        });
+
+        const handleSubmit = (evt) => {
+            evt.preventDefault();
+            loginWithEmail(values.email, values.password);
+        }
+
+        const handleChange = (evt) => {
+
+            const { target } = evt;
+            const { name, value } = target;
+
+            const newValues = {
+            ...values,
+            [name]: value,
+            };
+
+            setValues(newValues);
+        }
+
         return (
             <>
                 <h1>Welcome back!</h1>
-                <form>
-                    <label for='email'>E-mail</label>
-                    <input type='text' id='email' name='email' placeholder='myemail@gmail.com'></input>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor='email'>E-mail</label>
+                    <input 
+                        type='text' 
+                        id='email' 
+                        name='email' 
+                        placeholder='myemail@gmail.com' 
+                        value={values.email}
+                        onChange={handleChange}>
+                    </input>
                     
-                    <label for='password'>Password</label>
-                    <input type='text' id='password' name='password' placeholder='mypassword123'></input>
+                    <label htmlFor='password'>Password</label>
+                    <input 
+                        type='text' 
+                        id='password' 
+                        name='password' 
+                        placeholder='mypassword123'
+                        value={values.password}
+                        onChange={handleChange}>
+                    </input>
 
                     <p>Forgot password?</p>
 
-                    <button>Sign in</button>
+                    <button type='submit' onClick={() => loginWithEmail()}>Sign in</button>
 
                 </form>
                 <footer>

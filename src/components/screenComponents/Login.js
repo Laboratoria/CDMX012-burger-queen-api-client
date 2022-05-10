@@ -1,8 +1,7 @@
-import { loginWithEmail } from "../../lib/firebaseAuth";
 import React from 'react';
 
 
-export const Login = ({setIsAuth}) => 
+export const Login = ({loginWithEmail}) => 
     {
 
         const [values, setValues] = React.useState({
@@ -13,7 +12,6 @@ export const Login = ({setIsAuth}) =>
         const handleSubmit = (evt) => {
             evt.preventDefault();
             loginWithEmail(values.email, values.password);
-            setIsAuth(true);
         }
 
         const handleChange = (evt) => {

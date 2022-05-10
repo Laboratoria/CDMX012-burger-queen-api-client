@@ -22,7 +22,7 @@ export const AppRouter = () =>
             {
                 isAuth ?
                 <PrivateRoutes/> :
-                    <PublicRoutes setIsAuth={setIsAuth} />
+                    <PublicRoutes/>
             }
 
         </>

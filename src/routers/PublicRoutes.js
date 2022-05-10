@@ -2,13 +2,13 @@ import {
     Routes,
     Route,
   } from "react-router-dom";
-import { CreateAcc } from '../components/screenComponents/CreateAcc';
-import { loginWithEmail } from "../lib/firebaseAuth";
+import { LogIn } from '../components/screenComponents/LogIn';
+
 
 export const PublicRoutes = () => {
   return(
       <Routes>
-          <Route path="/" element={<CreateAcc loginWithEmail={loginWithEmail}/>} />
+          <Route path="/" element={<LogIn /* createAccWithEmail={createAccWithEmail} *//>} />
       </Routes>
   );
 }

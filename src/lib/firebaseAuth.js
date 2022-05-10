@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword, getAuth, signOut } from "firebase/auth";
 import { auth } from './firebaseConfig';
 
-export const loginWithEmail = (email, password) => 
+export const createAccWithEmail = (email, password) => 
 {
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {

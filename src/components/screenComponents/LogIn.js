@@ -1,8 +1,6 @@
-import React from 'react';
+import React from "react";
 
-
-export const CreateAcc = ({createAccWithEmail}) => 
-{
+export const LogIn = () => {
     const [values, setValues] = React.useState({
         email: '',
         password: ''
@@ -10,7 +8,7 @@ export const CreateAcc = ({createAccWithEmail}) =>
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        createAccWithEmail(values.email, values.password);
+        loginWithEmail(values.email, values.password);
     }
 
     const handleChange = (evt) => {

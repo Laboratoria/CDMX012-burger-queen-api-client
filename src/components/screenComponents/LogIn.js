@@ -32,7 +32,7 @@ export const LogIn = ({signInWithEmail}) => {
             <h1>Welcome back!</h1>
 
             <form onSubmit={handleSubmit}>
-                <label htmlFor='email'>E-mail</label>
+                <label htmlFor='email'>E-mail</label><br></br>
                 <input 
                     type='text' 
                     id='email' 
@@ -40,9 +40,9 @@ export const LogIn = ({signInWithEmail}) => {
                     placeholder='myemail@gmail.com' 
                     value={values.email}
                     onChange={handleChange}>
-                </input>
+                </input><br></br>
                     
-                <label htmlFor='password'>Password</label>
+                <label htmlFor='password'>Password</label><br></br>
                 <input 
                     type='text' 
                     id='password' 
@@ -50,7 +50,7 @@ export const LogIn = ({signInWithEmail}) => {
                     placeholder='mypassword123'
                     value={values.password}
                     onChange={handleChange}>
-                </input>
+                </input><br></br>
 
                 <p>Forgot your password?</p>
 

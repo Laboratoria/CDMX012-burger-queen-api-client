@@ -9,7 +9,7 @@ import { CreateAcc } from '../components/screenComponents/CreateAcc';
 export const PrivateRoutes = () => {
     return(
         <Routes>
-            <Route path="/create-account" element={<CreateAcc createAccWithEmail={createAccWithEmail}/>} />
+            <Route path="/createacc" element={<CreateAcc createAccWithEmail={createAccWithEmail}/>} />
             <Route path="/" element={<Orders logOut={logOut}/>} />
         </Routes>
     );

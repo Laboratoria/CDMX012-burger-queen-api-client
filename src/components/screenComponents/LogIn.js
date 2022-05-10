@@ -1,6 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import './LogIn.css'
+import logo from '../../assets/burger queen logo fondo blanco.png'
+import leftBurger from '../../assets/side-burger-left.png'
+import rightBurger from '../../assets/side-burger-right.png'
+
 
 export const LogIn = ({signInWithEmail}) => {
     const navigate = useNavigate();
@@ -29,11 +33,12 @@ export const LogIn = ({signInWithEmail}) => {
     }
 
     return (
-        <>
-            <h1>Welcome back!</h1>
-
+        <div className="form-container">
+            <img src={rightBurger} alt="right side burger" className="right-burger burger"></img>
             <form onSubmit={handleSubmit} className='acc-form'>
-                <label htmlFor='email'>E-mail</label><br></br>
+                <img src={logo} alt="burger queen logo" className="bq-logo"></img>
+                <h1>Welcome back!</h1>
+                <label htmlFor='email' id="emailLabel">E-mail</label><br></br>
                 <input 
                     type='text' 
                     id='email' 
@@ -43,9 +48,9 @@ export const LogIn = ({signInWithEmail}) => {
                     onChange={handleChange}>
                 </input><br></br>
                     
-                <label htmlFor='password'>Password</label><br></br>
+                <label htmlFor='password' id="passLabel">Password</label><br></br>
                 <input 
-                    type='text' 
+                    type='password' 
                     id='password' 
                     name='password' 
                     placeholder='mypassword123'
@@ -53,15 +58,15 @@ export const LogIn = ({signInWithEmail}) => {
                     onChange={handleChange}>
                 </input><br></br>
 
-                <p>Forgot your password?</p>
+                <span className="forgot-pass">Forgot your password?</span><br></br>
 
-                <button type='submit'>Sign in</button>
-
+                <button type='submit'>Sign In</button>
             </form>
+            <img src={leftBurger} alt="left side burger" className="left-burger burger"></img>
 
-            <footer>
+            <footer className="footer">
                 <p>Copyright © 2022 Burger Queen. All rights reserved.</p>
             </footer>
-        </>
+        </div>
     );
 }

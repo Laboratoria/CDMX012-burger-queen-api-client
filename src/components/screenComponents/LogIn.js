@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import './LogIn.css'
 
 export const LogIn = ({signInWithEmail}) => {
     const navigate = useNavigate();
@@ -31,7 +32,7 @@ export const LogIn = ({signInWithEmail}) => {
         <>
             <h1>Welcome back!</h1>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='acc-form'>
                 <label htmlFor='email'>E-mail</label><br></br>
                 <input 
                     type='text' 
@@ -59,7 +60,7 @@ export const LogIn = ({signInWithEmail}) => {
             </form>
 
             <footer>
-                <p>Copyright © 2022 . Burger Queen. All rights reserved.</p>
+                <p>Copyright © 2022 Burger Queen. All rights reserved.</p>
             </footer>
         </>
     );

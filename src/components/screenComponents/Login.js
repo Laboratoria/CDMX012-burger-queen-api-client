@@ -2,7 +2,7 @@ import { loginWithEmail } from "../../lib/firebaseAuth";
 import React from 'react';
 
 
-export const Login = () => 
+export const Login = ({setIsAuth}) => 
     {
 
         const [values, setValues] = React.useState({
@@ -13,6 +13,7 @@ export const Login = () =>
         const handleSubmit = (evt) => {
             evt.preventDefault();
             loginWithEmail(values.email, values.password);
+            setIsAuth(true);
         }
 
         const handleChange = (evt) => {
@@ -54,7 +55,7 @@ export const Login = () =>
 
                     <p>Forgot password?</p>
 
-                    <button type='submit' onClick={() => loginWithEmail()}>Sign in</button>
+                    <button type='submit'>Sign in</button>
 
                 </form>
                 <footer>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export const Login = ({loginWithEmail}) => 
+export const CreateAcc = ({loginWithEmail}) => 
     {
 
         const [values, setValues] = React.useState({

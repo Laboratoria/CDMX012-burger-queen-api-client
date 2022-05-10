@@ -27,7 +27,7 @@ export const CreateAcc = ({createAccWithEmail}) =>
 
     return (
         <>
-            <h1>Welcome back!</h1>
+            <h1>Create a new account</h1>
 
             <form onSubmit={handleSubmit}>
                 <label htmlFor='email'>E-mail</label>
@@ -50,9 +50,7 @@ export const CreateAcc = ({createAccWithEmail}) =>
                     onChange={handleChange}>
                 </input>
 
-                <p>Forgot your password?</p>
-
-                <button type='submit'>Sign in</button>
+                <button type='submit'>Sign up</button>
 
             </form>
 

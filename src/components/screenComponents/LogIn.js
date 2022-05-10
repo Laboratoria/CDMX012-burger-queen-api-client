@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-export const LogIn = () => {
+export const LogIn = ({signInWithEmail}) => {
+    const navigate = useNavigate();
+
     const [values, setValues] = React.useState({
         email: '',
         password: ''
@@ -8,7 +11,8 @@ export const LogIn = () => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        loginWithEmail(values.email, values.password);
+        signInWithEmail(values.email, values.password);
+        navigate("/");
     }
 
     const handleChange = (evt) => {

@@ -84,3 +84,7 @@
     border: 0px;
     font-size: 16px;
 }
+
+#errorArea{
+    color:red;
+}

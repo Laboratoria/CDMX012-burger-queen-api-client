@@ -1,9 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import './LogIn.css'
-import logo from '../../assets/burger queen logo fondo blanco.png'
-import leftBurger from '../../assets/side-burger-left.png'
-import rightBurger from '../../assets/side-burger-right.png'
+import './LogIn.css';
+import logo from '../../assets/burger queen logo fondo blanco.png';
+import leftBurger from '../../assets/side-burger-left.png';
+import rightBurger from '../../assets/side-burger-right.png';
+import { Footer } from '../staticComponents/footer';
+import { LoginError } from "../../utils/errorMessage";
 
 
 export const LogIn = ({signInWithEmail}) => {
@@ -59,14 +61,12 @@ export const LogIn = ({signInWithEmail}) => {
                 </input><br></br>
 
                 <span className="forgot-pass">Forgot your password?</span><br></br>
-
+                <LoginError signInWithEmail={'auth/user-not-found'}/>
                 <button type='submit'>Sign In</button>
             </form>
             <img src={leftBurger} alt="left side burger" className="left-burger burger"></img>
+            <Footer/>
 
-            <footer className="footer">
-                <p>Copyright © 2022 Burger Queen. All rights reserved.</p>
-            </footer>
         </div>
     );
 }

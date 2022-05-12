@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword, getAuth, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from './firebaseConfig';
-
+//import { LoginError } from "../utils/errorMessage";
 
 
 export const createAccWithEmail = (email, password) => {
@@ -24,7 +24,7 @@ export const signInWithEmail = (email, password) => {
     })
     .catch((error) => { 
         return error.code
-        // LoginError(error)
+        // LoginError({error})
     });
 }
 

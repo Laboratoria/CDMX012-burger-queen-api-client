@@ -61,7 +61,7 @@ export const LogIn = ({signInWithEmail}) => {
                 </input><br></br>
 
                 <span className="forgot-pass">Forgot your password?</span><br></br>
-                <LoginError signInWithEmail={'auth/user-not-found'}/>
+                <LoginError signInWithEmail={signInWithEmail}/>
                 <button type='submit'>Sign In</button>
             </form>
             <img src={leftBurger} alt="left side burger" className="left-burger burger"></img>

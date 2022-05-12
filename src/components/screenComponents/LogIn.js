@@ -11,16 +11,12 @@ import { LoginError } from "../../utils/errorMessage";
 export const LogIn = ({signInWithEmail}) => {
     const navigate = useNavigate();
 
+    const [errorCode, setErrorCode] = React.useState("");
+
     const [values, setValues] = React.useState({
         email: '',
         password: ''
     });
-
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
-        signInWithEmail(values.email, values.password);
-        navigate("/");
-    }
 
     const handleChange = (evt) => {
         const { target } = evt;
@@ -32,6 +28,18 @@ export const LogIn = ({signInWithEmail}) => {
         };
 
         setValues(newValues);
+    }
+
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        signInWithEmail(values.email, values.password)
+        .then((response) => {
+            console.log(response);
+            navigate("/");
+        })
+        .catch((error) => {
+            setErrorCode(error.code);
+        })
     }
 
     return (
@@ -61,7 +69,7 @@ export const LogIn = ({signInWithEmail}) => {
                 </input><br></br>
 
                 <span className="forgot-pass">Forgot your password?</span><br></br>
-                <LoginError signInWithEmail={'auth/user-not-found'}/>
+                {errorCode !== "" ? <LoginError errorMsg={errorCode}></LoginError> : null}
                 <button type='submit'>Sign In</button>
             </form>
             <img src={leftBurger} alt="left side burger" className="left-burger burger"></img>

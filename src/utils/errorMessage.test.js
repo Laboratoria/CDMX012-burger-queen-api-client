@@ -22,4 +22,4 @@ describe('Error message component', () => {
         render(<LoginError errorMsg={'auth/internal-error'}></LoginError>);
         screen.getByText('An error has occurred, please try again.');
     });
-})
+});

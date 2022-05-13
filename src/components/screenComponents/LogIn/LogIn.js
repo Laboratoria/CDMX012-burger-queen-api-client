@@ -45,7 +45,9 @@ export const LogIn = ({signInWithEmail}) => {
             <form onSubmit={handleSubmit} className='acc-form'>
                 <img src={logo} alt="burger queen logo" className="bq-logo"></img>
                 <h1>Welcome back!</h1>
+
                 <label htmlFor='email' id="emailLabel">E-mail</label>
+
                 <input 
                     type='text' 
                     id='email' 
@@ -58,6 +60,7 @@ export const LogIn = ({signInWithEmail}) => {
                 <br></br>
                     
                 <label htmlFor='password' id="passLabel">Password</label>
+
                 <input 
                     type='password' 
                     id='password' 
@@ -65,6 +68,7 @@ export const LogIn = ({signInWithEmail}) => {
                     placeholder='mypassword123'
                     value={values.password}
                     onChange={handleChange}>
+
                 </input>
 
                 {/* <span className="forgot-pass">Forgot your password?</span> */}

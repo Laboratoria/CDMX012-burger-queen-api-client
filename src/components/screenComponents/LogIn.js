@@ -70,8 +70,10 @@ export const LogIn = ({signInWithEmail}) => {
                     onChange={handleChange}>
                 </input>
 
-                <span className="forgot-pass">Forgot your password?</span>
-                {errorCode !== "" ? <LoginError errorMsg={errorCode}></LoginError> : null}
+                {/* <span className="forgot-pass">Forgot your password?</span> */}
+
+                {errorCode !== "" ? <LoginError errorMsg={errorCode}></LoginError> : <br></br>}
+
                 <button type='submit'>Sign In</button>
             </form>
             <img src={leftBurger} alt="left side burger" className="left-burger burger"></img>

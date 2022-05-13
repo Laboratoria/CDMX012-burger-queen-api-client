@@ -1,15 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import './LogIn.css';
-import logo from '../../assets/burger queen logo fondo blanco.png';
-import leftBurger from '../../assets/side-burger-left.png';
-import rightBurger from '../../assets/side-burger-right.png';
-import { Footer } from '../staticComponents/footer';
-import { LoginError } from "../../utils/errorMessage";
+import logo from '../../../assets/burger queen logo fondo blanco.png';
+import leftBurger from '../../../assets/side-burger-left.png';
+import rightBurger from '../../../assets/side-burger-right.png';
+import { Footer } from '../../staticComponents/footer';
+import { LoginError } from "../../../utils/errorMessage";
 
 
 export const LogIn = ({signInWithEmail}) => {
-    const navigate = useNavigate();
 
     const [errorCode, setErrorCode] = React.useState("");
 
@@ -35,7 +33,6 @@ export const LogIn = ({signInWithEmail}) => {
         signInWithEmail(values.email, values.password)
         .then((response) => {
             console.log(response);
-            navigate("/");
         })
         .catch((error) => {
             setErrorCode(error.code);

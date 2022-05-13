@@ -6,85 +6,60 @@
 }
 
 .burger {
-    width: 19%;
+    max-width: 20%;
+    max-height: 100vh;
 }
 
-.bq-logo{
+.bq-logo {
     width: 80%;
-    position: relative;
-    top: -90px;
+    margin-top: -37%;
 }
 
 .acc-form {
-    border: 1px solid var(--main-color);
-    border-radius: 20px;
     width: 40%;
-    text-align: left;
-    padding: 0% 7%;
+    border: 2.5px solid #F44341;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 450px;
+    padding: 5%;
 }
 
-.acc-form h1 {
-    position: relative;
-    top: -100px;
-} 
-
-.acc-form label {
-    font-weight: bold;
-    font-size: 18px;
+label {
     align-self: flex-start;
+    margin: 2% 10%;
 }
 
-.acc-form input {
-    border-radius: 20px;
-    border: 1px solid var(--darker-gray);
-    padding: 3%;
-    width: 100%;
+input, button {
+    width: 85%;
+    height: 2em;
+    border-radius: 0.7em;
+    font-family: 'Poppins', sans-serif;
 }
 
-#emailLabel{
-    position: relative;
-    top: -90px;
+input {
+    border: 1px solid black;
 }
 
-#email {
-    position: relative;
-    top: -98px;
-}
-
-#passLabel {
-    position: relative;
-    top: -98px;
-}
-
-#password {
-    position: relative;
-    top: -106px;
-}
-
-.forgot-pass{
-    position: relative;
-    top: -120px;
-    font-size: 14px;
+/* .forgot-pass {
     align-self: flex-end;
-} 
-
-.acc-form button {
-    position: relative;
-    top: -120px;
-    width: 75%;
-    border-radius: 20px;
-    padding: 3%;
-    background-color: var(--main-color);
-    color: white;
-    font-weight: bold;
-    border: 0px;
-    font-size: 16px;
+    margin: 3% 10%;
+}
+ */
+.errorMsg {
+    margin: 5% 0;
+    color: red;
+    font-size: 0.9em;
+    text-align: center;
 }
 
-#errorArea{
-    color:red;
+button {
+    background-color: #F44341;
+    border: solid #F44341;
+    color: #FFFF;
+    font-size: 1em;
+}
+
+@media only screen and (min-width: 769px) {
+/* Devices bigger than a tablet. */
 }

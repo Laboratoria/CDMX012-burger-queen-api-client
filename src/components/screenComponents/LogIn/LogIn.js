@@ -45,7 +45,9 @@ export const LogIn = ({signInWithEmail}) => {
             <form onSubmit={handleSubmit} className='acc-form'>
                 <img src={logo} alt="burger queen logo" className="bq-logo"></img>
                 <h1>Welcome back!</h1>
-                <label htmlFor='email' id="emailLabel">E-mail</label><br></br>
+
+                <label htmlFor='email' id="emailLabel">E-mail</label>
+
                 <input 
                     type='text' 
                     id='email' 
@@ -53,9 +55,12 @@ export const LogIn = ({signInWithEmail}) => {
                     placeholder='myemail@gmail.com' 
                     value={values.email}
                     onChange={handleChange}>
-                </input><br></br>
+                </input>
+
+                <br></br>
                     
-                <label htmlFor='password' id="passLabel">Password</label><br></br>
+                <label htmlFor='password' id="passLabel">Password</label>
+
                 <input 
                     type='password' 
                     id='password' 
@@ -63,10 +68,13 @@ export const LogIn = ({signInWithEmail}) => {
                     placeholder='mypassword123'
                     value={values.password}
                     onChange={handleChange}>
-                </input><br></br>
 
-                <span className="forgot-pass">Forgot your password?</span><br></br>
-                {errorCode !== "" ? <LoginError errorMsg={errorCode}></LoginError> : null}
+                </input>
+
+                {/* <span className="forgot-pass">Forgot your password?</span> */}
+
+                {errorCode !== "" ? <LoginError errorMsg={errorCode}></LoginError> : <br></br>}
+
                 <button type='submit'>Sign In</button>
             </form>
             <img src={leftBurger} alt="left side burger" className="left-burger burger"></img>

@@ -1,17 +1,36 @@
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import LogoImage from '../img/Logo_Image.gif';
 // import BurgerImage from '../img/Burger_Image.svg';
 import emailIcon from '../img/emailIcon.svg';
 import passwordIcon from '../img/passwordIcon.svg';
+import { useState } from 'react';
+import { useAuth } from '../context/AutProvider';
 
 
 export default  function LoginPage () {
 
+    const  [user, setUser] = useState ({
+        email: '',
+        password:''
+    })
+
+    const { login } = useAuth();
+
     const navigate = useNavigate();
 
-    const handleClick = () => {
-        navigate('/menu')
-    }
+    const handleChange = ({ target: { name, value } }) => {
+        setUser({ ...user, [name]: value });
+      };
+
+    const handleClick = async (e) => {
+        e.preventDefault();
+        try {
+          await login(user.email, user.password);
+          navigate('/Waiter');
+        } catch(error){
+            console.log(error.message)
+        }
+      };
 
 
     return(
@@ -27,6 +46,7 @@ export default  function LoginPage () {
                         type="email"
                         name="email"
                         placeholder="email@example.com"
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="box-form">
@@ -37,6 +57,7 @@ export default  function LoginPage () {
                         name="password"
                         id="password"
                         placeholder="Password..."
+                        onChange={handleChange}
                     />
                 </div>
                 <p className="option-password">
@@ -44,7 +65,7 @@ export default  function LoginPage () {
                     <label className="label-checkbox" htmlFor="rememberMe">Remember me</label>
                     <a className="link-ref" href="#/">Forgot Password?</a>
                 </p>
-                <button type="button" className="btn-form"> Login</button>
+                <button type="button" className="btn-form" onClick={handleClick}> Login</button>
                 <div className="link-login">
                     <p className="paragraph"> Dont have an account?</p>
                     <a className="link-ref" href="/signup">Sign up</a>

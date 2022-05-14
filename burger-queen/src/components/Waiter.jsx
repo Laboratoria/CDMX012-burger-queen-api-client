@@ -1,13 +1,19 @@
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AutProvider';
 
 export default  function WaiterPage () {
 
-    const navigate = useNavigate();
+    const { logout } = useAuth();
 
-    const handleClick = () => {
-        navigate('/menu')
+    // const navigate = useNavigate();
+
+    const handleClick = async () => {
+        await logout();
     }
+
     return(
-        <h1>Waiter</h1>     
+        <><h1>Waiter</h1>
+        <button typeof='submit' onClick={handleClick}> Cerrar Sesión</button>
+        </>
     )
 }

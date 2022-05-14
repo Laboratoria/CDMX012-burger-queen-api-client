@@ -1,11 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import LogoImage from '../img/Logo_Image.gif';
-// import BurgerImage from '../img/Burger_Image.svg';
 import emailIcon from '../img/emailIcon.svg';
 import passwordIcon from '../img/passwordIcon.svg';
 import { useState } from 'react';
 import { useAuth } from '../context/AutProvider';
-
 
 export default  function LoginPage () {
 
@@ -14,28 +12,43 @@ export default  function LoginPage () {
         password:''
     })
 
+    const [error, setError] = useState();
+
     const { login } = useAuth();
 
     const navigate = useNavigate();
 
     const handleChange = ({ target: { name, value } }) => {
         setUser({ ...user, [name]: value });
-      };
+    };
 
-    const handleClick = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');
         try {
-          await login(user.email, user.password);
-          navigate('/Waiter');
-        } catch(error){
-            console.log(error.message)
+            await login(user.email, user.password);
+            navigate('/Waiter');
+            // console.log(user);
+        } catch (error) {
+            if (error.code === 'auth/invalid-email') {
+                console.log(error.code);
+                setError('Invalid email');
+            } else if (error.code === 'auth/wrong-password') {
+                console.log(error.code);
+                setError('Invalid password');
+            } else if (error.code === 'auth/internal-error') {
+                console.log(error.code);
+                setError('Enter a password');
+            } else if (error.code === 'auth/user-not-found') {
+                console.log(error.code);
+                setError('User not found');
+            }
         }
-      };
-
+    };
 
     return(
         <div className="container-login">
-            <form className="register-container" >
+            <form className="register-container" onSubmit={handleSubmit} >
                 <img className='logo-icon' src={LogoImage} alt='logo-icon' />
                 <h1 className='title-h1'> Welcome!</h1>
                 <h3 className='title-h3'>Login to your account</h3>
@@ -60,16 +73,8 @@ export default  function LoginPage () {
                         onChange={handleChange}
                     />
                 </div>
-                <p className="option-password">
-                    <input className="input-checkbox" type="checkbox" id="rememberMe" name="rememberMe" value="Remember me" />
-                    <label className="label-checkbox" htmlFor="rememberMe">Remember me</label>
-                    <a className="link-ref" href="#/">Forgot Password?</a>
-                </p>
-                <button type="button" className="btn-form" onClick={handleClick}> Login</button>
-                <div className="link-login">
-                    <p className="paragraph"> Dont have an account?</p>
-                    <a className="link-ref" href="/signup">Sign up</a>
-                </div>
+                <button type="button" className="btn-form" onClick={handleSubmit}> Login</button>
+                <div className='title-h1'>{error && <p>{error}</p>}</div>
             </form>
 
         </div>

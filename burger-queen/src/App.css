@@ -103,37 +103,4 @@
   padding: 25px;
   height: auto;
 }
-.link-ref{
-  color: #9f2525;
-  font-weight: bolder;
-  justify-items: flex-end;
-  font-size: 1.5em;
-  height: 30px;
-}
-.link-ref-signup{
-  color: #9f2525;
-  font-weight: bolder;
-  justify-items: flex-end;
-  font-size: 1.1em;
-  height: 30px;
-  padding-left: 10px;
-}
-.paragraph{
-  color: #8B8B8B;
-  font-size: 1.5em;
-  text-align: center;
-}
-.link-login{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 10px;
-}
-.input-checkbox {
-  width: 12%;
-  height: 30px;
-}
-.label-checkbox{
-  font-size: 1.5em;
-  height: 30px;
-}
+

@@ -8,15 +8,15 @@ export const useAuth =() => {
     const context = useContext(authContext);
     if(!context)
         throw new Error('There is not authProvider');
-        return context;    
+        return context;
 };
 
 export function AuthProvider({children}){
 
     const [user, setUser] = useState(null);
-    const login = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password);
-    }
+
+    const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
+
     const logout = () =>{
         signOut(auth)
     }
@@ -24,19 +24,17 @@ export function AuthProvider({children}){
         const unSuscribe = onAuthStateChanged(auth, (currentUser) =>{
             setUser(currentUser);
         });
-        return()=>{
-            unSuscribe();
-        }
-    },[])  
+        return()=> unSuscribe();
+    },[]);
 
     return (
         <authContext.Provider value={{
             login,
             user,
-            logout        
+            logout,
         }} >
             {children}
             </authContext.Provider>
-    )
+    );
 
 }

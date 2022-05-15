@@ -1,15 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import './LogIn.css';
-import logo from '../../assets/burger queen logo fondo blanco.png';
-import leftBurger from '../../assets/side-burger-left.png';
-import rightBurger from '../../assets/side-burger-right.png';
-import { Footer } from '../staticComponents/footer';
-import { LoginError } from "../../utils/errorMessage";
+import logo from '../../../assets/burger queen logo fondo blanco.png';
+import leftBurger from '../../../assets/side-burger-left.png';
+import rightBurger from '../../../assets/side-burger-right.png';
+import { Footer } from '../../staticComponents/footer';
+import { LoginError } from "../../../utils/errorMessage";
 
 
 export const LogIn = ({signInWithEmail}) => {
-    const navigate = useNavigate();
 
     const [errorCode, setErrorCode] = React.useState("");
 
@@ -35,7 +33,6 @@ export const LogIn = ({signInWithEmail}) => {
         signInWithEmail(values.email, values.password)
         .then((response) => {
             console.log(response);
-            navigate("/");
         })
         .catch((error) => {
             setErrorCode(error.code);
@@ -48,7 +45,9 @@ export const LogIn = ({signInWithEmail}) => {
             <form onSubmit={handleSubmit} className='acc-form'>
                 <img src={logo} alt="burger queen logo" className="bq-logo"></img>
                 <h1>Welcome back!</h1>
-                <label htmlFor='email' id="emailLabel">E-mail</label><br></br>
+
+                <label htmlFor='email' id="emailLabel">E-mail</label>
+
                 <input 
                     type='text' 
                     id='email' 
@@ -56,9 +55,12 @@ export const LogIn = ({signInWithEmail}) => {
                     placeholder='myemail@gmail.com' 
                     value={values.email}
                     onChange={handleChange}>
-                </input><br></br>
+                </input>
+
+                <br></br>
                     
-                <label htmlFor='password' id="passLabel">Password</label><br></br>
+                <label htmlFor='password' id="passLabel">Password</label>
+
                 <input 
                     type='password' 
                     id='password' 
@@ -66,10 +68,13 @@ export const LogIn = ({signInWithEmail}) => {
                     placeholder='mypassword123'
                     value={values.password}
                     onChange={handleChange}>
-                </input><br></br>
 
-                <span className="forgot-pass">Forgot your password?</span><br></br>
-                {errorCode !== "" ? <LoginError errorMsg={errorCode}></LoginError> : null}
+                </input>
+
+                {/* <span className="forgot-pass">Forgot your password?</span> */}
+
+                {errorCode !== "" ? <LoginError errorMsg={errorCode}></LoginError> : <br></br>}
+
                 <button type='submit'>Sign In</button>
             </form>
             <img src={leftBurger} alt="left side burger" className="left-burger burger"></img>

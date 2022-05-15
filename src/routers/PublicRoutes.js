@@ -2,7 +2,8 @@ import {
     Routes,
     Route,
   } from "react-router-dom";
-import { LogIn } from '../components/screenComponents/LogIn';
+import { LogIn } from '../components/screenComponents/LogIn/LogIn'
+//../components/screenComponents/LogIn';
 import { signInWithEmail } from "../lib/firebaseAuth";
 
 

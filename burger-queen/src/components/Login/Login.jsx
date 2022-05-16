@@ -27,8 +27,16 @@ export default function LoginPage() {
         setError('');
         try {
             await login(user.email, user.password);
-            navigate('/Admin');
-
+            let currentmail = user.email;
+            if(currentmail.includes('wait')){
+                navigate('/Waiter');
+            }else if (currentmail.includes('admin')){
+                navigate('/Admin');
+            }else if(currentmail.includes('cook')){
+                navigate('/Kitchen');
+            }else if(currentmail[0] !== "w" || "a" || "c"){
+		        setError("Error Occured, Please contact system administrator")
+	        }
             // console.log(user);
         } catch (error) {
             if (error.code === 'auth/invalid-email') {

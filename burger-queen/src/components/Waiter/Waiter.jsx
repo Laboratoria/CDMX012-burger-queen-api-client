@@ -1,5 +1,4 @@
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AutProvider';
+import { useAuth } from '../../context/AutProvider';
 
 export default  function WaiterPage () {
 

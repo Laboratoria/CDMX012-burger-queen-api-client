@@ -1,0 +1,10 @@
+.container-kitchen{
+    display: flex;
+    width:100%;
+    height: 100%;
+    background-image: url(../../img/backgroundkitchen.png);
+    background-repeat: no-repeat;
+  
+  }
+  
+  

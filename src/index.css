@@ -4,6 +4,7 @@ body {
   font-size: 1em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
 
 code {
@@ -16,6 +17,14 @@ code {
   --secondary-color: #FBBD08;
   --light-gray: #EBE8E8;
   --darker-gray: rgba(0, 0, 0, 0.6);
+}
+
+#root{
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .footer{

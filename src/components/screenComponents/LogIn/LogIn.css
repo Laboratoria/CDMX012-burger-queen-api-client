@@ -3,6 +3,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    height: 100%;
 }
 
 .burger {
@@ -23,6 +25,11 @@
     flex-direction: column;
     align-items: center;
     padding: 5%;
+    top: 90px;
+}
+
+.acc-form h1 {
+    text-align: center;
 }
 
 label {
@@ -39,15 +46,11 @@ input, button {
 
 input {
     border: 1px solid black;
+    padding-left: 0.7em;
 }
 
-/* .forgot-pass {
-    align-self: flex-end;
-    margin: 3% 10%;
-}
- */
-.errorMsg {
-    margin: 5% 0;
+.error-msg {
+    margin: 6% 0;
     color: red;
     font-size: 0.9em;
     text-align: center;
@@ -55,11 +58,17 @@ input {
 
 button {
     background-color: #F44341;
-    border: solid #F44341;
+    border: 1.75px solid #F77A78;
     color: #FFFF;
     font-size: 1em;
+    width: 60%;
+    border-radius: 1em;
 }
 
 @media only screen and (min-width: 769px) {
 /* Devices bigger than a tablet. */
+    /* .root{
+        display: flex;
+        align-items: center;
+    } */
 }

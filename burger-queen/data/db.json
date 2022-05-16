@@ -1,0 +1,52 @@
+{
+  "products": [
+      {"breakfast": [
+          { "id": 1, "item": "Chilaquiles", "price": 80, "img": "../img/Breakfast/chilaquiles.png", "dateEntry": "05/16/2022" },
+          { "id": 2, "item": "Enchiladas", "price": 80, "img": "../img/Breakfast/enchiladas.png", "dateEntry": "05/16/2022"  },
+          { "id": 3, "item": "Enfrijoladas", "price": 75, "img": "../img/Breakfast/enfrijoladas.png", "dateEntry": "05/16/2022"  },
+          { "id": 4, "item": "Gordita", "price": 20, "img": "../img/Breakfast/gordita.png", "dateEntry": "05/16/2022"  },
+          { "id": 5, "item": "Molletes", "price": 50, "img": "../img/Breakfast/molletes.png", "dateEntry": "05/16/2022" },
+          { "id": 6, "item": "Omelette", "price": 70, "img": "../img/Breakfast/omelette.png", "dateEntry": "05/16/2022"  },
+          { "id": 7, "item": "Pancake", "price": 50, "img": "../img/Breakfast/pancake.png", "dateEntry": "05/16/2022" },
+          { "id": 8, "item": "Quesadilla", "price": 30, "img": "../img/Breakfast/quesadilla.png", "dateEntry": "05/16/2022" },
+          { "id": 9, "item": "Sope", "price": 60, "img": "../img/Breakfast/sope.png", "dateEntry": "05/16/2022"  }
+        ]},
+      {"hamburgers": [
+        { "id": 1, "item": "Beef", "price": 110, "img": "../img/Burgers/Beef.png", "dateEntry": "05/16/2022"  },
+        { "id": 2, "item": "Beef Jumbo", "price": 130, "img": "../img/Burgers/BeefJumbo.png", "dateEntry": "05/16/2022"  },
+        { "id": 3, "item": "Cheese Jumbo", "price": 150, "img": "../img/Burgers/CheeseJumbo.png", "dateEntry": "05/16/2022"  },
+        { "id": 4, "item": "Chicken Jumbo", "price": 150, "img": "../img/Burgers/ChickenJumbo.png", "dateEntry": "05/16/2022"  },
+        { "id": 5, "item": "Jumbo Jumbo", "price": 200, "img": "../img/Burgers/Jumbojumbo.png", "dateEntry": "05/16/2022" },
+        { "id": 6, "item": "Original", "price": 120, "img": "../img/Burgers/Original.png", "dateEntry": "05/16/2022"  },
+        { "id": 7, "item": "Original Black", "price": 130, "img": "../img/Burgers/OriginalBlack.png", "dateEntry": "05/16/2022"  },
+        { "id": 8, "item": "Original Cheese", "price": 135, "img": "../img/Burgers/OriginalCheese.png", "dateEntry": "05/16/2022" },
+        { "id": 9, "item": "Spicy", "price": 130, "img": "../img/Burgers/Spicy.png", "dateEntry": "05/16/2022"  }
+        ]},
+      {"drinks": [
+        { "id": 1, "item": "Atole", "price": 25, "img": "../img/Drinks/Atole.png", "dateEntry": "05/16/2022"  },
+        { "id": 2, "item": "Beer", "price": 40, "img": "../img/Drinks/Beer.png", "dateEntry": "05/16/2022"  },
+        { "id": 3, "item": "Capuccino", "price": 50, "img": "../img/Drinks/Capuccino.png", "dateEntry": "05/16/2022" },
+        { "id": 4, "item": "Coffee", "price": 40, "img": "../img/Drinks/Coffe.png", "dateEntry": "05/16/2022"  },
+        { "id": 5, "item": "Frappe", "price": 50, "img": "../img/Drinks/Frappe.png", "dateEntry": "05/16/2022" },
+        { "id": 6, "item": "Smootie", "price": 60, "img": "../img/Drinks/Smootie.png", "dateEntry": "05/16/2022" },
+        { "id": 7, "item": "Soda", "price": 25, "img": "../img/Drinks/Soda.png", "dateEntry": "05/16/2022"  },
+        { "id": 8, "item": "Water", "price": 20, "img": "../img/Drinks/Water.png", "dateEntry": "05/16/2022" },
+        { "id": 9, "item": "Wine", "price": 60, "img": "../img/Drinks/Wine.png", "dateEntry": "05/16/2022"  }
+       ]}
+  ],
+  "user": [
+      { "id": 1, "userId": "1", "name": "Lorena", "email": "wait_lorena@gmail.com", "password": "123xmi", "roles": "Waiter"},
+      { "id": 2, "userId": "2", "name": "Niza", "email": "admi_niza@gmail.com", "password": "123xmi", "roles": "Admin"},
+      { "id": 3, "userId": "3", "name": "Lili", "email": "cook_lili@gmail.com", "password": "123xmi", "roles": "Kitchen"}
+  ],
+  "orders": { "id": 1,
+    "userId": "",
+    "client": "",
+    "products":[{
+      "number": 0,
+      "product":""}],
+    "status":["pending", "canceled", "delivered"],
+    "dateEntry": "",
+    "dateProcessed": ""
+    }
+}

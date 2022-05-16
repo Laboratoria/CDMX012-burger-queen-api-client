@@ -1,15 +1,15 @@
 import { useNavigate } from 'react-router-dom';
-import LogoImage from '../img/Logo_Image.gif';
-import emailIcon from '../img/emailIcon.svg';
-import passwordIcon from '../img/passwordIcon.svg';
+import LogoImage from '../../img/Logo_Image.gif';
+import emailIcon from '../../img/emailIcon.svg';
+import passwordIcon from '../../img/passwordIcon.svg';
 import { useState } from 'react';
-import { useAuth } from '../context/AutProvider';
+import { useAuth } from '../../context/AutProvider';
 
-export default  function LoginPage () {
+export default function LoginPage() {
 
-    const  [user, setUser] = useState ({
+    const [user, setUser] = useState({
         email: '',
-        password:''
+        password: ''
     })
 
     const [error, setError] = useState();
@@ -27,7 +27,8 @@ export default  function LoginPage () {
         setError('');
         try {
             await login(user.email, user.password);
-            navigate('/Waiter');
+            navigate('/Admin');
+
             // console.log(user);
         } catch (error) {
             if (error.code === 'auth/invalid-email') {
@@ -46,7 +47,7 @@ export default  function LoginPage () {
         }
     };
 
-    return(
+    return (
         <div className="container-login">
             <form className="register-container" onSubmit={handleSubmit} >
                 <img className='logo-icon' src={LogoImage} alt='logo-icon' />

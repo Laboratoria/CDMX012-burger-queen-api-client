@@ -1,4 +1,9 @@
-import { createUserWithEmailAndPassword, getAuth, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { 
+    createUserWithEmailAndPassword, 
+    getAuth, 
+    signOut, 
+    signInWithEmailAndPassword 
+} from "firebase/auth";
 import { auth } from './firebaseConfig';
 
 export const createAccWithEmail = (email, password) => {
@@ -24,4 +29,13 @@ export const logOut = () => {
     }).catch((error) => {
     // An error happened.
     });
+}
+
+export const currentUser = () => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+        return user;
+    }
 }

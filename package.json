@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "databse": "json-server --watch -p 3333 db.json"
+    "database": "json-server --watch -p 3333 db.json"
   },
   "eslintConfig": {
     "extends": [

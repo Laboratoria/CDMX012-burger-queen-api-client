@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, act, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { LogIn } from './LogIn';
 
 const signInMock = jest.fn();

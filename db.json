@@ -1,0 +1,140 @@
+{
+    "users": [
+        {
+            "uid": "ejemplo",
+            "_id": "",
+            "email": "",
+            "roles": {
+                "admin": "true"
+            }
+        }
+    ],
+    "orders": [
+        {
+            "_id": "",
+            "userId": "",
+            "client": "",
+            "products": [
+                {
+                    "nomProdEj": {
+                        "qty": "",
+                        "product": "" 
+                    }
+                }
+            ],
+            "status": "",
+            "dateEntry": "",
+            "dateProcessed": ""
+        }
+    ],
+    "products": [
+        {
+            "_id": "1",
+            "name": "American Coffee",
+            "price": 5,
+            "image": "",
+            "type": "beverage",
+            "dateEntry": "16/05/22",
+            "menu": "breakfast"
+        }, 
+        {
+            "_id": "2",
+            "name": "Coffee with milk",
+            "price": 7,
+            "image": "",
+            "type": "beverage",
+            "dateEntry": "16/05/22",
+            "menu": "breakfast"
+        },
+        {
+            "_id": "3",
+            "name": "Natural juice",
+            "price": 7,
+            "image": "",
+            "type": "beverage",
+            "dateEntry": "16/05/22",
+            "menu": "breakfast"
+        },
+        {
+            "_id": "4",
+            "name": "Ham and cheese sandwich",
+            "price": 10,
+            "image": "",
+            "type": "meal",
+            "dateEntry": "16/05/22",
+            "menu": "breakfast"
+        }, 
+        {
+            "_id": "5",
+            "name": "Water 500 ml",
+            "price": 5,
+            "image": "",
+            "type": "beverage",
+            "dateEntry": "16/05/22",
+            "menu": "dinner"
+        }, 
+        {
+            "_id": "6",
+            "name": "Water 750 ml",
+            "price": 7,
+            "image": "",
+            "type": "beverage",
+            "dateEntry": "16/05/22",
+            "menu": "dinner"
+        }, 
+        {
+            "_id": "7",
+            "name": "Soda 500 ml",
+            "price": 7,
+            "image": "",
+            "type": "beverage",
+            "dateEntry": "16/05/22",
+            "menu": "dinner"
+        }, 
+        {
+            "_id": "8",
+            "name": "Soda 750 ml",
+            "price": 10,
+            "image": "",
+            "type": "beverage",
+            "dateEntry": "16/05/22",
+            "menu": "dinner"
+        }, 
+        {
+            "_id": "9",
+            "name": "Basic burger",
+            "price": 10,
+            "image": "",
+            "type": "burger",
+            "dateEntry": "16/05/22",
+            "menu": "dinner"
+        },
+        {
+            "_id": "10",
+            "name": "Double burger",
+            "price": 15,
+            "image": "",
+            "type": "burger",
+            "dateEntry": "16/05/22",
+            "menu": "dinner"
+        },
+        {
+            "_id": "11",
+            "name": "French fries",
+            "price": 5,
+            "image": "",
+            "type": "side dish",
+            "dateEntry": "16/05/22",
+            "menu": "dinner"
+        },
+        {
+            "_id": "12",
+            "name": "Onion rings",
+            "price": 5,
+            "image": "",
+            "type": "side dish",
+            "dateEntry": "16/05/22",
+            "menu": "dinner"
+        }
+    ]
+}

@@ -6,7 +6,6 @@ import rightBurger from '../../../assets/side-burger-right.png';
 import { Footer } from '../../staticComponents/footer';
 import { LoginError } from "../../../utils/errorMessage";
 
-
 export const LogIn = ({signInWithEmail}) => {
 
     const [errorCode, setErrorCode] = React.useState("");

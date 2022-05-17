@@ -1,0 +1,46 @@
+.productContainer {
+    background-color: #EBE8E8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2%;
+    border-radius: 10%;
+    width: 10rem;
+    height: 4rem;
+}
+
+.quantityContainer {
+    display: flex;
+    align-items: center;
+}
+
+.setQuantity{
+    background-color: #817C7C;
+    border-color: #817C7C;
+    border-radius: 5%;
+    width: 1.5rem;
+    height: 0;
+    padding-bottom: 1.2rem;
+    text-align: center;
+}
+
+.setQuantity:focus {
+    background-color: #FBBD08;
+    border-color: #FBBD08;
+}
+
+.quantity {
+    background-color: #FFFFFF;
+    height: 1.5rem;
+    width: 4rem;
+}
+
+p {
+    margin: 0;
+    text-align: center;
+}
+
+.product {
+    font-weight: bold;
+}

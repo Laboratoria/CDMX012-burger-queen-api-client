@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: 1em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -8,7 +8,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New,
     monospace;
 }
 
@@ -27,7 +27,11 @@ code {
   justify-content: center;
 }
 
-.footer{
+#portal {
+  position: relative;
+}
+
+.footer {
   background:var(--secondary-color);
   position: absolute;
   bottom: 0;

@@ -81,7 +81,7 @@ export default function LoginPage() {
                         onChange={handleChange}
                     />
                 </div>
-                <button type="button" className="btn-form" onClick={handleSubmit}> Login</button>
+                <button data-testid="btn-login" type="button" className="btn-form" onClick={handleSubmit} > Login</button>
                 <div className='title-h1'>{error && <p>{error}</p>}</div>
             </form>
 

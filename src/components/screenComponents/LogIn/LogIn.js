@@ -9,6 +9,7 @@ import { LoginError } from "../../../utils/errorMessage";
 
 export const LogIn = ({ signInWithEmail }) => {
 
+
     const [errorCode, setErrorCode] = React.useState("");
 
     const [values, setValues] = React.useState({

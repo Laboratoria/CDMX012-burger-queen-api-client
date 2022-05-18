@@ -6,7 +6,8 @@ import { Footer } from "../components/footer";
 export const Orders = () => 
 {
     const breakfastMenu = data.products.filter(product => {return product.menu === 'breakfast'});
-    /* const dinnerMenu = data.products.filter(product => {return product.menu === 'dinner'}); */
+    // eslint-disable-next-line
+    const dinnerMenu = data.products.filter(product => {return product.menu === 'dinner'});
 
     return (
         <>

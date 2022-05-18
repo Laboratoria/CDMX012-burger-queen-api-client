@@ -1,0 +1,73 @@
+.verify-order-container{
+    display: grid;
+    grid-template-columns: [first] 10% [line2] 55% [line3] 10% [end];
+    grid-template-rows: [row1-start] 20% [row1-end] 15% [third-line] auto [last-line];
+    grid-template-areas: 
+        "back-btn-area . table-num-area"
+        ". title-area ."
+        ". order-summary-area ."
+    ;
+    width: 100%;
+    height: 65%;
+    align-items: center;
+    justify-content: center;
+}
+
+.go-back{
+    grid-area: back-btn-area;
+} 
+
+.table{
+    grid-area: table-num-area;
+    border: var(--main-color) 2px solid;
+    border-radius: 10px;
+    padding: 0.5em;
+    font-weight: bold;
+}
+
+.table-num{
+    color: #757575;
+}
+
+.complete-order-title{
+    grid-area: title-area;
+    justify-self: center;
+}
+
+.order-summary{
+    grid-area: order-summary-area;
+    background-color: var(--light-gray);
+    border-radius: 20px;
+    padding: 5%;
+    align-self: stretch;
+}
+
+.summary-grid{
+    display: grid;
+    grid-template-columns: [first] 10% [line2] 80% [line3] 10% [end];
+    grid-template-rows: [row1-start] auto [third-line] 15% [fourt-line] 10% [last-line];
+    grid-template-areas: 
+        "qty-area product-name-area price-area"
+        ". total-area ."
+        ". send-kitchen-btn ."
+    ;
+    height: 100%;
+    justify-items: center;
+}
+
+.qty{
+    grid-area: qty-area;
+}
+
+.prod-name{
+    grid-area: product-name-area;
+}
+
+.order-total{
+    grid-area: total-area;
+}
+
+.send-kitchen{
+    grid-area: send-kitchen-btn;
+    align-self: end;
+}

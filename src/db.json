@@ -11,15 +11,31 @@
     ],
     "orders": [
         {
+            "_id": "1",
+            "userId": "mesero1",
+            "client": "5",
+            "products": [
+                {
+                    "qty": "2",
+                    "product": "American Coffee" 
+                }, 
+                {
+                    "qty": "1",
+                    "product": "Ham and cheese sandwich" 
+                }
+            ],
+            "status": "",
+            "dateEntry": "",
+            "dateProcessed": ""
+        },
+        {
             "_id": "",
             "userId": "",
             "client": "",
             "products": [
                 {
-                    "nomProdEj": {
-                        "qty": "",
-                        "product": "" 
-                    }
+                    "qty": "",
+                    "product": "" 
                 }
             ],
             "status": "",

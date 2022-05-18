@@ -43,7 +43,7 @@ export default function Login() {
   }
   return (
     <Fragment>
-      <img className="logoBurger" src={logo} alt="logoBurger" />
+      <img className="logoBurger" src= {require("../assets/burger4.png") } alt="logoBurger" />
       <form className="box">
         <label id="login"> Log in </label>
         <input

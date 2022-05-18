@@ -1,5 +1,5 @@
 import { initializeApp} from "firebase/app"
-import {getAuth,} from "firebase/auth"
+import { getAuth } from "firebase/auth"
 export {signInWithEmailAndPassword,createUserWithEmailAndPassword,onAuthStateChanged } from "@firebase/auth"
 
 
@@ -11,8 +11,7 @@ export const firebaseConfig = {
   projectId:process.env.REACT_APP_PROJECTID, 
   storageBucket:process.env.REACT_APP_STORAGEBUCKET,
   messagingSenderId:process.env.REACT_APP_MESAGINGSENDERID, 
-  appId: process.env.REACT_APP_APPID,
-  measurementId:  process.env.REACT_APP_MESAUREMENTID, 
+  appId: process.env.REACT_APP_APPID
   };
   
   // Initialize Firebase

@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { auth, signInWithEmailAndPassword, onAuthStateChanged} from "../lib/firebase-config";
+import { signInWithEmailAndPassword, onAuthStateChanged} from "../lib/firebase-config";
 import { useEffect, useState } from "react";
 
 
 
 export default function Login() {
-
+    const auth = {}
     const [error, setError] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

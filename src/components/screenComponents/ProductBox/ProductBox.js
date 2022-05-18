@@ -9,7 +9,9 @@ export const ProductBox = ({product}) => {
                 <p className='product'>{product}</p>
             </div>
             <div className='quantityContainer'>
-                <button className='setQuantity' onClick={() => quantity === 0 ? quantity === 0 : setQuantity(quantity - 1)}>-</button>
+                <button className='setQuantity' onClick={() => 
+                    quantity === 0 ? quantity === 0 : setQuantity(quantity - 1)
+                }>-</button>
                 <div className='quantity'>
                     <p>{quantity}</p>
                 </div>

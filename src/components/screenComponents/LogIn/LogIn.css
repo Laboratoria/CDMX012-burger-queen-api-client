@@ -73,6 +73,7 @@ button {
     font-size: 1.1em;
     width: 60%;
     border-radius: 1em;
+    cursor: pointer;
 }
 
 @media only screen and (min-width: 769px) {

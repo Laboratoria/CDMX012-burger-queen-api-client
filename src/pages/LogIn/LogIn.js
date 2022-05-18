@@ -1,10 +1,10 @@
 import React from "react";
 import './LogIn.css';
-import logo from '../../../assets/logo grande fondo blanco.png';
-import leftBurger from '../../../assets/side-burger-left.png';
-import rightBurger from '../../../assets/side-burger-right.png';
-import { Footer } from '../../staticComponents/footer';
-import { LoginError } from "../../../utils/errorMessage";
+import logo from '../../assets/logo grande fondo blanco.png';
+import leftBurger from '../../assets/side-burger-left.png';
+import rightBurger from '../../assets/side-burger-right.png';
+import { Footer } from '../../components/footer';
+import { LoginError } from "../../utils/errorMessage";
 
 
 export const LogIn = ({ signInWithEmail }) => {

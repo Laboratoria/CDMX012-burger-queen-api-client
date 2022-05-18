@@ -6,16 +6,16 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_APIKEY,
-  authDomain: process.env.REACT_APP_AUTHDOMAIN,
-  projectId: process.env.REACT_APP_ID,
-  storageBucket: process.env.REACT_APP_STORAGE,
-  messagingSenderId: process.env.REACT_APP_SENDER_ID,
-  appId: process.env.REACT_APP_APIID
+  apiKey: "AIzaSyD56c-LzX-RS3SSjI2TQ0lSxE0xUxtRyWg",
+  authDomain: "burger-queen-3693d.firebaseapp.com",
+  projectId: "burger-queen-3693d",
+  storageBucket: "burger-queen-3693d.appspot.com",
+  messagingSenderId: "92182657388",
+  appId: "1:92182657388:web:b685d2c74e9cb93fcd5b49"
 };
 
-// console.log(process.env.REACT_APP_FIREBASECONFIG)
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
+// eslint-disable-next-line
+const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth();

@@ -1,12 +1,12 @@
-import { ProductBox } from "./ProductBox/ProductBox"
-import data from '../../db.json';
-import { Header } from "../staticComponents/header";
-import { Footer } from "../staticComponents/footer";
+import { ProductBox } from "../components/ProductBox/ProductBox"
+import data from '../db.json';
+import { Header } from "../components/header";
+import { Footer } from "../components/footer";
 
 export const Orders = () => 
 {
     const breakfastMenu = data.products.filter(product => {return product.menu === 'breakfast'});
-    const dinnerMenu = data.products.filter(product => {return product.menu === 'dinner'});
+    /* const dinnerMenu = data.products.filter(product => {return product.menu === 'dinner'}); */
 
     return (
         <>

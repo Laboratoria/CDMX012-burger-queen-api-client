@@ -2,9 +2,9 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
-import { Orders } from '../components/screenComponents/Orders';
+import { Orders } from '../pages/Orders';
 import { createAccWithEmail} from "../lib/firebaseAuth";
-import { CreateAcc } from '../components/screenComponents/CreateAcc';
+import { CreateAcc } from '../pages/CreateAcc';
 
 export const PrivateRoutes = () => {
     return(

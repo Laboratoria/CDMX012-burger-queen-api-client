@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './ProfileModal.css';
-import profilepic from '../../../assets/Profile-pic-placeholder.png';
-import logoutIcon from '../../../assets/Log-out-icon.png';
+import profilepic from '../../assets/Profile-pic-placeholder.png';
+import logoutIcon from '../../assets/Log-out-icon.png';
 
 export default function ProfileModal({ open, onClose, user, logOut }) {
     if (!open) return null;

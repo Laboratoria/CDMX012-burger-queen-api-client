@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,25 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  /* outline: 1px solid red;*/
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family:  Poppins ,"Roboto", sans-serif;
+}
+
+code {
+  font-family: Poppins,"Roboto", sans-serif;
 }

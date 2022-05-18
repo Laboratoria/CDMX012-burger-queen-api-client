@@ -8,7 +8,7 @@ import Menu from './routes/Menu';
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Login />} />
-      <Route path="/sign-up" element={<SignUp />} />
+      <Route path="/signUp" element={<SignUp />} />
       <Route path="/menu" element={<Menu />} />
       {/* <Route path="/menu/order" element={<Order />} />
       <Route path="/kitchen/order/:id" element={<Kitchen />} />

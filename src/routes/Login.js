@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { auth, signInWithEmailAndPassword, onAuthStateChanged} from "../lib/firebase-config";
 import { useEffect, useState } from "react";
 
@@ -57,6 +57,12 @@ export default function Login() {
                 />
                 <button className="buttonLogin" onClick={LoginWithEmail} >Login</button>
                 {error && <span>Error email or password</span>}
+                <p
+                    className="divSignUp">You don’t have an account?</p>
+                <p><Link to={"/signUp"}
+                    className="pSignUp">
+                    Sign up </Link></p>
+
             </section>
   );
 }

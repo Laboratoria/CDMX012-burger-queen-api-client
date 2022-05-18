@@ -13,12 +13,13 @@
 }
 
 .bq-logo {
-    width: 80%;
-    margin-top: -37%;
+    width: 85%;
+    margin-top: -35%;
 }
 
 .acc-form {
-    width: 40%;
+    width: 42%;
+    height: 55%;
     border: 2.5px solid #F44341;
     border-radius: 20px;
     display: flex;
@@ -30,24 +31,33 @@
 
 .acc-form h1 {
     text-align: center;
+    font-size: 40px;
+    font-weight: bolder;
 }
 
 label {
     align-self: flex-start;
     margin: 2% 10%;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 input, button {
     width: 85%;
-    height: 2em;
+    height: 3em;
     border-radius: 0.7em;
     font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
 }
 
 input {
     border: 1px solid black;
     padding-left: 0.7em;
 }
+
+input::placeholder {
+    font-size: 1.1em;
+  }
 
 .error-msg {
     margin: 6% 0;
@@ -60,16 +70,155 @@ button {
     background-color: #F44341;
     border: 1.75px solid #F77A78;
     color: #FFFF;
-    font-size: 1em;
+    font-size: 1.1em;
     width: 60%;
     border-radius: 1em;
     cursor: pointer;
 }
 
 @media only screen and (min-width: 769px) {
-/* Devices bigger than a tablet. */
-    /* .root{
-        display: flex;
-        align-items: center;
-    } */
+    /* Devices bigger than a tablet. */
+        /* .root{
+            display: flex;
+            align-items: center;
+        } */
+    }
+
+
+@media (min-width: 250px)  { 
+    
+    .acc-form h1 {
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+    input::placeholder {
+        font-size: 0.5em;
+    }
+
+    input, button {
+        font-size: 0.5em;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+    button{
+        margin-top:25px;
+    }
+}
+
+@media (min-width: 500px)  { 
+    
+    .acc-form h1 {
+        font-size: 22px;
+        margin-bottom: 50px;
+    }
+
+    input::placeholder {
+        font-size: 0.8em;
+    }
+
+    input, button {
+        height: 2em;
+        font-size: 0.8em;
+    }
+
+    label {
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    button{
+        margin-top:25px;
+    }
+}
+
+@media (min-width:600px)  { 
+
+    .bq-logo {
+        width: 30vh;
+        margin-top: -28%;
+    }
+
+    .acc-form h1 {
+        font-size: 25px;
+        margin-bottom: 50px;
+    }
+
+    input::placeholder{
+        font-size: 0.8em;
+    }
+
+    input, button {
+        height: 2.5em;
+        border-radius: 0.5em;
+        font-size: 0.8em;
+    }
+
+}
+
+@media (min-width:801px)  { 
+   
+    .bq-logo {
+        width: 28vh;
+        margin-top: -25%;
+    }
+    .acc-form h1 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 23px;
+        font-weight: bold;
+    }
+    
+    input{
+        margin-bottom: 10px;
+    }
+
+    button{
+        margin-top: 20px;
+    }
+
+ }
+@media (min-width:1024px) { 
+    
+    .bq-logo {
+        width: 75%;
+        margin-top: -33%;
+    }
+    input, button {
+        height: 4em;
+        font-size: 1.1em;
+    }
+
+ }
+@media (min-width:1281px) { 
+    .bq-logo {
+        width: 60%;
+        margin-top: -28%;
+    }
+}
+
+@media (min-width:1500px) { 
+    .bq-logo {
+        width: 65%;
+        margin-top: -28%;
+    }
+
+@media (min-width:1600px) { 
+    .bq-logo {
+        width: 55%;
+        margin-top: -25%;
+    }
+}
+@media (min-width:1800px) { 
+    .bq-logo {
+        width: 50%;
+        margin-top: -22%;
+    }
+} 
 }

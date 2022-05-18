@@ -1,6 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
-import { auth, signInWithEmailAndPassword, onAuthStateChanged} from "../lib/firebase-config";
-import { useEffect, useState } from "react";
+import { auth, signInWithEmailAndPassword, onAuthStateChanged } from "../lib/firebase-config";
+import { Fragment, useEffect, useState } from "react";
 
 
 
@@ -18,7 +18,7 @@ export default function Login() {
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-            navigate('/menu')
+                navigate('/menu')
             })
             .catch((error) => {
                 setError(false)
@@ -30,7 +30,7 @@ export default function Login() {
     useEffect(() => {
         onAuthStateChanged(auth, handleUserStateChanged);
     }, []);
-    
+
     function handleUserStateChanged(user) {
         if (user) {
             // console.log(user.displayName);
@@ -39,31 +39,53 @@ export default function Login() {
         }
     }
     return (
-        <section className="container">
-                <label id="logIn">  Log in </label>
-                <input
-                    type="email"
-                    className="inputEmail"
-                    placeholder="Email:"
-                    autoComplete="off" onChange={e => setEmail(e.target.value)}
+        // <section className="box">
+        //         <label id="logIn">  Log in </label>
+        //         <input
+        //             type="email"
+        //             className="inputEmail"
+        //             placeholder="Email:"
+        //             autoComplete="off" onChange={e => setEmail(e.target.value)}
 
-                />
-                <input
-                    type="password"
-                    className="inputPassword"
-                    placeholder="Password:"
-                    autoComplete="off" onChange={e => setPassword(e.target.value)}
+        //         />
+        //         <input
+        //             type="password"
+        //             className="inputPassword"
+        //             placeholder="Password:"
+        //             autoComplete="off" onChange={e => setPassword(e.target.value)}
 
-                />
-                <button className="buttonLogin" onClick={LoginWithEmail} >Login</button>
-                {error && <span>Error email or password</span>}
-                <p
-                    className="divSignUp">You don’t have an account?</p>
-                <p><Link to={"/signUp"}
-                    className="pSignUp">
-                    Sign up </Link></p>
+        //         />
+        //         <button className="buttonLogin" onClick={LoginWithEmail} >Login</button>
+        //         {error && <span>Error email or password</span>}
 
-            </section>
-  );
+
+        // </section>
+        <Fragment>
+            <form className="box">
+                <div className="field">
+                    <label className="label">Email</label>
+                    <div className="control">
+                        <input className="input" type="email" placeholder="e.g. alex@example.com"
+                            autoComplete="off" onChange={e => setEmail(e.target.value)}/>
+                    </div>
+                </div>
+
+                <div className="field">
+                    <label className="label">Password</label>
+                    <div className="control">
+                        <input className="input" type="password" placeholder="****"
+                            autoComplete="off" onChange={e => setPassword(e.target.value)}/>
+                    </div>
+                </div>
+
+                <button className="button is-primary" onClick={LoginWithEmail} >Login</button>
+            </form>
+            <p
+                className="divSignUp">You don’t have an account?</p>
+            <p><Link to={"/signUp"}
+                className="pSignUp">
+                Sign up </Link></p>
+        </Fragment>
+    );
 }
-            
+

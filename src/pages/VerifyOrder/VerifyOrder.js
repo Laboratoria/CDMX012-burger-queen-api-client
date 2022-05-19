@@ -25,15 +25,15 @@ export const VerifyOrder = (/* {order} */) => {
             <section className="order-summary">
                 <div className="summary-grid">
                     {order.products.map((product, index) => {
-                        return <div key={index}>
-                            <p className="qty"> ( {product.qty} ) </p>
-                            <p className="prod-name"> {product.product} $10 {/*PRECIO*/}</p>
+                        return <div key={index} className="product-in-list">
+                            <span className="qty"> ( {product.qty} ) </span>
+                            <span className="prod-name"> {product.product} </span>
+                            <span className="prod-price"> $10 {/*PRECIO*/} </span>
                             </div>
                     })}
-                    <p className="order-total"><span className="total">Total:</span> $10{/*SUMA TOTAL*/}</p>
-
-                    <button className="send-kitchen">Send to the kitchen</button>
                 </div>
+                <p className="order-total"><span className="total">Total:</span> $10{/*SUMA TOTAL*/}</p>
+                <button className="send-kitchen">Send to the kitchen</button>
             </section>
 
             <Footer/>

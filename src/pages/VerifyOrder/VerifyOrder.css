@@ -8,7 +8,7 @@
         ". order-summary-area ."
     ;
     width: 100%;
-    height: 65%;
+    height: 75%;
     align-items: center;
     justify-content: center;
 }
@@ -47,32 +47,26 @@
     align-self: stretch;
     color: var(--darker-gray);
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
 }
+
 
 .summary-grid{
-    display: grid;
-    grid-template-columns: [first] 10% [line2] 80% [line3] 10% [end];
-    grid-template-rows: [row1-start] auto [third-line] 15% [fourt-line] 10% [last-line];
-    grid-template-areas: 
-        "qty-area product-name-area price-area"
-        ". total-area ."
-        ". send-kitchen-btn ."
-    ;
-    height: 100%;
+    height: 80%;
     justify-items: center;
+
 }
 
-.qty{
-    grid-area: qty-area;
-}
-
-.prod-name{
-    grid-area: product-name-area;
+.product-in-list{
+    display: flex;
+    justify-content: space-between
 }
 
 .order-total{
     grid-area: total-area;
     font-size: large;
+    padding-bottom: 0.5em;
 }
 
 .total{
@@ -80,7 +74,7 @@
 }
 
 .send-kitchen{
-    grid-area: send-kitchen-btn;
     font-weight: bold;
     letter-spacing: 0.1em;
+    align-self: center;
 }

@@ -1,15 +1,15 @@
-import { ProductBox } from "../components/ProductBox/ProductBox"
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
+import { TableBox } from '../components/TableBox/tableBox'
 
-export const Orders = () => {
-
+export const ActiveOrders = () => {
     return (
         <>
             <Header />
-            <h1>Orders</h1>
-            <ProductBox />
+            <h1>Active orders</h1>
+            <TableBox />
             <Footer />
         </>
     );
 }
+

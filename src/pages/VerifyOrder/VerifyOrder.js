@@ -1,18 +1,34 @@
 import { Header } from "../../components/header";
 import { Footer } from "../../components/footer";
 import { useNavigate } from "react-router-dom";
-import data from '../../db.json';
 import './VerifyOrder.css'
 import arrow from '../../assets/flecha-izquierda.png'
 
 export const VerifyOrder = (/* {order} */) => {
     const navigate = useNavigate();
 
-    const order = data.orders[0];
+    const order = {
+        "_id": "1",
+        "userId": "mesero1",
+        "client": "5",
+        "products": [
+            {
+                "qty": "2",
+                "product": "American Coffee"
+            },
+            {
+                "qty": "1",
+                "product": "Ham and cheese sandwich"
+            }
+        ],
+        "status": "",
+        "dateEntry": "",
+        "dateProcessed": ""
+    };
 
     return (
         <div className="verify-order-container">
-            <Header/>
+            <Header />
 
             <button className="go-back" onClick={() => navigate('/')}>
                 <img src={arrow} alt="go back arrow" className="arrow"></img>
@@ -29,14 +45,14 @@ export const VerifyOrder = (/* {order} */) => {
                             <span className="qty"> ( {product.qty} ) </span>
                             <span className="prod-name"> {product.product} </span>
                             <span className="prod-price"> $10 {/*PRECIO*/} </span>
-                            </div>
+                        </div>
                     })}
                 </div>
                 <p className="order-total"><span className="total">Total:</span> $10{/*SUMA TOTAL*/}</p>
                 <button className="send-kitchen">Send to the kitchen</button>
             </section>
 
-            <Footer/>
+            <Footer />
         </div>
     )
 }

@@ -30,7 +30,7 @@ export const VerifyOrder = (/* {order} */) => {
         <div className="verify-order-container">
             <Header />
 
-            <button className="go-back" onClick={() => navigate('/')}>
+            <button className="go-back" onClick={() => navigate('/orders')}>
                 <img src={arrow} alt="go back arrow" className="arrow"></img>
             </button>
 

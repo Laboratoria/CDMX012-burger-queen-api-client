@@ -2,7 +2,7 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
-import { Orders } from '../pages/Orders';
+import { Orders } from '../pages/Orders/Orders';
 import { createAccWithEmail } from "../lib/firebaseAuth";
 import { CreateAcc } from '../pages/CreateAcc';
 import { Mainscreen } from '../pages/Main screen/mainScreen'

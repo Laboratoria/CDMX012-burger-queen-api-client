@@ -1,7 +1,7 @@
 .verify-order-container{
     display: grid;
     grid-template-columns: [first] 10% [line2] 55% [line3] 10% [end];
-    grid-template-rows: [row1-start] 20% [row1-end] 15% [third-line] auto [last-line];
+    grid-template-rows: [row1-start] 15% [row1-end] 15% [third-line] auto [last-line];
     grid-template-areas: 
         "back-btn-area . table-num-area"
         ". title-area ."
@@ -16,6 +16,11 @@
 .go-back{
     grid-area: back-btn-area;
 } 
+
+.arrow{
+    height: 90%;
+    padding-top: 0.1em;
+}
 
 .table{
     grid-area: table-num-area;
@@ -40,6 +45,8 @@
     border-radius: 20px;
     padding: 5%;
     align-self: stretch;
+    color: var(--darker-gray);
+    font-weight: bold;
 }
 
 .summary-grid{
@@ -65,9 +72,15 @@
 
 .order-total{
     grid-area: total-area;
+    font-size: large;
+}
+
+.total{
+    font-weight:bolder;
 }
 
 .send-kitchen{
     grid-area: send-kitchen-btn;
-    align-self: end;
+    font-weight: bold;
+    letter-spacing: 0.1em;
 }

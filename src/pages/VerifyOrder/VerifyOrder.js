@@ -3,6 +3,7 @@ import { Footer } from "../../components/footer";
 import { useNavigate } from "react-router-dom";
 import data from '../../db.json';
 import './VerifyOrder.css'
+import arrow from '../../assets/flecha-izquierda.png'
 
 export const VerifyOrder = (/* {order} */) => {
     const navigate = useNavigate();
@@ -13,7 +14,9 @@ export const VerifyOrder = (/* {order} */) => {
         <div className="verify-order-container">
             <Header/>
 
-            <button className="go-back" onClick={() => navigate('/')}>←</button>
+            <button className="go-back" onClick={() => navigate('/')}>
+                <img src={arrow} alt="go back arrow" className="arrow"></img>
+            </button>
 
             <p className="table">Table: <span className="table-num">{order.client}</span></p>
 
@@ -24,10 +27,10 @@ export const VerifyOrder = (/* {order} */) => {
                     {order.products.map((product, index) => {
                         return <div key={index}>
                             <p className="qty"> ( {product.qty} ) </p>
-                            <p className="prod-name"> {product.product} {/*PRECIO*/}</p>
+                            <p className="prod-name"> {product.product} $10 {/*PRECIO*/}</p>
                             </div>
                     })}
-                    <p className="order-total">Total: $10{/*SUMA TOTAL*/}</p>
+                    <p className="order-total"><span className="total">Total:</span> $10{/*SUMA TOTAL*/}</p>
 
                     <button className="send-kitchen">Send to the kitchen</button>
                 </div>

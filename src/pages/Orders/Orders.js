@@ -39,8 +39,11 @@ export const Orders = () => {
         <>
             <Header />
             <h1>Orders</h1>
-            <label htmlFor="table-num" id="table-label">Table: </label> 
-            <input type="number" id="tableNum" name="table-num" min="1" max="30"></input>
+            <div className="table-input">
+                <label htmlFor="table-num" className="table-label">Table: </label> 
+                <input type="number" id="tableNum" name="table-num" min="1" max="30"></input>
+            </div>
+            
             <button onClick={() => setMenu('breakfast')}>Breakfast</button>
             <button onClick={() => setMenu('dinner')}>Dinner</button>
             {menu === 'breakfast' ? breakfastMenu() : null}

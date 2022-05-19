@@ -5,12 +5,14 @@ import {
 import { Orders } from '../pages/Orders';
 import { createAccWithEmail} from "../lib/firebaseAuth";
 import { CreateAcc } from '../pages/CreateAcc';
+import { VerifyOrder } from '../pages/VerifyOrder/VerifyOrder'
 
 export const PrivateRoutes = () => {
     return(
         <Routes>
             <Route path="/createacc" element={<CreateAcc createAccWithEmail={createAccWithEmail}/>} />
             <Route path="/" element={<Orders/>} />
+            <Route path="/verify-order" element={<VerifyOrder/>} />
         </Routes>
     );
 }

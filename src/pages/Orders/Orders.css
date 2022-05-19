@@ -1,0 +1,7 @@
+.menuButtons {
+    display: flex;
+}
+
+.breakfastBtn, .dinnerBtn {
+    border-radius: 5%;
+}

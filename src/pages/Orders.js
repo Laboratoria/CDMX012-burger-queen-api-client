@@ -18,11 +18,13 @@ export const Orders = () => {
             })
     }, [])
 
+    const [menu, setMenu] = useState('breakfast');
+
     const breakfastMenu = () => {
-        const menu = products.filter(product => { return product.menu === 'breakfast' });
-        console.log(menu);
+        const breakfast = products.filter(product => { return product.menu === 'breakfast' });
         return (
-            <>{menu.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)}</>
+            <>{breakfast.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)}</>
+
         );
     }
 
@@ -32,8 +34,9 @@ export const Orders = () => {
         <>
             <Header />
             <h1>Orders</h1>
-            <button onClick={breakfastMenu}>Breakfast</button>
-            <button>Dinner</button>
+            <button onClick={() => setMenu('breakfast')}>Breakfast</button>
+            <button onClick={() => setMenu('dinner')}>Dinner</button>
+            {menu === 'breakfast' ? breakfastMenu() : null}
             {/* {breakfastMenu.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)} */}
             <Footer />
         </>

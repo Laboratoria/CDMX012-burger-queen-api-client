@@ -40,11 +40,15 @@ export const Orders = () => {
                 `}</style>
                 <div className='beverages'>
                     <img src={beverageIcon} alt="beverage icon" className="beverageIcon"></img>
-                    {beverages.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)}
+                    <div className='beveragesProducts'>
+                        {beverages.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)}
+                    </div>
                 </div>
                 <div className='meal'>
                     <img src={mealIcon} alt="meal icon" className="mealIcon"></img>
-                    {meal.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)}
+                    <div className='mealProducts'>
+                        {meal.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)}
+                    </div>
                 </div>
             </div>
         );
@@ -65,11 +69,15 @@ export const Orders = () => {
                 `}</style>
                 <div className='beverages'>
                     <img src={beverageIcon} alt="beverage icon" className="beverageIcon"></img>
-                    {beverages.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)}
+                    <div className='beveragesProducts'>
+                        {beverages.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)}
+                    </div>
                 </div>
                 <div className='meal'>
                     <img src={mealIcon} alt="meal icon" className="mealIcon"></img>
-                    {meal.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)}
+                    <div className='mealProducts'>
+                        {meal.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)}
+                    </div>
                 </div>
             </div>
         );

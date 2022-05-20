@@ -5,7 +5,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  font-family: Arial, "Roboto", sans-serif;
+  font-family: 'Poppins', "Roboto", sans-serif;
   background-image: url("../assets/Administrador.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -14,78 +14,43 @@ body {
 }
 
 #root {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 90% 10%;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
 }
 
 .logoBurger {
-  grid-column: 1/2;
-  grid-row: 1/3;
-  justify-self: center;
-  align-self: center;
-  width: 80%;
+  padding-left: 4%;
+  width: 100%;
   height: auto;
 }
 
 .box {
-  justify-self: center;
-  align-self: center;
-
-  grid-column: 2/3;
-  grid-row: 1/3;
-  width: 70%;
-  height: 80%;
-  background: rgba(248, 248, 248, 0.65);
-  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.57);
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
   text-align: center;
   gap: 20px;
-  padding-top: 100px;
+  align-items: center;
 }
 
 #login {
-  font-size: 40px;
+  font-size: 25px;
   font-weight: 800;
   color: #5b2448;
-  margin: 80px auto 20px;
 }
 
-.field {
-  width: 80%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-}
-
-.label {
-  color: #5b2448;
-  font-size: 18px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-weight: bold;
-  width: 100%;
-
-  text-align: start;
-}
-.control {
-  width: 100%;
-  display: flex;
-}
 .input {
-  align-content: flex-start;
   width: 80%;
-  height: 66px;
+  height: 54px;
   background: #e8e8e8;
   border: 2px solid #e8e8e8;
   border-radius: 6px;
-  margin: 20px;
-  padding-left: 20px;
-  font-size: large;
-  color:#5b2448
+  font-size: 18px;
+  color:#5b2448;
+  font-weight: 600;
 }
 
 .input::placeholder {
@@ -95,37 +60,110 @@ body {
   padding-left: 15px;
 }
 
-.divSignUp {
-  grid-column: 2/3;
-  grid-row: 2/3;
-  text-align: center;
-  width: 100%;
-  height: fit-content;
-}
 .buttonLogin {
-  width: 216.24px;
-  height: 48px;
-  left: 784px;
-  top: 444px;
+  width: 70%;
+  height: 45px;
   background: #0dbadc;
   border-radius: 30px;
-  margin-top: 40px;
   font-weight: 800;
-  font-size: larger;
+  font-size: 18px;
   color: #5b2448;
-  margin-bottom: 30px;
 }
 
 .SignUp {
-  margin-top: 20px;
+  width: 100%;
+  text-align: start;
+  top: 90%;
+  position: absolute;
   font-weight: 800;
-  font-size: large;
+  font-size: 16px;
+  color:#e8e8e8;
+  margin-left: 50px;
 }
 
 a:-webkit-any-link {
+  position: absolute;
   cursor: pointer;
   text-decoration: none;
-  color: #d01580;
-   font-weight: 800;
-  font-size: large;
+  color: #0DBADC;
+  font-weight: 800;
+  font-size: 16px;
+  margin-left: 250px;
 }
+
+/* ----------------Tabblet responsive--------------------- */
+@media only screen and (min-width: 744px) and (max-width: 2500px){
+  #root {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 90% 10%;
+  }
+  
+  .logoBurger {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    justify-self: center;
+    align-self: center;
+    width: 80%;
+  }
+  
+  .box {
+    justify-self: center;
+    align-self: center;
+    grid-column: 2/3;
+    grid-row: 1/3;
+    width: 90%;
+    height: 80%;
+    background: rgba(248, 248, 248, 0.65);
+    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.57);
+    border-radius: 10px;
+    text-align: center;
+    gap: 20px;
+    padding-top: 60px;
+  }
+  
+  #login {
+    font-size: 40px;
+    margin: 20px auto 20px;
+  }
+  
+  .input {
+    width: 70% ;
+    height: 66px;
+    padding-left: 20px;
+    font-size: large;
+  }
+
+  .buttonLogin {
+    width: 216.24px;
+    height: 48px;
+    left: 784px;
+    top: 444px;
+    margin-top: 30px;
+    font-size: larger;
+    margin-bottom: 10px;
+  }
+  
+  .SignUp {
+    font-size: large;
+    position: relative;
+    font-size: 18px;
+    margin-left: 0;
+    top: 0;
+    color:#5b2448;
+    text-align: center;
+  }
+  
+  a:-webkit-any-link {
+    cursor: pointer;
+    text-decoration: none;
+    color: #d01580;
+    font-weight: 800;
+    font-size: large;
+    position: relative;
+    margin-left: 0;
+    margin-bottom: 30px;
+  }
+}
+
+

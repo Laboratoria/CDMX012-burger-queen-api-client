@@ -1,13 +1,15 @@
-import { ProductBox } from "../../components/ProductBox/ProductBox"
+import { ProductBox } from "../../components/ProductBox/ProductBox";
 import { Header } from "../../components/header";
 import { Footer } from "../../components/footer";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import './Orders.css'
+import cart from '../../assets/Shopping Cart.png';
 import beverageIcon from '../../assets/beverage.png'
 import mealIcon from '../../assets/meal.png'
-export const Orders = () => {
 
-    /* const dinnerMenu = data.products.filter(product => {return product.menu === 'dinner'}); */
+export const Orders = () => {
+    const navigate = useNavigate();
 
     const [products, setProducts] = useState([])
 
@@ -77,11 +79,23 @@ export const Orders = () => {
         <>
             <Header />
             <h1>Orders</h1>
+            
+            <div className="table-input">
+                <label htmlFor="table-num" className="table-label">Table: </label> 
+                <input type="number" id="tableNum" name="table-num" min="1" max="30"></input>
+            </div>
+
             <div className="menuButtons">
               <button className='breakfastBtn' onClick={() => setMenu('breakfast')}>Breakfast</button>
               <button className='dinnerBtn' onClick={() => setMenu('dinner')}>Dinner</button>
             </div>
             {menu === 'breakfast' ? breakfastMenu() : dinnerMenu()}
+            
+            <button className="verify-order-btn" onClick={() => navigate('/verify-order')}>
+                <img src={cart} alt="shopping cart icon" className="cart-icon"></img>
+                Verify the order
+            </button>
+
             <Footer />
         </>
     );

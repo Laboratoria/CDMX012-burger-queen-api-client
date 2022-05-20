@@ -6,7 +6,7 @@ import { Orders } from '../pages/Orders/Orders';
 import { createAccWithEmail } from "../lib/firebaseAuth";
 import { CreateAcc } from '../pages/CreateAcc';
 import { Mainscreen } from '../pages/Main screen/mainScreen'
-import { ActiveOrders } from '../pages/ActiveOrders';
+import { ActiveOrders } from '../pages/Active orders/ActiveOrders';
 import { VerifyOrder } from '../pages/VerifyOrder/VerifyOrder'
 
 export const PrivateRoutes = () => {

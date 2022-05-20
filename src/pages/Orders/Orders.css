@@ -22,6 +22,35 @@
     justify-items: center;
 }
 
-@media (min-width: 769px) and (orientation: landscape) {
-    
+.table-input{
+    border: var(--main-color) 2px solid;
+    border-radius: 10px;
+    padding: 0.6em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.table-label{
+    padding-right: 0.5em;
+}
+
+#tableNum{
+    border: 1.5px solid var(--light-gray);
+    text-align: center;
+}
+
+.verify-order-btn{
+    width: auto;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+}
+
+.cart-icon{
+    height: 1.8em;
+    padding-right: 1em;
 }

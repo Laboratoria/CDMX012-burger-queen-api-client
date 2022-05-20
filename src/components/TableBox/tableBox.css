@@ -1,9 +1,9 @@
-#btnTable{
+.btn-table{
     background-color: #FFFFFF;
     border-color: #5E5D5D; 
     font-size: 2em;
-    width: 25%;
-    height: 12%;
+    width: 30%;
+    height: 10%;
     color: #5E5D5D; 
     border-radius: 0.5em;
     border-width: 0.1em;
@@ -12,5 +12,10 @@
     flex-direction: row-reverse;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 10px;
 }
 
+.ready{
+    border-color: #FBBD08;
+    border-width: 0.2em;
+}

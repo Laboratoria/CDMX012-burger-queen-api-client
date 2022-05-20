@@ -1,7 +1,9 @@
-import { ProductBox } from "../components/ProductBox/ProductBox"
-import { Header } from "../components/header";
-import { Footer } from "../components/footer";
+import { ProductBox } from "../../components/ProductBox/ProductBox"
+import { Header } from "../../components/header";
+import { Footer } from "../../components/footer";
 import { useState, useEffect } from "react";
+
+
 export const Orders = () => {
 
     /* const dinnerMenu = data.products.filter(product => {return product.menu === 'dinner'}); */
@@ -33,7 +35,6 @@ export const Orders = () => {
     return (
         <>
             <Header />
-            <h1>Orders</h1>
             <button onClick={() => setMenu('breakfast')}>Breakfast</button>
             <button onClick={() => setMenu('dinner')}>Dinner</button>
             {menu === 'breakfast' ? breakfastMenu() : null}

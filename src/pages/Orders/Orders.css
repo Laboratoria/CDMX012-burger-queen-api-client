@@ -20,7 +20,14 @@
 
 .beverages, .meal {
     display: grid;
-    row-gap: 5%;
+    row-gap: 1rem;
+    justify-items: center;
+    grid-template-rows: min-content;
+}
+
+.beveragesProducts, .mealProducts {
+    display: grid;
+    row-gap: 1rem;
     justify-items: center;
     grid-template-rows: min-content;
 }

@@ -6,7 +6,8 @@
     align-items: center;
     padding: 10%;
     border-radius: 10%;
-/*     width: 10rem;*/
+    width: 10em;
+    max-height: 5rem;
 }
 
 .quantityContainer {

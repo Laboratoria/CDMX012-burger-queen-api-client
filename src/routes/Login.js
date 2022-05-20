@@ -9,14 +9,16 @@ import "../components/Login.css";
 // import logo from "../assets/burger4.png";
 
 export default function Login() {
-  const [error, setError] = useState(false);
+  const [errorEmail, setErrorEmail] = useState(false);
+  const [errorPassword, setErrorPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const LoginWithEmail = (e) => {
     e.preventDefault();
-    setError("");
+    setErrorEmail("");
+    setErrorPassword("");
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -25,19 +27,19 @@ export default function Login() {
       })
       .catch((error) => {
         // const errorMessage = error.message;
-        console.log(error.message)
+        console.log(error.message);
         if (error.code === "auth/invalid-email") {
           console.log(error.code);
-          setError("Invalid email");
+          setErrorEmail("Invalid email");
         } else if (error.code === "auth/wrong-password") {
           console.log(error.code);
-          setError("Invalid password");
+          setErrorPassword("Invalid password");
         } else if (error.code === "auth/internal-error") {
           console.log(error.code);
-          setError("Enter a password");
+          setErrorPassword("Enter a password");
         } else if (error.code === "auth/user-not-found") {
           console.log(error.code);
-          setError("User not found");
+          setErrorEmail("User not found");
         }
       });
   };
@@ -69,6 +71,9 @@ export default function Login() {
           autoComplete="off"
           onChange={(e) => setEmail(e.target.value)}
         />
+        <section className="title-error">
+          {errorEmail && <p>{errorEmail}</p>}
+        </section>
         <input
           type="password"
           className="input"
@@ -76,11 +81,14 @@ export default function Login() {
           autoComplete="off"
           onChange={(e) => setPassword(e.target.value)}
         />
+        <section className="title-error">
+          {errorPassword && <p>{errorPassword}</p>}
+        </section>
+
         <button className="buttonLogin" onClick={LoginWithEmail}>
           Login
         </button>
-        <section className='title-error'>{error && <p>{error}</p>}</section>
-    
+
         <p className="SignUp">You don’t have an account?</p>
         <p className="SignUp">
           <Link to={"/signUp"}>Register </Link>
@@ -131,4 +139,3 @@ export default function Login() {
     // </Fragment>
   );
 }
-

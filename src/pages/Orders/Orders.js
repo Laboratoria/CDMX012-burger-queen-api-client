@@ -9,6 +9,9 @@ import beverageIcon from '../../assets/beverage.png'
 import mealIcon from '../../assets/meal.png'
 
 export const Orders = () => {
+
+    const productsOrder = [];
+
     const navigate = useNavigate();
 
     const [products, setProducts] = useState([])
@@ -41,13 +44,13 @@ export const Orders = () => {
                 <div className='beverages'>
                     <img src={beverageIcon} alt="beverage icon" className="beverageIcon"></img>
                     <div className='beveragesProducts'>
-                        {beverages.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)}
+                        {beverages.map(products => <ProductBox product={products.name} array={productsOrder} key={products._id}></ProductBox>)}
                     </div>
                 </div>
                 <div className='meal'>
                     <img src={mealIcon} alt="meal icon" className="mealIcon"></img>
                     <div className='mealProducts'>
-                        {meal.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)}
+                        {meal.map((products) => <ProductBox product={products.name} array={productsOrder} key={products._id}></ProductBox>)}
                     </div>
                 </div>
             </div>
@@ -58,7 +61,7 @@ export const Orders = () => {
         const dinner = products.filter(product => { return product.menu === 'dinner' });
         const beverages = dinner.filter(product => { return product.type === 'beverage' });
         const meal = dinner.filter(product => { return product.type === 'burger' || product.type === 'side dish'});
-
+        
         return (
             <div className="dinnerMenu">
                 <style>{`
@@ -70,13 +73,13 @@ export const Orders = () => {
                 <div className='beverages'>
                     <img src={beverageIcon} alt="beverage icon" className="beverageIcon"></img>
                     <div className='beveragesProducts'>
-                        {beverages.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)}
+                        {beverages.map(products => <ProductBox product={products.name} array={productsOrder} key={products._id}></ProductBox>)}
                     </div>
                 </div>
                 <div className='meal'>
                     <img src={mealIcon} alt="meal icon" className="mealIcon"></img>
                     <div className='mealProducts'>
-                        {meal.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)}
+                        {meal.map(products => <ProductBox product={products.name} array={productsOrder} key={products._id}></ProductBox>)}
                     </div>
                 </div>
             </div>
@@ -99,7 +102,7 @@ export const Orders = () => {
             </div>
             {menu === 'breakfast' ? breakfastMenu() : dinnerMenu()}
             
-            <button className="verify-order-btn" onClick={() => navigate('/verify-order')}>
+            <button className="verify-order-btn" onClick={() => navigate('/verify-order', { state: { order: productsOrder } })}>
                 <img src={cart} alt="shopping cart icon" className="cart-icon"></img>
                 Verify the order
             </button>

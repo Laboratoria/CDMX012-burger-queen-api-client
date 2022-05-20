@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, "Roboto", sans-serif;
+  background-image: url("../assets/Administrador.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+#root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 90% 10%;
+  width: 100%;
+  height: 100%;
+}
+
+.logoBurger {
+  grid-column: 1/2;
+  grid-row: 1/3;
+  justify-self: center;
+  align-self: center;
+  width: 80%;
+  height: auto;
+}
+
+.box {
+  justify-self: center;
+  align-self: center;
+
+  grid-column: 2/3;
+  grid-row: 1/3;
+  width: 70%;
+  height: 80%;
+  background: rgba(248, 248, 248, 0.65);
+  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.57);
+  border-radius: 10px;
+  text-align: center;
+  gap: 20px;
+  padding-top: 100px;
+}
+
+#login {
+  font-size: 40px;
+  font-weight: 800;
+  color: #5b2448;
+  margin: 80px auto 20px;
+}
+
+.field {
+  width: 80%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.label {
+  color: #5b2448;
+  font-size: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  width: 100%;
+
+  text-align: start;
+}
+.control {
+  width: 100%;
+  display: flex;
+}
+.input {
+  align-content: flex-start;
+  width: 80%;
+  height: 66px;
+  background: #e8e8e8;
+  border: 2px solid #e8e8e8;
+  border-radius: 6px;
+  margin: 20px;
+  padding-left: 20px;
+  font-size: large;
+  color:#5b2448
+}
+
+.input::placeholder {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(91, 36, 72, 0.4);
+  padding-left: 15px;
+}
+
+.divSignUp {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  text-align: center;
+  width: 100%;
+  height: fit-content;
+}
+.buttonLogin {
+  width: 216.24px;
+  height: 48px;
+  left: 784px;
+  top: 444px;
+  background: #0dbadc;
+  border-radius: 30px;
+  margin-top: 40px;
+  font-weight: 800;
+  font-size: larger;
+  color: #5b2448;
+  margin-bottom: 30px;
+}
+
+.SignUp {
+  margin-top: 20px;
+  font-weight: 800;
+  font-size: large;
+}
+
+a:-webkit-any-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: #d01580;
+   font-weight: 800;
+  font-size: large;
+}

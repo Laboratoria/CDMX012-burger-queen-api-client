@@ -36,9 +36,6 @@ const SignUp = () => {
         } else if (error.code === "auth/wrong-password") {
           console.log(error.code);
           setErrorPassword("Invalid password");
-        } else if (error.code === "auth/internal-error") {
-          console.log(error.code);
-          setErrorPassword("Enter a password");
         } else if (error.code === "auth/weak-password") {
           console.log(error.code);
           setErrorPassword(" Password should be at least 6 characters ");
@@ -71,8 +68,8 @@ const SignUp = () => {
           autoComplete="off"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <section className="title-error">
-          {errorEmail && <p>{errorEmail}</p>}
+        <section className="title-error-sec">
+          {errorEmail && <p className="title-error blink">{errorEmail}</p>}
         </section>
 
         <input
@@ -82,8 +79,8 @@ const SignUp = () => {
           autoComplete="off"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <section className="title-error">
-          {errorPassword && <p>{errorPassword}</p>}
+        <section className="title-error-sec">
+          {errorPassword && <p className="title-error blink">{errorPassword}</p>}
         </section>
 
         <button className="buttonLogin" onClick={signUpWithEmail}>

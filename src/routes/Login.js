@@ -71,8 +71,8 @@ export default function Login() {
           autoComplete="off"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <section className="title-error">
-          {errorEmail && <p>{errorEmail}</p>}
+        <section className="title-error-sec">
+          {errorEmail && <p className="title-error blink">{errorEmail}</p>}
         </section>
         <input
           type="password"
@@ -81,8 +81,8 @@ export default function Login() {
           autoComplete="off"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <section className="title-error">
-          {errorPassword && <p>{errorPassword}</p>}
+        <section className="title-error-sec">
+          {errorPassword && <p className="title-error blink">{errorPassword}</p>}
         </section>
 
         <button className="buttonLogin" onClick={LoginWithEmail}>

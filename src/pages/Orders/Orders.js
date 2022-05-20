@@ -57,7 +57,7 @@ export const Orders = () => {
     const dinnerMenu = () => {
         const dinner = products.filter(product => { return product.menu === 'dinner' });
         const beverages = dinner.filter(product => { return product.type === 'beverage' });
-        const meal = dinner.filter(product => { return product.type === 'burger' || product.type === 'side dish'});
+        const meal = dinner.filter(product => { return product.type === 'burger' || product.type === 'side dish' });
 
         return (
             <div className="dinnerMenu">
@@ -83,23 +83,50 @@ export const Orders = () => {
         );
     }
 
+    const initialValues = {
+        table: '',
+        products: [1, 2, 3]
+    }
+    const [values, setValues] = useState(initialValues);
+    const [table, setTable] = useState('');
+
+
+    const handleVerify = () => {
+        setValues({
+            ...values,
+            table: table,
+
+        });
+    }
+
+    const handleChangeTable = (e) => {
+        setTable(e.target.value)
+    }
+
+    useEffect(() => {
+        console.log(values)
+    }, [values.table, values.products])
+
     return (
         <>
             <Header />
             <h1>Orders</h1>
-            
+
             <div className="table-input">
-                <label htmlFor="table-num" className="table-label">Table: </label> 
-                <input type="number" id="tableNum" name="table-num" min="1" max="30"></input>
+                <label htmlFor="table-num" className="table-label">Table: </label>
+                <input type="number" id="tableNum" name="table-num" min="1" max="30" value={table} onChange={handleChangeTable}></input>
             </div>
 
             <div className="menuButtons">
-              <button className='breakfastBtn' onClick={() => setMenu('breakfast')}>Breakfast</button>
-              <button className='dinnerBtn' onClick={() => setMenu('dinner')}>Dinner</button>
+                <button className='breakfastBtn' onClick={() => setMenu('breakfast')}>Breakfast</button>
+                <button className='dinnerBtn' onClick={() => setMenu('dinner')}>Dinner</button>
             </div>
             {menu === 'breakfast' ? breakfastMenu() : dinnerMenu()}
-            
-            <button className="verify-order-btn" onClick={() => navigate('/verify-order')}>
+
+            <button className="verify-order-btn" onClick={
+                //navigate('/verify-order')
+                handleVerify
+            }>
                 <img src={cart} alt="shopping cart icon" className="cart-icon"></img>
                 Verify the order
             </button>

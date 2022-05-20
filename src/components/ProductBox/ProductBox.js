@@ -6,7 +6,8 @@ export const ProductBox = (props) => {
     if(quantity !== 0) {
         props.array.push({
             qty: quantity,
-            product: props.product
+            product: props.product,
+            price: props.price
         })
     };
     const filtered = props.array.filter((value, index, self) => {

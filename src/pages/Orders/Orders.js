@@ -44,13 +44,13 @@ export const Orders = () => {
                 <div className='beverages'>
                     <img src={beverageIcon} alt="beverage icon" className="beverageIcon"></img>
                     <div className='beveragesProducts'>
-                        {beverages.map(products => <ProductBox product={products.name} array={productsOrder} key={products._id}></ProductBox>)}
+                        {beverages.map(products => <ProductBox product={products.name} array={productsOrder} price={products.price} key={products._id}></ProductBox>)}
                     </div>
                 </div>
                 <div className='meal'>
                     <img src={mealIcon} alt="meal icon" className="mealIcon"></img>
                     <div className='mealProducts'>
-                        {meal.map((products) => <ProductBox product={products.name} array={productsOrder} key={products._id}></ProductBox>)}
+                        {meal.map((products) => <ProductBox product={products.name} array={productsOrder} price={products.price} key={products._id}></ProductBox>)}
                     </div>
                 </div>
             </div>
@@ -73,18 +73,20 @@ export const Orders = () => {
                 <div className='beverages'>
                     <img src={beverageIcon} alt="beverage icon" className="beverageIcon"></img>
                     <div className='beveragesProducts'>
-                        {beverages.map(products => <ProductBox product={products.name} array={productsOrder} key={products._id}></ProductBox>)}
+                        {beverages.map(products => <ProductBox product={products.name} array={productsOrder} price={products.price} key={products._id}></ProductBox>)}
                     </div>
                 </div>
                 <div className='meal'>
                     <img src={mealIcon} alt="meal icon" className="mealIcon"></img>
                     <div className='mealProducts'>
-                        {meal.map(products => <ProductBox product={products.name} array={productsOrder} key={products._id}></ProductBox>)}
+                        {meal.map(products => <ProductBox product={products.name} array={productsOrder} price={products.price} key={products._id}></ProductBox>)}
                     </div>
                 </div>
             </div>
         );
     }
+
+    const order = {products: productsOrder, client: 'Juana'};
 
     return (
         <>
@@ -102,7 +104,7 @@ export const Orders = () => {
             </div>
             {menu === 'breakfast' ? breakfastMenu() : dinnerMenu()}
             
-            <button className="verify-order-btn" onClick={() => navigate('/verify-order', { state: { order: productsOrder } })}>
+            <button className="verify-order-btn" onClick={() => navigate('/verify-order', { state: { order: order } })}>
                 <img src={cart} alt="shopping cart icon" className="cart-icon"></img>
                 Verify the order
             </button>

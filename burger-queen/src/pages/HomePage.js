@@ -1,10 +1,11 @@
 import '../styles/HomePage.css'
 
-export default function HomePage () {
+// eslint-disable-next-line react/prop-types
+export default function HomePage({ handleExit }) {
   return (
     <div>
 
-        <button id='logout-btn'>Cerrar sesión</button>
+      <button id='logout-btn' onClick={() => { handleExit().then(() => console.log('cerraste sesion')) }}>Cerrar sesión</button>
     </div>
 
   )

@@ -1,29 +1,31 @@
 import './App.css'
-import HomePage from './pages/HomePage'
-import Login from './pages/Login'
-import CreateUsers from './pages/CreateUsers'
 import { useState } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
-import { auth } from './Lib/firebase-keys'
-function App () {
+import { doc, getDoc } from 'firebase/firestore'
+import { auth, db } from './Lib/firebase-keys'
+import PrivateRoutes from './Lib/PrivateRoutes'
+import PublicRoutes from './Lib/PublicRoutes'
+
+function App() {
   const [currentUser, setCurrentUser] = useState(null)
+
+  const getRol = async (user) => {
+    const docRef = doc(db, 'User', user.uid)
+    const rolRef = await getDoc(docRef)
+    const rolUser = rolRef.data().rol
+    setCurrentUser([user, rolUser])
+  }
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      setCurrentUser(user)
-      console.log(currentUser)
+      getRol(user)
     } else {
       setCurrentUser(null)
     }
   })
 
   return (
-    <div className="App">
-        <Login/>
-        <HomePage/>
-        <CreateUsers/>
-
-    </div>
+    currentUser ? <PrivateRoutes currentUser={currentUser[0]} rol={currentUser[1]} /> : <PublicRoutes />
   )
 }
 

@@ -1,14 +1,36 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from '../pages/HomePage'
-import Login from '../pages/Login'
 import CreateUsers from '../pages/CreateUsers'
-export default function PrivateRoutes () {
-  return (
-    <BrowserRouter>
-    <Routes>
-    <Route path='/' element={<HomePage />} />
-    </Routes>
-    </BrowserRouter>
+import { exit } from './Providers'
+import PropTypes from 'prop-types'
 
-  )
+export default function PrivateRoutes({ currentUser, rol }) {
+  if (rol === 'admin' && currentUser !== null) {
+    return (
+
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<HomePage handleExit={exit} />} />
+          <Route path='/CreateUsers' element={<CreateUsers />} />
+        </Routes>
+      </BrowserRouter>
+
+    )
+  }
+  if (rol === 'mesero' && currentUser !== null) {
+    return (
+
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<HomePage handleExit={exit} />} />
+        </Routes>
+      </BrowserRouter>
+
+    )
+  }
+}
+
+PrivateRoutes.propTypes = {
+  currentUser: PropTypes.any,
+  rol: PropTypes.any
 }

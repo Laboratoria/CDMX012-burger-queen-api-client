@@ -14,7 +14,7 @@ const SignUp = () => {
 
   const signUpWithEmail = (e) => {
     e.preventDefault();
-
+    setError("");
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -23,9 +23,24 @@ const SignUp = () => {
         navigate("/menu");
       })
       .catch((error) => {
-        setError(false);
-        const errorMessage = error.message;
-        // ..
+        console.log(error.message);
+        //const errorMessage = error.message;
+        if (error.code === "auth/invalid-email") {
+          console.log(error.code);
+          setError("Invalid email");
+        } else if (error.code === "auth/email-already-in-use") {
+          console.log(error.code);
+          setError("Email already in use");
+        } else if (error.code === "auth/wrong-password") {
+          console.log(error.code);
+          setError("Invalid password");
+        } else if (error.code === "auth/internal-error") {
+          console.log(error.code);
+          setError("Enter a password");
+        } else if (error.code === "auth/weak-password") {
+          console.log(error.code);
+          setError(" Password should be at least 6 characters ");
+        }
       });
   };
   return (
@@ -62,6 +77,8 @@ const SignUp = () => {
           autoComplete="off"
           onChange={(e) => setPassword(e.target.value)}
         />
+        <section className="title-error">{error && <p>{error}</p>}</section>
+
         <button className="buttonLogin" onClick={signUpWithEmail}>
           Continue
         </button>

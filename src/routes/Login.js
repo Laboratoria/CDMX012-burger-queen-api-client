@@ -6,7 +6,7 @@ import {
 } from "../lib/firebase-config";
 import { Fragment, useEffect, useState } from "react";
 import "../components/Login.css";
-import logo from "../assets/burger4.png";
+// import logo from "../assets/burger4.png";
 
 export default function Login() {
   const [error, setError] = useState(false);
@@ -16,7 +16,7 @@ export default function Login() {
 
   const LoginWithEmail = (e) => {
     e.preventDefault();
-
+    setError("");
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -24,9 +24,21 @@ export default function Login() {
         navigate("/menu");
       })
       .catch((error) => {
-        setError(false);
-        const errorMessage = error.message;
-        // ..
+        // const errorMessage = error.message;
+        console.log(error.message)
+        if (error.code === "auth/invalid-email") {
+          console.log(error.code);
+          setError("Invalid email");
+        } else if (error.code === "auth/wrong-password") {
+          console.log(error.code);
+          setError("Invalid password");
+        } else if (error.code === "auth/internal-error") {
+          console.log(error.code);
+          setError("Enter a password");
+        } else if (error.code === "auth/user-not-found") {
+          console.log(error.code);
+          setError("User not found");
+        }
       });
   };
 
@@ -43,7 +55,11 @@ export default function Login() {
   }
   return (
     <Fragment>
-      <img className="logoBurger" src= {require("../assets/burger4.png") } alt="logoBurger" />
+      <img
+        className="logoBurger"
+        src={require("../assets/burger4.png")}
+        alt="logoBurger"
+      />
       <form className="box">
         <label id="login"> Log in </label>
         <input
@@ -63,7 +79,8 @@ export default function Login() {
         <button className="buttonLogin" onClick={LoginWithEmail}>
           Login
         </button>
-        {error && <span>Error email or password</span>}
+        <section className='title-error'>{error && <p>{error}</p>}</section>
+    
         <p className="SignUp">You don’t have an account?</p>
         <p className="SignUp">
           <Link to={"/signUp"}>Register </Link>
@@ -114,3 +131,4 @@ export default function Login() {
     // </Fragment>
   );
 }
+

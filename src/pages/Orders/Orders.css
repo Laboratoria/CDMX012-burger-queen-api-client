@@ -4,6 +4,7 @@
 
 .breakfastBtn, .dinnerBtn {
     border-radius: 5%;
+    margin: 1rem 0;
 }
 
 .breakfastMenu, .dinnerMenu {
@@ -11,15 +12,17 @@
     height: 45%;
     display: grid;
     justify-content: center;
+    justify-items: center;
     grid-template-columns: 50% 50%;
     column-gap: 25%;
-    margin: 2rem;
+    margin: 1rem;
 }
 
 .beverages, .meal {
     display: grid;
     row-gap: 5%;
     justify-items: center;
+    grid-template-rows: min-content;
 }
 
 .table-input{
@@ -48,9 +51,16 @@
     align-items: center;
     justify-content: center;
     padding: 1em;
+    margin: 1rem;
 }
 
 .cart-icon{
     height: 1.8em;
     padding-right: 1em;
+}
+
+@media (min-width: 769px) and (orientation: landscape){
+    .breakfastMenu, .dinnerMenu{
+        justify-content: right;
+    }
 }

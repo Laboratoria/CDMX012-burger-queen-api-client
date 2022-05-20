@@ -33,7 +33,9 @@ export const Orders = () => {
         );
     }
 
-    /* const dinnerMenu = products.filter(product => { return product.menu === 'dinner' }); */
+
+    const dinnerMenu = products.filter(product => { return product.menu === 'dinner' });
+
 
     return (
         <>
@@ -48,10 +50,12 @@ export const Orders = () => {
             <button onClick={() => setMenu('dinner')}>Dinner</button>
             {menu === 'breakfast' ? breakfastMenu() : null}
             {/* {breakfastMenu.map(products => <ProductBox product={products.name} key={products._id}></ProductBox>)} */}
+
             <button className="verify-order-btn" onClick={() => navigate('/verify-order')}>
                 <img src={cart} alt="shopping cart icon" className="cart-icon"></img>
                 Verify the order
             </button>
+
             <Footer />
         </>
     );

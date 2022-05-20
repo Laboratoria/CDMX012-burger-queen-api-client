@@ -6,17 +6,19 @@ import {
 } from "../lib/firebase-config";
 import { Fragment, useEffect, useState } from "react";
 import "../components/Login.css";
-import logo from "../assets/burger4.png";
+// import logo from "../assets/burger4.png";
 
 export default function Login() {
-  const [error, setError] = useState(false);
+  const [errorEmail, setErrorEmail] = useState(false);
+  const [errorPassword, setErrorPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const LoginWithEmail = (e) => {
     e.preventDefault();
-
+    setErrorEmail("");
+    setErrorPassword("");
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -24,9 +26,21 @@ export default function Login() {
         navigate("/menu");
       })
       .catch((error) => {
-        setError(false);
-        const errorMessage = error.message;
-        // ..
+        // const errorMessage = error.message;
+        console.log(error.message);
+        if (error.code === "auth/invalid-email") {
+          console.log(error.code);
+          setErrorEmail("Invalid email");
+        } else if (error.code === "auth/wrong-password") {
+          console.log(error.code);
+          setErrorPassword("Invalid password");
+        } else if (error.code === "auth/internal-error") {
+          console.log(error.code);
+          setErrorPassword("Enter a password");
+        } else if (error.code === "auth/user-not-found") {
+          console.log(error.code);
+          setErrorEmail("User not found");
+        }
       });
   };
 
@@ -43,7 +57,11 @@ export default function Login() {
   }
   return (
     <Fragment>
-      <img className="logoBurger" src= {require("../assets/burger4.png") } alt="logoBurger" />
+      <img
+        className="logoBurger"
+        src={require("../assets/burger4.png")}
+        alt="logoBurger"
+      />
       <form className="box">
         <label id="login"> Log in </label>
         <input
@@ -53,6 +71,9 @@ export default function Login() {
           autoComplete="off"
           onChange={(e) => setEmail(e.target.value)}
         />
+        <section className="title-error-sec">
+          {errorEmail && <p className="title-error blink">{errorEmail}</p>}
+        </section>
         <input
           type="password"
           className="input"
@@ -60,10 +81,14 @@ export default function Login() {
           autoComplete="off"
           onChange={(e) => setPassword(e.target.value)}
         />
+        <section className="title-error-sec">
+          {errorPassword && <p className="title-error blink">{errorPassword}</p>}
+        </section>
+
         <button className="buttonLogin" onClick={LoginWithEmail}>
           Login
         </button>
-        {error && <span>Error email or password</span>}
+
         <p className="SignUp">You don’t have an account?</p>
         <p className="SignUp">
           <Link to={"/signUp"}>Register </Link>

@@ -5,3 +5,23 @@
 .breakfastBtn, .dinnerBtn {
     border-radius: 5%;
 }
+
+.breakfastMenu, .dinnerMenu {
+    width: 45%;
+    height: 45%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 50% 50%;
+    column-gap: 25%;
+    margin: 2rem;
+}
+
+.beverages, .meal {
+    display: grid;
+    row-gap: 5%;
+    justify-items: center;
+}
+
+@media (min-width: 769px) and (orientation: landscape) {
+    
+}

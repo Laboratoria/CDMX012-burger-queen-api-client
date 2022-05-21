@@ -28,6 +28,26 @@ export const Orders = () => {
 
     const [menu, setMenu] = useState('breakfast');
 
+    /*     const initialValues = '';
+
+    const [values, setValues] = useState(initialValues); */
+    const [table, setTable] = useState('');
+
+
+/*     const handleVerify = () => {
+        setValues(table);
+    } */
+
+    const handleChangeTable = (e) => {
+        setTable(e.target.value)
+    }
+
+/*     useEffect(() => {
+        console.log(values)
+    }, [values.table, values.products]) */
+
+    const order = {products: productsOrder, client: table};
+
     const breakfastMenu = () => {
         const breakfast = products.filter(product => { return product.menu === 'breakfast' });
         const beverages = breakfast.filter(product => { return product.type === 'beverage' });
@@ -86,8 +106,6 @@ export const Orders = () => {
         );
     }
 
-    const order = {products: productsOrder, client: 'Juana'};
-
     return (
         <>
             <Header />
@@ -95,7 +113,7 @@ export const Orders = () => {
             
             <div className="table-input">
                 <label htmlFor="table-num" className="table-label">Table: </label> 
-                <input type="number" id="tableNum" name="table-num" min="1" max="30"></input>
+                <input type="number" id="tableNum" name="table-num" min="1" max="30" onChange={handleChangeTable}></input>
             </div>
 
             <div className="menuButtons">
@@ -104,7 +122,9 @@ export const Orders = () => {
             </div>
             {menu === 'breakfast' ? breakfastMenu() : dinnerMenu()}
             
-            <button className="verify-order-btn" onClick={() => navigate('/verify-order', { state: { order: order } })}>
+            <button className="verify-order-btn" onClick={() => {
+                navigate('/verify-order', { state: { order: order } })
+            }}>
                 <img src={cart} alt="shopping cart icon" className="cart-icon"></img>
                 Verify the order
             </button>

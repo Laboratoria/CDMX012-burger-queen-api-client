@@ -110,15 +110,15 @@ export const Orders = () => {
         <>
             <Header />
             <h1>Orders</h1>
-            
+
             <div className="table-input">
                 <label htmlFor="table-num" className="table-label">Table: </label> 
                 <input type="number" id="tableNum" name="table-num" min="1" max="30" onChange={handleChangeTable}></input>
             </div>
 
             <div className="menuButtons">
-              <button className='breakfastBtn' onClick={() => setMenu('breakfast')}>Breakfast</button>
-              <button className='dinnerBtn' onClick={() => setMenu('dinner')}>Dinner</button>
+                <button className='breakfastBtn' onClick={() => setMenu('breakfast')}>Breakfast</button>
+                <button className='dinnerBtn' onClick={() => setMenu('dinner')}>Dinner</button>
             </div>
             {menu === 'breakfast' ? breakfastMenu() : dinnerMenu()}
             

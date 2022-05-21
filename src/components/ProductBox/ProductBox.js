@@ -3,6 +3,7 @@ import './ProductBox.css';
 
 export const ProductBox = (props) => {
     const [quantity, setQuantity] = useState(0);
+    
     if(quantity !== 0) {
         props.array.push({
             qty: quantity,
@@ -10,10 +11,6 @@ export const ProductBox = (props) => {
             price: props.price
         })
     };
-    const filtered = props.array.filter((value, index, self) => {
-        return self.findIndex(p => p.product === value.product) === index;
-    })
-    console.log(filtered);
 
     return (
         <div className='productContainer'>

@@ -1,12 +1,10 @@
-import { ProductBox } from "../../components/ProductBox/ProductBox";
 import { Header } from "../../components/header";
 import { Footer } from "../../components/footer";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './Orders.css'
 import cart from '../../assets/Shopping Cart.png';
-import beverageIcon from '../../assets/beverage.png'
-import mealIcon from '../../assets/meal.png'
+import { Menu } from "../../components/Menus";
 
 export const Orders = () => {
 
@@ -49,60 +47,16 @@ export const Orders = () => {
     const order = {products: productsOrder, client: table};
 
     const breakfastMenu = () => {
-        const breakfast = products.filter(product => { return product.menu === 'breakfast' });
-        const beverages = breakfast.filter(product => { return product.type === 'beverage' });
-        const meal = breakfast.filter(product => { return product.type === 'meal' });
-
         return (
-            <div className="breakfastMenu">
-                <style>{`
-                    .dinnerBtn {
-                        background-color: white;
-                        color: #B5A8A8;
-                    }
-                `}</style>
-                <div className='beverages'>
-                    <img src={beverageIcon} alt="beverage icon" className="beverageIcon"></img>
-                    <div className='beveragesProducts'>
-                        {beverages.map(products => <ProductBox product={products.name} array={productsOrder} price={products.price} key={products._id}></ProductBox>)}
-                    </div>
-                </div>
-                <div className='meal'>
-                    <img src={mealIcon} alt="meal icon" className="mealIcon"></img>
-                    <div className='mealProducts'>
-                        {meal.map((products) => <ProductBox product={products.name} array={productsOrder} price={products.price} key={products._id}></ProductBox>)}
-                    </div>
-                </div>
-            </div>
+            <Menu products={products} btn={'dinnerBtn'} productsOrder={productsOrder} type={'breakfast'} name={'breakfastMenu'}>
+            </Menu>
         );
     }
 
     const dinnerMenu = () => {
-        const dinner = products.filter(product => { return product.menu === 'dinner' });
-        const beverages = dinner.filter(product => { return product.type === 'beverage' });
-        const meal = dinner.filter(product => { return product.type === 'burger' || product.type === 'side dish'});
-        
         return (
-            <div className="dinnerMenu">
-                <style>{`
-                    .breakfastBtn {
-                        background-color: white;
-                        color: #B5A8A8;
-                    }
-                `}</style>
-                <div className='beverages'>
-                    <img src={beverageIcon} alt="beverage icon" className="beverageIcon"></img>
-                    <div className='beveragesProducts'>
-                        {beverages.map(products => <ProductBox product={products.name} array={productsOrder} price={products.price} key={products._id}></ProductBox>)}
-                    </div>
-                </div>
-                <div className='meal'>
-                    <img src={mealIcon} alt="meal icon" className="mealIcon"></img>
-                    <div className='mealProducts'>
-                        {meal.map(products => <ProductBox product={products.name} array={productsOrder} price={products.price} key={products._id}></ProductBox>)}
-                    </div>
-                </div>
-            </div>
+            <Menu products={products} btn={'breakfastBtn'} productsOrder={productsOrder} type={'dinner'} name={'dinnerMenu'}>
+            </Menu>
         );
     }
 

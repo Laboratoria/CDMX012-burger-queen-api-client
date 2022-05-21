@@ -9,20 +9,22 @@ export const VerifyOrder = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const order = location.state.order;
+    console.log(order)
 
-    const filtered = order.products.filter((value, index, self) => {
+    const reversedOrd = [...order.products].reverse();
+
+    const filtered = reversedOrd.filter((value, index, self) => {
         return self.findIndex(p => p.product === value.product) === index;
-    });
-
+    }); 
+    
     order.products = filtered;
-
+    
     const [ total, setTotal ] = useState('0')
 
     useEffect(() => {
         const pricesList = Array.from(document.querySelectorAll('.price-num'));
         const prices = pricesList.map(element => parseInt(element.innerText));
         const sum = prices.reduce((prev, current)=> prev + current, 0);
-        //console.log(total)
         setTotal(sum);
       }, []);
 

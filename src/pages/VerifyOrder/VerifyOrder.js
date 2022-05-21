@@ -1,30 +1,19 @@
 import { Header } from "../../components/header";
 import { Footer } from "../../components/footer";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import './VerifyOrder.css'
 import arrow from '../../assets/flecha-izquierda.png'
 
-export const VerifyOrder = (/* {order} */) => {
+export const VerifyOrder = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const order = location.state.order;
 
-    const order = {
-        "_id": "1",
-        "userId": "mesero1",
-        "client": "5",
-        "products": [
-            {
-                "qty": "2",
-                "product": "American Coffee"
-            },
-            {
-                "qty": "1",
-                "product": "Ham and cheese sandwich"
-            }
-        ],
-        "status": "",
-        "dateEntry": "",
-        "dateProcessed": ""
-    };
+    const filtered = order.products.filter((value, index, self) => {
+        return self.findIndex(p => p.product === value.product) === index;
+    });
+
+    order.products = filtered;
 
     return (
         <div className="verify-order-container">
@@ -44,7 +33,7 @@ export const VerifyOrder = (/* {order} */) => {
                         return <div key={index} className="product-in-list">
                             <span className="qty"> ( {product.qty} ) </span>
                             <span className="prod-name"> {product.product} </span>
-                            <span className="prod-price"> $10 {/*PRECIO*/} </span>
+                            <span className="prod-price"> {product.price} </span>
                         </div>
                     })}
                 </div>

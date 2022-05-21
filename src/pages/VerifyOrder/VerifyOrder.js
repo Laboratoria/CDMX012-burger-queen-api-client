@@ -14,7 +14,6 @@ export const VerifyOrder = () => {
     });
 
     order.products = filtered;
-    console.log(order);
 
     return (
         <div className="verify-order-container">

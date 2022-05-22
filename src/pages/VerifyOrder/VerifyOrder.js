@@ -2,14 +2,14 @@ import { Header } from "../../components/header";
 import { Footer } from "../../components/footer";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import './VerifyOrder.css'
-import arrow from '../../assets/flecha-izquierda.png'
+import './VerifyOrder.css';
+import arrow from '../../assets/flecha-izquierda.png';
+import { currentUser } from "../../lib/firebaseAuth";
 
 export const VerifyOrder = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const order = location.state.order;
-    console.log(order)
 
     const reversedOrd = [...order.products].reverse();
 
@@ -28,8 +28,27 @@ export const VerifyOrder = () => {
         setTotal(sum);
       }, []);
 
-   
+    //console.log(order);
 
+    const saveOrder = (order) => {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id: "1025",
+                userId: currentUser.uid,
+                table: order.client,
+                products: order.products,
+                status: "sent",
+                dateEntry: new Date().getTime(),
+                dateProcessed: "" 
+            })
+        };
+        fetch('http://localhost:3333/orders', requestOptions)
+            .then(response => response.json())
+            .catch(res => console.log(res))
+    }
+    
     return (
         <div className="verify-order-container">
             <Header />
@@ -54,7 +73,7 @@ export const VerifyOrder = () => {
                     }
                 </div>
                 <p className="order-total"><span className="total">Total:</span> ${total}</p>
-                <button className="send-kitchen">Send to the kitchen</button>
+                <button className="send-kitchen" onClick={()=> saveOrder(order)}>Send to the kitchen</button>
             </section>
 
             <Footer />

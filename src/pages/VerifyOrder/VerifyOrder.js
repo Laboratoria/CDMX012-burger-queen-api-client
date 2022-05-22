@@ -15,20 +15,20 @@ export const VerifyOrder = () => {
 
     const filtered = reversedOrd.filter((value, index, self) => {
         return self.findIndex(p => p.product === value.product) === index;
-    }); 
-    
+    });
+
     order.products = filtered;
-    
-    const [ total, setTotal ] = useState('0')
+
+    const [total, setTotal] = useState('0')
 
     useEffect(() => {
         const pricesList = Array.from(document.querySelectorAll('.price-num'));
         const prices = pricesList.map(element => parseInt(element.innerText));
-        const sum = prices.reduce((prev, current)=> prev + current, 0);
+        const sum = prices.reduce((prev, current) => prev + current, 0);
         setTotal(sum);
-      }, []);
+    }, []);
 
-   
+
 
     return (
         <div className="verify-order-container">

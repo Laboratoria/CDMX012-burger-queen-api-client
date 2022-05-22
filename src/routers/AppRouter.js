@@ -2,6 +2,7 @@ import { PrivateRoutes } from "./PrivateRoutes";
 import { PublicRoutes } from "./PublicRoutes";
 import { useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import loading from '../assets/loading.gif'
 
 export const AppRouter = () => {
     const [isAuth, setIsAuth] = useState(null);
@@ -18,7 +19,12 @@ export const AppRouter = () => {
     });
 
     if (isLoading === true) {
-        return <h1>Loading</h1>
+        return (
+            <>
+            <img src={loading} alt="loading icon"></img>
+            <h1>Loading...</h1>
+            </>
+        )
     }
     return (
         <>

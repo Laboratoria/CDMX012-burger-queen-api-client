@@ -11,13 +11,16 @@ export const VerifyOrder = () => {
     const location = useLocation();
     const order = location.state.order;
 
-    const reversedOrd = [...order.products].reverse();
+    // const reversedOrd = [...order.products].reverse();
+    // console.log(reversedOrd);
 
-    const filtered = reversedOrd.filter((value, index, self) => {
-        return self.findIndex(p => p.product === value.product) === index;
-    });
+    // const filtered = reversedOrd.filter((value, index, self) => {
+    //     return self.findIndex(p => p.product === value.product) === index;
+    // });
 
-    order.products = filtered;
+    // order.products = filtered.filter(product => product.qty > 0)
+
+
 
     const [total, setTotal] = useState('0')
 

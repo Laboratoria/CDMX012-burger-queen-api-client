@@ -3,8 +3,9 @@ import './ProductBox.css';
 
 export const ProductBox = (props) => {
     const [quantity, setQuantity] = useState(0);
-    
-    if(quantity !== 0) {
+
+    if (quantity >= 0) {
+        console.log(props.array);
         props.array.push({
             qty: quantity,
             product: props.product,
@@ -18,14 +19,14 @@ export const ProductBox = (props) => {
                 <p className='product'>{props.product}</p>
             </div>
             <div className='quantityContainer'>
-                <button className='setQuantity' onClick={() => 
-                    quantity === 0 ? quantity === 0 : setQuantity(quantity - 1)
+                <button className='setQuantity' onClick={() =>
+                    quantity === 0 ? setQuantity(0) : setQuantity(quantity - 1)
                 }>-</button>
                 <div className='quantity'>
                     <p>{quantity}</p>
                 </div>
                 <button className='setQuantity' onClick={() => setQuantity(quantity + 1)}>+</button>
             </div>
-        </div>
+        </div >
     );
 }

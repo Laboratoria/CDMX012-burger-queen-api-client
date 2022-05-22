@@ -5,10 +5,11 @@ import { useNavigate } from "react-router-dom";
 import './Orders.css'
 import cart from '../../assets/Shopping Cart.png';
 import { Menu } from "../../components/Menus";
+import { ErrorModal } from "../../components/ErrorModal/ErrorModal";
 
 export const Orders = () => {
 
-    const productsOrder = [];
+    let productsOrder = [];
 
     const navigate = useNavigate();
 
@@ -30,21 +31,23 @@ export const Orders = () => {
 
     const [values, setValues] = useState(initialValues); */
     const [table, setTable] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
 
 
-/*     const handleVerify = () => {
-        setValues(table);
-    } */
+
+    /*     const handleVerify = () => {
+            setValues(table);
+        } */
 
     const handleChangeTable = (e) => {
         setTable(e.target.value)
     }
 
-/*     useEffect(() => {
-        console.log(values)
-    }, [values.table, values.products]) */
+    /*     useEffect(() => {
+            console.log(values)
+        }, [values.table, values.products]) */
 
-    const order = {products: productsOrder, client: table};
+    let order = { products: productsOrder, client: table };
 
     const breakfastMenu = () => {
         return (
@@ -66,7 +69,7 @@ export const Orders = () => {
             <h1>Orders</h1>
 
             <div className="table-input">
-                <label htmlFor="table-num" className="table-label">Table: </label> 
+                <label htmlFor="table-num" className="table-label">Table: </label>
                 <input type="number" id="tableNum" name="table-num" min="1" max="30" onChange={handleChangeTable}></input>
             </div>
 
@@ -75,14 +78,37 @@ export const Orders = () => {
                 <button className='dinnerBtn' onClick={() => setMenu('dinner')}>Dinner</button>
             </div>
             {menu === 'breakfast' ? breakfastMenu() : dinnerMenu()}
-            
+
+
             <button className="verify-order-btn" onClick={() => {
-                navigate('/verify-order', { state: { order: order } })
+                console.log(order.products, 'aaaaaaaa')
+                const reversedOrd = [...order.products].reverse();
+                //console.log(reversedOrd);
+
+                const filtered = reversedOrd.filter((value, index, self) => {
+                    return self.findIndex(p => p.product === value.product) === index;
+                });
+
+                let productToVerifyOrder = filtered.filter(product => product.qty > 0)
+                if (productToVerifyOrder.length > 0) {
+                    navigate('/verify-order', {
+                        state: {
+                            order: {
+                                products: productToVerifyOrder,
+                                client: order.client
+                            }
+                        }
+                    })
+                } else {
+                    // alert('here we will use a modal for error')
+                    setIsOpen(true);
+
+                }
             }}>
                 <img src={cart} alt="shopping cart icon" className="cart-icon"></img>
                 Verify the order
             </button>
-
+            <ErrorModal open={isOpen} onClose={() => setIsOpen(false)} />
             <Footer />
         </>
     );

@@ -5,7 +5,6 @@ export const ProductBox = (props) => {
     const [quantity, setQuantity] = useState(0);
 
     if (quantity >= 0) {
-        console.log(props.array);
         props.array.push({
             qty: quantity,
             product: props.product,

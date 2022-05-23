@@ -111,113 +111,38 @@
   ],
   "orders": [
     {
-      "_id": "1",
+      "id": 1,
       "userId": "XdsSmqTD5ag8i3Fqw36MidgVwXG3",
       "table": "5",
       "products": [
         {
           "qty": "2",
-          "product": "American Coffee"
-        },
-        {
-          "qty": "1",
-          "product": "Ham and cheese sandwich"
-        }
-      ],
-      "status": "ready",
-      "dateEntry": "",
-      "dateProcessed": ""
-    },
-    {
-      "_id": "",
-      "userId": "XdsSmqTD5ag8i3Fqw36MidgVwXG3",
-      "table": "3",
-      "products": [
-        {
-          "qty": "",
-          "product": ""
-        }
-      ],
-      "status": "sent",
-      "dateEntry": "",
-      "dateProcessed": ""
-    },
-    {
-      "_id": "",
-      "userId": "XdsSmqTD5ag8i3Fqw36MidgVwXG3",
-      "table": "1",
-      "products": [
-        {
-          "qty": "",
-          "product": ""
-        }
-      ],
-      "status": "sent",
-      "dateEntry": "",
-      "dateProcessed": ""
-    },
-    {
-      "_id": "",
-      "userId": "XdsSmqTD5ag8i3Fqw36MidgVwXG3",
-      "table": "10",
-      "products": [
-        {
-          "qty": "",
-          "product": ""
-        }
-      ],
-      "status": "ready",
-      "dateEntry": "",
-      "dateProcessed": ""
-    },
-    {
-      "_id": "",
-      "userId": "RGjCxSz9UUUbD8cJ3q2vCzI8AF53",
-      "table": "6",
-      "products": [
-        {
-          "qty": "",
-          "product": ""
-        }
-      ],
-      "status": "sent",
-      "dateEntry": "",
-      "dateProcessed": ""
-    },
-    {
-      "title": "React POST Request Example",
-      "id": "1234"
-    },
-    {
-      "id": "J1zE4e0"
-    },
-    {
-      "id": "1025",
-      "table": "5",
-      "products": [
-        {
-          "qty": 2,
           "product": "American Coffee",
           "price": 5
         },
         {
-          "qty": 2,
-          "product": "Coffee with milk",
-          "price": 7
-        },
-        {
-          "qty": 3,
-          "product": "Natural juice",
-          "price": 7
-        },
-        {
-          "qty": 1,
+          "qty": "1",
           "product": "Ham and cheese sandwich",
           "price": 10
         }
       ],
+      "status": "ready",
+      "dateEntry": 1653239920124,
+      "dateProcessed": ""
+    },
+    {
+      "id": 2,
+      "userId": "RGjCxSz9UUUbD8cJ3q2vCzI8AF53",
+      "table": "6",
+      "products": [
+        {
+          "qty": 3,
+          "product": "Coffee with milk",
+          "price": 7
+        }
+      ],
       "status": "sent",
-      "dateEntry": 1653239920884,
+      "dateEntry": 1653332048928,
       "dateProcessed": ""
     }
   ]

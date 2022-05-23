@@ -1,7 +1,7 @@
 import { Header } from "../../components/header";
 import { Footer } from "../../components/footer";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import './Orders.css'
 import cart from '../../assets/Shopping Cart.png';
 import { Menu } from "../../components/Menus";
@@ -11,6 +11,7 @@ export const Orders = () => {
 
     let productsOrder = [];
 
+    const location = useLocation();
     const navigate = useNavigate();
 
     const [products, setProducts] = useState([])
@@ -63,6 +64,11 @@ export const Orders = () => {
         );
     }
 
+    if(location.state !== null){
+        const received = location.state.order;
+        console.log(received)
+    }
+
     return (
         <>
             <Header />
@@ -81,7 +87,6 @@ export const Orders = () => {
 
 
             <button className="verify-order-btn" onClick={() => {
-                console.log(order.products, 'aaaaaaaa')
                 const reversedOrd = [...order.products].reverse();
                 //console.log(reversedOrd);
 

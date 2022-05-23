@@ -11,22 +11,26 @@ export const VerifyOrder = () => {
     const location = useLocation();
     const order = location.state.order;
 
-    const reversedOrd = [...order.products].reverse();
+    // const reversedOrd = [...order.products].reverse();
+    // console.log(reversedOrd);
 
-    const filtered = reversedOrd.filter((value, index, self) => {
-        return self.findIndex(p => p.product === value.product) === index;
-    }); 
-    
-    order.products = filtered;
-    
-    const [ total, setTotal ] = useState('0')
+    // const filtered = reversedOrd.filter((value, index, self) => {
+    //     return self.findIndex(p => p.product === value.product) === index;
+    // });
+
+    // order.products = filtered.filter(product => product.qty > 0)
+
+
+
+    const [total, setTotal] = useState('0')
 
     useEffect(() => {
         const pricesList = Array.from(document.querySelectorAll('.price-num'));
         const prices = pricesList.map(element => parseInt(element.innerText));
-        const sum = prices.reduce((prev, current)=> prev + current, 0);
+        const sum = prices.reduce((prev, current) => prev + current, 0);
         setTotal(sum);
-      }, []);
+    }, []);
+
 
     //console.log(order);
 
@@ -41,14 +45,14 @@ export const VerifyOrder = () => {
                 products: order.products,
                 status: "sent",
                 dateEntry: new Date().getTime(),
-                dateProcessed: "" 
+                dateProcessed: ""
             })
         };
         fetch('http://localhost:3333/orders', requestOptions)
             .then(response => response.json())
             .catch(res => console.log(res))
     }
-    
+
     return (
         <div className="verify-order-container">
             <Header />
@@ -73,7 +77,7 @@ export const VerifyOrder = () => {
                     }
                 </div>
                 <p className="order-total"><span className="total">Total:</span> ${total}</p>
-                <button className="send-kitchen" onClick={()=> saveOrder(order)}>Send to the kitchen</button>
+                <button className="send-kitchen" onClick={() => saveOrder(order)}>Send to the kitchen</button>
             </section>
 
             <Footer />

@@ -16,7 +16,7 @@ export default function ProfileModal({ open, onClose, user, logOut }) {
                 {/* <p className='user-name'>{user.displayName}</p> */}
                 <p className='user-email'>{user.email}</p>
                 <button onClick={()=>{logOut()}} className='log-out-btn'>
-                    Log out 
+                    Log out
                     <img src={logoutIcon} alt='logout-icon' className='logout-icon'></img>
                 </button>
             </div>

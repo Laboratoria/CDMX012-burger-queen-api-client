@@ -1,5 +1,5 @@
 import { Header } from "../../components/header";
-import { Footer } from "../../components/footer";
+import { Footer } from "../../components/Footer/footer";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import './Orders.css'
@@ -64,7 +64,7 @@ export const Orders = () => {
         );
     }
 
-    if(location.state !== null){
+    if (location.state !== null) {
         const received = location.state.order;
         console.log(received)
     }

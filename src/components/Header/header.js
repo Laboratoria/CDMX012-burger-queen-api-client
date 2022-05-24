@@ -1,9 +1,9 @@
-import logo from '../assets/BQ logo sin fondo.png'
-import notificationIcon from '../assets/Notification.png';
-import profileIcon from '../assets/Profile.png';
-import ProfileModal from '../components/ProfileModal/ProfileModal';
+import logo from '../../assets/BQ logo sin fondo.png'
+import notificationIcon from '../../assets/Notification.png';
+import profileIcon from '../../assets/Profile.png';
+import ProfileModal from '../ProfileModal/ProfileModal';
 import { useState } from 'react';
-import { currentUser, logOut } from '../lib/firebaseAuth';
+import { currentUser, logOut } from '../../lib/firebaseAuth';
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);

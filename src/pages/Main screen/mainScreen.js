@@ -1,4 +1,4 @@
-import { Header } from '../../components/header'
+import { Header } from '../../components/Header/header'
 import { Footer } from '../../components/footer'
 import { useNavigate } from "react-router-dom";
 import './mainScreen.css'

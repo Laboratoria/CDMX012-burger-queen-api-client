@@ -1,4 +1,4 @@
-import { Header } from "../../components/header";
+import { Header } from "../../components/Header/header";
 import { Footer } from "../../components/footer";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";

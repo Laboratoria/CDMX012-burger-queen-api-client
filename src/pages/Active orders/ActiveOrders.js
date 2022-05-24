@@ -1,4 +1,4 @@
-import { Header } from "../../components/header";
+import { Header } from "../../components/Header/header";
 import { Footer } from "../../components/footer";
 import { TableBox } from "../../components/TableBox/tableBox"
 import { useState, useEffect } from "react";

@@ -4,7 +4,7 @@ import './ProductBox.css';
 export const ProductBox = (props) => {
     const [quantity, setQuantity] = useState(0);
 
-    if (quantity >= 0) {
+    if (quantity > 0) {
         props.array.push({
             qty: quantity,
             product: props.product,

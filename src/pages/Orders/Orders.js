@@ -28,25 +28,12 @@ export const Orders = () => {
 
     const [menu, setMenu] = useState('breakfast');
 
-    /*     const initialValues = '';
-
-    const [values, setValues] = useState(initialValues); */
     const [table, setTable] = useState('');
     const [isOpen, setIsOpen] = useState(false);
-
-
-
-    /*     const handleVerify = () => {
-            setValues(table);
-        } */
 
     const handleChangeTable = (e) => {
         setTable(e.target.value)
     }
-
-    /*     useEffect(() => {
-            console.log(values)
-        }, [values.table, values.products]) */
 
     let order = { products: productsOrder, client: table };
 
@@ -107,7 +94,6 @@ export const Orders = () => {
                 } else {
                     // alert('here we will use a modal for error')
                     setIsOpen(true);
-
                 }
             }}>
                 <img src={cart} alt="shopping cart icon" className="cart-icon"></img>

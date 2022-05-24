@@ -11,7 +11,7 @@ export const VerifyOrder = () => {
     const location = useLocation();
     const order = location.state.order;
 
-    console.log(order);
+    //console.log(order);
 
     const modifyOrder = () => {
         navigate('/orders', {
@@ -20,7 +20,6 @@ export const VerifyOrder = () => {
             }
         });
     }
-
 
     const [total, setTotal] = useState('0')
 
@@ -43,7 +42,7 @@ export const VerifyOrder = () => {
             })
     }, []);
 
-    console.log(lastOrder);
+    //console.log(lastOrder);
 
     const saveOrder = (order) => {
         const requestOptions = {
@@ -64,8 +63,6 @@ export const VerifyOrder = () => {
             .then(() => navigate('/'))
             .catch(res => console.log(res))
     }
-
-    console.log(currentUser());
 
     return (
         <div className="verify-order-container">

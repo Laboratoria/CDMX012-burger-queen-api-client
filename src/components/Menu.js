@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { getMenu } from "./RequestHandler";
+import { getMenu } from "../lib/RequestHandler";
 import { useEffect, useState } from "react";
 
 export default function Menu() {

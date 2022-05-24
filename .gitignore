@@ -23,4 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 .env
+<<<<<<< prueba
 package-lock.json
+=======
+package-lock.json
+>>>>>>> develop-dany

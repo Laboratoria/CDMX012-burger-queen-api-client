@@ -6,8 +6,7 @@ export const Menu = (props) => {
     const type = props.products.filter(product => { return product.menu === props.type });
     const beverages = type.filter(product => { return product.type === 'beverage' });
     const meal = type.filter(product => { return product.type === 'meal' || product.type === 'side dish' || product.type === 'burger' });
-    const trying = type.map((product) => {return {product: product.name, price: product.price}});
-    console.log(trying);
+
     return (
         <div className= {props.name}>
             <style>{`
@@ -19,13 +18,13 @@ export const Menu = (props) => {
             <div className='beverages'>
                 <img src={beverageIcon} alt="beverage icon" className="beverageIcon"></img>
                 <div className='beveragesProducts'>
-                    {beverages.map(products => <ProductBox product={products.name} array={trying} price={products.price} key={products._id}></ProductBox>)}
+                    {beverages.map(products => <ProductBox product={products.name} array={props.array} key={products._id}></ProductBox>)}
                 </div>
             </div>
             <div className='meal'>
                 <img src={mealIcon} alt="meal icon" className="mealIcon"></img>
                 <div className='mealProducts'>
-                    {meal.map((products) => <ProductBox product={products.name} array={trying} price={products.price} key={products._id}></ProductBox>)}
+                    {meal.map((products) => <ProductBox product={products.name} array={props.array} key={products._id}></ProductBox>)}
                 </div>
             </div>
         </div>

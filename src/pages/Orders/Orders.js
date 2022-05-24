@@ -9,8 +9,6 @@ import { ErrorModal } from "../../components/ErrorModal/ErrorModal";
 
 export const Orders = () => {
 
-    let productsOrder = [];
-
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -35,26 +33,26 @@ export const Orders = () => {
         setTable(e.target.value)
     }
 
-    let order = { products: productsOrder, client: table };
-    
-    let receivedOrder = [];
+    let trying = products.map((product) => {return {product: product.name, price: product.price}});
+
+    let order = { products: trying, client: table };
     
     if(location.state !== null){
-        receivedOrder = location.state.order;
+        trying = location.state.order;
     }
 
-    console.log(receivedOrder);
+    console.log('ORDERS', trying);
 
     const breakfastMenu = () => {
         return (
-            <Menu products={products} btn={'dinnerBtn'} productsOrder={productsOrder} type={'breakfast'} name={'breakfastMenu'}>
+            <Menu products={products} btn={'dinnerBtn'} type={'breakfast'} name={'breakfastMenu'} array={trying}>
             </Menu>
         );
     }
 
     const dinnerMenu = () => {
         return (
-            <Menu products={products} btn={'breakfastBtn'} productsOrder={productsOrder} type={'dinner'} name={'dinnerMenu'}>
+            <Menu products={products} btn={'breakfastBtn'} type={'dinner'} name={'dinnerMenu'} array={trying}>
             </Menu>
         );
     }
@@ -77,25 +75,21 @@ export const Orders = () => {
 
 
             <button className="verify-order-btn" onClick={() => {
-                const reversedOrd = [...order.products].reverse();
-                //console.log(reversedOrd);
 
-                const filtered = reversedOrd.filter((value, index, self) => {
-                    return self.findIndex(p => p.product === value.product) === index;
+                const filtered = order.products.filter((product) => {
+                    return product.qty > 0 ;
                 });
 
-                let productToVerifyOrder = filtered.filter(product => product.qty > 0)
-                if (productToVerifyOrder.length > 0) {
+                if (filtered.length > 0) {
                     navigate('/verify-order', {
                         state: {
                             order: {
-                                products: productToVerifyOrder,
+                                products: filtered,
                                 client: order.client
                             }
                         }
                     })
                 } else {
-                    // alert('here we will use a modal for error')
                     setIsOpen(true);
 
                 }

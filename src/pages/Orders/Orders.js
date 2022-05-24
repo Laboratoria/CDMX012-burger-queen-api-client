@@ -45,14 +45,22 @@ export const Orders = () => {
 
     const breakfastMenu = () => {
         return (
-            <Menu products={products} btn={'dinnerBtn'} type={'breakfast'} name={'breakfastMenu'} orderProducts={orderProducts}>
+            <Menu products={products} 
+            btn={'dinnerBtn'} 
+            type={'breakfast'} 
+            name={'breakfastMenu'} 
+            orderProducts={orderProducts}>
             </Menu>
         );
     }
 
     const dinnerMenu = () => {
         return (
-            <Menu products={products} btn={'breakfastBtn'} type={'dinner'} name={'dinnerMenu'} orderProducts={orderProducts}>
+            <Menu products={products} 
+            btn={'breakfastBtn'} 
+            type={'dinner'} 
+            name={'dinnerMenu'} 
+            orderProducts={orderProducts}>
             </Menu>
         );
     }

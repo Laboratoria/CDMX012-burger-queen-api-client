@@ -8,7 +8,7 @@ export const LoginError = ({errorMsg}) => {
     } else if (errorMsg === 'auth/invalid-email') {
         txt = <p className="error-msg">Invalid e-mail address, please try another one.</p>; 
     } else if (errorMsg === 'auth/wrong-password') {
-        txt = <p className="error-msg">Wrong password, please check your spelling and try again.<br></br> 
+        txt = <p className="error-msg" data-testid="error-msg">Wrong password, please check your spelling and try again.<br></br> 
         If the error continues contact your manager.</p>; 
     } else {
         txt = <p className="error-msg">An error has occurred, please try again.</p>; 

@@ -9,8 +9,6 @@ import { ErrorModal } from "../../components/ErrorModal/ErrorModal";
 
 export const Orders = () => {
 
-    let productsOrder = [];
-
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -28,38 +26,41 @@ export const Orders = () => {
 
     const [menu, setMenu] = useState('breakfast');
 
-    /*     const initialValues = '';
-
-    const [values, setValues] = useState(initialValues); */
     const [table, setTable] = useState('');
     const [isOpen, setIsOpen] = useState(false);
-
-
-
-    /*     const handleVerify = () => {
-            setValues(table);
-        } */
 
     const handleChangeTable = (e) => {
         setTable(e.target.value)
     }
 
-    /*     useEffect(() => {
-            console.log(values)
-        }, [values.table, values.products]) */
+    let orderProducts = products.map((product) => {return {product: product.name, price: product.price}});
 
-    let order = { products: productsOrder, client: table };
+    let order = { products: orderProducts, client: table };
+    
+    if(location.state !== null){
+        orderProducts = location.state.order;
+    }
+
+    console.log('ORDERS', orderProducts);
 
     const breakfastMenu = () => {
         return (
-            <Menu products={products} btn={'dinnerBtn'} productsOrder={productsOrder} type={'breakfast'} name={'breakfastMenu'}>
+            <Menu products={products} 
+            btn={'dinnerBtn'} 
+            type={'breakfast'} 
+            name={'breakfastMenu'} 
+            orderProducts={orderProducts}>
             </Menu>
         );
     }
 
     const dinnerMenu = () => {
         return (
-            <Menu products={products} btn={'breakfastBtn'} productsOrder={productsOrder} type={'dinner'} name={'dinnerMenu'}>
+            <Menu products={products} 
+            btn={'breakfastBtn'} 
+            type={'dinner'} 
+            name={'dinnerMenu'} 
+            orderProducts={orderProducts}>
             </Menu>
         );
     }
@@ -68,6 +69,7 @@ export const Orders = () => {
         const received = location.state.order;
         console.log(received)
     }
+
 
     return (
         <>
@@ -87,25 +89,21 @@ export const Orders = () => {
 
 
             <button className="verify-order-btn" onClick={() => {
-                const reversedOrd = [...order.products].reverse();
-                //console.log(reversedOrd);
 
-                const filtered = reversedOrd.filter((value, index, self) => {
-                    return self.findIndex(p => p.product === value.product) === index;
+                const filtered = order.products.filter((product) => {
+                    return product.qty > 0 ;
                 });
 
-                let productToVerifyOrder = filtered.filter(product => product.qty > 0)
-                if (productToVerifyOrder.length > 0) {
+                if (filtered.length > 0) {
                     navigate('/verify-order', {
                         state: {
                             order: {
-                                products: productToVerifyOrder,
+                                products: filtered,
                                 client: order.client
                             }
                         }
                     })
                 } else {
-                    // alert('here we will use a modal for error')
                     setIsOpen(true);
 
                 }

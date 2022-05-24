@@ -1,13 +1,26 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Header } from './header';
 
 describe('Header component', () => {
-    it('renders the content', () => {
+    it('renders the header', () => {
         render(<Header></Header>)
+        const header = screen.getByRole('banner');
+        expect(header).toBeInTheDocument();
     });
-    it('sets isOpen to true when clicked on profile icon', () => {
-        render(<Header></Header>)
-        const profileIcon = screen.getByAltText('profile icon');
-/*         screen.debug(); */
+    it('renders the logo', async () => {
+        render(<Header></Header>);
+        const logo = screen.getByAltText("burger queen logo");
+        expect(logo).toBeInTheDocument();
+    })
+    it('renders the notification bell', async () => {
+        render(<Header></Header>);
+        const bell = screen.getByAltText("notification icon");
+        expect(bell).toBeInTheDocument();
+    })
+    it('renders the profile icon', async () => {
+        render(<Header></Header>);
+        const profile = screen.getByAltText("profile icon");
+        expect(profile).toBeInTheDocument();
     })
 })

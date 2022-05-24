@@ -7,7 +7,6 @@ import PropTypes from 'prop-types'
 export default function PrivateRoutes({ currentUser, rol }) {
   if (rol === 'admin' && currentUser !== null) {
     return (
-
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<HomePage handleExit={exit} />} />

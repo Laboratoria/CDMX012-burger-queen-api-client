@@ -1,21 +1,48 @@
 import '../styles/HomePage.css'
-import { auth } from '../Lib/firebase-keys'
+import { auth, db } from '../Lib/firebase-keys'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { useState } from 'react'
+// eslint-disable-next-line no-unused-vars
+import { doc, setDoc, collection } from 'firebase/firestore'
 function CreateUsers() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const handleNewUser = async () => {
-    await createUserWithEmailAndPassword(auth, email, password)
+  const handleNewUser = (e) => {
+    e.preventDefault()
+    const email = e.target.elements.email.value
+    const password = e.target.elements.password.value
+    const rol = e.target.elements.rol.value
+    newEsclavo(email, password, rol)
   }
+  // eslint-disable-next-line no-unused-vars
+  async function newEsclavo (email, password, rol) {
+    // eslint-disable-next-line no-unused-vars
+    const infoEsclavo = await createUserWithEmailAndPassword(auth, email, password)
+      .then(async(user) => {
+        console.log(user, 'user')
+        const docRef = await setDoc(collection(db, 'User', 'admin@burgerqueen.com'), {
+          email,
+          password,
+          rol,
+          uid: user.user.uid
+        })
+        console.log('Document written with ID: ', docRef.id)
+        return user
+      })
+  }
+
   return (
     <div>
+      <form onSubmit={handleNewUser}>
       <label>Email:</label>
-      <input type='text' id="email" placeholder='jesusR@burguerqueen.com' onChange={(e) => { setEmail(e.target.value) }} />
+      <input type='text' id="email" placeholder='jesusR@burguerqueen.com'/>
       <label>Password:</label>
-      <input type='password' id="password" placeholder='**********' onChange={(e) => { setPassword(e.target.value) }} />
+      <input type='password' id="password" placeholder='**********'/>
+      <select id="rol" placeholder='Esclavo'>
+        <option value="Esclavo">Esclavo</option>
+        <option value="admin">Admin</option>
+        <option value="mesero">Mesero</option>
+        <option value="cocinero">Cocinero</option>
+        </select>
       <button id='newUser' onClick={() => { handleNewUser() }}>Nuevo Usuario</button>
-
+      </form>
     </div>
 
   )

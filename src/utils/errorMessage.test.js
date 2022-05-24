@@ -15,7 +15,9 @@ describe('Error message component', () => {
 
     it('Renders an error message for a wrong password input', () => {
         render(<LoginError errorMsg={'auth/wrong-password'}></LoginError>);
-        screen.getByText('Wrong password, please check your spelling and try again. If the error continues contact your manager.');
+        screen.getByText(`Wrong password, please check your spelling and try again.
+            <br />
+            If the error continues contact your manager.`);
     });
 
     it('Renders a general error message', () => {

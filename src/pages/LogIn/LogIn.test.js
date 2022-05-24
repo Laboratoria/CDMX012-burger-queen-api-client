@@ -40,7 +40,7 @@ describe('LogIn component renders correctly', () => {
         fireEvent.click(button);
 
         await waitFor(() => {
-            screen.getByText('This account does not exist.');
+            screen.getByText('This account does not exist, contact your manager for further information.');
         });
     })
 })

@@ -33,26 +33,26 @@ export const Orders = () => {
         setTable(e.target.value)
     }
 
-    let trying = products.map((product) => {return {product: product.name, price: product.price}});
+    let orderProducts = products.map((product) => {return {product: product.name, price: product.price}});
 
-    let order = { products: trying, client: table };
+    let order = { products: orderProducts, client: table };
     
     if(location.state !== null){
-        trying = location.state.order;
+        orderProducts = location.state.order;
     }
 
-    console.log('ORDERS', trying);
+    console.log('ORDERS', orderProducts);
 
     const breakfastMenu = () => {
         return (
-            <Menu products={products} btn={'dinnerBtn'} type={'breakfast'} name={'breakfastMenu'} array={trying}>
+            <Menu products={products} btn={'dinnerBtn'} type={'breakfast'} name={'breakfastMenu'} orderProducts={orderProducts}>
             </Menu>
         );
     }
 
     const dinnerMenu = () => {
         return (
-            <Menu products={products} btn={'breakfastBtn'} type={'dinner'} name={'dinnerMenu'} array={trying}>
+            <Menu products={products} btn={'breakfastBtn'} type={'dinner'} name={'dinnerMenu'} orderProducts={orderProducts}>
             </Menu>
         );
     }

@@ -4,9 +4,32 @@ import './ProductBox.css';
 export const ProductBox = (props) => {
     const [quantity, setQuantity] = useState(0);
 
+    /* CUANDO SE REGRESA, PROPS.ARRAY.PRODUCTS SI EXISTE, PERO CUANDO SE CREA LA PRIMERA VEZ, NO.
+    ESA PODRIA SER LA CONDICIONAL.
+    
+    switch(props.array.products.length < 12){
+        default:
+            for(let i = 0; i < props.array.length; i++){
+                if(props.product === props.array[i].product && props.array[i].hasOwnProperty('qty')){
+                    setQuantity(props.array[i].qty);
+                }
+            }
+        break;
+
+        case false:
+            for(let i = 0; i < props.array.length; i++){
+                if(props.product === props.array[i].product && quantity !== props.array[i].qty){
+                    props.array[i].qty = quantity;
+                }
+            }
+        break;
+    } */
+
+    console.log('PRODUCTBOX', props.orderProducts);
+
     for(let i = 0; i < props.array.length; i++){
-        if(props.product === props.array[i].product && quantity !== props.array[i].qty){
-            props.array[i].qty = quantity;
+        if(props.product === props.orderProducts[i].product && quantity !== props.orderProducts[i].qty){
+            props.orderProducts[i].qty = quantity;
         }
     }
 
@@ -17,8 +40,6 @@ export const ProductBox = (props) => {
             props.array[i].qty = quantity;
         } 
     } */
-
-    console.log('PRODUCTBOX', props.array);
 
     return (
         <div className='productContainer'>

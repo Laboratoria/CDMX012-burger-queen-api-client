@@ -1,34 +1,42 @@
 import './App.css'
 import { useEffect, useState } from 'react'
 import { doc, getDoc } from 'firebase/firestore'
-import { db } from './Lib/firebase-keys'
+import { db, auth } from './Lib/firebase-keys'
 import PrivateRoutes from './Lib/PrivateRoutes'
 import PublicRoutes from './Lib/PublicRoutes'
+import { onAuthStateChanged } from 'firebase/auth'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
+  const [rol, setRol] = useState(null)
 
-  const getRol = async () => {
-    const docRef = doc(db, 'User', 'admin@burgerqueen.com')
+  const getRol = async (user) => {
+    console.log(user)
+    const docRef = doc(db, 'User', user)
     const rolRef = await getDoc(docRef)
+    console.log(rolRef.data().rol)
+    return rolRef.data().rol
+  }
 
-    if (rolRef.exists()) {
-      const rolUser = rolRef.data().rol
-      setCurrentUser(['admin@burgerqueen.com', rolUser])
-    } else {
-      // doc.data() will be undefined in this case
-      console.log('No such document!')
-    }
+  const userRol = (user) => {
+    getRol(user.uid).then((resul) => setRol(resul))
+    console.log(rol)
   }
 
   useEffect(() => {
-    getRol()
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setCurrentUser(user)
+        userRol(user)
+      } else {
+        setCurrentUser(null)
+      }
+    })
   }, [])
 
-  console.log(currentUser)
-
+  console.log(currentUser, rol)
   return (
-    currentUser ? <PrivateRoutes currentUser={currentUser[0]} rol={currentUser[1]} /> : <PublicRoutes />
+    currentUser ? <PrivateRoutes currentUser={currentUser} rol={rol} /> : <PublicRoutes />
   )
 }
 

@@ -1,0 +1,160 @@
+{
+    "products": [
+        {
+            "name": "Café americano",
+            "price": 5,
+            "melPrep": 10,
+            "description": "cafe clasico con agua",
+            "recipe": "cafe soluble, agua ",
+            "id": 1,
+            "urlImg": "AquiVaUnaImagen",
+            "category": "breakfast"
+        },
+        {
+            "name": "Café con leche",
+            "price": 5,
+            "melPrep": 10,
+            "description": "cafe clasico con agua",
+            "recipe": "cafe soluble, agua ",
+            "id": 2,
+            "urlImg": "AquiVaUnaImagen",
+            "category": "breakfast"
+        },
+        {
+            "name": "Sandwich de jamón y queso ",
+            "price": 10,
+            "melPrep": 25,
+            "description": "Sandwich de jamon y queso",
+            "recipe": "pan,jamon,queso ",
+            "id": 3,
+            "urlImg": "AquiVaUnaImagen",
+            "category": "breakfast"
+        },
+        {
+            "name": "Jugo de frutas natural",
+            "price": 7,
+            "melPrep": 10,
+            "description": "Jugo de fruta natural a su elección",
+            "recipe": "Fruta elección, agua ",
+            "id": 4,
+            "urlImg": "AquiVaUnaImagen",
+            "category": "breakfast"
+        },
+        {
+            "name": "Hamburguesa simple",
+            "price": 10,
+            "melPrep": 15,
+            "description": "Hamburguesa simple con carne y vegetales",
+            "recipe": "pan, carne, vegetales",
+            "id": 5,
+            "urlImg": "AquiVaUnaImagen",
+            "category": "lunch"
+        },
+        {
+            "name": "Hamburguesa doble",
+            "price": 15,
+            "melPrep": 10,
+            "description": "Hamburguesa doble con carne",
+            "recipe": "pan,doble carne, vegetales ",
+            "id": 6,
+            "urlImg": "AquiVaUnaImagen",
+            "category": "lunch"
+        },
+        {
+            "name": "Papas fritas",
+            "price": 5,
+            "melPrep": 10,
+            "description": "acompañamiento de hamburguesa",
+            "recipe": "papas, sal, aceite",
+            "id": 7,
+            "urlImg": "AquiVaUnaImagen",
+            "category": "lunch"
+        },
+        {
+            "name": "Aros de cebola",
+            "price": 5,
+            "melPrep": 10,
+            "description": "orden pequeña de aros de cebolla",
+            "recipe": "cebolla, harina, sal, aceite",
+            "id": 8,
+            "urlImg": "AquiVaUnaImagen",
+            "category": "lunch"
+        },
+        {
+            "name": "Agua de 500ml",
+            "price": 5,
+            "melPrep": 2,
+            "description": "Agua chica",
+            "recipe": "agua",
+            "id": 9,
+            "urlImg": "AquiVaUnaImagen",
+            "category": "lunch"
+        },
+        {
+            "name": "Agua 750ml",
+            "price": 7,
+            "melPrep": 2,
+            "description": "agua",
+            "recipe": "agua ",
+            "id": 10,
+            "urlImg": "AquiVaUnaImagen",
+            "category": "lunch"
+        },
+        {
+            "name": "Bebida/gaseosa 500ml",
+            "price": 7,
+            "melPrep": 2,
+            "description": "Bebida gaseosa chica",
+            "recipe": "bebida gaseosa ",
+            "id": 11,
+            "urlImg": "AquiVaUnaImagen",
+            "category": "Lunch"
+        },
+        {
+            "name": "Bebida/gaseosa 750ml",
+            "price": 10,
+            "melPrep": 2,
+            "description": "gaseosa de varios sabores",
+            "recipe": "no especificado por el proveedor ",
+            "id": 12,
+            "urlImg": "AquiVaUnaImagen",
+            "category": "lunch"
+        }
+    ],
+    "orders": [
+        {
+            "orderId": "1",
+            "waiter": "mesero1@burgerqueen.com",
+            "waiterId": "idnf7bKDunsKdjvWbdji",
+            "productos": [
+                {
+                    "name": "Agua 750ml",
+                    "price": 7,
+                    "melPrep": 2,
+                    "description": "agua",
+                    "recipe": "agua ",
+                    "id": 10,
+                    "urlImg": "AquiVaUnaImagen",
+                    "category": "lunch"
+                },
+                {
+                    "name": "Bebida/gaseosa 500ml",
+                    "price": 7,
+                    "melPrep": 2,
+                    "description": "Bebida gaseosa chica",
+                    "recipe": "bebida gaseosa ",
+                    "id": 11,
+                    "urlImg": "AquiVaUnaImagen",
+                    "category": "Lunch"
+                }
+            ],
+            "cantidad": 2,
+            "startTime": "10:52:25",
+            "endTime": "15:30:10",
+            "status": "delivered",
+            "totalTime": 5,
+            "table": 7,
+            "clientName": "candy"
+        }
+    ]
+}

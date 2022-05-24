@@ -22,8 +22,8 @@ export default function HomePage({ handleExit }) {
         />
       </header>
       <div className='rol_info'>
-         <p> <b>Mesero:</b> Nombre empleado aqui </p>
-         <p> <b>Hora:</b> {DateHour} </p>
+        <p> <b>Mesero:</b> Nombre empleado aqui </p>
+        <p> <b>Hora:</b> {DateHour} </p>
       </div>
 
       <main className='main_home'>main_home</main>

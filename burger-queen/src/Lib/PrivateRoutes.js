@@ -5,6 +5,7 @@ import { exit } from './Providers'
 import PropTypes from 'prop-types'
 
 export default function PrivateRoutes({ currentUser, rol }) {
+  console.log(currentUser, rol)
   if (rol === 'admin' && currentUser !== null) {
     return (
       <BrowserRouter>

@@ -28,27 +28,22 @@ export const Orders = () => {
 
     const [menu, setMenu] = useState('breakfast');
 
-    /*     const initialValues = '';
-
-    const [values, setValues] = useState(initialValues); */
     const [table, setTable] = useState('');
     const [isOpen, setIsOpen] = useState(false);
-
-
-
-    /*     const handleVerify = () => {
-            setValues(table);
-        } */
 
     const handleChangeTable = (e) => {
         setTable(e.target.value)
     }
 
-    /*     useEffect(() => {
-            console.log(values)
-        }, [values.table, values.products]) */
-
     let order = { products: productsOrder, client: table };
+    
+    let receivedOrder = [];
+    
+    if(location.state !== null){
+        receivedOrder = location.state.order;
+    }
+
+    console.log(receivedOrder);
 
     const breakfastMenu = () => {
         return (
@@ -62,11 +57,6 @@ export const Orders = () => {
             <Menu products={products} btn={'breakfastBtn'} productsOrder={productsOrder} type={'dinner'} name={'dinnerMenu'}>
             </Menu>
         );
-    }
-
-    if(location.state !== null){
-        const received = location.state.order;
-        console.log(received)
     }
 
     return (

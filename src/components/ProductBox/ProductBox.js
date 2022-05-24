@@ -4,13 +4,13 @@ import './ProductBox.css';
 export const ProductBox = (props) => {
     const [quantity, setQuantity] = useState(0);
 
-    if (quantity >= 0) {
-        props.array.push({
-            qty: quantity,
-            product: props.product,
-            price: props.price
-        })
-    };
+    for(let i = 0; i < props.array.length; i++){
+        if(props.product === props.array[i].product && quantity !== props.array[i].qty){
+            props.array[i].qty = quantity;
+        }
+    }
+
+    console.log(props.array);
 
     return (
         <div className='productContainer'>

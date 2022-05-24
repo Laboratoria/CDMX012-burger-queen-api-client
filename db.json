@@ -144,6 +144,26 @@
       "status": "sent",
       "dateEntry": 1653332048928,
       "dateProcessed": ""
+    },
+    {
+      "id": 3,
+      "userId": "RGjCxSz9UUUbD8cJ3q2vCzI8AF53",
+      "table": "",
+      "products": [
+        {
+          "qty": 1,
+          "product": "Ham and cheese sandwich",
+          "price": 10
+        },
+        {
+          "qty": 2,
+          "product": "Coffee with milk",
+          "price": 7
+        }
+      ],
+      "status": "sent",
+      "dateEntry": 1653353485671,
+      "dateProcessed": ""
     }
   ]
 }

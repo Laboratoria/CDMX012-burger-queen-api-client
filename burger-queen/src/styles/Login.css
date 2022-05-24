@@ -1,0 +1,70 @@
+.log_in_content {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.left_aside_content {
+  background-color: #FFC700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner_hamburguer {
+  width: 90%;
+  height: auto;
+}
+
+.right_aside_content {
+  background-color: #232021;
+  color: #FFC700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+margin: 0;
+}
+
+.Logo {
+  width: 80%;
+  margin: 10%;
+}
+
+.form_log_in {
+  width: 80%;
+  height: 25%;
+  margin: 5% 10%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.form_log_in::placeholder {
+  color: #bb0c0c;
+}
+
+.imput_log_in {
+  width: 90%;
+  height: 25%;
+  margin: 2.5% 0;
+  padding-left: 8%;
+  outline: none;
+
+}
+
+.btn_log_in {
+  width: 30%;
+  height: 25%;
+  margin: .4rem 0;
+  border: .2rem solid #FFC700;
+  background-color: #232021;
+  font-size: 80%;
+  color: #ffff;
+  outline: none;
+}
+
+.footer {
+  position: absolute;
+  bottom: 5%;
+  font-size: 1rem;
+}

@@ -8,26 +8,28 @@ export default function Menu() {
   const [products, setProducts] = useState([])
   const returnLogin = () => {
     navigate("/");
-   
+
   };
-  const initState = async() => {
-  const listProducts = await  getMenu();
-  
- setProducts(listProducts);
+  const initState = async () => {
+    const listProducts = await getMenu();
+
+    setProducts(listProducts);
 
   }
   useEffect(() => {
     initState();
+    
   }, [])
+
   return (
     <section>
       <h1>Pagina en Proceso</h1>
       <section>
         {
-           products && products.map(product =>{
-            return(
-              <CardsMenu key={product.id} initState={initState} imgProducts={product.image} name={product.name} price={product.price}></CardsMenu>
-              
+          products && products.map(product => {
+            return (
+              <CardsMenu key={product.id} imgProducts={product.image} name={product.name} price={product.price}></CardsMenu>
+
             )
           })
         }

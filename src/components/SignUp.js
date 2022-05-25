@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword, auth } from "../lib/firebase-config";
 import { useNavigate } from "react-router";
 import { useState, Fragment } from "react";
-import "../components/Login.css";
+import "../css/Login.css";
 import logo from "../assets/burger4.png";
 
 const SignUp = () => {
@@ -43,7 +43,7 @@ const SignUp = () => {
       });
   };
   return (
-    <Fragment>
+    <section className="login-container">
       <img className="logoBurger" src={logo} alt="logoBurger" />
       <form className="box">
         <label id="login"> Register </label>
@@ -87,7 +87,7 @@ const SignUp = () => {
           Continue
         </button>
       </form>
-    </Fragment>
+    </section>
   );
 };
 

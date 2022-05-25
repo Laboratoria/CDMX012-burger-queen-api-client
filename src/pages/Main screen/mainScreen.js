@@ -1,5 +1,5 @@
 import { Header } from '../../components/header'
-import { Footer } from '../../components/footer'
+import { Footer } from '../../components/Footer/footer'
 import { useNavigate } from "react-router-dom";
 import './mainScreen.css'
 import plus from '../../assets/plus.png'

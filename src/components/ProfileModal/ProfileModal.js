@@ -9,13 +9,13 @@ export default function ProfileModal({ open, onClose, user, logOut }) {
 
     return ReactDOM.createPortal(
         <>
-            <div className='wrapper'/>
+            <div className='wrapper' />
             <div className='modal'>
                 <button className="close-modal" onClick={onClose}> X </button>
                 <img src={profilepic} alt="user's profile pic" className='profile-pic'></img>
-                {/* <p className='user-name'>{user.displayName}</p> */}
                 <p className='user-email'>{user.email}</p>
                 <button onClick={()=>{logOut()}} className='log-out-btn'>
+
                     Log out
                     <img src={logoutIcon} alt='logout-icon' className='logout-icon'></img>
                 </button>

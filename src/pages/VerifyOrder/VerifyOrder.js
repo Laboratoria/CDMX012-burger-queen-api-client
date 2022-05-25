@@ -1,5 +1,5 @@
 import { Header } from "../../components/header";
-import { Footer } from "../../components/footer";
+import { Footer } from "../../components/Footer/footer";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import './VerifyOrder.css';
@@ -38,7 +38,7 @@ export const VerifyOrder = () => {
                 return response.json()
             })
             .then((orders) => {
-                setLastOrder(orders[orders.length-1]);
+                setLastOrder(orders[orders.length - 1]);
             })
     }, []);
 

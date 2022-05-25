@@ -1,9 +1,11 @@
 import '../styles/HomePage.css'
 import LogoBQB from '../Assets/Images/BQBlack.png'
 import LogOut from '../Assets/icons/logOut.png'
+import { ListProducts } from '../Components/ListProducts'
 
 // eslint-disable-next-line react/prop-types
-export default function HomePage({ handleExit }) {
+export default function HomePage({ handleExit, currentUser }) {
+  console.log(currentUser)
   const getDates = new Date()
   const DateHour = getDates.getHours() + ':' + getDates.getMinutes()
   return (
@@ -22,11 +24,13 @@ export default function HomePage({ handleExit }) {
         />
       </header>
       <div className='rol_info'>
-        <p> <b>Mesero:</b> Nombre empleado aqui </p>
+        <p> <b>Mesero:</b> {currentUser.displayName || 'Usuario'} </p>
         <p> <b>Hora:</b> {DateHour} </p>
       </div>
 
-      <main className='main_home'>main_home</main>
+      <main className='main_home'>
+        <ListProducts />
+      </main>
       <aside className="rol_aside"></aside>
     </div>
   )

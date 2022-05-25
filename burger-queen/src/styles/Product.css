@@ -1,0 +1,49 @@
+.tarjeta_producto {
+    background-color: white;
+    width: 30%;
+    height: auto;
+    border-bottom-left-radius: 19px;
+    border-bottom-right-radius: 19px;
+    margin: 1%;
+    border: 2px inset #232021
+}
+
+.imagen_producto {
+    width: 100%;
+    height: auto;
+}
+
+.nombre_producto {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    margin: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    padding: 0 2%;
+}
+
+.tiempo_producto {
+    font-size: 12px;
+    font-weight: light;
+    color: black;
+}
+
+.precio_producto {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFC700;
+}
+
+.descripcion_producto {
+    display: flex;
+    flex-direction: column;
+}
+
+.informacion_numerica {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 2%;
+}

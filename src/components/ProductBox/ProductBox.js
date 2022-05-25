@@ -27,19 +27,19 @@ export const ProductBox = (props) => {
 
     console.log('PRODUCTBOX', props.orderProducts);
 
-    for(let i = 0; i < props.array.length; i++){
-        if(props.product === props.orderProducts[i].product && quantity !== props.orderProducts[i].qty){
+    for (let i = 0; i < props.orderProducts.length; i++) {
+        if (props.product === props.orderProducts[i].product && quantity !== props.orderProducts[i].qty) {
             props.orderProducts[i].qty = quantity;
         }
     }
 
-/*     for(let i = 0; i < props.array.length; i++){
-        if(props.product === props.array[i].product && props.array[i].hasOwnProperty('qty')){
-            setQuantity(props.array[i].qty);
-        } else if(props.product === props.array[i].product && quantity !== props.array[i].qty){
-            props.array[i].qty = quantity;
-        } 
-    } */
+    /*     for(let i = 0; i < props.array.length; i++){
+            if(props.product === props.array[i].product && props.array[i].hasOwnProperty('qty')){
+                setQuantity(props.array[i].qty);
+            } else if(props.product === props.array[i].product && quantity !== props.array[i].qty){
+                props.array[i].qty = quantity;
+            } 
+        } */
 
     return (
         <div className='productContainer'>

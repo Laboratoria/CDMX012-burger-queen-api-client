@@ -1,5 +1,5 @@
 import { Header } from "../../components/header";
-import { Footer } from "../../components/footer";
+import { Footer } from "../../components/Footer/footer";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import './VerifyOrder.css';
@@ -11,7 +11,7 @@ export const VerifyOrder = () => {
     const location = useLocation();
     const order = location.state.order;
 
-    console.log(order);
+    //console.log(order);
 
     const modifyOrder = () => {
         navigate('/orders', {
@@ -20,7 +20,6 @@ export const VerifyOrder = () => {
             }
         });
     }
-
 
     const [total, setTotal] = useState('0')
 
@@ -39,11 +38,11 @@ export const VerifyOrder = () => {
                 return response.json()
             })
             .then((orders) => {
-                setLastOrder(orders[orders.length-1]);
+                setLastOrder(orders[orders.length - 1]);
             })
     }, []);
 
-    console.log(lastOrder);
+    //console.log(lastOrder);
 
     const saveOrder = (order) => {
         const requestOptions = {
@@ -64,8 +63,6 @@ export const VerifyOrder = () => {
             .then(() => navigate('/'))
             .catch(res => console.log(res))
     }
-
-    console.log(currentUser());
 
     return (
         <div className="verify-order-container">

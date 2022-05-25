@@ -14,7 +14,8 @@ export default function ProfileModal({ open, onClose, user, logOut }) {
                 <button className="close-modal" onClick={onClose}> X </button>
                 <img src={profilepic} alt="user's profile pic" className='profile-pic'></img>
                 <p className='user-email'>{user.email}</p>
-                <button onClick={() => { logOut() }} className='log-out-btn'>
+                <button onClick={()=>{logOut()}} className='log-out-btn'>
+
                     Log out
                     <img src={logoutIcon} alt='logout-icon' className='logout-icon'></img>
                 </button>

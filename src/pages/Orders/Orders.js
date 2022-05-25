@@ -105,7 +105,6 @@ export const Orders = () => {
                     })
                 } else {
                     setIsOpen(true);
-
                 }
             }}>
                 <img src={cart} alt="shopping cart icon" className="cart-icon"></img>

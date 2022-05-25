@@ -1,4 +1,5 @@
 import '../styles/HomePage.css'
+import '../styles/CreateUsers.css'
 import { auth, db } from '../Lib/firebase-keys'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 // eslint-disable-next-line no-unused-vars
@@ -37,23 +38,19 @@ function CreateUsers() {
   }
 
   return (
-    <div>
+    <div className='form_usuario_nuevo'>
+      <h2>Agregar usuario:</h2>
       <form onSubmit={handleNewUser}>
-        <label>Nombre empleado :</label>
-        <input type='text' id="name" placeholder='Juanito' />
-        <label>Email:</label>
-        <input type='text' id="email" placeholder='jesusR@burguerqueen.com' />
-        <label>Password:</label>
-        <input type='password' id="password" placeholder='**********' />
-        <label>Rol</label>
-        <select id="rol" placeholder='Esclavo'>
+        <input className='input_form' type='text' id="name" placeholder='Juanito' />
+        <input className='input_form' type='text' id="email" placeholder='jesusR@burguerqueen.com' />
+        <input className='input_form' type='password' id="password" placeholder='**********' />
+        <select className='input_form' id="rol" placeholder='Esclavo'>
           <option value="Esclavo">Esclavo</option>
           <option value="admin">Admin</option>
           <option value="mesero">Mesero</option>
           <option value="cocinero">Cocinero</option>
         </select>
-        <label>Turno:</label>
-        <select id="turn" placeholder='Matutino'>
+        <select className='input_form' id="turn" placeholder='Matutino'>
           <option value="matutino">Matutino</option>
           <option value="vespertino">Vespertino</option>
         </select>

@@ -10,7 +10,7 @@ export default function PrivateRoutes({ currentUser, rol }) {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<HomePage handleExit={exit} currentUser={currentUser} />} />
+          <Route path='/' element={<HomePage handleExit={exit} currentUser={currentUser} rol={rol} />} />
           <Route path='/CreateUsers' element={<CreateUsers />} />
         </Routes>
       </BrowserRouter>

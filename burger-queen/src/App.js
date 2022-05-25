@@ -11,16 +11,16 @@ function App() {
   const [rol, setRol] = useState(null)
 
   const getRol = async (user) => {
-    console.log(user)
+    // console.log(user)
     const docRef = doc(db, 'User', user)
     const rolRef = await getDoc(docRef)
-    console.log(rolRef.data().rol)
+    // console.log(rolRef.data().rol)
     return rolRef.data().rol
   }
 
   const userRol = (user) => {
     getRol(user.uid).then((resul) => setRol(resul))
-    console.log(rol)
+    // console.log(rol)
   }
 
   useEffect(() => {
@@ -34,7 +34,7 @@ function App() {
     })
   }, [])
 
-  console.log(currentUser, rol)
+  // console.log(currentUser, rol)
   return (
     currentUser ? <PrivateRoutes currentUser={currentUser} rol={rol} /> : <PublicRoutes />
   )

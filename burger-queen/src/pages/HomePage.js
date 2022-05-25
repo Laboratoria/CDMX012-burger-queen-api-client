@@ -5,7 +5,6 @@ import { ListProducts } from '../Components/ListProducts'
 
 // eslint-disable-next-line react/prop-types
 export default function HomePage({ handleExit, currentUser }) {
-  console.log(currentUser)
   const getDates = new Date()
   const DateHour = getDates.getHours() + ':' + getDates.getMinutes()
   return (

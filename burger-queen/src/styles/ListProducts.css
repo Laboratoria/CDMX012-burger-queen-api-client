@@ -2,5 +2,27 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+ 
+}
+
+.nav_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+   
+}
+
+
+.active {
+    color: #FFC700;
+    padding-left: 1.5rem;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.inactive {
+    color: #FFC700;
+    padding-left: 1.5rem;
+    font-size: 2rem;
+    font-weight: 400;
 }

@@ -8,17 +8,17 @@ describe('Header component', () => {
         const header = screen.getByRole('banner');
         expect(header).toBeInTheDocument();
     });
-    it('renders the logo', async () => {
+    it('renders the logo', () => {
         render(<Header></Header>);
         const logo = screen.getByAltText("burger queen logo");
         expect(logo).toBeInTheDocument();
     })
-    it('renders the notification bell', async () => {
+    it('renders the notification bell', () => {
         render(<Header></Header>);
         const bell = screen.getByAltText("notification icon");
         expect(bell).toBeInTheDocument();
     })
-    it('renders the profile icon', async () => {
+    it('renders the profile icon', () => {
         render(<Header></Header>);
         const profile = screen.getByAltText("profile icon");
         expect(profile).toBeInTheDocument();

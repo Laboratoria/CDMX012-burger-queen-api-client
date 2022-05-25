@@ -1,6 +1,6 @@
-import beverageIcon from '../assets/beverage.png'
-import mealIcon from '../assets/meal.png'
-import { ProductBox } from "../components/ProductBox/ProductBox";
+import beverageIcon from '../../assets/beverage.png'
+import mealIcon from '../../assets/meal.png'
+import { ProductBox } from "../ProductBox/ProductBox";
 
 export const Menu = (props) => {
     const breakfast = props.products.filter(product => { return product.menu === props.type });

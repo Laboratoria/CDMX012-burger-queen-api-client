@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header/header";
-import { Footer } from "../../components/footer";
+import { Footer } from "../../components/Footer/footer";
 import { TableBox } from "../../components/TableBox/tableBox"
 import { useState, useEffect } from "react";
 import './activeOrders.css'

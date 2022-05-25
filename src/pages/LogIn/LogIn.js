@@ -3,7 +3,7 @@ import './LogIn.css';
 import logo from '../../assets/logo grande fondo blanco.png';
 import leftBurger from '../../assets/side-burger-left.png';
 import rightBurger from '../../assets/side-burger-right.png';
-import { Footer } from '../../components/footer';
+import { Footer } from '../../components/Footer/footer';
 import { LoginError } from "../../utils/errorMessage";
 
 

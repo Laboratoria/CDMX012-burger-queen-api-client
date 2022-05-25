@@ -141,8 +141,58 @@
           "price": 7
         }
       ],
-      "status": "sent",
+      "status": "ready",
       "dateEntry": 1653332048928,
+      "dateProcessed": ""
+    },
+    {
+      "id": 3,
+      "userId": "RGjCxSz9UUUbD8cJ3q2vCzI8AF53",
+      "table": "1",
+      "products": [
+        {
+          "product": "American Coffee",
+          "price": 5,
+          "qty": 1
+        },
+        {
+          "product": "Coffee with milk",
+          "price": 7,
+          "qty": 1
+        },
+        {
+          "product": "Ham and cheese sandwich",
+          "price": 10,
+          "qty": 1
+        }
+      ],
+      "status": "sent",
+      "dateEntry": 1653438349795,
+      "dateProcessed": ""
+    },
+    {
+      "id": 4,
+      "userId": "RGjCxSz9UUUbD8cJ3q2vCzI8AF53",
+      "table": "7",
+      "products": [
+        {
+          "product": "Coffee with milk",
+          "price": 7,
+          "qty": 1
+        },
+        {
+          "product": "Natural juice",
+          "price": 7,
+          "qty": 1
+        },
+        {
+          "product": "Ham and cheese sandwich",
+          "price": 10,
+          "qty": 1
+        }
+      ],
+      "status": "sent",
+      "dateEntry": 1653438400430,
       "dateProcessed": ""
     }
   ]

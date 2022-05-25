@@ -40,7 +40,17 @@ describe('LogIn component renders correctly', () => {
         fireEvent.click(button);
 
         await waitFor(() => {
-            screen.getByText('This account does not exist.');
+            screen.getByText('This account does not exist, contact your manager for further information.');
         });
-    })
+    });
+
+    it('Renders inputs and changes their values', () => {
+        render(<LogIn signInWithEmail={signInMock}></LogIn>);
+        const emailInput = screen.getByPlaceholderText('myemail@gmail.com');
+        //const passInput = screen.getByPlaceholderText('mypassword123');
+
+        fireEvent.change(emailInput, {target: {value: 'perla@testing.com'}});
+        expect(emailInput.value).toBe('perla@testing.com');
+    });
+
 })

@@ -31,11 +31,6 @@
   height: 4rem;
 }
 
-.nav1 {
-  font-size: 2rem;
-  font-weight: 800;
-}
-
 .icon_header {
   height: 2rem;
 }
@@ -59,4 +54,18 @@
 .home_container .rol_aside {
   grid-column: 3/4;
   grid-row: 2/9;
+}
+
+.activeB {
+  color: #232021;
+  padding-left: 1.5rem;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.inactiveB {
+  color: #232021;
+  padding-left: 1.5rem;
+  font-size: 2rem;
+  font-weight: 400;
 }

@@ -1,7 +1,7 @@
 .tarjeta_producto {
     background-color: white;
     width: 30%;
-    height: 11rem;
+    height: auto;
     border-bottom-left-radius: 19px;
     border-bottom-right-radius: 19px;
     margin: 1%;
@@ -16,6 +16,8 @@
 .descripcion_producto {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    height: 4rem;
 }
 
 .datos_producto {
@@ -33,7 +35,6 @@
     display: flex;
     flex-wrap: wrap;
     overflow-wrap: break-word;
-    padding: 0 2%;
 }
 
 .tiempo_producto {
@@ -42,14 +43,13 @@
     color: black;
     display: flex;
     align-items: flex-end;
-    margin:.4rem;
 }
 
 .precio_producto {
     font-size: 24px;
     font-weight: bold;
     color: #FFC700;
-    padding: 0 2%;
+    padding: 0 4%;
     display: flex;
     justify-content: center;
     align-items: center;

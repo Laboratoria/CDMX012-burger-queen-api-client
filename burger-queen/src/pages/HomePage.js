@@ -11,8 +11,8 @@ export default function HomePage({ handleExit, currentUser }) {
     <div className='home_container'>
       <header className='header_home'>
         <img src={LogoBQB} alt='Logo' className='logo_header' />
-        <p className='nav1'><b>Mesas</b></p>
-        <p className='nav1'>Menú</p>
+        <p className='inactiveB'>Mesas</p>
+        <p className='activeB'>Menú</p>
         <img
           src={LogOut}
           alt='Logo'

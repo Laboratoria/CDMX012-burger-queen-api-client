@@ -21,16 +21,6 @@
       "category": "breakfast"
     },
     {
-      "name": "Sandwich de jamón y queso ",
-      "price": 10,
-      "melPrep": "15min - 25min",
-      "description": "Sandwich de jamon y queso",
-      "recipe": "pan,jamon,queso ",
-      "id": 3,
-      "urlImg": "https://raw.githubusercontent.com/MonzerratBanuelos/burger-queen/Candy/burger-queen/src/Assets/Images/Menu/sandwich.jpg",
-      "category": "breakfast"
-    },
-    {
       "name": "Jugo de frutas natural",
       "price": 7,
       "melPrep": "5min - 10min",
@@ -38,6 +28,16 @@
       "recipe": "Fruta elección, agua ",
       "id": 4,
       "urlImg": "https://raw.githubusercontent.com/MonzerratBanuelos/burger-queen/Candy/burger-queen/src/Assets/Images/Menu/JugoFrutas.jpg",
+      "category": "breakfast"
+    },
+    {
+      "name": "Sandwich de jamón y queso ",
+      "price": 10,
+      "melPrep": "15min - 25min",
+      "description": "Sandwich de jamon y queso",
+      "recipe": "pan,jamon,queso ",
+      "id": 3,
+      "urlImg": "https://raw.githubusercontent.com/MonzerratBanuelos/burger-queen/Candy/burger-queen/src/Assets/Images/Menu/SandwichJamonQueso.jpg",
       "category": "breakfast"
     },
     {

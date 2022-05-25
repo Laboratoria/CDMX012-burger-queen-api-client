@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { getMenu } from "../lib/RequestHandler";
 import { useEffect, useState } from "react";
+import '../css/Menu.css'
+import MobileHeader from "./MobileHeader";
 
 export default function Menu() {
   const navigate = useNavigate();
@@ -17,8 +19,8 @@ export default function Menu() {
     initState();
   }, [])
   return (
-    <section>
-      <h1>Pagina en Proceso</h1>
+    <section className="menu-container">
+      <MobileHeader/>
       <button onClick={returnLogin}>Sign Out </button>
     </section>
   );

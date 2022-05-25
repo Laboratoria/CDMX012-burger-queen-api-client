@@ -56,7 +56,7 @@ export default function Login() {
     }
   }
   return (
-    <Fragment>
+    <section className="login-container">
       <img
         className="logoBurger"
         src={require("../assets/burger4.png")}
@@ -95,7 +95,7 @@ export default function Login() {
         </p>
         {/* </Fragment> */}
       </form>
-    </Fragment>
+    </section>
     // <Fragment>
     //   <img className="logoBurger" src={logo} alt="logoBurger" />
     //   <form className="box">

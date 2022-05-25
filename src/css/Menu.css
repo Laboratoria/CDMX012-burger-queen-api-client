@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    width: 100vw;
+    height: 100vh;
+    font-family: "Poppins", "Roboto", sans-serif;
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+  }
+  #root {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .header-container{
+    display: flex;
+    flex-direction: row;
+    height: 20%;
+    width:100% ; 
+    background-color: #FFFFFF;     
+    border-bottom: 2px solid rgba(0, 100, 148, 1);                                                                                                
+  }
+
+  .logo{
+    height: 90%;
+    margin-left: 2%;
+  }
+
+  .search{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 143px;
+    height: 100%;
+  }
+
+  .search input{
+width:100%;
+height: 34px;
+text-align: center;
+border:none;
+background-color: #E8E8E8;
+border-radius: 0 6 6 0;
+  }
+
+  .search input::placeholder{
+    color: #5B2448;
+    font-weight: bold;
+  }
+
+  .search img{
+    width: 24px;
+    height: 34px;
+    background-color: #E8E8E8;
+    border-radius: 6 0 0 6;
+  }
+
+  .hambMenu{
+    width: 42px;
+    height: 42px;
+    background: none;
+    background-image: url('../assets/Hamburger.png');
+    background-size: cover;
+    border: none;
+    margin-top: 7%;
+    margin-left: 10%;
+  }

@@ -43,7 +43,7 @@ const SignUp = () => {
       });
   };
   return (
-    <Fragment>
+    <section className="login-container">
       <img className="logoBurger" src={logo} alt="logoBurger" />
       <form className="box">
         <label id="login"> Register </label>
@@ -87,7 +87,7 @@ const SignUp = () => {
           Continue
         </button>
       </form>
-    </Fragment>
+    </section>
   );
 };
 

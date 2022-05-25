@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./routes/Login";
-import SignUp from "./routes/SignUp";
-import Menu from "./routes/Menu";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import Menu from "./components/Menu";
 
 function App() {
   return (

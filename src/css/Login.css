@@ -6,18 +6,23 @@ body {
   width: 100vw;
   height: 100vh;
   font-family: "Poppins", "Roboto", sans-serif;
-  background-image: url("../assets/Administrador.png");
-  background-size: cover;
-  background-repeat: no-repeat;
   display: flex;
   align-items: center;
 }
 
 #root {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   height: 100%;
+}
+
+.login-container {
+  display: flex;
+  background-image: url("../assets/Administrador.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
 }
 
 .logoBurger {
@@ -64,7 +69,6 @@ body {
 .title-error-sec {
   display: flex;
   width: 100%;
-
 }
 
 .title-error {
@@ -87,24 +91,41 @@ body {
   -webkit-animation-timing-function: linear;
 }
 
-@-moz-keyframes blink{  
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
-  100% { opacity: 1.0; }
+@-moz-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-@-webkit-keyframes blink {  
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
-   100% { opacity: 1.0; }
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-@keyframes blink {  
-  0% { opacity: 1.0; }
-   50% { opacity: 0.0; }
-  100% { opacity: 1.0; }
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
 
 .buttonLogin {
   width: 70%;
@@ -140,11 +161,10 @@ a:-webkit-any-link {
 /* ----------------Tabblet vertical responsive--------------------- */
 @media only screen and (min-width: 420px) and (max-width: 744px) {
   #root {
-    display: flex;
-    flex-direction: column;
     width: 100%;
     height: auto;
   }
+
 
   .logoBurger {
     height: auto;
@@ -192,6 +212,19 @@ a:-webkit-any-link {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 90% 10%;
+  }
+
+  .login-container {
+    /* display: flex; */
+    background-image: url("../assets/Administrador.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 90% 10%;
+    /* flex-direction: column; */
   }
 
   .logoBurger {

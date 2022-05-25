@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { getMenu } from "./RequestHandler";
-import { useEffect, useState } from "react";
+import { getMenu } from "../lib/RequestHandler";
+import { Fragment, useEffect, useState } from "react";
 import CardsMenu from "./CardsMenu";
+import '../css/Menu.css'
+import MobileHeader from "./MobileHeader";
+
 
 export default function Menu() {
   const navigate = useNavigate();
@@ -22,9 +25,13 @@ export default function Menu() {
   }, [])
 
   return (
-    <section>
-      <h1>Pagina en Proceso</h1>
+   
+    <section className="menu-container">
+      <MobileHeader/>
+      
       <section>
+      <h1>Pagina en Proceso</h1>
+      
         {
           products && products.map(product => {
             return (
@@ -33,8 +40,10 @@ export default function Menu() {
             )
           })
         }
-      </section>
+     
       <button onClick={returnLogin}>Sign Out </button>
     </section>
+    </section>
+    
   );
 }

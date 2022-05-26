@@ -3,12 +3,13 @@ import mealIcon from '../../assets/meal.png'
 import { ProductBox } from "../ProductBox/ProductBox";
 
 export const Menu = (props) => {
+
     const type = props.products.filter(product => { return product.menu === props.type });
     const beverages = type.filter(product => { return product.type === 'beverage' });
     const meal = type.filter(product => { return product.type === 'meal' || product.type === 'side dish' || product.type === 'burger' });
 
     return (
-        <div className= {props.name}>
+        <section className= {props.name}>
             <style>{`
                 .${props.btn} {
                     background-color: white;
@@ -27,6 +28,6 @@ export const Menu = (props) => {
                     {meal.map((products) => <ProductBox product={products.name} orderProducts={props.orderProducts} key={products._id}></ProductBox>)}
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

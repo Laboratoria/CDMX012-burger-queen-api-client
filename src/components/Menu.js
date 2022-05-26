@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { getMenu } from "../lib/RequestHandler";
 import { useEffect, useState } from "react";
 import CardsMenu from "./CardsMenu";
 import "../css/Menu.css";
-import MobileHeader from "./MobileHeader";
+import Header from "./Header";
+import AsideMenu from "./AsideMenu";
 
 export default function Menu() {
   const [products, setProducts] = useState([]);
@@ -19,11 +20,15 @@ export default function Menu() {
 
   return (
     <main className="menu-container">
-      <MobileHeader />
+      <Header />
       <section>
-        <section className='search'>
-          <img className='Search' alt='searchIcon' src={require('../assets/Search.png')}/>
-          <input type='text' placeholder='Search...'/>
+        <section className="search">
+          <img
+            className="Search"
+            alt="searchIcon"
+            src={require("../assets/Search.png")}
+          />
+          <input type="text" placeholder="Search..." />
         </section>
         <section>
           <button>Breakfast</button>
@@ -40,6 +45,7 @@ export default function Menu() {
               ></CardsMenu>
             );
           })}
+        <AsideMenu />
       </section>
     </main>
   );

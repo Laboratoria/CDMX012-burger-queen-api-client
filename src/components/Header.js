@@ -1,7 +1,7 @@
 import '../css/Menu.css'
 import { useNavigate } from "react-router-dom";
 
-export default function MobileHeader(){
+export default function Header(){
     const navigate = useNavigate();
     const returnLogin = () => {
         navigate("/");
@@ -9,10 +9,10 @@ export default function MobileHeader(){
     return(
         <header className='header-container'>
             <img className="logo" alt='logoBQ' src={require('../assets/burger4.png')}/>
-            <p>Menu</p>
-            <button>Menu</button>    
-            <button>Order</button>    
-            <button onClick={returnLogin}>Sign Out </button>
+            <p className='menu'>Menu</p>
+            <button className='btnHeader'>Menu</button>    
+            <button className='btnHeader2'>Order</button>    
+            <button className='btnOut' onClick={returnLogin}/>
         </header>
     )
 }

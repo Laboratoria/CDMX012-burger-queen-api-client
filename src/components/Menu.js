@@ -15,23 +15,39 @@ export default function Menu() {
   };
   const initState = async () => {
     const listProducts = await getMenu();
-
     setProducts(listProducts);
 
   }
   useEffect(() => {
     initState();
-    
+    typesProducts()
   }, [])
+  const typesProducts = async () => {
+    const products = await getMenu();
+    let productsByTypes = {}
+    for (let i = 0; i < products.length; i++) {
 
+      let type = products[i].type;
+
+      if (!Object.prototype.hasOwnProperty.call(productsByTypes, type)) {
+        productsByTypes[type] = []
+      }
+      productsByTypes[type].push(products[i]);
+
+
+    }
+    console.log(productsByTypes)
+  }
+
+  
   return (
-   
+
     <section className="menu-container">
-      <MobileHeader/>
-      
+      <MobileHeader />
+
       <section>
-      <h1>Pagina en Proceso</h1>
-      
+        <h1>Pagina en Proceso</h1>
+
         {
           products && products.map(product => {
             return (
@@ -40,10 +56,10 @@ export default function Menu() {
             )
           })
         }
-     
-      <button onClick={returnLogin}>Sign Out </button>
+
+        <button onClick={returnLogin}>Sign Out </button>
+      </section>
     </section>
-    </section>
-    
+
   );
 }

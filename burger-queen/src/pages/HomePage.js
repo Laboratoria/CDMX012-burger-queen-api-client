@@ -2,7 +2,8 @@ import '../styles/HomePage.css'
 import LogoBQB from '../Assets/Images/BQBlack.png'
 import LogOut from '../Assets/icons/logOut.png'
 import { ListProducts } from '../Components/ListProducts'
-import CreateUsers from './CreateUsers'
+import CreateUsers from '../Components/Administrador/Empleados/CreateUsers'
+import { Staff } from '../Components/Administrador/Empleados/Staff'
 
 // eslint-disable-next-line react/prop-types
 export default function HomePage({ handleExit, currentUser, rol }) {
@@ -31,6 +32,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
 
       <main className='main_home'>
         <ListProducts />
+        <Staff />
       </main>
       <aside className="rol_aside">
         {rol === 'admin'

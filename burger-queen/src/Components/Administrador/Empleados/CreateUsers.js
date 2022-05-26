@@ -1,6 +1,6 @@
-import '../styles/HomePage.css'
-import '../styles/CreateUsers.css'
-import { auth, db } from '../Lib/firebase-keys'
+import '../../../styles/HomePage.css'
+import '../../../styles/CreateUsers.css'
+import { auth, db } from '../../../Lib/firebase-keys'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 // eslint-disable-next-line no-unused-vars
 import { doc, setDoc } from 'firebase/firestore'

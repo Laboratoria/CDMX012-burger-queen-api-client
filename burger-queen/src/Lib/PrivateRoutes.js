@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from '../pages/HomePage'
-import CreateUsers from '../pages/CreateUsers'
+import CreateUsers from '../Components/Administrador/Empleados/CreateUsers'
 import { exit } from './Providers'
 import PropTypes from 'prop-types'
 

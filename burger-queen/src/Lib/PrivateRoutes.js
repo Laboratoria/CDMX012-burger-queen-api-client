@@ -28,6 +28,17 @@ export default function PrivateRoutes({ currentUser, rol }) {
 
     )
   }
+  if (rol === 'cocinero' && currentUser !== null) {
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<HomePage handleExit={exit} currentUser={currentUser} rol={rol} />} />
+          <Route path='/CreateUsers' element={<CreateUsers />} />
+        </Routes>
+      </BrowserRouter>
+
+    )
+  }
 }
 
 PrivateRoutes.propTypes = {

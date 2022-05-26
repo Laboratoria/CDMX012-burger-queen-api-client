@@ -31,8 +31,11 @@ export default function HomePage({ handleExit, currentUser, rol }) {
       </div>
 
       <main className='main_home'>
-        <ListProducts />
-        <Staff />
+
+        {rol === 'admin'
+          ? <Staff />
+          : <ListProducts />
+        }
       </main>
       <aside className="rol_aside">
         {rol === 'admin'

@@ -1,4 +1,5 @@
 // import { useState } from 'react'
+import './Staff.css'
 import { Meseros } from './Meseros'
 import { Cocineros } from './Cocineros'
 import { Administradores } from './Administradores'
@@ -8,10 +9,10 @@ export const Staff = () => {
   // useEffect(() => {
   // }, [])
   return (
-       <section className='contenedor de empleados'>
-         <Meseros />
-         <Cocineros />
-         <Administradores />
-       </section>
+    <section className='contenedor_tablas'>
+      <Meseros />
+      <Cocineros />
+      <Administradores />
+    </section>
   )
 }

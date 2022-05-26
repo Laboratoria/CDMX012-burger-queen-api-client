@@ -21,15 +21,16 @@ export const Cocineros = () => {
     getMesero()
   }, [])
 
-  return (<div>
-       {staff.map((mese) => {
-         return (
-         <section className='contenedor_de_empleados' key={mese.uid}>
-           <p>{mese.name}</p>
-           <p>{mese.email}/</p>
-         </section>
-         )
-       })}
-       </div>
+  return (<div className='contenedor_de_empleados'>
+    <h4 className='titulo_tabla_empleados'>Cocineros</h4>
+    {staff.map((mese) => {
+      return (
+        <section className='tarjeta_de_empleados' key={mese.uid}>
+          <p>{mese.name}</p>
+          <button id={mese.uid} className='btn_empleado'>+</button>
+        </section>
+      )
+    })}
+  </div>
   )
 }

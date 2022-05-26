@@ -1,0 +1,30 @@
+.titulo_tabla_empleados {
+    background-color: #FFC700;
+    margin: 0;
+    padding: 1%;
+}
+
+.contenedor_de_empleados {
+    background-color: #FBFBFB;
+    color: black;
+    width: 45%;
+    margin-bottom: 3%;
+}
+
+.tarjeta_de_empleados {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+}
+
+section.tarjeta_de_empleados:nth-child(even) {
+    background-color: #F7F7F7;
+}
+
+.btn_empleado {
+    background-color: #504A4C;
+    color: #F7F7F7;
+    font-weight: bold;
+}

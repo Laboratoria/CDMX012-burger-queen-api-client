@@ -1,49 +1,52 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { getMenu } from "../lib/RequestHandler";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CardsMenu from "./CardsMenu";
-import '../css/Menu.css'
-import MobileHeader from "./MobileHeader";
-
+import "../css/Menu.css";
+import Header from "./Header";
+import AsideMenu from "./AsideMenu";
 
 export default function Menu() {
-  const navigate = useNavigate();
-  const [products, setProducts] = useState([])
-  const returnLogin = () => {
-    navigate("/");
+  const [products, setProducts] = useState([]);
 
-  };
   const initState = async () => {
     const listProducts = await getMenu();
 
     setProducts(listProducts);
-
-  }
+  };
   useEffect(() => {
     initState();
-    
-  }, [])
+  }, []);
 
   return (
-   
-    <section className="menu-container">
-      <MobileHeader/>
-      
+    <main className="menu-container">
+      <Header />
       <section>
-      <h1>Pagina en Proceso</h1>
-      
-        {
-          products && products.map(product => {
+        <section className="search">
+          <img
+            className="Search"
+            alt="searchIcon"
+            src={require("../assets/Search.png")}
+          />
+          <input type="text" placeholder="Search..." />
+        </section>
+        <section>
+          <button>Breakfast</button>
+          <button>Dinner</button>
+        </section>
+        {products &&
+          products.map((product) => {
             return (
-              <CardsMenu key={product.id} imgProducts={product.image} name={product.name} price={product.price}></CardsMenu>
-
-            )
-          })
-        }
-     
-      <button onClick={returnLogin}>Sign Out </button>
-    </section>
-    </section>
-    
+              <CardsMenu
+                key={product.id}
+                imgProducts={product.image}
+                name={product.name}
+                price={product.price}
+              ></CardsMenu>
+            );
+          })}
+        <AsideMenu />
+      </section>
+    </main>
   );
 }

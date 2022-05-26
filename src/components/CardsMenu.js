@@ -10,11 +10,9 @@ return (
 
         <p className= "name">{name}
         </p>
-        <p className= "price">{price}
+        <p className="price">${price}
         </p>
-        <button className= "addproduct" onClick={console.log("holiii lucy")}>
-        </button>
-
+        <button className= "addproduct" onClick={console.log("holiii lucy")}>Add</button>
     </section>
 )
 }

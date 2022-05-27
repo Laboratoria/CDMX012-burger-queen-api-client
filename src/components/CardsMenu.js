@@ -12,7 +12,7 @@ return (
         </p>
         <p className="price">${price}
         </p>
-        <button className= "addproduct" onClick={console.log("holiii lucy")}>Add</button>
+        <button className= "addproduct" onClick={console.log("holiii lucy")}>ADD</button>
     </section>
 )
 }

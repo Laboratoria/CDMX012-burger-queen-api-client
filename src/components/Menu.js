@@ -30,22 +30,26 @@ export default function Menu() {
           />
           <input type="text" placeholder="Search..." />
         </section>
-        <section>
-          <button>Breakfast</button>
-          <button>Dinner</button>
-        </section>
-        {products &&
-          products.map((product) => {
-            return (
-              <CardsMenu
-                key={product.id}
-                imgProducts={product.image}
-                name={product.name}
-                price={product.price}
-              ></CardsMenu>
-            );
-          })}
-        <AsideMenu />
+        <div className="btnsAndMenu-container">
+          <section className="btnsOfMenu">
+            <button className="breakAndDinner">Breakfast</button>
+            <button className="breakAndDinner">Dinner</button>
+          </section>
+          <section className="cards-container">
+          {products &&
+            products.map((product) => {
+              return (
+                <CardsMenu
+                  key={product.id}
+                  imgProducts={product.image}
+                  name={product.name}
+                  price={product.price}
+                ></CardsMenu>
+              );
+            })}
+          </section>
+          <AsideMenu />
+        </div>
       </section>
     </main>
   );

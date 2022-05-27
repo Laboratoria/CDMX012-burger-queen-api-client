@@ -1,28 +1,22 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { getMenu } from "../lib/RequestHandler";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CardsMenu from "./CardsMenu";
-import '../css/Menu.css'
-import MobileHeader from "./MobileHeader";
-
+import "../css/Menu.css";
+import Header from "./Header";
+import AsideMenu from "./asideMenu";
 
 export default function Menu() {
-  const navigate = useNavigate();
-  const [products, setProducts] = useState([])
-  const returnLogin = () => {
-    navigate("/");
+  const [products, setProducts] = useState({});
+  const [typeMenu, setTypeMenu] = useState("");
+  const [orderMenu, setOrder] = useState({});
 
-  };
-  const initState = async () => {
-    const listProducts = await getMenu();
-    setProducts(listProducts);
 
-  }
   useEffect(() => {
-    initState();
+  
     typesProducts()
   }, [])
-  const typesProducts = async () => {
+ const typesProducts = async () => {
     const products = await getMenu();
     let productsByTypes = {}
     for (let i = 0; i < products.length; i++) {
@@ -33,33 +27,54 @@ export default function Menu() {
         productsByTypes[type] = []
       }
       productsByTypes[type].push(products[i]);
-
-
+    
+      
     }
-    console.log(productsByTypes)
+console.log(productsByTypes)
+    setProducts(productsByTypes)
+  }
+  const breakfast= ()=>{
+    setTypeMenu("desayuno")
+  }
+  const dinner= ()=>{
+    setTypeMenu("cena")
   }
 
   
   return (
-
-    <section className="menu-container">
-      <MobileHeader />
-
+    <main className="menu-container">
+      <Header />
       <section>
-        <h1>Pagina en Proceso</h1>
-
-        {
-          products && products.map(product => {
+        <section className="search">
+          <img
+            className="Search"
+            alt="searchIcon"
+            src={require("../assets/Search.png")}
+          />
+          <input type="text" placeholder="Search..." />
+        </section>
+        <section>
+          <button onClick={breakfast} >Breakfast</button>
+          <button onClick={dinner}> Dinner</button>
+        </section>
+        {products[typeMenu] &&
+          products[typeMenu].map((product) => {
             return (
-              <CardsMenu key={product.id} imgProducts={product.image} name={product.name} price={product.price}></CardsMenu>
-
-            )
-          })
-        }
-
-        <button onClick={returnLogin}>Sign Out </button>
+              <CardsMenu
+                key={product.id}
+                imgProducts={product.image}
+                name={product.name}
+                price={product.price}
+                order={orderMenu}
+                id={product.id}
+                updateOrder={setOrder}
+              ></CardsMenu>
+            );
+          })}
+        <AsideMenu
+        k
+        />
       </section>
-    </section>
-
+    </main>
   );
 }

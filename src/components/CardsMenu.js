@@ -1,6 +1,9 @@
 export default function CardsMenu(props){
-const {imgProducts, name, price}=props
-
+const {id, imgProducts, name, price, order, updateOrder}=props
+const add=(event)=>{
+    console.log(order)
+    updateOrder({id: id})
+  }
 return (
     <section className="boxCards">
         <img 
@@ -10,11 +13,9 @@ return (
 
         <p className= "name">{name}
         </p>
-        <p className= "price">{price}
+        <p className="price">${price}
         </p>
-        <button className= "addproduct" onClick={console.log("holiii lucy")}>
-        </button>
-
+        <button className= "addproduct" onClick={add}>Add</button>
     </section>
 )
 }

@@ -18,18 +18,44 @@
   }
 
   .header-container{
-    display: flex;
-    flex-direction: row;
-    height: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 115px;
     width:100% ; 
     background-color: #FFFFFF;     
-    border-bottom: 2px solid rgba(0, 100, 148, 1);                                                                                                
+    border: 2px solid rgba(0, 100, 148, 1);                                                                                                
   }
 
   .logo{
     width: 106px;
     height: auto;
     margin-left: 2%;
+  }
+
+  .menu{
+    width: 100%;
+    text-align: center;
+    height: fit-content;
+    border: #5B2448 solid;
+  }
+  
+  .btnHeader{
+    width: 50%;
+    height: 32px;
+  }
+
+  .btnHeader2{
+    width: 50%;
+    height: 32px;
+  }
+
+  .btnOut{
+    background-image: url(../assets/SignOut.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 48px;
+    height: auto;
   }
 
   .search{

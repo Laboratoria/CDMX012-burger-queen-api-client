@@ -9,3 +9,15 @@
    return res.data;
  }
 
+ 
+
+//  export const order= async()=>  {
+ 
+//     //  const products = { };
+ 
+//      const res = await axios.post(urlBurguerApi+"/orders");
+ 
+     
+//      console.log(res.data);
+//  }
+ 

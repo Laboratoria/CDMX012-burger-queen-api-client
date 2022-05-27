@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { onSnapshot, collection, query, where } from 'firebase/firestore'
 import { db } from '../../../Lib/firebase-keys'
+import { deleteStaff } from '../../../Lib/Providers'
 
 export const Meseros = () => {
   const [staff, setStaff] = useState([])
@@ -10,7 +11,7 @@ export const Meseros = () => {
     onSnapshot(q, (querySnapShot) => {
       const meseros = []
       querySnapShot.forEach((mesero) => {
-        meseros.push({ ...mesero.data() })
+        meseros.push({ ...mesero.data(), id: mesero.id })
       })
       setStaff(meseros)
       console.log(staff)
@@ -26,6 +27,7 @@ export const Meseros = () => {
     {staff.map((mese) => {
       return (
         <section className='tarjeta_de_empleados' key={mese.uid}>
+          <button id={mese.uid} className='btn_empleado'onClick={() => deleteStaff(mese.id).then(console.log('lo quite amix'))}>-</button>
           <p>{mese.name}</p>
           <button id={mese.uid} className='btn_empleado'>+</button>
         </section>

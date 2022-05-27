@@ -1,7 +1,7 @@
 .titulo_tabla_empleados {
     background-color: #FFC700;
     margin: 0;
-    padding: 1%;
+    padding-left: 8%;
 }
 
 .contenedor_de_empleados {
@@ -15,8 +15,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
-
 }
 
 section.tarjeta_de_empleados:nth-child(even) {

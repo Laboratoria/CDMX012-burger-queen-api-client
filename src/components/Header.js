@@ -9,9 +9,9 @@ export default function Header(){
     return(
         <header className='header-container'>
             <img className="logo" alt='logoBQ' src={require('../assets/burger4.png')}/>
-            <p className='menu'>Menu</p>
-            <button className='btnHeader'>Menu</button>    
-            <button className='btnHeader2'>Order</button>    
+            <p className='menu'>MENU</p>
+            <button id='btnMenu'>Menu</button>    
+            <button id='btnOrder'>Order</button>    
             <button className='btnOut' onClick={returnLogin}/>
         </header>
     )

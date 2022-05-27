@@ -1,9 +1,26 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import {Menu} from './Menus';
-import {products, orderProducts} from './MenusTests';
 
 describe('Menu component', () => {
+    const products = [
+        {
+          "_id": "3",
+          "name": "Natural juice",
+          "price": 7,
+          "image": "",
+          "type": "beverage",
+          "dateEntry": "16/05/22",
+          "menu": "breakfast"
+        }
+    ]
+    
+    const orderProducts = [
+        {
+            product: "Natural juice",
+            price: 7
+        }
+    ]
+
     it('renders beverage icon', () => {
         render(<Menu products={products}
         btn={'dinnerBtn'}
@@ -30,39 +47,5 @@ describe('Menu component', () => {
         orderProducts={orderProducts}></Menu>)
         const juice = screen.getByText('Natural juice');
         expect(juice).toBeInTheDocument();
-    })
-    it('button "+" increments product quantity', async () => {
-        render(<Menu products={products}
-        btn={'dinnerBtn'}
-        type={'breakfast'}
-        name={'breakfastMenu'}
-        orderProducts={orderProducts}></Menu>)
-        const button = screen.getByText('+');
-        const zero = screen.getByText('0');
-        await userEvent.click(button);
-        const quantity = screen.getByText('1')
-        expect(zero).toBe(quantity);
-    })
-    it('button "-" does not subtract when quantity is zero', async () => {
-        render(<Menu products={products}
-        btn={'dinnerBtn'}
-        type={'breakfast'}
-        name={'breakfastMenu'}
-        orderProducts={orderProducts}></Menu>)
-        const button = screen.getByText('-');
-        await userEvent.click(button);
-        expect(screen.getByText('0')).toBeInTheDocument();
-    })
-    it('button "-" subtracts quantity', async () => {
-        render(<Menu products={products}
-        btn={'dinnerBtn'}
-        type={'breakfast'}
-        name={'breakfastMenu'}
-        orderProducts={orderProducts}></Menu>)
-        const buttonPlus = screen.getByText('+');
-        const buttonMinus = screen.getByText('-');
-        await userEvent.click(buttonPlus);
-        await userEvent.click(buttonMinus);
-        expect(screen.getByText('0')).toBeInTheDocument();
     })
 })

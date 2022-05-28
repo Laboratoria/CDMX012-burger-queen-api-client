@@ -75,7 +75,8 @@ export default function Menu() {
           );
         })}
     </section>
-    <AsideMenu />
+    <AsideMenu
+    order={orderMenu} />
   </div>
     </section >
   </main >

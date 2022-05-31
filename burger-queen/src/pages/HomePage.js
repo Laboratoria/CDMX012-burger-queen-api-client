@@ -3,11 +3,26 @@ import LogoBQB from '../Assets/Images/BQBlack.png'
 import LogOut from '../Assets/icons/logOut.png'
 import { ListProducts } from '../Components/ListProducts'
 import CreateUsers from '../Components/Administrador/Empleados/CreateUsers'
+import { EnviarComanda } from '../Components/Meseros/Comanda'
 import { Staff } from '../Components/Administrador/Empleados/Staff'
+import { useState } from 'react'
 
 // eslint-disable-next-line react/prop-types
 export default function HomePage({ handleExit, currentUser, rol }) {
-  console.log(rol)
+  const [order, setOrder] = useState({
+    productos: [],
+    table: 7,
+    clientName: 'NoSoyCliente',
+    startTime: '15:30:10',
+    price: 8,
+    orderId: 1,
+    waiter: 'NoSoyMese',
+    waiterId: 'NOS=YM3s3r0',
+    cantidad: 5,
+    endtTime: '15:30:10',
+    status: 'pending',
+    totalTime: '15:30:10'
+  })
   const getDates = new Date()
   const DateHour = getDates.getHours() + ':' + getDates.getMinutes()
   return (
@@ -34,13 +49,13 @@ export default function HomePage({ handleExit, currentUser, rol }) {
 
         {rol === 'admin'
           ? <Staff />
-          : <ListProducts />
+          : <ListProducts order={order} setOrder={setOrder} />
         }
       </main>
       <aside className="rol_aside">
         {rol === 'admin'
           ? <CreateUsers />
-          : <div>hola</div>
+          : <EnviarComanda order={order}/>
         }
 
       </aside>

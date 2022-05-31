@@ -1,7 +1,10 @@
 import '../styles/Product.css'
-export const Product = ({ product }) => {
+export const Product = ({ product, setOrder, order }) => {
+  const nombre = product.name
+  console.log(nombre)
   return (
-    <div className='tarjeta_producto' key={product.id}>
+   // <div className='tarjeta_producto' key={product.id} onClick={() => { setOrder(oldArrat => [...oldArrat, { name: product.name, price: product.price, id: product.id, cant: 1 }]) }}>
+   <div className='tarjeta_producto' key={product.id} onClick={(product) => { setOrder({ ...order, productos: [...order.productos, product.name] }) }}>
       <img className='imagen_producto' src={product.urlImg}></img>
       <div className='descripcion_producto'>
         <div className='datos_producto'>

@@ -1,0 +1,30 @@
+h1{
+    color: #FFC700;
+    font-weight: bold;
+
+}
+.contenedor_de_comanda{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.mesa {
+    width: 100%;
+    height: 20%;
+    margin: 2.5% 0;
+    padding-left: 8%;
+    outline: none;
+    background-color: #E5E5E5;
+}
+.btn_comanda{
+    background-color: #FFC700;
+    width: 100%;
+    height: 20%;
+    margin: 2.5% 0;
+    padding-left: 8%;
+    outline: none;
+    font-weight: 800;
+    border: none;
+    font-size: 1.2em;
+}

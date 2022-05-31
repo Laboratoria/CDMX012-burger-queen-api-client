@@ -2,7 +2,7 @@ import '../styles/ListProducts.css'
 import { useState, useEffect } from 'react'
 import { Product } from './Product'
 
-export const ListProducts = () => {
+export const ListProducts = ({ order, setOrder }) => {
   const [menu, setMenu] = useState('breakfast')
   const [products, setProducts] = useState(null)
 
@@ -18,6 +18,7 @@ export const ListProducts = () => {
   useEffect(() => {
     getData()
   }, [menu])
+
   return (
     <>
       <div className='nav_menu'>
@@ -31,7 +32,7 @@ export const ListProducts = () => {
       <div className='productos_contenedor'>
         {products &&
           products.map((product) => (
-            <Product product={product} key={product.id} />
+            <Product product={product} key={product.id} setOrder={setOrder} order= {order}/>
           ))}
       </div>
     </>

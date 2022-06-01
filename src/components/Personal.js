@@ -1,9 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Header from './Header'
+
 
 const Personal = () => {
   return (
-    <div>Personal</div>
+    <div>
+       <Header />
+       Vista admin
+   
+    </div>
   )
 }
 

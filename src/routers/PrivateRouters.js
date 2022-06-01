@@ -26,7 +26,7 @@ const PrivateRoutes = () => {
   if (role === "admin") {
     return (
       <Routes>
-        <Route path="/" element={<Personal />} />
+        <Route path="/admin" element={<Personal />} />
       </Routes>
     );
   } else if (role === "waiter" || role === "waitress") {

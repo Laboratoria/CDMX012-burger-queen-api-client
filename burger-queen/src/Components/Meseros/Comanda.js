@@ -25,7 +25,7 @@ export const EnviarComanda = ({ order }) => {
   console.log(finishOrder) */
   return (
         <div className='contenedor_de_comanda'>
-        <h1>Número de orden</h1>
+        <h1> Orden # </h1>
         <select className='mesa' id='table'>
             <option >Seleccionar mesa </option>
             <option value="1">1</option>
@@ -37,7 +37,22 @@ export const EnviarComanda = ({ order }) => {
             <option value="7">7</option>
         </select>
         <input type='text'placeholder="Nombre del Cliente" className='input_form'></input>
-        <section>
+        <div className='titulo_productos'>
+          <p>Producto</p>
+          <div className='titulo_total'>
+            <p>Total</p>
+          <p>Eliminar</p>
+          </div>
+        </div>
+        <section className='contenedor_productos'>{productos.map((producto, index) => (
+          <section className='producto_orden' key={ `${index}${producto.id}` }>
+          <p>{ producto.name }</p>
+          <section className='contenedor_botones'>
+          <p className='producto_cantidad'>1</p>
+          <button className='producto_boton'>-</button>
+          </section>
+          </section>
+        ))}
           <p></p>
         </section>
         <button className='btn_comanda'>Enviar Comanda </button>

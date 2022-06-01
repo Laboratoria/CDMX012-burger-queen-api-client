@@ -17,6 +17,21 @@ h1{
     outline: none;
     background-color: #E5E5E5;
 }
+.titulo_productos{
+    width: 100%;
+    height: 10%;
+    margin: 2.5% 0;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #E5E5E5;
+    font-size: 12px;
+    justify-content: space-between;
+}
+.titulo_total{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
 .btn_comanda{
     background-color: #FFC700;
     width: 100%;
@@ -27,4 +42,41 @@ h1{
     font-weight: 800;
     border: none;
     font-size: 1.2em;
+}
+.producto_orden{
+    background-color: #E5E5E5;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    margin:0.2rem
+}
+.contenedor_productos{
+    display:flex;
+    width: 100%;
+    flex-direction: column;
+}
+.producto_boton{
+    background-color: #232021;
+    color: white;
+    width: 45%;
+    font-weight: 900;
+    font-size: 16px;
+}
+.producto_cantidad{
+    background-color: #FFC700;
+    width: 45%;
+    height: 100%;
+    margin:0;
+    color:#232021;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor_botones{
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end
 }

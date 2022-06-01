@@ -1,5 +1,4 @@
 import { createUserWithEmailAndPassword, auth } from "../lib/firebase-config";
-import { useNavigate } from "react-router";
 import { useState } from "react";
 import "../css/Login.css";
 
@@ -14,7 +13,7 @@ const SignUp = () => {
   const [position, setPosition] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+
 
   const signUpWithEmail = (e) => {
     e.preventDefault();
@@ -25,7 +24,6 @@ const SignUp = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        navigate("/menu");
       })
       .catch((error) => {
         console.log(error.message);

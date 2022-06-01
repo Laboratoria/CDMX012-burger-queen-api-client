@@ -1,4 +1,4 @@
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   auth,
   signInWithEmailAndPassword,
@@ -13,7 +13,7 @@ export default function Login() {
   const [errorPassword, setErrorPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+
 
   const LoginWithEmail = (e) => {
     e.preventDefault();
@@ -23,7 +23,6 @@ export default function Login() {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        navigate("/menu");
       })
       .catch((error) => {
         // const errorMessage = error.message;

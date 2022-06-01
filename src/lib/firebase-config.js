@@ -1,5 +1,9 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 export {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -31,3 +35,8 @@ createUserWithEmailAndPassword(auth)
     const errorMessage = error.message;
     // ..
   });
+
+export const logOut = async () => {
+  const auth = getAuth();
+  await signOut(auth);
+};

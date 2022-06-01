@@ -23,6 +23,9 @@ export default function HomePage({ handleExit, currentUser, rol }) {
     status: 'pending',
     totalTime: '15:30:10'
   })
+
+  // setOrder({ ...order, productos: [...order.productos, product] })
+
   const getDates = new Date()
   const DateHour = getDates.getHours() + ':' + getDates.getMinutes()
   return (

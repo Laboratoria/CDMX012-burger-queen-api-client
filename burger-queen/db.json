@@ -108,7 +108,7 @@
       "recipe": "bebida gaseosa ",
       "id": 11,
       "urlImg": "https://raw.githubusercontent.com/MonzerratBanuelos/burger-queen/Candy/burger-queen/src/Assets/Images/Menu/gaseosa.jpg",
-      "category": "Lunch"
+      "category": "lunch"
     },
     {
       "name": "Bebida/gaseosa 750ml",
@@ -145,7 +145,7 @@
           "recipe": "bebida gaseosa ",
           "id": 11,
           "urlImg": "AquiVaUnaImagen",
-          "category": "Lunch"
+          "category": "lunch"
         }
       ],
       "cantidad": 2,

@@ -1,10 +1,11 @@
 import '../../styles/Comanda.css'
 // import { useState } from 'react'
+import iconDelete from '../../Assets/icons/delete.png'
+import iconAdd from '../../Assets/icons/add.png'
+import iconLess from '../../Assets/icons/less.png'
 export const EnviarComanda = ({ order }) => {
-  const { productos, orderId } = order
+  const { productos } = order
 
-  console.log(productos)
-  console.log(orderId)
   // console.log(holi)
   /* const productValues = {
     name: order.name,
@@ -24,38 +25,48 @@ export const EnviarComanda = ({ order }) => {
   const [finishOrder] = useState(initialState)
   console.log(finishOrder) */
   return (
-        <div className='contenedor_de_comanda'>
-        <h1> Orden # </h1>
-        <select className='mesa' id='table'>
-            <option >Seleccionar mesa </option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-        </select>
-        <input type='text'placeholder="Nombre del Cliente" className='input_form'></input>
-        <div className='titulo_productos'>
-          <p>Producto</p>
-          <div className='titulo_total'>
-            <p>Total</p>
+    <div className='contenedor_de_comanda'>
+      <h1 className='orderTitle'> Orden # 1 </h1>
+      <select className='mesa' id='table'>
+        <option>Seleccionar mesa </option>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
+      </select>
+      <input
+        type='text'
+        placeholder='Nombre del Cliente'
+        className='input_comanda_form'
+      ></input>
+      <div className='titulo_productos'>
+        <p>Producto</p>
+        <div className='titulo_total'>
+          <p>Total</p>
           <p>Eliminar</p>
-          </div>
         </div>
-        <section className='contenedor_productos'>{productos.map((producto, index) => (
-          <section className='producto_orden' key={ `${index}${producto.id}` }>
-          <p>{ producto.name }</p>
-          <section className='contenedor_botones'>
-          <p className='producto_cantidad'>1</p>
-          <button className='producto_boton'>-</button>
-          </section>
+      </div>
+      <section className='contenedor_productos'>
+        {productos.map((producto, index) => (
+          <section className='producto_orden' key={`${index}${producto.id}`}>
+            <img src={iconDelete} alt='Delete' className='icon_tabcell' id='background_yelow'/>
+            <div className='product_name'>{producto.name}</div>
+            <section className='contenedor_botones'>
+              <img src={iconAdd} alt='Add' className='icon_tabcell' id='background_gray' />
+              <div className='producto_cantidad'> {producto.cantidad}</div>
+              <img src={iconLess} alt='Add' className='icon_tabcell' id='background_yelow' />
+            </section>
           </section>
         ))}
-          <p></p>
-        </section>
-        <button className='btn_comanda'>Enviar Comanda </button>
-        </div>
+      </section>
+
+      <section className='section_resumen'>
+      <div className='total'>Total </div>
+      <button className='btn_comanda'>Enviar Comanda </button>
+      </section>
+    </div>
   )
 }

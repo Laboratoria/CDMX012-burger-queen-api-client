@@ -13,6 +13,7 @@ export default function Login() {
   const [errorPassword, setErrorPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  //
   const navigate = useNavigate();
 
   const LoginWithEmail = (e) => {
@@ -23,7 +24,7 @@ export default function Login() {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        navigate("/menu");
+        //navigate("/menu");
       })
       .catch((error) => {
         // const errorMessage = error.message;

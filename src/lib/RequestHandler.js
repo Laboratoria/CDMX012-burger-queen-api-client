@@ -13,7 +13,9 @@
 
 //  export const addOrder= async()=>  {
  
-//      const order = {name:"", price:0, id:0 };
+//      const order = {[
+//        products:
+//        name:"", price:0, id:0 };
  
 //      const res = await axios.post(urlBurguerApi+"/orders");
  

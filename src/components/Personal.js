@@ -1,11 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import Header from "./Header";
 
 const Personal = () => {
   return (
-    <div>Personal</div>
-  )
-}
+    <div>
+      <Header/>
+      <h1>Vista de Administrador</h1>
+    </div>
+  );
+};
 
-
-export default Personal
+export default Personal;

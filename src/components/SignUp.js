@@ -1,12 +1,11 @@
 import { createUserWithEmailAndPassword, auth } from "../lib/firebase-config";
 import { useNavigate } from "react-router";
-import { useState} from "react";
+import { useState } from "react";
 import "../css/Login.css";
 
 import logo from "../assets/burger4.png";
 import Header from "./Header";
 import "../css/SignUp.css";
-
 
 const SignUp = () => {
   const [errorEmail, setErrorEmail] = useState("");
@@ -47,55 +46,56 @@ const SignUp = () => {
       });
   };
   return (
-
     <section className="login-container">
-      <Header/>
+      <Header />
       <img className="logoBurger" src={logo} alt="logoBurger" />
 
-    <section className="form-container">
+      <section className="form-container">
+        <form className="box">
+          <label id="login"> Register </label>
+          <input
+            type="text"
+            className="input"
+            placeholder="User:"
+            autoComplete="off"
+            onChange={(e) => setUserName(e.target.value)}
+          />
+          <input
+            type="text"
+            className="input"
+            placeholder="Position:"
+            autoComplete="off"
+            onChange={(e) => setPosition(e.target.value)}
+          />
+          <input
+            type="email"
+            className="input"
+            placeholder="Email:"
+            autoComplete="off"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <section className="title-error-sec">
+            {errorEmail && <p className="title-error blink">{errorEmail}</p>}
+          </section>
 
-      <form className="box">
-        <label id="login"> Register </label>
-        <input
-          type="text"
-          className="input"
-          placeholder="User:"
-          autoComplete="off"
-          onChange={(e) => setUserName(e.target.value)}
-        />
-        <input
-          type="text"
-          className="input"
-          placeholder="Position:"
-          autoComplete="off"
-          onChange={(e) => setPosition(e.target.value)}
-        />
-        <input
-          type="email"
-          className="input"
-          placeholder="Email:"
-          autoComplete="off"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <section className="title-error-sec">
-          {errorEmail && <p className="title-error blink">{errorEmail}</p>}
-        </section>
+          <input
+            type="password"
+            className="input"
+            placeholder="Password:"
+            autoComplete="off"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <section className="title-error-sec">
+            {errorPassword && (
+              <p className="title-error blink">{errorPassword}</p>
+            )}
+          </section>
 
-        <input
-          type="password"
-          className="input"
-          placeholder="Password:"
-          autoComplete="off"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <section className="title-error-sec">
-          {errorPassword && <p className="title-error blink">{errorPassword}</p>}
-        </section>
-
-        <button className="buttonLogin" onClick={signUpWithEmail}>
-          Continue
-        </button>
-      </form>
+          <button className="buttonLogin" onClick={signUpWithEmail}>
+            Continue
+          </button>
+        </form>
+      </section>
     </section>
   );
 };

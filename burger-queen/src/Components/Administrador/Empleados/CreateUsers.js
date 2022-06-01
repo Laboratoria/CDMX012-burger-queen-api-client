@@ -1,7 +1,7 @@
 import '../../../styles/HomePage.css'
 import '../../../styles/CreateUsers.css'
 import { auth, db } from '../../../Lib/firebase-keys'
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, updateProfile, updateCurrentUser } from 'firebase/auth'
 // eslint-disable-next-line no-unused-vars
 import { doc, setDoc } from 'firebase/firestore'
 function CreateUsers() {
@@ -14,13 +14,13 @@ function CreateUsers() {
     const turn = e.target.elements.turn.value
     newEsclavo(email, password, rol, name, turn)
   }
+  const userInDisplay = auth.currentUser
   // eslint-disable-next-line no-unused-vars
   async function newEsclavo(email, password, rol, name, turn) {
     // eslint-disable-next-line no-unused-vars
     const infoEsclavo = await createUserWithEmailAndPassword(auth, email, password) // Its generating a new user
       .then((user) => {
         console.log(user, 'user')
-
         const docRef = doc(db, `User/${user.user.uid}`)
         setDoc(docRef, {
           email,
@@ -29,8 +29,9 @@ function CreateUsers() {
           uid: user.user.uid,
           name,
           turn
-        }).then(() => {
+        }).then(async () => {
           updateProfile(auth.currentUser, { displayName: name })
+          await updateCurrentUser(auth, userInDisplay)
         })
         console.log('Document written with ID: ', docRef.id)
         return user

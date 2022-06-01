@@ -7,7 +7,7 @@ export default function ProductsTable(){
  const [products, setProducts] = useState([]);
 
   const getData = async() => {
-    await axios.get(urlBurguerApi+"/Stock").then((response) => {
+    await axios.get(urlBurguerApi+"/products").then((response) => {
       const data = response.data;
       setProducts(data);
     });

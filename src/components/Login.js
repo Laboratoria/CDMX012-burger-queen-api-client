@@ -89,50 +89,9 @@ export default function Login() {
           Login
         </button>
 
-      
-        {/* </Fragment> */}
+
       </form>
     </section>
-    // <Fragment>
-    //   <img className="logoBurger" src={logo} alt="logoBurger" />
-    //   <form className="box">
-    //       <label className="login">Login</label>
-    //     <div className="field">
-    //       <label className="label">Email</label>
-    //       <div className="control">
-    //         <input
-    //           className="input"
-    //           type="email"
-    //           placeholder="e.g. alex@example.com"
-    //           autoComplete="off"
-    //           onChange={(e) => setEmail(e.target.value)}
-    //         />
-    //       </div>
-    //     </div>
-
-    //     <div className="field">
-    //       <label className="label">Password</label>
-    //       <div className="control">
-    //         <input
-    //           className="input"
-    //           type="password"
-    //           placeholder="****"
-    //           autoComplete="off"
-    //           onChange={(e) => setPassword(e.target.value)}
-    //         />
-    //       </div>
-    //     </div>
-
-    //     <button className="button is-primary" onClick={LoginWithEmail}>
-    //       Login
-    //     </button>
-    //   </form>
-    //   <p className="divSignUp">You don’t have an account?</p>
-    //   <p>
-    //     <Link to={"/signUp"} className="pSignUp">
-    //       Sign up{" "}
-    //     </Link>
-    //   </p>
-    // </Fragment>
+    
   );
 }

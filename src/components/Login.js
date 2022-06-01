@@ -89,10 +89,7 @@ export default function Login() {
           Login
         </button>
 
-        <p className="SignUp">You don’t have an account?</p>
-        <p className="SignUp">
-          <Link to={"/signUp"}>Register </Link>
-        </p>
+      
         {/* </Fragment> */}
       </form>
     </section>

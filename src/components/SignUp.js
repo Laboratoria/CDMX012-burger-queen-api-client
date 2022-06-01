@@ -2,7 +2,11 @@ import { createUserWithEmailAndPassword, auth } from "../lib/firebase-config";
 import { useNavigate } from "react-router";
 import { useState} from "react";
 import "../css/Login.css";
+
+import logo from "../assets/burger4.png";
+import Header from "./Header";
 import "../css/SignUp.css";
+
 
 const SignUp = () => {
   const [errorEmail, setErrorEmail] = useState("");
@@ -43,7 +47,13 @@ const SignUp = () => {
       });
   };
   return (
+
+    <section className="login-container">
+      <Header/>
+      <img className="logoBurger" src={logo} alt="logoBurger" />
+
     <section className="form-container">
+
       <form className="box">
         <label id="login"> Register </label>
         <input

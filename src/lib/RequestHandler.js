@@ -1,7 +1,7 @@
  import axios from "axios";
 
 
- const urlBurguerApi = "http://localhost:5000"
+ export const urlBurguerApi = "http://localhost:5000"
 
  export const getMenu = async() =>{
    const res = await axios.get( urlBurguerApi+"/products")
@@ -11,9 +11,11 @@
 
  
 
-//  export const order= async()=>  {
+//  export const addOrder= async()=>  {
  
-//     //  const products = { };
+//      const order = {[
+//        products:
+//        name:"", price:0, id:0 };
  
 //      const res = await axios.post(urlBurguerApi+"/orders");
  

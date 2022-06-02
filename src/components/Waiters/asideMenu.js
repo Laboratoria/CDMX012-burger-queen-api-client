@@ -20,57 +20,24 @@ export default function AsideMenu(props) {
       let product = order.products[i];
       suma += product.price * product.qty;
     }
-    setTotal(suma)
-    addOrder(order,name)
-    
-  
-console.log(addOrder(order,name))
-}
+    setTotal(suma);
+    addOrder(order, name);
 
+    console.log(addOrder(order, name));
+  };
 
-return (
-  <aside className="aside">
-    <IconButton
-      onClick={() => setIsDrawerOpen(true)}
-      size="large"
-      edge="start"
-      color="inherit"
-      aria-label="logo"
-    >
-      <section className="countAndCart">
-        <p>32</p>
-        <ShoppingCartIcon id="shopping" sx={{ fontSize: 50 }} />
-      </section>
-    </IconButton>
-    <Drawer
-      anchor="right"
-      open={isDrawerOpen}
-      onClose={() => setIsDrawerOpen(false)}
-    >
-      <Box p={2} width="400px" role="presentation" textAlign="center" sx={{
-        backgroundColor: 'primary.dark', width: 400, height: 1000
-      }}>
-        <header>
-          <img
-            className="icons"
-            alt="clockIcon"
-            src={require("../../assets/Clock.png")}
-          />
-          <p>Fecha del dia</p>
-          <p>Hora</p>
-          <p>Rol y nombre</p>
-          <hr />
-        </header>
-        <section>
-          <p></p>
-          <input
-            type="orderName"
-            className="inputOrder"
-            placeholder="Client name:"
-            value={name}
-            autoComplete="off" onChange={ClientName}
-
-          />
+  return (
+    <aside className="aside">
+      <IconButton
+        onClick={() => setIsDrawerOpen(true)}
+        size="large"
+        edge="start"
+        color="inherit"
+        aria-label="logo"
+      >
+        <section className="countAndCart">
+          <p>32</p>
+          <ShoppingCartIcon id="shopping" sx={{ fontSize: 50 }} />
         </section>
       </IconButton>
       <Drawer
@@ -93,7 +60,7 @@ return (
             <img
               className="icons"
               alt="clockIcon"
-              src={require("../assets/Clock.png")}
+              src={require("../../assets/Clock.png")}
             />
             <p>Fecha del dia</p>
             <p>Hora</p>

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import Menu from "../components/Menu";
+import Menu from "../components/Waiters/MenuView";
 import { auth, onAuthStateChanged } from "../lib/firebase-config";
-import Chef from "../components/Chef";
-import Personal from "../components/Personal";
+import Chef from "../components/chef/Chef";
+import Personal from "../components/Admin/PersonalView";
 
 const PrivateRoutes = () => {
   const [role, setRole] = useState(null);

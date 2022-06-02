@@ -1,7 +1,7 @@
 import MUIDataTable from "mui-datatables";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { urlBurguerApi } from "../lib/RequestHandler";
+import { urlBurguerApi } from "../../lib/RequestHandler";
 
 export default function ProductsTable(){
  const [products, setProducts] = useState([]);

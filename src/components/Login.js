@@ -13,7 +13,8 @@ export default function Login() {
   const [errorPassword, setErrorPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const navigate = useNavigate();
+  //
+  const navigate = useNavigate();
 
   const LoginWithEmail = (e) => {
     e.preventDefault();
@@ -44,9 +45,9 @@ export default function Login() {
       });
   };
 
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, handleUserStateChanged);
-  // }, []);
+  useEffect(() => {
+    onAuthStateChanged(auth, handleUserStateChanged);
+  }, []);
 
   function handleUserStateChanged(user) {
     if (user) {

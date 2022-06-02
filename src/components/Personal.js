@@ -1,17 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Header from './Header'
-
+import React from "react";
+import Header from "./Header";
+import Products from "./Products";
 
 const Personal = () => {
   return (
     <div>
-       <Header />
-       Vista admin
-   
+      <Header/>
+      <h1>Vista de Administrador</h1>
+      <Products/>
     </div>
-  )
-}
+  );
+};
 
-
-export default Personal
+export default Personal;

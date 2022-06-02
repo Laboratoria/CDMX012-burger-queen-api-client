@@ -9,16 +9,19 @@ import { useState } from 'react'
 
 // eslint-disable-next-line react/prop-types
 export default function HomePage({ handleExit, currentUser, rol }) {
+  const getDates = new Date()
+  const DateHour = getDates.getHours() + ':' + getDates.getMinutes()
+
   const [order, setOrder] = useState({
     productos: [],
-    table: 7,
-    clientName: 'NoSoyCliente',
-    startTime: '15:30:10',
+    table: 0,
+    clientName: '',
+    startTime: DateHour,
     price: 8,
     orderId: 1,
-    waiter: 'NoSoyMese',
-    waiterId: 'NOS=YM3s3r0',
-    cantidad: 5,
+    waiter: currentUser.displayName,
+    waiterId: currentUser.uid,
+    cantidad: '',
     endtTime: '15:30:10',
     status: 'pending',
     totalTime: '15:30:10'
@@ -26,8 +29,6 @@ export default function HomePage({ handleExit, currentUser, rol }) {
 
   // setOrder({ ...order, productos: [...order.productos, product] })
 
-  const getDates = new Date()
-  const DateHour = getDates.getHours() + ':' + getDates.getMinutes()
   return (
     <div className='home_container'>
       <header className='header_home'>
@@ -58,7 +59,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
       <aside className="rol_aside">
         {rol === 'admin'
           ? <CreateUsers />
-          : <EnviarComanda order={order}/>
+          : <EnviarComanda order={order} setOrder={setOrder}/>
         }
 
       </aside>

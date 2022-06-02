@@ -3,9 +3,19 @@ import '../../styles/Comanda.css'
 import iconDelete from '../../Assets/icons/delete.png'
 import iconAdd from '../../Assets/icons/add.png'
 import iconLess from '../../Assets/icons/less.png'
-export const EnviarComanda = ({ order }) => {
+export const EnviarComanda = ({ order, setOrder }) => {
+  console.log(order)
   const { productos } = order
-
+  console.log(productos)
+  const totalPrices = []
+  const totalCantidad = []
+  const totalProducts = productos.map((producto) => (totalPrices.push(producto.price * producto.cantidad, totalCantidad.push(producto.cantidad + ' ' + producto.name))))
+  console.log(totalProducts)
+  const valorinicial = 0
+  const totalCuenta = totalPrices.reduce((a, b) => a + b, valorinicial)
+  const handleSubmit = (e) => {
+    setOrder({ ...order, price: totalCuenta, cantidad: totalCantidad })
+  }
   // console.log(holi)
   /* const productValues = {
     name: order.name,
@@ -27,7 +37,8 @@ export const EnviarComanda = ({ order }) => {
   return (
     <div className='contenedor_de_comanda'>
       <h1 className='orderTitle'> Orden # 1 </h1>
-      <select className='mesa' id='table'>
+      <select className='mesa' id='table'
+      onChange={(e) => setOrder({ ...order, table: e.target.value })}>
         <option>Seleccionar mesa </option>
         <option value='1'>1</option>
         <option value='2'>2</option>
@@ -41,6 +52,8 @@ export const EnviarComanda = ({ order }) => {
         type='text'
         placeholder='Nombre del Cliente'
         className='input_comanda_form'
+        id='inputNombre'
+        onChange={(e) => setOrder({ ...order, clientName: e.target.value })}
       ></input>
       <div className='titulo_productos'>
         <p>Producto</p>
@@ -64,8 +77,8 @@ export const EnviarComanda = ({ order }) => {
       </section>
 
       <section className='section_resumen'>
-      <div className='total'>Total </div>
-      <button className='btn_comanda'>Enviar Comanda </button>
+      <div className='total'>Total $ {totalCuenta}</div>
+      <button className='btn_comanda' onClick={() => handleSubmit()} >Enviar Comanda </button>
       </section>
     </div>
   )

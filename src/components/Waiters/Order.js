@@ -6,7 +6,7 @@ export default function Order(props) {
  <img
               className="icons"
               alt="editIcon"
-              src={require("../assets/edit.png")}/>
+              src={require("../../assets/edit.png")}/>
             <p className="nameOrder">{name}
             </p>
             <p className="qtyOrder">{qty}
@@ -16,7 +16,7 @@ export default function Order(props) {
             <img
               className="icons"
               alt="deleteIcon"
-              src={require("../assets/delete.png")}
+              src={require("../../assets/delete.png")}
             />
         </section>
     )

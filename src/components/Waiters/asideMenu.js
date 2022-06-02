@@ -3,7 +3,7 @@ import { Drawer, Box, IconButton } from "@mui/material";
 import { useState } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Order from "./Order";
-import { addOrder } from "../lib/RequestHandler";
+import { addOrder } from "../../lib/RequestHandler";
 
 
 
@@ -26,6 +26,9 @@ export default function AsideMenu(props) {
       suma += product.price * product.qty;
     }
     setTotal(suma)
+    addOrder(order,name)
+    
+  
 console.log(addOrder(order,name))
 }
 
@@ -56,7 +59,7 @@ return (
           <img
             className="icons"
             alt="clockIcon"
-            src={require("../assets/Clock.png")}
+            src={require("../../assets/Clock.png")}
           />
           <p>Fecha del dia</p>
           <p>Hora</p>

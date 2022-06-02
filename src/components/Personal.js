@@ -1,14 +1,12 @@
 import React from "react";
 import Header from "./Header";
-import Products from "./Products"
-
 const Personal = () => {
   return (
-    <div>
-      <Header/>
+    <section className="Personal container">
+      <Header />
       <h1>Vista de Administrador</h1>
-      <Products/>
-    </div>
+      {/* <Products/> */}
+    </section>
   );
 };
 

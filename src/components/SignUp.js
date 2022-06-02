@@ -86,9 +86,7 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <section className="title-error-sec">
-            {errorPassword && (
-              <p className="title-error blink">{errorPassword}</p>
-            )}
+            {errorPassword && <p className="title-error blink">{errorPassword}</p>}
           </section>
 
           <button className="buttonLogin" onClick={signUpWithEmail}>

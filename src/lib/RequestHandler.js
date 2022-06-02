@@ -11,15 +11,15 @@
 
  
 
-//  export const addOrder= async()=>  {
+ export const addOrder= async(order,client)=>  {
+ console.log(order)
+ console.log(client)
+     const testOrder = { userId:"user", client:"alejandro", products:[{qty:1, productId:"papas"}]};
  
-//      const order = {[
-//        products:
-//        name:"", price:0, id:0 };
+     const res = await axios.post(urlBurguerApi+"/orders", testOrder);
  
-//      const res = await axios.post(urlBurguerApi+"/orders");
+    
+    return res.data 
+ }
  
-     
-//      console.log(res.data);
-//  }
  

@@ -4,6 +4,7 @@ import iconDelete from '../../Assets/icons/delete.png'
 import iconAdd from '../../Assets/icons/add.png'
 import iconLess from '../../Assets/icons/less.png'
 export const EnviarComanda = ({ order, setOrder }) => {
+  const dataInfo = order
   console.log(order)
   const { productos } = order
   console.log(productos)
@@ -13,8 +14,26 @@ export const EnviarComanda = ({ order, setOrder }) => {
   console.log(totalProducts)
   const valorinicial = 0
   const totalCuenta = totalPrices.reduce((a, b) => a + b, valorinicial)
-  const handleSubmit = (e) => {
+
+  const prueba = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(
+      dataInfo
+    )
+  }
+
+  const postComanda = () => {
+    fetch('http://localhost:4000/orders', prueba)
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+  }
+
+  const handleSubmit = async () => {
     setOrder({ ...order, price: totalCuenta, cantidad: totalCantidad })
+    await postComanda()
   }
   // console.log(holi)
   /* const productValues = {

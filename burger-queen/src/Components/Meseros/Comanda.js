@@ -4,41 +4,64 @@ import iconDelete from '../../Assets/icons/delete.png'
 import iconAdd from '../../Assets/icons/add.png'
 import iconLess from '../../Assets/icons/less.png'
 export const EnviarComanda = ({ order, setOrder }) => {
-  console.log(order)
   const { productos } = order
-  console.log(productos)
-  const totalPrices = []
-  const totalCantidad = []
-  const totalProducts = productos.map((producto) => (totalPrices.push(producto.price * producto.cantidad, totalCantidad.push(producto.cantidad + ' ' + producto.name))))
-  console.log(totalProducts)
+  const totalPrices = productos.map((producto) => {
+    return producto.price * producto.cantidad
+  })
   const valorinicial = 0
   const totalCuenta = totalPrices.reduce((a, b) => a + b, valorinicial)
+
+  const cantidadProductos = productos.map((producto) => {
+    return producto.cantidad
+  })
+  const cantidadInicial = 0
+  const totalCantidad = cantidadProductos.reduce(
+    (a, b) => a + b,
+    cantidadInicial
+  )
+
   const handleSubmit = (e) => {
     setOrder({ ...order, price: totalCuenta, cantidad: totalCantidad })
   }
-  // console.log(holi)
-  /* const productValues = {
-    name: order.name,
-    price: order.price,
-    id: order.id,
-    cantidad: order.cant
+
+  const handleAdd = (currentProduct) => {
+    const id = order.productos.findIndex((producto) => {
+      return producto.id === currentProduct.id
+    })
+    const updatedOrder = [...order.productos]
+    for (const property in updatedOrder[id]) {
+      if (property === 'cantidad') {
+        updatedOrder[id][property] = updatedOrder[id][property] + 1
+      }
+    }
+    setOrder({ ...order, productos: [...updatedOrder] })
   }
-  const [products] = useState(productValues)
-  const initialState = {
-    productos: [products],
-    table: '',
-    clientName: '',
-    startTime: '',
-    price: order.price,
-    orderId: order.id
+
+  const handleDelete = (currentProduct, deleteAll) => {
+    const id = order.productos.findIndex((producto) => {
+      return producto.id === currentProduct.id
+    })
+    const updatedOrder = [...order.productos]
+    if (currentProduct.cantidad > 1 && !deleteAll) {
+      for (const property in updatedOrder[id]) {
+        if (property === 'cantidad') {
+          updatedOrder[id][property] = updatedOrder[id][property] - 1
+        }
+      }
+    } else {
+      updatedOrder.splice(id, 1)
+    }
+    setOrder({ ...order, productos: [...updatedOrder] })
   }
-  const [finishOrder] = useState(initialState)
-  console.log(finishOrder) */
+
   return (
     <div className='contenedor_de_comanda'>
       <h1 className='orderTitle'> Orden # 1 </h1>
-      <select className='mesa' id='table'
-      onChange={(e) => setOrder({ ...order, table: e.target.value })}>
+      <select
+        className='mesa'
+        id='table'
+        onChange={(e) => setOrder({ ...order, table: e.target.value })}
+      >
         <option>Seleccionar mesa </option>
         <option value='1'>1</option>
         <option value='2'>2</option>
@@ -65,20 +88,40 @@ export const EnviarComanda = ({ order, setOrder }) => {
       <section className='contenedor_productos'>
         {productos.map((producto, index) => (
           <section className='producto_orden' key={`${index}${producto.id}`}>
-            <img src={iconDelete} alt='Delete' className='icon_tabcell' id='background_yelow'/>
+            <img
+              src={iconDelete}
+              alt='Delete'
+              className='icon_tabcell'
+              id='background_yelow'
+              onClick={() => handleDelete(producto, true)}
+            />
             <div className='product_name'>{producto.name}</div>
             <section className='contenedor_botones'>
-              <img src={iconAdd} alt='Add' className='icon_tabcell' id='background_gray' />
+              <img
+                src={iconAdd}
+                alt='Add'
+                className='icon_tabcell'
+                id='background_gray'
+                onClick={() => handleAdd(producto)}
+              />
               <div className='producto_cantidad'> {producto.cantidad}</div>
-              <img src={iconLess} alt='Add' className='icon_tabcell' id='background_yelow' />
+              <img
+                src={iconLess}
+                alt='Add'
+                className='icon_tabcell'
+                id='background_yelow'
+                onClick={() => handleDelete(producto)}
+              />
             </section>
           </section>
         ))}
       </section>
 
       <section className='section_resumen'>
-      <div className='total'>Total $ {totalCuenta}</div>
-      <button className='btn_comanda' onClick={() => handleSubmit()} >Enviar Comanda </button>
+        <div className='total'>Total $ {totalCuenta}</div>
+        <button className='btn_comanda' onClick={() => handleSubmit()}>
+          Enviar Comanda{' '}
+        </button>
       </section>
     </div>
   )

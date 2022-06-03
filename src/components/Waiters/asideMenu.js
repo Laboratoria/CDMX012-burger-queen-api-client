@@ -32,7 +32,6 @@ export default function AsideMenu(props) {
 console.log(addOrder(order,name))
 }
 
-
 return (
   <aside className="aside">
     <IconButton

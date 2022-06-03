@@ -1,11 +1,16 @@
 
-// export function DateOrder(props) {
-//     const {order,client } = props
+export function DateOrder(props) {
+    const {qty,client,name,img } = props
 
-//     return (
-// <section>         
-// <p> Order:{order} </p>
-// <p>Client:{client}</p>
-// </section>
-//     );
-// }
+    return (
+<section>  
+<img 
+        className="conteiner-img"
+        src={img}
+        alt= "imgFood"/>
+ <p>Client:{client}</p>      
+<p> Order:{name} </p>
+<p>Quantity:{qty}</p>
+</section>
+    );
+}

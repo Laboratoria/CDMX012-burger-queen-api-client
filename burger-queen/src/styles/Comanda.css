@@ -1,0 +1,146 @@
+.contenedor_de_comanda {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.orderTitle {
+    margin: 0;
+    color: #FFC700;
+    font-weight: bold;
+}
+
+.mesa {
+    width: 100%;
+    height: 5%;
+    /* margin: 2.5% 0; */
+    padding-left: 8%;
+    outline: none;
+    background-color: #E5E5E5;
+}
+
+.input_comanda_form {
+    width: 90%;
+    height: 5%;
+    margin: 2.5% 0;
+    padding-left: 8%;
+    outline: none;
+    background-color: #E5E5E5;
+}
+
+.titulo_productos {
+    width: 100%;
+    height: 4%;
+    margin: 2.5% 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-color: #E5E5E5;
+    font-size: 12px;
+    justify-content: space-between;
+}
+
+.titulo_total {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section_resumen {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 6%;
+
+}
+
+.total {
+    background-color: #E5E5E5;
+    width: 92%;
+    height: 7%;
+    outline: none;
+    font-weight: 800;
+    border: none;
+    font-size: 1.2em;
+    margin: 1rem 0;
+    padding-left: 8%;
+}
+
+.btn_comanda {
+    background-color: #FFC700;
+    width: 100%;
+    height: 7%;
+    outline: none;
+    font-weight: 800;
+    border: none;
+    font-size: 1.2em;
+}
+
+.producto_orden {
+    height: 2rem;
+    background-color: #E5E5E5;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    margin: 0.2rem
+}
+
+.contenedor_productos {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+#background_yelow{
+    background-color:#FFC700;
+    width: 2rem;
+    height: 2rem;
+}
+
+#background_gray{
+    background-color: #232021;
+    width: 2rem;
+    height: 2rem;
+}
+
+.icon_tabcell {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.producto_boton {
+    background-color: #232021;
+    color: white;
+    width: 45%;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+.product_name{
+text-align: left;
+margin: 0;
+padding: 0;
+
+}
+.producto_cantidad {
+    width: 45%;
+    height: 100%;
+    margin: 0;
+    color: #232021;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor_botones {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end
+}

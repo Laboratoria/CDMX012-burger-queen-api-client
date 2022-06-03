@@ -1,0 +1,7 @@
+.contenedor_tablas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-weight: bold;
+}

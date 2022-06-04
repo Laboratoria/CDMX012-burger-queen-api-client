@@ -1,0 +1,85 @@
+@use '../../Globals.scss';
+
+.container__formulario {
+  background-color: rgba(31, 29, 43, 0.94);
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-self: flex-end;
+}
+
+.btn__close {
+  background-color: transparent;
+  border-style: none;
+  align-self: flex-start;
+}
+
+.form {
+  &__title {
+    margin: 15px 0 60px 0;
+    font-size: 32px;
+  }
+}
+
+.form__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 42vw;
+  height: 63vh;
+}
+
+.group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  &__label {
+    margin: 10px 15px;
+    width: 20%;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  &__input {
+    width: 70%;
+    border-radius: 25px;
+    padding: 10px 25px;
+  }
+  &__group--radio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &--radio {
+    margin: 0 14px;
+  }
+}
+
+.group__radio {
+}
+
+.radio__label {
+  font-size: 12px;
+  font-size: 12px;
+  margin: 0 1px;
+}
+
+.btn--register {
+  width: 50%;
+  padding: 15px;
+  border-radius: none;
+  border: none;
+  background-color: Globals.$color-principal;
+  color: Globals.$color-white;
+  font-size: 15px;
+  font-weight: 600;
+  align-self: center;
+  margin: 25px 0;
+}

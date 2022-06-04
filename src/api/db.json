@@ -1,0 +1,260 @@
+{
+  "products": [
+    {
+      "product._id": "M01H",
+      "product.name": "Hamburguesa sencilla",
+      "product.price": 79.9,
+      "product.image": "/assets/imgs/H-sencilla.svg",
+      "product.type": "Meal",
+      "product.dateEntry": "Miércoles 1 de Junio 2022"
+    },
+    {
+      "product._id": "M02H",
+      "product.name": "Hamburguesa doble con queso",
+      "product.price": 89.9,
+      "product.image": "/assets/imgs/H-doble-queso.svg",
+      "product.type": "Meal",
+      "product.dateEntry": "Jueves 2 de Junio 2022"
+    },
+    {
+      "product._id": "M03H",
+      "product.name": "Hamburguesa de pollo",
+      "product.price": 89.9,
+      "product.image": "/assets/imgs/H-pollo.svg",
+      "product.type": "Meal",
+      "product.dateEntry": "Jueves 2 de Junio 2022"
+    },
+    {
+      "product._id": "M04H",
+      "product.name": "Hamburguesa buffalo",
+      "product.price": 99.9,
+      "product.image": "/assets/imgs/H-buffalo.svg",
+      "product.type": "Meal",
+      "product.dateEntry": "Miércoles 1 de Junio 2022"
+    },
+    {
+      "product._id": "M05H",
+      "product.name": "Hamburguesa con tocino",
+      "product.price": 99.9,
+      "product.image": "/assets/imgs/H-tocino.svg",
+      "product.type": "Meal",
+      "product.dateEntry": "Miércoles 1 de Junio 2022"
+    },
+    {
+      "product._id": "M06A",
+      "product.name": "Aros de cebolla",
+      "product.price": 69.9,
+      "product.image": "/assets/imgs/A-cebolla.svg",
+      "product.type": "Meal",
+      "product.dateEntry": "Jueves 2 de Junio 2022"
+    },
+    {
+      "product._id": "M07P",
+      "product.name": "Papas a la francesa",
+      "product.price": 69.9,
+      "product.image": "/assets/imgs/P-francesa.svg",
+      "product.type": "Meal",
+      "product.dateEntry": "Jueves 2 de Junio 2022"
+    },
+    {
+      "product._id": "M08P",
+      "product.name": "Papas gajo",
+      "product.price": 79.9,
+      "product.image": "/assets/imgs/P-gajo.svg",
+      "product.type": "Meal",
+      "product.dateEntry": "Jueves 2 de Junio 2022"
+    },
+    {
+      "product._id": "M09S",
+      "product.name": "Coca-cola",
+      "product.price": 29.9,
+      "product.image": "/assets/imgs/S-cocacola.svg",
+      "product.type": "Meal",
+      "product.dateEntry": "Jueves 2 de Junio 2022"
+    },
+    {
+      "product._id": "M10S",
+      "product.name": "Sprite",
+      "product.price": 29.9,
+      "product.image": "/assets/imgs/S-sprite.svg",
+      "product.type": "Meal",
+      "product.dateEntry": "Jueves 2 de Junio 2022"
+    },
+    {
+      "product._id": "M11S",
+      "product.name": "Club Sandwich",
+      "product.price": 69.9,
+      "product.image": "/assets/imgs/S-clubs.svg",
+      "product.type": "Meal",
+      "product.dateEntry": "Jueves 2 de Junio 2022"
+    },
+    {
+      "product._id": "B12T",
+      "product.name": "Té helado de especias",
+      "product.price": 49.9,
+      "product.image": "/assets/imgs/T-frio-especias.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Jueves 2 de Junio 2022"
+    },
+    {
+      "product._id": "B13T",
+      "product.name": "Té helado",
+      "product.price": 39.9,
+      "product.image": "/assets/imgs/T-helado.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Jueves 2 de Junio 2022"
+    },
+    {
+      "product._id": "B14T",
+      "product.name": "Té caliente de limón",
+      "product.price": 29.9,
+      "product.image": "/assets/imgs/T-limon.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B15D",
+      "product.name": "Desayuno americano",
+      "product.price": 69.9,
+      "product.image": "/assets/imgs/B-breakfast-americano.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B16D",
+      "product.name": "Huevos con tocino",
+      "product.price": 59.9,
+      "product.image": "/assets/imgs/B-huevo-tocino.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B17B",
+      "product.name": "Burrito de huevo",
+      "product.price": 49.9,
+      "product.image": "/assets/imgs/B-huevo.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B18B",
+      "product.name": "Burrito Especial",
+      "product.price": 59.9,
+      "product.image": "/assets/imgs/B-especial.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B19B",
+      "product.name": "Bowl de avena y frutas frescas",
+      "product.price": 49.9,
+      "product.image": "/assets/imgs/B-avena-frutas.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B20B",
+      "product.name": "Cuernito con jamón",
+      "product.price": 49.9,
+      "product.image": "/assets/imgs/B-cuernito-jamon.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B21W",
+      "product.name": "Wafle con crema batida",
+      "product.price": 29.9,
+      "product.image": "/assets/imgs/W-sencillo.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B22W",
+      "product.name": "Wafle con crema batida y salsa de chocolate",
+      "product.price": 39.9,
+      "product.image": "/assets/imgs/W-crema-salsachocolate.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B23W",
+      "product.name": "Wafle con crema batida y frutas frescas",
+      "product.price": 49.9,
+      "product.image": "/assets/imgs/W-fruta.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B24P",
+      "product.name": "Croissant",
+      "product.price": 29.9,
+      "product.image": "/assets/imgs/P-croisant.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B25P",
+      "product.name": "Croissant con relleno de fresa",
+      "product.price": 29.9,
+      "product.image": "/assets/imgs/P-croisant-fresa.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B26P",
+      "product.name": "Croissant con relleno de chocolate",
+      "product.price": 29.9,
+      "product.image": "/assets/imgs/P-croisant-chocolate.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B27B",
+      "product.name": "Jugo de naranja",
+      "product.price": 29.9,
+      "product.image": "/assets/imgs/J-naranja.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B28B",
+      "product.name": "Jugo de fresa",
+      "product.price": 39.9,
+      "product.image": "/assets/imgs/J-Fresa.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B29B",
+      "product.name": "Smoothie de frutas",
+      "product.price": 49.9,
+      "product.image": "/assets/imgs/B-smotie.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B30B",
+      "product.name": "Café americano",
+      "product.price": 29.9,
+      "product.image": "/assets/imgs/C-americano.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B31B",
+      "product.name": "Café capuchino",
+      "product.price": 39.9,
+      "product.image": "/assets/imgs/C-capuchino.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    },
+    {
+      "product._id": "B32B",
+      "product.name": "Café capuchino frio",
+      "product.price": 39.9,
+      "product.image": "/assets/imgs/C-capuchino-frio.svg",
+      "product.type": "Breakfast",
+      "product.dateEntry": "Viernes 3 de Junio 2022"
+    }
+  ]
+}

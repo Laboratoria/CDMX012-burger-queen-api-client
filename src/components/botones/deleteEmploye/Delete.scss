@@ -1,0 +1,15 @@
+@use '../../../Globals.scss';
+
+.btn__del {
+  background-color: transparent;
+  border-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  .btn__del--text {
+    color: Globals.$color-principal;
+    font-size: 12px;
+  }
+}

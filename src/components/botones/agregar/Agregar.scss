@@ -1,0 +1,17 @@
+@use '../../../Globals.scss';
+
+.btn__title {
+  color: Globals.$color-white;
+  font-size: 12px;
+}
+
+.btn__button {
+  background-color: transparent;
+  border-style: none;
+  width: 182px;
+  height: 40px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin: 0 10px;
+}

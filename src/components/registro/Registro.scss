@@ -1,0 +1,96 @@
+@use '../../Globals.scss';
+
+.container_dashboard {
+  min-height: 100vh;
+  display: flex;
+}
+
+.bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: Globals.$color-bar;
+  width: 8%;
+
+  &__btn--opciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 60%;
+  }
+
+  &__btn--add {
+    width: 100px;
+    position: fixed;
+    top: 0;
+  }
+
+  &__btn--log {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 18px;
+  }
+}
+
+.dashboard {
+  width: 100%;
+  height: auto;
+  background: Globals.$color-fondo;
+  position: relative;
+
+  &__title--text {
+    color: Globals.$color-white;
+    margin: 50px 0;
+    font-size: 32px;
+    text-align: center;
+  }
+}
+
+.container__register {
+  position: absolute;
+  right: 0;
+}
+
+.container__employes {
+  height: 100%;
+}
+
+.table {
+  color: Globals.$color-white;
+  margin: 10px 0;
+
+  &__employes {
+    width: 99%;
+    text-align: center;
+    margin: 0 5px;
+    border-spacing: 0 8px;
+  }
+
+  &__title {
+    margin: 0 10px;
+    padding: 15px 0;
+  }
+
+  &__columns {
+    background-color: Globals.$color-bar;
+  }
+
+  &__user--text {
+    padding: 15px 0;
+    background-color: Globals.$color-bar;
+  }
+
+  &__user--btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 15px 0;
+    background-color: #1f1d2b;
+  }
+}
+
+tbody {
+  font-size: 14px;
+}

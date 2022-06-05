@@ -5,7 +5,6 @@ import { exit } from './Providers'
 import PropTypes from 'prop-types'
 
 export default function PrivateRoutes({ currentUser, rol }) {
-  // console.log(currentUser, rol)
   if (rol === 'admin' && currentUser !== null) {
     return (
       <BrowserRouter>
@@ -22,7 +21,7 @@ export default function PrivateRoutes({ currentUser, rol }) {
 
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<HomePage handleExit={exit} currentUser={currentUser} />} />
+          <Route path='/' element={<HomePage handleExit={exit} currentUser={currentUser} rol={rol} />} />
         </Routes>
       </BrowserRouter>
 

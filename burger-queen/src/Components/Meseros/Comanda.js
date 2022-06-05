@@ -3,7 +3,8 @@ import '../../styles/Comanda.css'
 import iconDelete from '../../Assets/icons/delete.png'
 import iconAdd from '../../Assets/icons/add.png'
 import iconLess from '../../Assets/icons/less.png'
-export const EnviarComanda = ({ order, setOrder }) => {
+
+export const Comanda = ({ order, setOrder, setMain, setAside }) => {
   const { productos } = order
   const totalPrices = productos.map((producto) => {
     return producto.price * producto.cantidad
@@ -22,6 +23,8 @@ export const EnviarComanda = ({ order, setOrder }) => {
 
   const handleSubmit = (e) => {
     setOrder({ ...order, price: totalCuenta, cantidad: totalCantidad })
+    setMain('Mesas')
+    setAside('null')
   }
 
   const handleAdd = (currentProduct) => {

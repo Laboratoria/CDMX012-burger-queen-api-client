@@ -19,7 +19,6 @@ export default function HomePage() {
         useNavigate('/')
       })
       .catch((error) => {
-        console.log(error.code)
         switch (error.code) {
           case 'auth/user-not-found':
             return (
@@ -48,6 +47,10 @@ export default function HomePage() {
         }
       })
   }
+
+  // const maskify = (password) => {
+  //   return password.slice(0, -1).replace(/[a-zA-Z]/g, '*').concat(password.slice(-1, password.len))
+  // }
 
   return (
     <div className='log_in_content'>

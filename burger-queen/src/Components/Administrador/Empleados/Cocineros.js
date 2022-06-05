@@ -13,7 +13,6 @@ export const Cocineros = ({ deleteStaff }) => {
         meseros.push({ ...mesero.data(), id: mesero.id })
       })
       setStaff(meseros)
-      console.log(staff)
     })
   }
 

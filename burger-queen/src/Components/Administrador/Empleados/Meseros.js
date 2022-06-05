@@ -14,7 +14,6 @@ export const Meseros = () => {
         meseros.push({ ...mesero.data(), id: mesero.id })
       })
       setStaff(meseros)
-      console.log(staff)
     })
   }
 

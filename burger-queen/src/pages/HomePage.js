@@ -52,24 +52,24 @@ export default function HomePage({ handleExit, currentUser, rol }) {
     }
   }
 
-  // observa el cambio en la funcion getColection
+  // observa el cambio en la funcion setFristRender
   useEffect(() => {
     setFristRender()
   }, [])
 
   const [order, setOrder] = useState({
-    productos: [],
-    table: 0,
-    clientName: '',
-    startTime: DateHour,
-    price: 8,
     orderId: 1,
+    table: '',
+    clientName: '',
+    productos: [],
+    totalProducts: '',
+    totalPrice: '',
+    status: 'kitchen',
     waiter: currentUser.displayName,
     waiterId: currentUser.uid,
-    cantidad: '',
-    endtTime: '15:30:10',
-    status: 'pending',
-    totalTime: '15:30:10'
+    startTime: DateHour,
+    endtTime: '',
+    totalTime: ''
   })
 
   return (

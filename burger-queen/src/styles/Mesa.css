@@ -1,0 +1,24 @@
+.mesa-contenedor{
+    background-color: white;
+    width: 30%;
+    height: auto;
+    border-bottom-left-radius: 19px;
+    border-bottom-right-radius: 19px;
+    margin: 1%;
+    border: 2px inset #232021;
+    color: black;
+    font-size: 20px;
+}
+#titulo-mesa{
+    width: 100%;
+    background-color: #FFC700;
+    font-weight: bold;
+    color:#232021;
+}
+.datos-mesa td{
+    color: #FFC700;
+    font-weight: bold;
+}
+tr:nth-child(odd){
+    background-color:#F6F6F6;
+}

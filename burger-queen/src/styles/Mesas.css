@@ -6,3 +6,8 @@
   left: 55%;
   bottom: 4rem;
 }
+.mesas-contenedor{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

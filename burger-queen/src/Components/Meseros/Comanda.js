@@ -3,10 +3,11 @@ import '../../styles/Comanda.css'
 import iconDelete from '../../Assets/icons/delete.png'
 import iconAdd from '../../Assets/icons/add.png'
 import iconLess from '../../Assets/icons/less.png'
+import { useEffect } from 'react'
 
 export const Comanda = ({ order, setOrder, setMain, setAside }) => {
   const dataInfo = order
-  console.log(order)
+  console.log(dataInfo)
 
   const { productos } = order
   const totalPrices = productos.map((producto) => {
@@ -14,6 +15,7 @@ export const Comanda = ({ order, setOrder, setMain, setAside }) => {
   })
   const valorinicial = 0
   const totalCuenta = totalPrices.reduce((a, b) => a + b, valorinicial)
+  console.log(totalCuenta)
 
   const cantidadProductos = productos.map((producto) => {
     return producto.cantidad
@@ -24,16 +26,20 @@ export const Comanda = ({ order, setOrder, setMain, setAside }) => {
     cantidadInicial
   )
 
-  const handleSubmit = (e) => {
   const prueba = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(
-      dataInfo
+      dataInfo,
+      console.log(dataInfo)
     )
   }
+
+  useEffect(() => {
+    setOrder({ ...order, totalProducts: totalCantidad, totalPrice: totalCuenta })
+  }, [totalCuenta, totalCantidad])
 
   const postComanda = () => {
     fetch('http://localhost:4000/orders', prueba)
@@ -41,12 +47,11 @@ export const Comanda = ({ order, setOrder, setMain, setAside }) => {
       .then((data) => console.log(data))
   }
 
-  const handleSubmitComanda = async () => {
-    setOrder({ ...order, price: totalCuenta, cantidad: totalCantidad })
-    await postComanda()
+  const handleSubmitComanda = (e) => {
+    e.preventDefault()
+    postComanda()
     setMain('Mesas')
     setAside('null')
-  
   }
 
   const handleAdd = (currentProduct) => {
@@ -144,7 +149,7 @@ export const Comanda = ({ order, setOrder, setMain, setAside }) => {
 
       <section className='section_resumen'>
         <div className='total'>Total $ {totalCuenta}</div>
-        <button className='btn_comanda' onClick={() => handleSubmitComanda()}>
+        <button className='btn_comanda' onClick={(e) => handleSubmitComanda(e)}>
           Enviar Comanda{' '}
         </button>
       </section>

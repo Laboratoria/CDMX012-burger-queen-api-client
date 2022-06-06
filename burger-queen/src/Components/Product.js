@@ -5,6 +5,7 @@ export const Product = ({ product, setOrder, order }) => {
     const id = order.productos.findIndex((producto) => {
       return producto.id === currentProduct.id
     })
+    const addProduct = { id: currentProduct.id, name: currentProduct.name, price: currentProduct.price, status: 'kitchen' }
     //  verifica que exista un producto seleccionado en el array de productos
     if (id >= 0) {
       // crea una copia del array de productos para poder modificar la cantidad
@@ -21,10 +22,7 @@ export const Product = ({ product, setOrder, order }) => {
       setOrder({ ...order, productos: [...updatedOrder] })
     } else {
       // si es seleccionado por primera vez, lo agrega al array de los productos
-      setOrder({
-        ...order,
-        productos: [...order.productos, { ...currentProduct, cantidad: 1 }]
-      })
+      setOrder({ ...order, productos: [...order.productos, { ...addProduct, cantidad: 1 }] })
     }
   }
   return (

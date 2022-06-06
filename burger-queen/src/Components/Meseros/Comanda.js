@@ -3,9 +3,11 @@ import '../../styles/Comanda.css'
 import iconDelete from '../../Assets/icons/delete.png'
 import iconAdd from '../../Assets/icons/add.png'
 import iconLess from '../../Assets/icons/less.png'
-export const EnviarComanda = ({ order, setOrder }) => {
+
+export const Comanda = ({ order, setOrder, setMain, setAside }) => {
   const dataInfo = order
   console.log(order)
+
   const { productos } = order
   const totalPrices = productos.map((producto) => {
     return producto.price * producto.cantidad
@@ -39,9 +41,12 @@ export const EnviarComanda = ({ order, setOrder }) => {
       .then((data) => console.log(data))
   }
 
-  const handleSubmit = async () => {
+  const handleSubmitComanda = async () => {
     setOrder({ ...order, price: totalCuenta, cantidad: totalCantidad })
     await postComanda()
+    setMain('Mesas')
+    setAside('null')
+  
   }
 
   const handleAdd = (currentProduct) => {
@@ -139,7 +144,7 @@ export const EnviarComanda = ({ order, setOrder }) => {
 
       <section className='section_resumen'>
         <div className='total'>Total $ {totalCuenta}</div>
-        <button className='btn_comanda' onClick={() => handleSubmit()}>
+        <button className='btn_comanda' onClick={() => handleSubmitComanda()}>
           Enviar Comanda{' '}
         </button>
       </section>

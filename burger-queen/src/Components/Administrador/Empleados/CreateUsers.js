@@ -4,7 +4,7 @@ import { auth, db } from '../../../Lib/firebase-keys'
 import { createUserWithEmailAndPassword, updateProfile, updateCurrentUser } from 'firebase/auth'
 // eslint-disable-next-line no-unused-vars
 import { doc, setDoc } from 'firebase/firestore'
-function CreateUsers() {
+function CreateUsers({ setAside }) {
   const handleNewUser = (e) => {
     e.preventDefault()
     const email = e.target.elements.email.value
@@ -13,6 +13,7 @@ function CreateUsers() {
     const name = e.target.elements.name.value
     const turn = e.target.elements.turn.value
     newEsclavo(email, password, rol, name, turn)
+    setAside('null')
   }
   const userInDisplay = auth.currentUser
   // eslint-disable-next-line no-unused-vars

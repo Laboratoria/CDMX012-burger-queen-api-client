@@ -2,7 +2,7 @@ import '../styles/ListProducts.css'
 import { useState, useEffect } from 'react'
 import { Product } from './Product'
 
-export const ListProducts = ({ order, setOrder }) => {
+export const ListProducts = ({ order, setOrder, setMain, setAside }) => {
   const [menu, setMenu] = useState('breakfast')
   const [products, setProducts] = useState(null)
 
@@ -22,9 +22,9 @@ export const ListProducts = ({ order, setOrder }) => {
   return (
     <>
       <div className='nav_menu'>
-        <div className={`${menu === 'breakfast' ? 'active' : 'inactive'}`} onClick={() => setMenu('breakfast')}>
+        <section className={`${menu === 'breakfast' ? 'active' : 'inactive'}`} onClick={() => setMenu('breakfast')}>
           Desayunos
-        </div>
+        </section>
         <div className={`${menu === 'lunch' ? 'active' : 'inactive'}`} onClick={() => setMenu('lunch')}>
           Comidas
         </div>
@@ -34,6 +34,7 @@ export const ListProducts = ({ order, setOrder }) => {
           products.map((product) => (
             <Product product={product} key={product.id} setOrder={setOrder} order= {order}/>
           ))}
+
       </div>
     </>
   )

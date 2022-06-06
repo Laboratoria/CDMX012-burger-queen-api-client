@@ -17,9 +17,9 @@ function App() {
   });
   return (
     
-    <>
+    <section>
       <GlobalRouter isAuth={isAuth} />
-    </>
+    </section>
 
   );
 }

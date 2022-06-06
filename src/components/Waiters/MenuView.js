@@ -1,10 +1,10 @@
 // import { useNavigate } from "react-router-dom";
-import { getMenu } from "../lib/RequestHandler";
+import { getMenu } from "../../lib/RequestHandler";
 import { useEffect, useState } from "react";
 import CardsMenu from "./CardsMenu";
 
-import "../css/Menu.css";
-import Header from "./Header";
+import "../../css/Menu.css";
+import Header from "../Header";
 import AsideMenu from "./asideMenu";
 
 export default function Menu() {
@@ -50,7 +50,7 @@ export default function Menu() {
           <img
             className="Search"
             alt="searchIcon"
-            src={require("../assets/Search.png")}
+            src={require("../../assets/Search.png")}
           />
           <input type="text" placeholder="Search..." />
         </section>

@@ -11,11 +11,12 @@
 
  
 
- export const addOrder= async(order,client)=>  {
+ export const addOrder= async(order,client,id)=>  {
  console.log(order)
  console.log(client)
-     const testOrder = { userId:"user", client:"alejandro", products:[{qty:1, productId:"papas"}]};
  
+     const testOrder = { userId:"user", client:"", products:[{qty:1, id:id}]};
+  
      const res = await axios.post(urlBurguerApi+"/orders", testOrder);
  
     

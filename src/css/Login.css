@@ -266,6 +266,7 @@ a:-webkit-any-link {
     color: #9d0208;
     font-weight: bold;
     font-size: 18px;
+    padding-bottom: 15px;
   }
 
   .buttonLogin {

@@ -41,7 +41,7 @@ const AsideRegister = () => {
           photoURL: "https://random.imagecdn.app/300/300",
           displayName: user,
         });
-
+        setIsDrawerOpen(false)
         console.log(user);
       })
       .catch((error) => {
@@ -61,7 +61,7 @@ const AsideRegister = () => {
           setErrorPassword(" Password should be at least 6 characters ");
         }
       });
-      setIsDrawerOpen(false)
+     
 
   };
 

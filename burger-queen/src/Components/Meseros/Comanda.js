@@ -5,6 +5,9 @@ import iconAdd from '../../Assets/icons/add.png'
 import iconLess from '../../Assets/icons/less.png'
 
 export const Comanda = ({ order, setOrder, setMain, setAside }) => {
+  const dataInfo = order
+  console.log(order)
+
   const { productos } = order
   const totalPrices = productos.map((producto) => {
     return producto.price * producto.cantidad
@@ -22,9 +25,28 @@ export const Comanda = ({ order, setOrder, setMain, setAside }) => {
   )
 
   const handleSubmit = (e) => {
+  const prueba = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(
+      dataInfo
+    )
+  }
+
+  const postComanda = () => {
+    fetch('http://localhost:4000/orders', prueba)
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+  }
+
+  const handleSubmitComanda = async () => {
     setOrder({ ...order, price: totalCuenta, cantidad: totalCantidad })
+    await postComanda()
     setMain('Mesas')
     setAside('null')
+  
   }
 
   const handleAdd = (currentProduct) => {
@@ -122,7 +144,7 @@ export const Comanda = ({ order, setOrder, setMain, setAside }) => {
 
       <section className='section_resumen'>
         <div className='total'>Total $ {totalCuenta}</div>
-        <button className='btn_comanda' onClick={() => handleSubmit()}>
+        <button className='btn_comanda' onClick={() => handleSubmitComanda()}>
           Enviar Comanda{' '}
         </button>
       </section>

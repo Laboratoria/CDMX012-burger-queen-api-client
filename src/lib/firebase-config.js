@@ -27,7 +27,7 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db= getFirestore()
 
-export let saveData = (rol, name, turn) => {
+export let saveData = async (rol, name, turn) => {
   const auth = getAuth();
   const user = auth.currentUser;
   if (user) {
@@ -35,7 +35,7 @@ export let saveData = (rol, name, turn) => {
     const displayName = name;
     const email = user.email;
 
-    return addDoc(collection(db, "profile"), {
+    return  await addDoc(collection(db, "profile"), {
       uid,
       displayName,
       email,

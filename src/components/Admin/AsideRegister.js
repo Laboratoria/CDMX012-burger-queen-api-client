@@ -30,6 +30,8 @@ const AsideRegister = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const navigate = useNavigate();
 
+  console.log(position, turn);
+
   const signUpWithEmail = (e) => {
     e.preventDefault();
     setErrorEmail("");
@@ -154,7 +156,7 @@ const AsideRegister = () => {
               sx={{ width: 300 }}
               renderInput={(params) => <TextField {...params} label="Role" />}
               autoComplete="off"
-              onChange={(e) => setPosition(e.target.value)}
+              onChange={(e) => setPosition(optionsRoles[e.target.value])}
             />
             <br></br>
             <Autocomplete
@@ -164,7 +166,7 @@ const AsideRegister = () => {
               sx={{ width: 300 }}
               renderInput={(params) => <TextField {...params} label="Turn" />}
               autoComplete="off"
-              onChange={(e) => setTurn(e.target.value)}
+              onChange={(e) => setTurn(optionsTurns[e.target.value])}
             />
           </section>
           <Button

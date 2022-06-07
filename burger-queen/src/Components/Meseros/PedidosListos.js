@@ -5,7 +5,7 @@ export const PedidosListos = ({ table, products }) => {
         <div className='mesas_contenedor'>
         {products &&
           products.map((product) => (
-            (product.status === 'kitchen')
+            (product.productStatus === 'ready')
               ? (<div className='mesas_table' key= {product.id}>
                 <div className='mesa_table'>{ table }</div>
                 <div className='productTable_name' >{product.name}</div>

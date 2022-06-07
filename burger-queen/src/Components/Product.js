@@ -5,7 +5,7 @@ export const Product = ({ product, setOrder, order }) => {
     const id = order.productos.findIndex((producto) => {
       return producto.id === currentProduct.id
     })
-    const addProduct = { id: currentProduct.id, name: currentProduct.name, price: currentProduct.price, status: 'kitchen' }
+    const addProduct = { id: currentProduct.id, name: currentProduct.name, price: currentProduct.price, productStatus: 'kitchen' }
     //  verifica que exista un producto seleccionado en el array de productos
     if (id >= 0) {
       // crea una copia del array de productos para poder modificar la cantidad

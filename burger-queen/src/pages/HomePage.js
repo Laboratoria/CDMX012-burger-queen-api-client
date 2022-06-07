@@ -5,6 +5,7 @@ import { ListProducts } from '../Components/ListProducts'
 import CreateUsers from '../Components/Administrador/Empleados/CreateUsers'
 import { Mesas } from '../Components/Meseros/Mesas'
 import { Comanda } from '../Components/Meseros/Comanda'
+import { ComandasActivas } from '../Components/Cocinero/ComandasActivas'
 import { Staff } from '../Components/Administrador/Empleados/Staff'
 import { useState, useEffect } from 'react'
 import { ProductsControl } from '../Components/Meseros/ProductsControl'
@@ -22,9 +23,19 @@ export default function HomePage({ handleExit, currentUser, rol }) {
     const url = 'http://localhost:4000/orders'
     const getFetchData = await fetch(url).then((resul) => resul.json())
     setTotalOrders(getFetchData)
-    const mesaFiltrada = getFetchData.filter((mesa) => mesa.waiterId === currentUser.uid)
-    setMesas(mesaFiltrada)
+    if (rol === 'mesero') {
+      const mesaFiltrada = getFetchData.filter((mesa) => mesa.waiterId === currentUser.uid)
+      setMesas(mesaFiltrada)
+    } else {
+      setMesas(getFetchData)
+    }
   }
+  // observa el cambio en la funcion getMesas
+  useEffect(() => {
+    setFristRender()
+    getMesas()
+  }, [DateHour])
+
   // da valor al handle de renderizado segun el rol
   const setFristRender = () => {
     if (rol === 'admin') {
@@ -52,6 +63,9 @@ export default function HomePage({ handleExit, currentUser, rol }) {
     if (handleMain === 'Menu') {
       return <ListProducts order={order} setOrder={setOrder} />
     }
+    if (handleMain === 'Comandas') {
+      return <ComandasActivas setMain={setHandleMain} setAside={setHandleAside} mesas={mesas} setMesas={setMesas} />
+    }
   }
 
   // hace renderizado condicional en Aside
@@ -66,13 +80,6 @@ export default function HomePage({ handleExit, currentUser, rol }) {
       return <ProductsControl mesas={mesas} setMesas={setMesas}/>
     }
   }
-
-  // observa el cambio en la funcion setFristRender
-  useEffect(() => {
-    getMesas()
-    setFristRender()
-  }, [])
-
   const [order, setOrder] = useState({
     orderId: 1,
     table: '',
@@ -80,7 +87,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
     productos: [],
     totalProducts: '',
     totalPrice: '',
-    status: 'kitchen',
+    TableStatus: 'kitchen',
     waiter: currentUser.displayName,
     waiterId: currentUser.uid,
     startTime: DateHour,

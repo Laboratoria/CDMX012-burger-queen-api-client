@@ -123,276 +123,6 @@
   ],
   "orders": [
     {
-      "orderId": 1,
-      "waiter": "mesero1@burgerqueen.com",
-      "waiterId": "idnf7bKDunsKdjvWbdji",
-      "productos": [
-        {
-          "name": "Agua 750ml",
-          "price": 7,
-          "melPrep": 2,
-          "description": "agua",
-          "recipe": "agua ",
-          "id": 10,
-          "urlImg": "AquiVaUnaImagen",
-          "category": "lunch"
-        },
-        {
-          "name": "Bebida/gaseosa 500ml",
-          "price": 7,
-          "melPrep": 2,
-          "description": "Bebida gaseosa chica",
-          "recipe": "bebida gaseosa ",
-          "id": 11,
-          "urlImg": "AquiVaUnaImagen",
-          "category": "lunch"
-        }
-      ],
-      "cantidad": 2,
-      "startTime": "10:52:25",
-      "endTime": "15:30:10",
-      "status": "delivered",
-      "totalTime": 5,
-      "table": "7",
-      "clientName": "candy"
-    },
-    {
-      "name": "Buevitos con Catsup PARFAVAR",
-      "price": 5,
-      "melPrep": "5min - 10min",
-      "description": "cafe clasico con agua",
-      "recipe": "cafe soluble, agua ",
-      "urlImg": "https://raw.githubusercontent.com/MonzerratBanuelos/burger-queen/Candy/burger-queen/src/Assets/Images/Menu/cafeAmericano.jpg",
-      "category": "breakfast",
-      "id": 1
-    },
-    {
-      "orderId": 1,
-      "table": "2",
-      "clientName": "dfk",
-      "productos": [
-        {
-          "id": 4,
-          "name": "Jugo de frutas natural",
-          "price": 7,
-          "status": "kitchen",
-          "cantidad": 3
-        }
-      ],
-      "totalProducts": 3,
-      "totalPrice": 21,
-      "status": "kitchen",
-      "waiter": "panchito",
-      "waiterId": "0rlcwMCZc2cWYWrSDKFOyyz91Xo2",
-      "startTime": "13:46",
-      "endtTime": "",
-      "totalTime": "",
-      "id": 7
-    },
-    {
-      "orderId": 1,
-      "table": "4",
-      "clientName": "dhsjs",
-      "productos": [
-        {
-          "id": 4,
-          "name": "Jugo de frutas natural",
-          "price": 7,
-          "status": "kitchen",
-          "cantidad": 2
-        }
-      ],
-      "totalProducts": 2,
-      "totalPrice": 14,
-      "status": "ready",
-      "waiter": "panchito",
-      "waiterId": "0rlcwMCZc2cWYWrSDKFOyyz91Xo2",
-      "startTime": "13:46",
-      "endtTime": "",
-      "totalTime": "",
-      "id": 8
-    },
-    {
-      "orderId": 1,
-      "table": "7",
-      "clientName": "prueba ",
-      "productos": [
-        {
-          "id": 2,
-          "name": "Café con leche",
-          "price": 5,
-          "status": "kitchen",
-          "cantidad": 1
-        },
-        {
-          "id": 3,
-          "name": "Sandwich de jamón y queso ",
-          "price": 10,
-          "status": "kitchen",
-          "cantidad": 1
-        }
-      ],
-      "totalProducts": 2,
-      "totalPrice": 15,
-      "status": "ready",
-      "waiter": "Itzel Lopez ",
-      "waiterId": "ho1v7sxk2VYQi1W48HXIuLdvx9F3",
-      "startTime": "13:48",
-      "endtTime": "",
-      "totalTime": "",
-      "id": 9
-    },
-    {
-      "orderId": 1,
-      "table": "3",
-      "clientName": "Carla",
-      "productos": [
-        {
-          "id": 4,
-          "name": "Jugo de frutas natural",
-          "price": 7,
-          "status": "kitchen",
-          "cantidad": 1
-        },
-        {
-          "id": 1,
-          "name": "Café americano",
-          "price": 5,
-          "status": "kitchen",
-          "cantidad": 2
-        }
-      ],
-      "totalProducts": 3,
-      "totalPrice": 17,
-      "status": "kitchen",
-      "waiter": "Itzel Lopez ",
-      "waiterId": "ho1v7sxk2VYQi1W48HXIuLdvx9F3",
-      "startTime": "17:8",
-      "endtTime": "",
-      "totalTime": "",
-      "id": 10
-    },
-    {
-      "orderId": 1,
-      "table": "4",
-      "clientName": "mario",
-      "productos": [
-        {
-          "id": 4,
-          "name": "Jugo de frutas natural",
-          "price": 7,
-          "status": "kitchen",
-          "cantidad": 1
-        },
-        {
-          "id": 2,
-          "name": "Café con leche",
-          "price": 5,
-          "status": "kitchen",
-          "cantidad": 2
-        },
-        {
-          "id": 3,
-          "name": "Sandwich de jamón y queso ",
-          "price": 10,
-          "status": "kitchen",
-          "cantidad": 1
-        }
-      ],
-      "totalProducts": 4,
-      "totalPrice": 27,
-      "status": "kitchen",
-      "waiter": "Anna Li",
-      "waiterId": "wVhBMXIFNhbdwT8UExRgDDPJH5h1",
-      "startTime": "21:32",
-      "endtTime": "",
-      "totalTime": "",
-      "id": 11
-    },
-    {
-      "orderId": 1,
-      "table": "6",
-      "clientName": "juanita",
-      "productos": [
-        {
-          "id": 4,
-          "name": "Jugo de frutas natural",
-          "price": 7,
-          "status": "kitchen",
-          "cantidad": 3
-        },
-        {
-          "id": 1,
-          "name": "Café americano",
-          "price": 5,
-          "status": "kitchen",
-          "cantidad": 3
-        }
-      ],
-      "totalProducts": 6,
-      "totalPrice": 36,
-      "status": "kitchen",
-      "waiter": "Anna Li",
-      "waiterId": "wVhBMXIFNhbdwT8UExRgDDPJH5h1",
-      "startTime": "22:34",
-      "endtTime": "",
-      "totalTime": "",
-      "id": 12
-    },
-    {
-      "orderId": 1,
-      "table": "5",
-      "clientName": "penelope",
-      "productos": [
-        {
-          "id": 4,
-          "name": "Jugo de frutas natural",
-          "price": 7,
-          "status": "kitchen",
-          "cantidad": 4
-        }
-      ],
-      "totalProducts": 4,
-      "totalPrice": 28,
-      "status": "kitchen",
-      "waiter": "Anna Li",
-      "waiterId": "wVhBMXIFNhbdwT8UExRgDDPJH5h1",
-      "startTime": "22:36",
-      "endtTime": "",
-      "totalTime": "",
-      "id": 13
-    },
-    {
-      "orderId": 1,
-      "table": "5",
-      "clientName": "asasd",
-      "productos": [
-        {
-          "id": 4,
-          "name": "Jugo de frutas natural",
-          "price": 7,
-          "status": "kitchen",
-          "cantidad": 1
-        },
-        {
-          "id": 2,
-          "name": "Café con leche",
-          "price": 5,
-          "status": "kitchen",
-          "cantidad": 1
-        }
-      ],
-      "totalProducts": 2,
-      "totalPrice": 12,
-      "status": "kitchen",
-      "waiter": "Anna Li",
-      "waiterId": "wVhBMXIFNhbdwT8UExRgDDPJH5h1",
-      "startTime": "0:7",
-      "endtTime": "",
-      "totalTime": "",
-      "id": 14
-    },
-    {
       "orderId": 2,
       "table": "2",
       "clientName": "",
@@ -401,40 +131,160 @@
           "id": 4,
           "name": "Jugo de frutas natural",
           "price": 7,
-          "status": "kitchen",
+          "productStatus": "kitchen",
           "cantidad": 2
         },
         {
           "id": 2,
           "name": "Café con leche",
           "price": 5,
-          "status": "kitchen",
+          "productStatus": "kitchen",
           "cantidad": 3
         },
         {
           "id": 1,
           "name": "Café americano",
           "price": 5,
-          "status": "kitchen",
+          "productStatus": "kitchen",
           "cantidad": 1
         },
         {
           "id": 3,
           "name": "Sandwich de jamón y queso ",
           "price": 10,
-          "status": "kitchen",
+          "productStatus": "kitchen",
           "cantidad": 1
         }
       ],
       "totalProducts": 7,
       "totalPrice": 44,
-      "status": "kitchen",
+      "TableStatus": "delivery",
       "waiter": "Anna Li",
       "waiterId": "wVhBMXIFNhbdwT8UExRgDDPJH5h1",
       "startTime": "0:23",
       "endtTime": "",
       "totalTime": "",
-      "id": 15
+      "id": 1
+    },
+    {
+      "orderId": 3,
+      "table": "2",
+      "clientName": "Monze",
+      "productos": [
+        {
+          "id": 2,
+          "name": "Café con leche",
+          "price": 5,
+          "productStatus": "ready",
+          "cantidad": 2
+        },
+        {
+          "id": 4,
+          "name": "Jugo de frutas natural",
+          "price": 7,
+          "productStatus": "kitchen",
+          "cantidad": 1
+        }
+      ],
+      "totalProducts": 3,
+      "totalPrice": 17,
+      "TableStatus": "kitchen",
+      "waiter": "panchito",
+      "waiterId": "0rlcwMCZc2cWYWrSDKFOyyz91Xo2",
+      "startTime": "11:19",
+      "endtTime": "",
+      "totalTime": "",
+      "id": 2
+    },
+    {
+      "orderId": 4,
+      "table": "3",
+      "clientName": "Candy",
+      "productos": [
+        {
+          "id": 2,
+          "name": "Café con leche",
+          "price": 5,
+          "productStatus": "kitchen",
+          "cantidad": 2
+        },
+        {
+          "id": 3,
+          "name": "Sandwich de jamón y queso ",
+          "price": 10,
+          "productStatus": "kitchen",
+          "cantidad": 1
+        }
+      ],
+      "totalProducts": 3,
+      "totalPrice": 20,
+      "TableStatus": "kitchen",
+      "waiter": "panchito",
+      "waiterId": "0rlcwMCZc2cWYWrSDKFOyyz91Xo2",
+      "startTime": "11:38",
+      "endtTime": "",
+      "totalTime": "",
+      "id": 3
+    },
+    {
+      "orderId": 5,
+      "table": "5",
+      "clientName": "Ana",
+      "productos": [
+        {
+          "id": 1,
+          "name": "Café americano",
+          "price": 5,
+          "productStatus": "kitchen",
+          "cantidad": 2
+        },
+        {
+          "id": 3,
+          "name": "Sandwich de jamón y queso ",
+          "price": 10,
+          "productStatus": "kitchen",
+          "cantidad": 1
+        }
+      ],
+      "totalProducts": 3,
+      "totalPrice": 20,
+      "TableStatus": "kitchen",
+      "waiter": "panchito",
+      "waiterId": "0rlcwMCZc2cWYWrSDKFOyyz91Xo2",
+      "startTime": "11:40",
+      "endtTime": "",
+      "totalTime": "",
+      "id": 4
+    },
+    {
+      "orderId": 6,
+      "table": "6",
+      "clientName": "Carlos",
+      "productos": [
+        {
+          "id": 2,
+          "name": "Café con leche",
+          "price": 5,
+          "productStatus": "kitchen",
+          "cantidad": 2
+        },
+        {
+          "id": 3,
+          "name": "Sandwich de jamón y queso ",
+          "price": 10,
+          "productStatus": "kitchen",
+          "cantidad": 2
+        }
+      ],
+      "totalProducts": 4,
+      "totalPrice": 30,
+      "TableStatus": "kitchen",
+      "waiter": "panchito",
+      "waiterId": "0rlcwMCZc2cWYWrSDKFOyyz91Xo2",
+      "startTime": "11:45",
+      "endtTime": "",
+      "totalTime": "",
+      "id": 5
     }
   ]
 }

@@ -7,6 +7,7 @@ import { Mesas } from '../Components/Meseros/Mesas'
 import { Comanda } from '../Components/Meseros/Comanda'
 import { Staff } from '../Components/Administrador/Empleados/Staff'
 import { useState, useEffect } from 'react'
+import { StatusProducto } from '../Components/Meseros/StatusProducto'
 
 // eslint-disable-next-line react/prop-types
 export default function HomePage({ handleExit, currentUser, rol }) {
@@ -14,6 +15,15 @@ export default function HomePage({ handleExit, currentUser, rol }) {
   const DateHour = getDates.getHours() + ':' + getDates.getMinutes()
   const [handleMain, setHandleMain] = useState('')
   const [handleAside, setHandleAside] = useState('')
+  const [mesas, setMesas] = useState([])
+  console.log(mesas)
+  const getMesas = async () => {
+    const url = 'http://localhost:4000/orders'
+    const getFetchData = await fetch(url).then((resul) => resul.json())
+    console.log(getFetchData)
+    const mesaFiltrada = getFetchData.filter((mesa) => mesa.waiterId === currentUser.uid)
+    setMesas(mesaFiltrada)
+  }
   // da valor al handle de renderizado segun el rol
   const setFristRender = () => {
     if (rol === 'admin') {
@@ -22,20 +32,21 @@ export default function HomePage({ handleExit, currentUser, rol }) {
     }
     if (rol === 'mesero') {
       setHandleMain('Mesas')
-      setHandleAside('null')
+      setHandleAside('PedidosListos')
     }
     if (rol === 'cocinero') {
       setHandleMain('Comandas')
       setHandleAside('null')
     }
   }
+
   // hace renderizado condicional en main
   const handleMainRender = (handleMain) => {
     if (handleMain === 'Empleados') {
       return <Staff setAside={setHandleAside}/>
     }
     if (handleMain === 'Mesas') {
-      return <Mesas setMain={setHandleMain} setAside={setHandleAside} />
+      return <Mesas setMain={setHandleMain} setAside={setHandleAside} mesas={mesas} setMesas={setMesas}/>
     }
     if (handleMain === 'Menu') {
       return <ListProducts order={order} setOrder={setOrder} />
@@ -50,10 +61,14 @@ export default function HomePage({ handleExit, currentUser, rol }) {
     if (handleMain === 'CreateUsers') {
       return <CreateUsers setAside={setHandleAside} />
     }
+    if (handleMain === 'PedidosListos') {
+      return <StatusProducto mesas={mesas} setMesas={setMesas}/>
+    }
   }
 
   // observa el cambio en la funcion setFristRender
   useEffect(() => {
+    getMesas()
     setFristRender()
   }, [])
 

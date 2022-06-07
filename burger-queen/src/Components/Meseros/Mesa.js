@@ -4,14 +4,14 @@ export const Mesa = ({ mesa }) => {
 <div className= 'mesa-contenedor' key={mesa.id}>
   <table className='datos-mesa'>
   <thead>
-  <tr><th id='titulo-mesa'>Mesa{mesa.table}{mesa.startTime}</th>
+  <tr><th id='titulo-mesa'>Mesa{mesa.table} </th><th id='titulo-tiempo'>{mesa.startTime}</th>
   </tr>
   </thead>
   <tbody>
-    <tr><td>Cliente:</td>{mesa.clientName}<td></td></tr>
-    <tr><td>Hora:</td>{mesa.startTime}<td></td></tr>
-    <tr><td>Productos:</td>{mesa.totalProducts}<td></td></tr>
-    <tr><td>Total:</td>{mesa.totalPrice}<td></td></tr>
+    <tr><td>Cliente:</td><td>{mesa.clientName}</td></tr>
+    <tr><td>Hora:</td><td>{mesa.startTime}</td></tr>
+    <tr><td>Productos:</td><td>{mesa.totalProducts}</td></tr>
+    <tr><td>Total:</td><td>{mesa.totalPrice}</td></tr>
   </tbody>
   </table>
 </div>

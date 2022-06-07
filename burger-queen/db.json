@@ -168,142 +168,6 @@
     },
     {
       "orderId": 1,
-      "table": "1",
-      "clientName": "Josue",
-      "productos": [
-        {
-          "id": 4,
-          "name": "Jugo de frutas natural",
-          "price": 7,
-          "status": "kitchen",
-          "cantidad": 2
-        },
-        {
-          "id": 2,
-          "name": "Café con leche",
-          "price": 5,
-          "status": "kitchen",
-          "cantidad": 2
-        }
-      ],
-      "totalProducts": "",
-      "totalPrice": "",
-      "status": "kitchen",
-      "waiter": "panchito",
-      "waiterId": "0rlcwMCZc2cWYWrSDKFOyyz91Xo2",
-      "startTime": "13:39",
-      "endtTime": "",
-      "totalTime": "",
-      "id": 2
-    },
-    {
-      "orderId": 1,
-      "table": "2",
-      "clientName": "Pepito",
-      "productos": [
-        {
-          "id": 4,
-          "name": "Jugo de frutas natural",
-          "price": 7,
-          "status": "kitchen",
-          "cantidad": 2
-        }
-      ],
-      "totalProducts": 0,
-      "totalPrice": 0,
-      "status": "kitchen",
-      "waiter": "panchito",
-      "waiterId": "0rlcwMCZc2cWYWrSDKFOyyz91Xo2",
-      "startTime": "13:43",
-      "endtTime": "",
-      "totalTime": "",
-      "id": 3
-    },
-    {
-      "orderId": 1,
-      "table": "1",
-      "clientName": "Carlos",
-      "productos": [
-        {
-          "id": 1,
-          "name": "Café americano",
-          "price": 5,
-          "status": "kitchen",
-          "cantidad": 1
-        }
-      ],
-      "totalProducts": 0,
-      "totalPrice": 0,
-      "status": "kitchen",
-      "waiter": "Itzel Lopez ",
-      "waiterId": "ho1v7sxk2VYQi1W48HXIuLdvx9F3",
-      "startTime": "13:43",
-      "endtTime": "",
-      "totalTime": "",
-      "id": 4
-    },
-    {
-      "orderId": 1,
-      "table": "7",
-      "clientName": "Monze B",
-      "productos": [
-        {
-          "id": 4,
-          "name": "Jugo de frutas natural",
-          "price": 7,
-          "status": "kitchen",
-          "cantidad": 1
-        },
-        {
-          "id": 3,
-          "name": "Sandwich de jamón y queso ",
-          "price": 10,
-          "status": "kitchen",
-          "cantidad": 1
-        }
-      ],
-      "totalProducts": 0,
-      "totalPrice": 0,
-      "status": "kitchen",
-      "waiter": "Itzel Lopez ",
-      "waiterId": "ho1v7sxk2VYQi1W48HXIuLdvx9F3",
-      "startTime": "13:45",
-      "endtTime": "",
-      "totalTime": "",
-      "id": 5
-    },
-    {
-      "orderId": 1,
-      "table": "2",
-      "clientName": "Pepita",
-      "productos": [
-        {
-          "id": 4,
-          "name": "Jugo de frutas natural",
-          "price": 7,
-          "status": "kitchen",
-          "cantidad": 2
-        },
-        {
-          "id": 2,
-          "name": "Café con leche",
-          "price": 5,
-          "status": "kitchen",
-          "cantidad": 1
-        }
-      ],
-      "totalProducts": 0,
-      "totalPrice": 0,
-      "status": "kitchen",
-      "waiter": "panchito",
-      "waiterId": "0rlcwMCZc2cWYWrSDKFOyyz91Xo2",
-      "startTime": "13:45",
-      "endtTime": "",
-      "totalTime": "",
-      "id": 6
-    },
-    {
-      "orderId": 1,
       "table": "2",
       "clientName": "dfk",
       "productos": [
@@ -340,7 +204,7 @@
       ],
       "totalProducts": 2,
       "totalPrice": 14,
-      "status": "kitchen",
+      "status": "ready",
       "waiter": "panchito",
       "waiterId": "0rlcwMCZc2cWYWrSDKFOyyz91Xo2",
       "startTime": "13:46",
@@ -370,13 +234,43 @@
       ],
       "totalProducts": 2,
       "totalPrice": 15,
-      "status": "kitchen",
+      "status": "ready",
       "waiter": "Itzel Lopez ",
       "waiterId": "ho1v7sxk2VYQi1W48HXIuLdvx9F3",
       "startTime": "13:48",
       "endtTime": "",
       "totalTime": "",
       "id": 9
+    },
+    {
+      "orderId": 1,
+      "table": "3",
+      "clientName": "Carla",
+      "productos": [
+        {
+          "id": 4,
+          "name": "Jugo de frutas natural",
+          "price": 7,
+          "status": "kitchen",
+          "cantidad": 1
+        },
+        {
+          "id": 1,
+          "name": "Café americano",
+          "price": 5,
+          "status": "kitchen",
+          "cantidad": 2
+        }
+      ],
+      "totalProducts": 3,
+      "totalPrice": 17,
+      "status": "kitchen",
+      "waiter": "Itzel Lopez ",
+      "waiterId": "ho1v7sxk2VYQi1W48HXIuLdvx9F3",
+      "startTime": "17:8",
+      "endtTime": "",
+      "totalTime": "",
+      "id": 10
     }
   ]
 }

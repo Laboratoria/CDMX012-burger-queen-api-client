@@ -5,9 +5,8 @@ import iconAdd from '../../Assets/icons/add.png'
 import iconLess from '../../Assets/icons/less.png'
 import { useEffect } from 'react'
 
-export const Comanda = ({ order, setOrder, setMain, setAside }) => {
+export const Comanda = ({ totalOrders, order, setOrder, setMain, setAside }) => {
   const dataInfo = order
-  console.log(dataInfo)
 
   const { productos } = order
   const totalPrices = productos.map((producto) => {
@@ -15,7 +14,6 @@ export const Comanda = ({ order, setOrder, setMain, setAside }) => {
   })
   const valorinicial = 0
   const totalCuenta = totalPrices.reduce((a, b) => a + b, valorinicial)
-  console.log(totalCuenta)
 
   const cantidadProductos = productos.map((producto) => {
     return producto.cantidad
@@ -38,7 +36,10 @@ export const Comanda = ({ order, setOrder, setMain, setAside }) => {
   }
 
   useEffect(() => {
-    setOrder({ ...order, totalProducts: totalCantidad, totalPrice: totalCuenta })
+    // si hay ordenes, extrae el numero total y agrega 1 al contador OrderId
+    if (totalOrders.length) {
+      setOrder({ ...order, orderId: totalOrders[totalOrders.length - 1].orderId + 1, totalProducts: totalCantidad, totalPrice: totalCuenta })
+    }
   }, [totalCuenta, totalCantidad])
 
   const postComanda = () => {
@@ -86,7 +87,7 @@ export const Comanda = ({ order, setOrder, setMain, setAside }) => {
 
   return (
     <div className='contenedor_de_comanda'>
-      <h1 className='orderTitle'> Orden # 1 </h1>
+      <h1 className='orderTitle'> Orden # {order.orderId} </h1>
       <select
         className='mesa'
         id='table'

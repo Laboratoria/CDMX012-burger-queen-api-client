@@ -2,7 +2,6 @@ import '../../styles/Mesas.css'
 import Add from '../../Assets/icons/yelowAdd.png'
 import { Mesa } from './Mesa'
 export const Mesas = ({ setMain, setAside, mesas, setMesas }) => {
-  console.log(mesas)
   const handleOrder = () => {
     setMain('Menu')
     setAside('Comanda')

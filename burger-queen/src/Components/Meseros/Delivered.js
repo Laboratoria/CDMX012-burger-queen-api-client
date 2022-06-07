@@ -1,13 +1,13 @@
-import { PedidosListos } from '../Meseros/PedidosListos'
+import { ProductsDelivered } from '../Meseros/ProductsDelivered'
 import '../../styles/ProductsControl.css'
 
-export const StatusProducto = ({ mesas }) => {
+export const Delivered = ({ mesas }) => {
   return (
     <>
       <div className='mesas_contenedor'>
         {mesas &&
           mesas.map((mesa) => (
-            <PedidosListos
+            <ProductsDelivered
               table={mesa.table}
               products={mesa.productos}
               key={mesa.id}
@@ -17,4 +17,3 @@ export const StatusProducto = ({ mesas }) => {
     </>
   )
 }
-// asi se puede entrar mesas[0].productos[0].status

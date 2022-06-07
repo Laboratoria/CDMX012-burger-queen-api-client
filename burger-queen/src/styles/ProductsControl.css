@@ -1,0 +1,94 @@
+.productsControl_container {
+  width: 100%;
+  height: 100%;
+}
+
+.ProductReady_Container {
+  width: 100%;
+  height: 50%;
+}
+
+.productsControl_title {
+  font-size: 2rem;
+  color: #FFC700;
+  margin-bottom: 1rem;
+}
+
+.Products_table {
+  width: 100%;
+  height: 8%;
+  background-color: rgb(215, 215, 215);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
+
+.productsControl_subtittle {
+  font-size: 1rem;
+  padding-left: .5rem;
+
+}
+
+.productsControl_subtittle1 {
+  font-size: 1rem;
+  padding-right: .5rem;
+}
+
+/* /////////////////Table */
+
+.scroll {
+  width: 100%;
+  height: 70%;
+  overflow: scroll;
+}
+
+.mesas_table {
+  width: 100%;
+  height: 3rem;
+  background-color: #E5E5E5;
+  display: flex;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+
+.mesa_table {
+  width: 10%;
+  height: 3rem;
+  background-color: #FFC700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.mesa_cant {
+  width: 10%;
+  height: 3rem;
+  background-color: #D4D4D4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.productTable_name {
+  width: 70%;
+  padding-left: .5rem;
+  font-size: large;
+}
+
+.productdeliveredTable_name{
+  width: 80%;
+  padding-left: .5rem;
+  font-size: large;
+
+}
+.icon_bell {
+  background-color: #232021;
+  width: 10%;
+  height: 3rem;
+  justify-content: flex-end;
+}

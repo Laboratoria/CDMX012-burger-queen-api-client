@@ -29,7 +29,6 @@ export default function AsideMenu(props) {
     addOrder(order,name)
     
   
-console.log(addOrder(order,name))
 }
 
 return (

@@ -233,3 +233,22 @@ padding-top: 3px;
 #shopping{
 color: #004668;
 }
+
+/* ASIDE MENU */
+.boxOrder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icons{
+  display:relative;
+  align-self: flex-start;
+  
+  
+}
+.order{
+  justify-content: center;
+  display:flex;
+  align-items: center;
+  font-size: large;
+}

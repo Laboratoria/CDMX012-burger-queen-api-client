@@ -15,7 +15,7 @@
  console.log(order)
  console.log(client)
  const arrayProducts=order.products.map(function(product){
-  return {id:product.id, qty:product.qty}
+  return {productId:product.id, qty:product.qty,name:product.name, img:product.image}
 })
      const testOrder = { userId:"user", client:client, products:arrayProducts}
  
@@ -25,5 +25,10 @@
     
     return res.data 
  }
+ export const getOrder= async() =>{
+  const res = await axios.get( urlBurguerApi+"/orders")
+  console.log(res);
+  return res.data;
+}
  
  

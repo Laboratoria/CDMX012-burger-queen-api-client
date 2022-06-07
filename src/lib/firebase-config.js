@@ -3,7 +3,9 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signOut,
+
 } from "firebase/auth";
+import {addDoc, collection, getFirestore} from "firebase/firestore"
 export {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -23,6 +25,25 @@ export const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const db= getFirestore()
+
+export let saveData = (rol, name, turn) => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  if (user) {
+    const uid = user.uid;
+    const displayName = name;
+    const email = user.email;
+
+    return addDoc(collection(db, "profile"), {
+      uid,
+      displayName,
+      email,
+      rol,
+      turn
+    });
+  }
+};
 
 
 // export const signUpWithEmail = (e, setErrorEmail, setErrorPassword, email, password) => {

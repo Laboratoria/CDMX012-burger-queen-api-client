@@ -15,6 +15,7 @@ import {
   auth,
   updateProfile,
   logOut,
+  saveData,
 } from "../../lib/firebase-config";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 
@@ -23,12 +24,13 @@ const AsideRegister = () => {
   const [errorPassword, setErrorPassword] = useState("");
   const [user, setUserName] = useState("");
   const [position, setPosition] = useState("");
+  const [turn, setTurn] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const navigate = useNavigate();
 
-  const signUpWithEmail =(e) => {
+  const signUpWithEmail = (e) => {
     e.preventDefault();
     setErrorEmail("");
     setErrorPassword("");
@@ -41,7 +43,9 @@ const AsideRegister = () => {
           photoURL: "https://random.imagecdn.app/300/300",
           displayName: user,
         });
-        setIsDrawerOpen(false)
+        saveData(position, user, turn);
+        console.log(position, user, turn);
+        setIsDrawerOpen(false);
         console.log(user);
       })
       .catch((error) => {
@@ -61,19 +65,17 @@ const AsideRegister = () => {
           setErrorPassword(" Password should be at least 6 characters ");
         }
       });
-     
-
   };
 
   const optionsRoles = [
-    { label: "Admin", id: 1 },
-    { label: "Waiter", id: 2 },
-    { label: "Chef", id: 2 },
+    { label: "Admin", id: 1, value: "Admin" },
+    { label: "Waiter", id: 2, value: "Waiter" },
+    { label: "Chef", id: 2, value: "Chef" },
   ];
   const optionsTurns = [
-    { label: "Morning shift", id: 1 },
-    { label: "Afternoon shift", id: 2 },
-    { label: "Night shift", id: 2 },
+    { label: "Morning shift", id: 1, value: "Morning shift" },
+    { label: "Afternoon shift", id: 2, value: "Afternoon shift" },
+    { label: "Night shift", id: 2, value: "Night shift" },
   ];
 
   return (
@@ -162,6 +164,7 @@ const AsideRegister = () => {
               sx={{ width: 300 }}
               renderInput={(params) => <TextField {...params} label="Turn" />}
               autoComplete="off"
+              onChange={(e) => setTurn(e.target.value)}
             />
           </section>
           <Button

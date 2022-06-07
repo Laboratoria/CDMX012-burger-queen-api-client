@@ -3,7 +3,7 @@ import { useState } from "react";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import axios from "axios";
 
-export default function AsideProducts() {
+export default function AsideProducts(props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [newProduct, setNewProduct] = useState({
     id: "",
@@ -14,9 +14,10 @@ export default function AsideProducts() {
     dateEntry: Date,
   });
   const [products, setProducts] = useState([]);
+  const arrayData = newProduct; //catching the new object with data for API
   const urlBurguerApi = "http://localhost:5000/Stock";
 
-  const handleChange = (e) => {
+  const inputsInfo = (e) => {
     const { name, value } = e.target;
     setNewProduct((prevState) => ({
       ...prevState,
@@ -26,7 +27,7 @@ export default function AsideProducts() {
 
   const handlePost = async () => {
     await axios
-      .post(urlBurguerApi, newProduct)
+      .post(urlBurguerApi, arrayData)
       .then((response) => {
         setProducts(products.concat(response.data));
       })
@@ -85,7 +86,7 @@ export default function AsideProducts() {
                 name="id"
                 //   value={name}
                 autoComplete="off"
-                onChange={handleChange}
+                onChange={inputsInfo}
               />
               <label>Name Product:</label>
               <input
@@ -95,7 +96,7 @@ export default function AsideProducts() {
                 name="name"
                 //   value={name}
                 autoComplete="off"
-                onChange={handleChange}
+                onChange={inputsInfo}
               />
               <label>Price Product:</label>
               <input
@@ -105,7 +106,7 @@ export default function AsideProducts() {
                 name="price"
                 //   value={name}
                 autoComplete="off"
-                onChange={handleChange}
+                onChange={inputsInfo}
               />
               <label>
                 Image Product:
@@ -127,24 +128,23 @@ export default function AsideProducts() {
                 name="type"
                 //   value={name}
                 autoComplete="off"
-                onChange={handleChange}
+                onChange={inputsInfo}
               >
                 <option value="cena">Dinner</option>
                 <option value="desayuno">Breakfast</option>
               </select>
-              <label for="start">Date entry:</label>
+              <label>Date entry:</label>
 
               <input
                 type="date"
-                id="start"
                 name="dateEntry"
                 value="2022-06-03"
                 min="2022-01-01"
                 max="2030-12-31"
-                onChange={handleChange}
+                onChange={inputsInfo}
               ></input>
 
-              <button type="submit" onClick={() => handlePost()}>
+              <button onClick={() => handlePost()}>
                 Add product
               </button>
             </form>

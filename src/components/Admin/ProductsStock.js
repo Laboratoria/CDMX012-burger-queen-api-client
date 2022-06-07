@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
-import axios from "axios";
 import AsideProducts from "./asideProducts";
+import { getMenu } from "../../lib/RequestHandler";
+
 
 export default function ProductsStock() {
   const [products, setProducts] = useState([]);
 
-  const urlBurguerApi = "http://localhost:5000/Stock";
-
   const getData = async () => {
-    await axios.get(urlBurguerApi).then((response) => {
-      // const data = response.data;
-      setProducts(response.data);
-    });
+    const dataOfProducts = await getMenu();//ARRAY OF PRODUCTS IN API
+    setProducts(dataOfProducts);
   };
 
   useEffect(() => {
@@ -41,14 +38,22 @@ export default function ProductsStock() {
         columns={columns}
         data={products}
         actions={[
-          {
-            icon: "edit",
+          () => ({
+            size: "small",
             tooltip: "Product edit",
-          },
-          {
-            icon: "delete",
+            icon: "edit",
+            onClick: (event, rowData) => {
+              console.log(rowData);
+            },
+          }),
+          () => ({
+            size: "small",
             tooltip: "Product delete",
-          },
+            icon: "delete",
+            onClick: (event, rowData) => {
+              console.log(rowData);
+            },
+          }),
         ]}
         options={{
           actionsColumnIndex: -1,

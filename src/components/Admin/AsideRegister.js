@@ -156,7 +156,7 @@ const AsideRegister = () => {
               sx={{ width: 300 }}
               renderInput={(params) => <TextField {...params} label="Role" />}
               autoComplete="off"
-              onChange={(e) => setPosition(optionsRoles[e.target.value])}
+              onChange={(e) => setPosition(optionsRoles[e.target.value].value)}
             />
             <br></br>
             <Autocomplete
@@ -166,7 +166,7 @@ const AsideRegister = () => {
               sx={{ width: 300 }}
               renderInput={(params) => <TextField {...params} label="Turn" />}
               autoComplete="off"
-              onChange={(e) => setTurn(optionsTurns[e.target.value])}
+              onChange={(e) => setTurn(optionsTurns[e.target.value].value)}
             />
           </section>
           <Button

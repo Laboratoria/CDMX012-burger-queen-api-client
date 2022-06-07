@@ -1,5 +1,5 @@
 import MUIDataTable from "mui-datatables";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { urlBurguerApi } from "../../lib/RequestHandler";
 

@@ -1,6 +1,6 @@
 import Login from "../components/Login";
 import {Routes, Route} from "react-router-dom"
-import PrivateRoutes from "./PrivateRouters";
+import React from 'react';
 
 const PublicRoutes = () => {
   return (

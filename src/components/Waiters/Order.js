@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function Order(props) {
     const { name, price,qty } = props
 
@@ -7,14 +9,14 @@ export default function Order(props) {
               className="icons"
               alt="editIcon"
               src={require("../../assets/edit.png")}/>
-            <p className="nameOrder">{name}
+            <p className="order">{name}
             </p>
-            <p className="qtyOrder">{qty}
+            <p className="order">{qty}
             </p>
-            <p className="priceOrder">${price}
+            <p className="order">${price}
             </p>
             <img
-              className="icons"
+              className="icon"
               alt="deleteIcon"
               src={require("../../assets/delete.png")}
             />

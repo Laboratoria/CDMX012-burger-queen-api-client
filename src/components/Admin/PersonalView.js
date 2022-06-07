@@ -5,9 +5,9 @@ import Products from "./Products";
 const Personal = () => {
   return (
     <div>
-      <Header/>
+      <Header />
       <h1>Vista de Administrador</h1>
-      <Products/>
+      <Products />
     </div>
   );
 };

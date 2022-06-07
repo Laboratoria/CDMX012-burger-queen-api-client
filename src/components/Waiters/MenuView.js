@@ -1,16 +1,17 @@
 // import { useNavigate } from "react-router-dom";
-import { getMenu } from "../../lib/RequestHandler";
-import { useEffect, useState } from "react";
+import { getMenu,getOrder } from "../../lib/RequestHandler";
+import React, { useEffect, useState } from "react";
 import CardsMenu from "./CardsMenu";
-
 import "../../css/Menu.css";
 import Header from "../Header";
 import AsideMenu from "./asideMenu";
+import { DateOrder } from "./DateOrder";
 
 export default function Menu() {
   const [products, setProducts] = useState({});
   const [typeMenu, setTypeMenu] = useState("");
   const [orderMenu, setOrder] = useState({});
+  const [changeView, setChangeView] = useState(true)
 
 
   useEffect(() => {
@@ -36,15 +37,26 @@ export default function Menu() {
   }
   const breakfast = () => {
     setTypeMenu("desayuno")
+    setChangeView(true);
   }
   const dinner = () => {
     setTypeMenu("cena")
+    setChangeView(true);
   }
-
+  const ordersComanda = async()=>{
+    const arrayOrders= await getOrder();
+    console.log( arrayOrders)
+    setChangeView(false);
+      // setOrder(arrayOrders);
+    
+  }
 
   return (
     <main className="menu-container">
-      <Header />
+      <Header
+       updateComandaOrders={ordersComanda}
+       
+       />
       <section>
         <section className="search">
           <img
@@ -61,7 +73,10 @@ export default function Menu() {
       <button className="breakAndDinner" onClick={dinner}> Dinner</button>
     </section>
     <section className="cards-container">
-      {products[typeMenu] &&
+      
+     { 
+     changeView &&
+     products[typeMenu] &&
         products[typeMenu].map((product) => {
           return (
             <CardsMenu
@@ -74,7 +89,12 @@ export default function Menu() {
               updateOrder={setOrder}
             ></CardsMenu>
           );
-        })}
+        })
+      }
+     { 
+     !changeView &&
+       <DateOrder/>
+      }
     </section>
     <AsideMenu
     order={orderMenu} />

@@ -1,5 +1,5 @@
 import { Drawer, Box, IconButton } from "@mui/material";
-import { useState } from "react";
+import React, { useState } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Order from "./Order";
 import { addOrder } from "../../lib/RequestHandler";
@@ -22,8 +22,6 @@ export default function AsideMenu(props) {
     }
     setTotal(suma);
     addOrder(order, name);
-
-    console.log(addOrder(order, name));
   };
 
   return (

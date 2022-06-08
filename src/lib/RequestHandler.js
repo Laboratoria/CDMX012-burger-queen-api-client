@@ -1,13 +1,11 @@
- import axios from "axios";
+import axios from "axios";
+import React from "react";
 
+export const urlBurguerApi = "http://localhost:5000";
 
- export const urlBurguerApi = "http://localhost:5000"
-
- export const getMenu = async() =>{
-   const res = await axios.get( urlBurguerApi+"/products")
+export const getMenu = async () => {
+  const res = await axios.get(urlBurguerApi + "/Stock");
   //  console.log(res);
-   return res.data;
- }
 
  
 
@@ -32,3 +30,4 @@
 }
  
  
+

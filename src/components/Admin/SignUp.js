@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword, auth } from "../../lib/firebase-config";
 import { useNavigate } from "react-router";
-import { useState } from "react";
+import React, { useState } from "react";
 import "../css/Login.css";
 
 import logo from "../assets/burger4.png";

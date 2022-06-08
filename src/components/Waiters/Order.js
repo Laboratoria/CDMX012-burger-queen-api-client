@@ -5,21 +5,20 @@ export default function Order(props) {
 
     return (
         <section className="boxOrders">
- <img
-              className="icons"
-              alt="editIcon"
-              src={require("../../assets/edit.png")}/>
-            <p className="nameOrder">{name}
+
+            <p className="order" id="p1">{name}
             </p>
-            <p className="qtyOrder">{qty}
+            <p className="order" id="p2">cant. {qty}
             </p>
-            <p className="priceOrder">${price}
+            <p className="order" id="p3">${price}
             </p>
+            <div className="iconContainer">
             <img
-              className="icons"
+              className="icon"
               alt="deleteIcon"
               src={require("../../assets/delete.png")}
             />
+            </div>
         </section>
     )
 }

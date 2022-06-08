@@ -1,10 +1,10 @@
-import { createUserWithEmailAndPassword, auth } from "../lib/firebase-config";
+import { createUserWithEmailAndPassword, auth } from "../../lib/firebase-config";
 import { useNavigate } from "react-router";
 import React, { useState } from "react";
 import "../css/Login.css";
 
 import logo from "../assets/burger4.png";
-import Header from "./Header";
+import Header from "../Header";
 import "../css/SignUp.css";
 
 const SignUp = () => {

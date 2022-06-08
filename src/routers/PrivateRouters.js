@@ -6,6 +6,7 @@ import Chef from "../components/chef/Chef";
 import Personal from "../components/Admin/PersonalView";
 
 const PrivateRoutes = () => {
+  const [roleAdmin, setRoleAdmin] = useState(null);
   const [role, setRole] = useState(null);
 
   onAuthStateChanged(auth, (user) => {
@@ -15,7 +16,7 @@ const PrivateRoutes = () => {
       console.log(typeof initial);
 
       if (initial === "a") {
-        setRole("admin");
+        setRoleAdmin("admin");
       } else if (initial === "w") {
         setRole("waiter");
       } else if (initial === "c") {
@@ -26,7 +27,7 @@ const PrivateRoutes = () => {
     console.log(role);
   });
 
-  if (role === "admin") {
+  if (roleAdmin === "admin") {
     return (
       <Routes>
         <Route path="/" element={<Personal />} />

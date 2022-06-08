@@ -7,6 +7,10 @@
   width: 100%;
   height: 50%;
 }
+.ProductReady_Container1 {
+  width: 100%;
+  height: 100%;
+}
 
 .productsControl_title {
   font-size: 2rem;
@@ -40,6 +44,11 @@
 .scroll {
   width: 100%;
   height: 70%;
+  overflow: scroll;
+}
+.scroll1 {
+  width: 100%;
+  height: 85%;
   overflow: scroll;
 }
 

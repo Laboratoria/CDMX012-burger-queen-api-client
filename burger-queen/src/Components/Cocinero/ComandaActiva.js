@@ -1,5 +1,5 @@
 import { useState } from 'react'
-export const ComandaActiva = ({ mesa, mesas, setMesas, mesaId }) => {
+export const ComandaActiva = ({ mesa }) => {
   const [productStatus, SetProductStatus] = useState({
     id: mesa.id,
     orderId: mesa.orderId,

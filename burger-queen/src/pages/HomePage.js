@@ -65,7 +65,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
       return <ListProducts order={order} setOrder={setOrder} />
     }
     if (handleMain === 'Comandas') {
-      return <ComandasActivas setMain={setHandleMain} setAside={setHandleAside} mesas={mesas} setMesas={setMesas} />
+      return <ComandasActivas mesas={mesas} setMesas={setMesas} />
     }
   }
 

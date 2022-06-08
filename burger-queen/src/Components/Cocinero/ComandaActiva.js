@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react'
-export const ComandaActiva = ({ mesa }) => {
-  const [loading, setLoading] = useState(false)
+import { useState } from 'react'
+export const ComandaActiva = ({ mesa, mesas, setMesas, mesaId }) => {
   const [productStatus, SetProductStatus] = useState({
     id: mesa.id,
     orderId: mesa.orderId,
@@ -17,7 +16,7 @@ export const ComandaActiva = ({ mesa }) => {
     totalTime: mesa.totalTime
   })
 
-  const yaTa = (currentProducto, mesa) => {
+  const updateStatus = (currentProducto, mesa) => {
     const id = mesa.productos.findIndex((producto) => {
       return producto.id === currentProducto.id
     })
@@ -25,33 +24,25 @@ export const ComandaActiva = ({ mesa }) => {
     for (const property in updatedMesa[id]) {
       if (property === 'productStatus') {
         updatedMesa[id][property] = 'ready'
-        SetProductStatus({ ...productStatus, productos: [...updatedMesa] })
       }
     }
     console.log(updatedMesa)
+    SetProductStatus({ ...productStatus, productos: [...updatedMesa] })
   }
-  console.log(productStatus)
   const fetchProductos = async() => {
-    setLoading(true)
     await fetch(`http://localhost:4000/orders/${mesa.id}`, {
       method: 'PATCH',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(productStatus)
-    }).then(response => response.json()).then(data => setLoading(false))
+    }).then(response => response.json()).then(console.log('actualizado'))
   }
 
   const handleSubmit = async(producto) => {
-    yaTa(producto, mesa)
+    updateStatus(producto, mesa)
     await fetchProductos()
   }
 
-  useEffect(() => {
-    fetchProductos()
-  }, [])
-  if (loading) {
-    return <div>Holi</div>
-  } else {
-    return (
+  return (
   <div className= 'mesa-contenedor' key={mesa.id}>
     <table className='datos-mesa'>
     <thead>
@@ -67,6 +58,5 @@ export const ComandaActiva = ({ mesa }) => {
       }
         </table>
   </div>
-    )
-  }
+  )
 }

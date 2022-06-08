@@ -1,11 +1,6 @@
-<<<<<<< HEAD
- import axios from "axios";
- import React from 'react';
-=======
 import axios from "axios";
 
 export const urlBurguerApi = "http://localhost:5000";
->>>>>>> 6ae6fefd02b8773f6b83b70b1de82258d19729fa
 
 export const getMenu = async () => {
   const res = await axios.get(urlBurguerApi + "/products");

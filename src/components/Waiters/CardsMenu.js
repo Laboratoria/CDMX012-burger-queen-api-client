@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function CardsMenu(props){
 const {id, imgProducts, name, price, order, updateOrder}=props
 const add=(event)=>{
@@ -6,7 +8,7 @@ const add=(event)=>{
         updateOrder(
         {
         products:[
-            {id: id, qty:1, name:name, price:price}
+            {id: id, qty:1, name:name, price:price, image:imgProducts}
         ]
         }
     )
@@ -20,7 +22,7 @@ const add=(event)=>{
            }
        }
        if(encontreProducto === false){
-           order.products.push({id:id, qty:1,name:name, price:price})
+           order.products.push({id:id, qty:1,name:name, price:price, image:imgProducts})
        }
        updateOrder(order)
     }

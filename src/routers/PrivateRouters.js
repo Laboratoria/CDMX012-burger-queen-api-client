@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Menu from "../components/Waiters/MenuView";
 import { auth, onAuthStateChanged } from "../lib/firebase-config";

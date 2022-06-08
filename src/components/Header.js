@@ -1,6 +1,7 @@
 import "../css/Menu.css";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../lib/firebase-config";
+import React from "react";
 
 export default function Header() {
   const navigate = useNavigate();

@@ -5,6 +5,7 @@ import { getMenu } from "../../lib/RequestHandler";
 
 
 export default function ProductsStock() {
+
   const [products, setProducts] = useState([]);
 
   const getData = async () => {

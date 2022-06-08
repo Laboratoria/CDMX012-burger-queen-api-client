@@ -1,12 +1,15 @@
 import { Drawer, Box, IconButton } from "@mui/material";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import axios from "axios";
+import { urlBurguerApi } from "../../lib/RequestHandler";
+import { getMenu } from "../../lib/RequestHandler";
+// import { handleAddProduct } from "../../lib/RequestHandler";
 
-export default function AsideProducts(props) {
+export default function AsideProducts() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [newProduct, setNewProduct] = useState({
-    id: "",
+    // id: "",
     name: "",
     price: Number,
     image: URL,
@@ -15,7 +18,7 @@ export default function AsideProducts(props) {
   });
   const [products, setProducts] = useState([]);
   const arrayData = newProduct; //catching the new object with data for API
-  const urlBurguerApi = "http://localhost:5000/Stock";
+  console.log(arrayData);
 
   const inputsInfo = (e) => {
     const { name, value } = e.target;
@@ -27,14 +30,19 @@ export default function AsideProducts(props) {
 
   const handlePost = async () => {
     await axios
-      .post(urlBurguerApi, arrayData)
+      .post(urlBurguerApi + "/Stock", arrayData)
       .then((response) => {
         setProducts(products.concat(response.data));
+        console.log(setProducts);
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    getMenu();
+  }, []);
 
   return (
     <aside className="aside">
@@ -78,7 +86,7 @@ export default function AsideProducts(props) {
           </header>
           <section className="form-container">
             <form className="box">
-              <label>Id Product:</label>
+              {/* <label>Id Product:</label>
               <input
                 type="text"
                 className="inputProducts"
@@ -87,7 +95,7 @@ export default function AsideProducts(props) {
                 //   value={name}
                 autoComplete="off"
                 onChange={inputsInfo}
-              />
+              /> */}
               <label>Name Product:</label>
               <input
                 type="text"
@@ -144,9 +152,7 @@ export default function AsideProducts(props) {
                 onChange={inputsInfo}
               ></input>
 
-              <button onClick={() => handlePost()}>
-                Add product
-              </button>
+              <button onClick={() => handlePost()}>Add product</button>
             </form>
           </section>
         </Box>

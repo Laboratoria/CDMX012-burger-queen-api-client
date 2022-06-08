@@ -1,25 +1,46 @@
- import axios from "axios";
+import axios from "axios";
+import React from "react";
 
+export const urlBurguerApi = "http://localhost:5000";
 
- export const urlBurguerApi = "http://localhost:5000"
-
- export const getMenu = async() =>{
-   const res = await axios.get( urlBurguerApi+"/Stock")
+export const getMenu = async () => {
+  const res = await axios.get(urlBurguerApi + "/Stock");
   //  console.log(res);
-   return res.data;
- }
+  return res.data;
+};
 
- 
+export const addOrder = async (order, client, id) => {
+  console.log(order);
+  console.log(client);
 
- export const addOrder= async(order,client,id)=>  {
- console.log(order)
- console.log(client)
- 
-     const testOrder = { userId:"user", client:"", products:[{qty:1, id:id}]};
-  
-     const res = await axios.post(urlBurguerApi+"/orders", testOrder);
- 
-    
-    return res.data 
- }
+  const testOrder = {
+    userId: "user",
+    client: "",
+    products: [{ qty: 1, id: id }],
+  };
 
+  const res = await axios.post(urlBurguerApi + "/orders", testOrder);
+
+  return res.data;
+};
+
+// export const handleAddProduct = async () => {
+
+//   const inputs = {
+//     id: "",
+//     name: "",
+//     price: Number,
+//     image: URL,
+//     type: "",
+//     dateEntry: Date,
+//   }
+//   const res = await axios.post(urlBurguerApi + "/Stock",inputs)
+//   .then((response) => {
+//     inputsData(re.concat(response.data));
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+//   return res.data;
+// };

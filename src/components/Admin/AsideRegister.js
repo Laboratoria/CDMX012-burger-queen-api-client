@@ -23,14 +23,23 @@ const AsideRegister = () => {
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
   const [user, setUserName] = useState("");
-  const [position, setPosition] = useState("");
-  const [turn, setTurn] = useState("");
+  const [position, setPosition] = useState(" ");
+  const [turn, setTurn] = useState(" ");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const navigate = useNavigate();
 
-  console.log(position, turn);
+  const positionHandler = (event, newValue) => {
+    console.log(newValue);
+    let dataPosition = newValue.value;
+    setPosition(newValue);
+  };
+  const turnHandler = (event, newValue) => {
+    console.log(newValue);
+    let dataTurn = newValue.value;
+    setTurn(newValue);
+  };
 
   const signUpWithEmail = (e) => {
     e.preventDefault();
@@ -70,14 +79,14 @@ const AsideRegister = () => {
   };
 
   const optionsRoles = [
-    { label: "Admin", id: 1, value: "Admin" },
-    { label: "Waiter", id: 2, value: "Waiter" },
-    { label: "Chef", id: 2, value: "Chef" },
+    { label: "Admin", value: "Admin" },
+    { label: "Waiter", value: "Waiter" },
+    { label: "Chef", value: "Chef" },
   ];
   const optionsTurns = [
-    { label: "Morning shift", id: 1, value: "Morning shift" },
-    { label: "Afternoon shift", id: 2, value: "Afternoon shift" },
-    { label: "Night shift", id: 2, value: "Night shift" },
+    { label: "Morning shift", value: "Morning shift" },
+    { label: "Afternoon shift", value: "Afternoon shift" },
+    { label: "Night shift", value: "Night shift" },
   ];
 
   return (
@@ -150,24 +159,39 @@ const AsideRegister = () => {
               )}
             </section>
             <Autocomplete
-              disablePortal
               id="combo-box-demo"
               options={optionsRoles}
+              getOptionLabel={(option) => option.value}
+              value={position}
               sx={{ width: 300 }}
-              renderInput={(params) => <TextField {...params} label="Role" />}
               autoComplete="off"
-              onChange={(e) => setPosition(optionsRoles[e.target.value].value)}
+              renderInput={(params) => (
+                <TextField {...params} label="Role" />
+              )}
+              onChange={positionHandler}
             />
             <br></br>
             <Autocomplete
+              id="combo-box-demo"
+              options={optionsTurns}
+              getOptionLabel={(option) => option.value}
+              value={turn}
+              sx={{ width: 300 }}
+              autoComplete="off"
+              renderInput={(params) => (
+                <TextField {...params} label="Turn" />
+              )}
+              onChange={turnHandler}
+            />
+            {/* <Autocomplete
               disablePortal
               id="combo-box-demo"
               options={optionsTurns}
               sx={{ width: 300 }}
               renderInput={(params) => <TextField {...params} label="Turn" />}
               autoComplete="off"
-              onChange={(e) => setTurn(optionsTurns[e.target.value].value)}
-            />
+              onChange={(e) => setTurn(optionsTurns[e.target.value])}
+            /> */}
           </section>
           <Button
             variant="contained"

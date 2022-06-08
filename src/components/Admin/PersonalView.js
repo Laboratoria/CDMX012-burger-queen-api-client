@@ -8,7 +8,7 @@ const Personal = () => {
     <section className="Personal container">
      
       <Header />
-     <AsideRegister/>
+     {/* <AsideRegister/> */}
       <h1>Vista de Administrador</h1>
       {/* <Products/> */}
     </section>

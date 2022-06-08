@@ -27,19 +27,18 @@ export const ComandaActiva = ({ mesa, mesas, setMesas, mesaId }) => {
       }
     }
     console.log(updatedMesa)
+    fetchProductos({ ...productStatus, productos: [...updatedMesa] })
     SetProductStatus({ ...productStatus, productos: [...updatedMesa] })
   }
-  const fetchProductos = async() => {
+  const fetchProductos = async(productStats) => {
     await fetch(`http://localhost:4000/orders/${mesa.id}`, {
       method: 'PATCH',
       headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify(productStatus)
+      body: JSON.stringify(productStats)
     }).then(response => response.json()).then(console.log('actualizado'))
   }
-
   const handleSubmit = async(producto) => {
     updateStatus(producto, mesa)
-    await fetchProductos()
   }
 
   return (

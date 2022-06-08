@@ -11,7 +11,8 @@ export default function Menu() {
   const [products, setProducts] = useState({});
   const [typeMenu, setTypeMenu] = useState("");
   const [orderMenu, setOrder] = useState({});
-  const [changeView, setChangeView] = useState(true)
+  const [changeView, setChangeView] = useState(true);
+  const [comandasOrders, setComandasOrders] = useState([]);
 
 
   useEffect(() => {
@@ -45,10 +46,11 @@ export default function Menu() {
   }
   const ordersComanda = async()=>{
     const arrayOrders= await getOrder();
-    console.log( arrayOrders)
+    console.log(arrayOrders)
     setChangeView(false);
+    setComandasOrders(arrayOrders)
       // setOrder(arrayOrders);
-    
+   
   }
 
   return (
@@ -93,11 +95,22 @@ export default function Menu() {
       }
      { 
      !changeView &&
-       <DateOrder/>
+        comandasOrders.map((order) => {
+          return (
+            <DateOrder
+              key={order.id}
+              order={order}
+              // order={order.products}
+              updateComanda={setComandasOrders}
+       ></DateOrder>
+        );
+      })
       }
     </section>
     <AsideMenu
-    order={orderMenu} />
+    order={orderMenu} 
+    updateOrder={setOrder}
+    />
   </div>
     </section >
   </main >

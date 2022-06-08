@@ -4,15 +4,9 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Order from "./Order";
 import { addOrder } from "../../lib/RequestHandler";
 
-
-
-
-
 export default function AsideMenu(props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { order, updateOrder } = props
-
-
   const [name, setName] = useState("");
   const [total, setTotal] = useState("");
 
@@ -37,67 +31,7 @@ export default function AsideMenu(props) {
 }
 
 return (
-  <aside className="aside">
-    <IconButton
-      onClick={() => setIsDrawerOpen(true)}
-      size="large"
-      edge="start"
-      color="inherit"
-      aria-label="logo"
-    >
-      <section className="countAndCart">
-        <p>32</p>
-        <ShoppingCartIcon id="shopping" sx={{ fontSize: 50 }} />
-      </section>
-    </IconButton>
-    <Drawer
-      anchor="right"
-      open={isDrawerOpen}
-      onClose={() => setIsDrawerOpen(false)}
-    >
-      <Box p={2} width="400px" role="presentation" textAlign="center" sx={{
-        backgroundColor: 'primary.dark', width: 400, height: 1000 
-      }}>
-        <header>
-          <img
-            className="icons"
-            alt="clockIcon"
-            src={require("../../assets/Clock.png")}
-          />
-          <p>Fecha del dia</p>
-          <p>Hora</p>
-          <p>Rol y nombre</p>
-          <hr />
-        </header>
-        <section>
-          <p></p>
-          <input
-            type="orderName"
-            className="inputOrder"
-            placeholder="Client name:"
-            value={name}
-            autoComplete="off" onChange={ClientName}
 
-          />
-        </section>
-        <section className="allOrders">
-          {order.products && order.products.map((product) => {
-            return (
-              <Order
-                key={product.id}
-                name={product.name}
-                price={product.price}
-                qty={product.qty}
-              ></Order>
-            );
-          })}
-          <p>Total:$...{total}</p>
-
-
-    console.log(addOrder(order, name));
-  };
-
-  return (
     <aside className="aside">
       <IconButton
         onClick={() => setIsDrawerOpen(true)}

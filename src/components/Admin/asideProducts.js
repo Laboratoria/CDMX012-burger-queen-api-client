@@ -2,8 +2,8 @@ import { Drawer, Box, IconButton } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import axios from "axios";
-import { urlBurguerApi } from "../../lib/RequestHandler";
-import { getMenu } from "../../lib/RequestHandler";
+import { getProducts, urlBurguerApi } from "../../lib/RequestHandler";
+
 // import { handleAddProduct } from "../../lib/RequestHandler";
 
 export default function AsideProducts() {
@@ -41,7 +41,7 @@ export default function AsideProducts() {
   };
 
   useEffect(() => {
-    getMenu();
+    getProducts();
   }, []);
 
   return (

@@ -1,15 +1,16 @@
 import axios from "axios";
-import React from "react";
 
 export const urlBurguerApi = "http://localhost:5000";
 
 export const getMenu = async () => {
+  const res = await axios.get(urlBurguerApi + "/products");
+   return res.data;
+}
+export const getProducts = async () => {
   const res = await axios.get(urlBurguerApi + "/Stock");
-  //  console.log(res);
-
- 
-
- export const addOrder= async(order,client)=>  {
+   return res.data;
+}
+  export const addOrder= async(order,client)=>  {
  console.log(order)
  console.log(client)
  const arrayProducts=order.products.map(function(product){
@@ -30,4 +31,3 @@ export const getMenu = async () => {
 }
  
  
-

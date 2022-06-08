@@ -7,9 +7,10 @@ import { addOrder } from "../../lib/RequestHandler";
 
 
 
+
 export default function AsideMenu(props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { order } = props
+  const { order, updateOrder } = props
 
   
   const [name, setName] = useState("");
@@ -27,6 +28,9 @@ export default function AsideMenu(props) {
     }
     setTotal(suma)
     addOrder(order,name)
+    updateOrder({})
+    setName("")
+    // setTotal("")
     
   
 }
@@ -51,7 +55,7 @@ return (
       onClose={() => setIsDrawerOpen(false)}
     >
       <Box p={2} width="400px" role="presentation" textAlign="center" sx={{
-        backgroundColor: 'primary.dark', width: 400, height: 1000
+        backgroundColor: 'primary.dark', width: 400, height: 1000 
       }}>
         <header>
           <img

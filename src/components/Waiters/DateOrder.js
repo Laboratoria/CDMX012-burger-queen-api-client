@@ -1,16 +1,22 @@
+import { tooltipClasses } from "@mui/material";
 
 export function DateOrder(props) {
-    const {qty,client,name,img } = props
-
+    const {order, updateComanda } = props
+const edit = ()=>{
+    
+}
     return (
 <section>  
 <img 
         className="conteiner-img"
-        src={img}
+        src={require("../../assets/chef.png")}
         alt= "imgFood"/>
- <p>Client:{client}</p>      
-<p> Order:{name} </p>
-<p>Quantity:{qty}</p>
+ <p>Client:{order.client}</p>   
+ <p>id:{order.id}</p>  
+ <button className= "addproduct" onClick={edit}>see order</button> 
+
+{/* <p> Order:{order} </p>
+<p>Quantity:{qty}</p> */}
 </section>
     );
 }

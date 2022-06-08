@@ -45,6 +45,7 @@ const SignUp = () => {
         }
       });
   };
+  
   return (
     <section className="login-container">
       <Header />

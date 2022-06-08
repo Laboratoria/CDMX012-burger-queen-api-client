@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import PersonAddAltRoundedIcon from "@mui/icons-material/PersonAddAltRounded";
+
 import {
   createUserWithEmailAndPassword,
   auth,
@@ -102,7 +103,6 @@ const AsideRegister = () => {
           <PersonAddAltRoundedIcon id="shopping" sx={{ fontSize: 50 }} />
         </section>
       </IconButton>
-      <h1>Hola</h1>
       <Drawer
         anchor="right"
         open={isDrawerOpen}
@@ -114,7 +114,7 @@ const AsideRegister = () => {
           role="presentation"
           textAlign="center"
           sx={{
-            backgroundColor: "primary.dark",
+            backgroundColor: "secondary.main",
             width: 400,
             height: 1000,
           }}

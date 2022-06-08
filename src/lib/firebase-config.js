@@ -14,6 +14,7 @@ export {
   onAuthStateChanged,
   getAuth,updateProfile
 } from "@firebase/auth";
+export{collection, onSnapshot, query, where} from "firebase/firestore"
 
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_APIKEY,

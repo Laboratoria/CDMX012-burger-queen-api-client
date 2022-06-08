@@ -4,6 +4,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Order from "./Order";
 import { addOrder } from "../../lib/RequestHandler";
 
+<<<<<<< HEAD
 
 
 
@@ -12,6 +13,11 @@ export default function AsideMenu(props) {
   const { order, updateOrder } = props
 
   
+=======
+export default function AsideMenu(props) {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const { order, updateOrder } = props
+>>>>>>> 6ae6fefd02b8773f6b83b70b1de82258d19729fa
   const [name, setName] = useState("");
   const [total, setTotal] =useState("");
 
@@ -25,6 +31,11 @@ export default function AsideMenu(props) {
       let product = order.products[i]
       suma += product.price * product.qty;
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 6ae6fefd02b8773f6b83b70b1de82258d19729fa
     setTotal(suma)
     addOrder(order,name)
     updateOrder({})
@@ -35,6 +46,7 @@ export default function AsideMenu(props) {
 }
 
 return (
+<<<<<<< HEAD
   <aside className="aside">
     <IconButton
       onClick={() => setIsDrawerOpen(true)}
@@ -77,6 +89,20 @@ return (
             autoComplete="off" onChange={ClientName}
 
           />
+=======
+
+    <aside className="aside">
+      <IconButton
+        onClick={() => setIsDrawerOpen(true)}
+        size="large"
+        edge="start"
+        color="inherit"
+        aria-label="logo"
+      >
+        <section className="countAndCart">
+          <p>32</p>
+          <ShoppingCartIcon id="shopping" sx={{ fontSize: 50 }} />
+>>>>>>> 6ae6fefd02b8773f6b83b70b1de82258d19729fa
         </section>
         <section className="allOrders">
           {order.products && order.products.map((product) => {

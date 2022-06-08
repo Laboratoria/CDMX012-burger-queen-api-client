@@ -1,17 +1,21 @@
+<<<<<<< HEAD
  import axios from "axios";
  import React from 'react';
+=======
+import axios from "axios";
 
- export const urlBurguerApi = "http://localhost:5000"
+export const urlBurguerApi = "http://localhost:5000";
+>>>>>>> 6ae6fefd02b8773f6b83b70b1de82258d19729fa
 
- export const getMenu = async() =>{
-   const res = await axios.get( urlBurguerApi+"/products")
-  //  console.log(res);
+export const getMenu = async () => {
+  const res = await axios.get(urlBurguerApi + "/products");
    return res.data;
- }
-
- 
-
- export const addOrder= async(order,client)=>  {
+}
+export const getProducts = async () => {
+  const res = await axios.get(urlBurguerApi + "/Stock");
+   return res.data;
+}
+  export const addOrder= async(order,client)=>  {
  console.log(order)
  console.log(client)
  const arrayProducts=order.products.map(function(product){

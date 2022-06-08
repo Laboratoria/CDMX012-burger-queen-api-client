@@ -1,6 +1,12 @@
 // import { useNavigate } from "react-router-dom";
+
 import { getMenu,getOrder } from "../../lib/RequestHandler";
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
+=======
+import React,{ useEffect, useState } from "react";
+
+>>>>>>> 6ae6fefd02b8773f6b83b70b1de82258d19729fa
 import CardsMenu from "./CardsMenu";
 import "../../css/Menu.css";
 import Header from "../Header";

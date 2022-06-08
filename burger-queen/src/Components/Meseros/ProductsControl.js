@@ -2,7 +2,7 @@ import { StatusProducto } from '../Meseros/StatusProducto'
 import { Delivered } from '../Meseros/Delivered'
 import '../../styles/ProductsControl.css'
 
-export const ProductsControl = ({ mesas, setMesas }) => {
+export const ProductsControl = ({ rol, mesas, setMesas }) => {
   return (
     <section className='productsControl_container'>
       <section className='ProductReady_Container'>
@@ -14,7 +14,7 @@ export const ProductsControl = ({ mesas, setMesas }) => {
           <p className='productsControl_subtittle1'> Cantidad | Entregar</p>
         </div>
         <div className='scroll'>
-          <StatusProducto mesas={mesas} setMesas={setMesas} />
+          <StatusProducto rol={rol} mesas={mesas} setMesas={setMesas} />
         </div>
       </section>
         <section className='ProductReady_Container'>

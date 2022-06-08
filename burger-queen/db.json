@@ -131,7 +131,7 @@
           "id": 4,
           "name": "Jugo de frutas natural",
           "price": 7,
-          "productStatus": "kitchen",
+          "productStatus": "ready",
           "cantidad": 2
         },
         {

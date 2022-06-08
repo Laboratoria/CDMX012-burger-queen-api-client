@@ -1,7 +1,7 @@
 import graybell from '../../Assets/icons/whiteBell.png'
-export const PedidosListos = ({ table, products }) => {
+export const PedidosListos = ({ rol, table, products }) => {
   return (
-        <>
+      <>
         <div className='mesas_contenedor'>
         {products &&
           products.map((product) => (
@@ -10,11 +10,17 @@ export const PedidosListos = ({ table, products }) => {
                 <div className='mesa_table'>{ table }</div>
                 <div className='productTable_name' >{product.name}</div>
                 <div className='mesa_cant' >{product.cantidad}</div>
-                <img
-                  src={graybell}
-                  alt='bell'
-                  className='icon_bell'
-                />
+                {rol === 'mesero'
+                  ? (<img
+                   src={graybell}
+                   alt='bell'
+                   className='icon_bell'
+                 />)
+                  : (
+                   <div className='product_time'> 0:15 </div>
+                    )
+                }
+
               </div>
                 )
               : undefined

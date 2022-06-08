@@ -9,6 +9,7 @@ import { ComandasActivas } from '../Components/Cocinero/ComandasActivas'
 import { Staff } from '../Components/Administrador/Empleados/Staff'
 import { useState, useEffect } from 'react'
 import { ProductsControl } from '../Components/Meseros/ProductsControl'
+import { ProductosListos } from '../Components/Cocinero/ProductosListos'
 
 // eslint-disable-next-line react/prop-types
 export default function HomePage({ handleExit, currentUser, rol }) {
@@ -48,7 +49,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
     }
     if (rol === 'cocinero') {
       setHandleMain('Comandas')
-      setHandleAside('null')
+      setHandleAside('ProductsListos')
     }
   }
 
@@ -77,7 +78,10 @@ export default function HomePage({ handleExit, currentUser, rol }) {
       return <CreateUsers setAside={setHandleAside} />
     }
     if (handleMain === 'ProductsControl') {
-      return <ProductsControl mesas={mesas} setMesas={setMesas}/>
+      return <ProductsControl rol ={ rol } mesas={mesas} setMesas={setMesas}/>
+    }
+    if (handleMain === 'ProductsListos') {
+      return <ProductosListos rol ={ rol } mesas={mesas} setMesas={setMesas}/>
     }
   }
   const [order, setOrder] = useState({

@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import AsideProducts from "./asideProducts";
-import {  getProducts } from "../../lib/RequestHandler";
-
+import { getProducts } from "../../lib/RequestHandler";
 
 export default function ProductsStock() {
-
   const [products, setProducts] = useState([]);
 
   const getData = async () => {
-    const dataOfProducts = await getProducts();//ARRAY OF PRODUCTS IN API
+    const dataOfProducts = await getProducts(); //ARRAY OF PRODUCTS IN API
     setProducts(dataOfProducts);
   };
 
-  useEffect(() => {
+  useEffect( () => {
     getData();
   }, []);
 

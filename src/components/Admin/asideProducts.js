@@ -17,8 +17,10 @@ export default function AsideProducts() {
     dateEntry: Date,
   });
   const [products, setProducts] = useState([]);
+  console.log(products);
+  console.log(setProducts);
   const arrayData = newProduct; //catching the new object with data for API
-  console.log(arrayData);
+  // console.log(arrayData);
 
   const inputsInfo = (e) => {
     const { name, value } = e.target;
@@ -28,21 +30,21 @@ export default function AsideProducts() {
     }));
   };
 
-  const handlePost = async () => {
+  const handlePost = async (e) => {
+    e.preventDefault();
     await axios
       .post(urlBurguerApi + "/Stock", arrayData)
       .then((response) => {
         setProducts(products.concat(response.data));
-        console.log(setProducts);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  useEffect(() => {
-    getProducts();
-  }, []);
+  // useEffect(() => {
+  //   getProducts();
+  // }, []);
 
   return (
     <aside className="aside">
@@ -85,7 +87,7 @@ export default function AsideProducts() {
             <hr />
           </header>
           <section className="form-container">
-            <form className="box">
+            <form className="box" onSubmit={handlePost}>
               {/* <label>Id Product:</label>
               <input
                 type="text"
@@ -152,7 +154,7 @@ export default function AsideProducts() {
                 onChange={inputsInfo}
               ></input>
 
-              <button onClick={() => handlePost()}>Add product</button>
+              <input type="submit" value="Add Product" />
             </form>
           </section>
         </Box>

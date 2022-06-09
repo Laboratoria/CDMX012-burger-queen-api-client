@@ -1,8 +1,8 @@
 import { useNavigate, Link } from "react-router-dom";
 import {
   auth,
-  signInWithEmailAndPassword,
   onAuthStateChanged,
+  LoginWithEmail,
 } from "../lib/firebase-config";
 import React, { useEffect, useState } from "react";
 import "../css/Login.css";
@@ -14,36 +14,39 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   //
-  const navigate = useNavigate();
 
-  const LoginWithEmail = (e) => {
+  const login = (e) => {
     e.preventDefault();
-    setErrorEmail("");
-    setErrorPassword("");
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        // navigate("/menu");
-      })
-      .catch((error) => {
-        // const errorMessage = error.message;
-        console.log(error.message);
-        if (error.code === "auth/invalid-email") {
-          console.log(error.code);
-          setErrorEmail("Invalid email");
-        } else if (error.code === "auth/wrong-password") {
-          console.log(error.code);
-          setErrorPassword("Invalid password");
-        } else if (error.code === "auth/internal-error") {
-          console.log(error.code);
-          setErrorPassword("Enter a password");
-        } else if (error.code === "auth/user-not-found") {
-          console.log(error.code);
-          setErrorEmail("User not found");
-        }
-      });
+    LoginWithEmail(setErrorEmail, setErrorPassword, email, password);
   };
+  // const LoginWithEmail = (e) => {
+  //   e.preventDefault();
+  //   setErrorEmail("");
+  //   setErrorPassword("");
+  //   signInWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       // Signed in
+  //       const user = userCredential.user;
+  //       // navigate("/menu");
+  //     })
+  //     .catch((error) => {
+  //       // const errorMessage = error.message;
+  //       console.log(error.message);
+  //       if (error.code === "auth/invalid-email") {
+  //         console.log(error.code);
+  //         setErrorEmail("Invalid email");
+  //       } else if (error.code === "auth/wrong-password") {
+  //         console.log(error.code);
+  //         setErrorPassword("Invalid password");
+  //       } else if (error.code === "auth/internal-error") {
+  //         console.log(error.code);
+  //         setErrorPassword("Enter a password");
+  //       } else if (error.code === "auth/user-not-found") {
+  //         console.log(error.code);
+  //         setErrorEmail("User not found");
+  //       }
+  //     });
+  // };
 
   useEffect(() => {
     onAuthStateChanged(auth, handleUserStateChanged);
@@ -88,7 +91,7 @@ export default function Login() {
           )}
         </section>
 
-        <button className="buttonLogin" onClick={LoginWithEmail}>
+        <button className="buttonLogin" onClick={login}>
           Login
         </button>
       </form>

@@ -11,13 +11,7 @@ import {
 import { useState } from "react";
 import PersonAddAltRoundedIcon from "@mui/icons-material/PersonAddAltRounded";
 
-import {
-  createUserWithEmailAndPassword,
-  auth,
-  updateProfile,
-  logOut,
-  saveData,
-} from "../../lib/firebase-config";
+import { signUpWithEmail } from "../../lib/firebase-config";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 
 const AsideRegister = () => {
@@ -42,42 +36,55 @@ const AsideRegister = () => {
     setTurn(newValue);
   };
 
-  const signUpWithEmail = (e) => {
+  const resgiterUser = (e) => {
     e.preventDefault();
-    setErrorEmail("");
-    setErrorPassword("");
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        setIsDrawerOpen(false);
-        updateProfile(auth.currentUser, {
-          email: email,
-          password: password,
-          photoURL: "https://random.imagecdn.app/300/300",
-          displayName: user,
-        });
-        saveData(position, user, turn);
-        console.log(position, user, turn);
-        setIsDrawerOpen(false);
-        console.log(user);
-      })
-      .catch((error) => {
-        console.log(error.message);
-        //const errorMessage = error.message;
-        if (error.code === "auth/invalid-email") {
-          console.log(error.code);
-          setErrorEmail("Invalid email");
-        } else if (error.code === "auth/email-already-in-use") {
-          console.log(error.code);
-          setErrorEmail("Email already in use");
-        } else if (error.code === "auth/wrong-password") {
-          console.log(error.code);
-          setErrorPassword("Invalid password");
-        } else if (error.code === "auth/weak-password") {
-          console.log(error.code);
-          setErrorPassword(" Password should be at least 6 characters ");
-        }
-      });
+    signUpWithEmail(
+      email,
+      password,
+      user,
+      turn,
+      position,
+      setErrorEmail,
+      setErrorPassword,
+      setIsDrawerOpen
+    );
   };
+  // const signUpWithEmail = (e) => {
+  //   e.preventDefault();
+  //   setErrorEmail("");
+  //   setErrorPassword("");
+  //   createUserWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       setIsDrawerOpen(false);
+  //       updateProfile(auth.currentUser, {
+  //         email: email,
+  //         password: password,
+  //         photoURL: "https://random.imagecdn.app/300/300",
+  //         displayName: user,
+  //       });
+  //       saveData(position, user, turn);
+  //       console.log(position, user, turn);
+  //       setIsDrawerOpen(false);
+  //       console.log(user);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error.message);
+  //       //const errorMessage = error.message;
+  //       if (error.code === "auth/invalid-email") {
+  //         console.log(error.code);
+  //         setErrorEmail("Invalid email");
+  //       } else if (error.code === "auth/email-already-in-use") {
+  //         console.log(error.code);
+  //         setErrorEmail("Email already in use");
+  //       } else if (error.code === "auth/wrong-password") {
+  //         console.log(error.code);
+  //         setErrorPassword("Invalid password");
+  //       } else if (error.code === "auth/weak-password") {
+  //         console.log(error.code);
+  //         setErrorPassword(" Password should be at least 6 characters ");
+  //       }
+  //     });
+  // };
 
   const optionsRoles = [
     { label: "Admin", value: "Admin" },
@@ -179,12 +186,11 @@ const AsideRegister = () => {
               renderInput={(params) => <TextField {...params} label="Turn" />}
               onChange={turnHandler}
             />
-           
           </section>
           <Button
             variant="contained"
             startIcon={<HowToRegIcon />}
-            onClick={signUpWithEmail}
+            onClick={resgiterUser}
           >
             Register
           </Button>

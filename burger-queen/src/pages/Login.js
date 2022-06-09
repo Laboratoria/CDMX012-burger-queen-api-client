@@ -78,7 +78,7 @@ export default function HomePage() {
 
           <input
             className={`imput_log_in  ${errorPassword} `}
-            type='text'
+            type='password'
             id='login-password'
             placeholder='Contraseña'
             onChange={(e) => {

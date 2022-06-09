@@ -285,6 +285,36 @@
       "endtTime": "",
       "totalTime": "",
       "id": 5
+    },
+    {
+      "orderId": 7,
+      "table": "5",
+      "clientName": "Marie",
+      "productos": [
+        {
+          "id": 4,
+          "name": "Jugo de frutas natural",
+          "price": 7,
+          "productStatus": "kitchen",
+          "cantidad": 1
+        },
+        {
+          "id": 3,
+          "name": "Sandwich de jamón y queso ",
+          "price": 10,
+          "productStatus": "kitchen",
+          "cantidad": 1
+        }
+      ],
+      "totalProducts": 2,
+      "totalPrice": 17,
+      "TableStatus": "kitchen",
+      "waiter": "Itzel Lopez ",
+      "waiterId": "ho1v7sxk2VYQi1W48HXIuLdvx9F3",
+      "startTime": "11:51",
+      "endtTime": "",
+      "totalTime": "",
+      "id": 6
     }
   ]
 }

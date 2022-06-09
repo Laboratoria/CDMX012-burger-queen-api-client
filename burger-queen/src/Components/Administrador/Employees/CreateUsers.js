@@ -3,8 +3,9 @@ import '../../../styles/CreateUsers.css'
 import { auth, db } from '../../../Lib/firebase-keys'
 import { createUserWithEmailAndPassword, updateProfile, updateCurrentUser } from 'firebase/auth'
 // eslint-disable-next-line no-unused-vars
-import { doc, setDoc } from 'firebase/firestore'
-function CreateUsers({ setAside }) {
+import { doc, setDoc, updateDoc } from 'firebase/firestore'
+function CreateUsers({ setAside, editStaff, setEditStaff }) {
+  console.log(editStaff)
   const handleNewUser = (e) => {
     e.preventDefault()
     const email = e.target.elements.email.value
@@ -15,6 +16,13 @@ function CreateUsers({ setAside }) {
     newEmployee(email, password, rol, name, turn)
     setAside('null')
   }
+  const handleEditStaff = async(e) => {
+    e.preventDefault()
+    const docRef = doc(db, `User/${editStaff.uid}`)
+    await updateDoc(docRef, editStaff)
+    setAside('null')
+  }
+
   const userInDisplay = auth.currentUser
   // eslint-disable-next-line no-unused-vars
   async function newEmployee(email, password, rol, name, turn) {
@@ -38,12 +46,13 @@ function CreateUsers({ setAside }) {
         return user
       })
   }
-
   return (
     <div className='form_new_user'>
       <h2>Agregar usuario:</h2>
+      {(editStaff === null)
+        ? (
       <form onSubmit={handleNewUser}>
-        <input className='input_form' type='text' id="name" placeholder='Juanito' />
+        <input className='input_form' type='text' id="name" placeholder='Juanito'/>
         <input className='input_form' type='text' id="email" placeholder='jesusR@burguerqueen.com' />
         <input className='input_form' type='password' id="password" placeholder='**********' />
         <select className='input_form' id="rol" placeholder='Empleado'>
@@ -57,6 +66,24 @@ function CreateUsers({ setAside }) {
         </select>
         <button id='newUser' onClick={() => { handleNewUser() }}>Nuevo Usuario</button>
       </form>
+          )
+        : (
+          <form onSubmit={handleEditStaff}>
+            <input className='input_form' type='text' id="name" placeholder='Juanito' value={editStaff.name} onChange={(e) => setEditStaff({ ...editStaff, name: e.target.value })} />
+            <input className='input_form' type='text' id="email" placeholder='jesusR@burguerqueen.com' value={editStaff.email}/>
+            <input className='input_form' type='text' id="password" placeholder='**********' value={editStaff.password} />
+            <select className='input_form' id="rol" placeholder='Empleado' value= {editStaff.rol}onChange={(e) => setEditStaff({ ...editStaff, rol: e.target.value })}>
+              <option value="admin">Admin</option>
+              <option value="mesero">Mesero</option>
+              <option value="cocinero">Cocinero</option>
+            </select>
+            <select className='input_form' id="turn" placeholder='Matutino' value={editStaff.turn} onChange={(e) => setEditStaff({ ...editStaff, turn: e.target.value })}>
+              <option value="matutino">Matutino</option>
+              <option value="vespertino">Vespertino</option>
+            </select>
+            <button id='newUser' onClick={(e) => { handleEditStaff(e) }}>Actualizar Usuario</button>
+          </form>
+          ) }
     </div>
 
   )

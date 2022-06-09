@@ -19,7 +19,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
   const [handleAside, setHandleAside] = useState('')
   const [mesas, setMesas] = useState([])
   const [totalOrders, setTotalOrders] = useState([])
-
+  const [editStaff, setEditStaff] = useState(null)
   const getMesas = async () => {
     const url = 'http://localhost:4000/orders'
     const getFetchData = await fetch(url).then((resul) => resul.json())
@@ -56,7 +56,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
   // hace renderizado condicional en main
   const handleMainRender = (handleMain) => {
     if (handleMain === 'Empleados') {
-      return <Staff setAside={setHandleAside} />
+      return <Staff editStaff = {editStaff} setEditStaff= {setEditStaff} setAside={setHandleAside} />
     }
     if (handleMain === 'Mesas') {
       return <TablesOrders setMain={setHandleMain} setAside={setHandleAside} mesas={mesas} setMesas={setMesas} />
@@ -75,7 +75,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
       return <Command totalOrders={totalOrders} order={order} setOrder={setOrder} setMain={setHandleMain} setAside={setHandleAside} />
     }
     if (handleMain === 'CreateUsers') {
-      return <CreateUsers setAside={setHandleAside} />
+      return <CreateUsers editStaff = {editStaff} setEditStaff= {setEditStaff} setAside={setHandleAside} />
     }
     if (handleMain === 'ProductsControl') {
       return <ProductsControl rol={rol} mesas={mesas} setMesas={setMesas} />

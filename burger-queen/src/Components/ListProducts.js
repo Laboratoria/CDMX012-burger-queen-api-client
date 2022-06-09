@@ -29,10 +29,10 @@ export const ListProducts = ({ order, setOrder, setMain, setAside }) => {
           Comidas
         </div>
       </div>
-      <div className='productos_contenedor'>
+      <div className='products_container'>
         {products &&
           products.map((product) => (
-            <Product product={product} key={product.id} setOrder={setOrder} order= {order}/>
+            <Product product={product} key={product.id} setOrder={setOrder} order={order} />
           ))}
 
       </div>

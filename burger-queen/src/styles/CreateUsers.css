@@ -4,7 +4,7 @@ h2 {
 
 }
 
-.form_usuario_nuevo {
+.form_new_user {
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,27 +1,27 @@
-import '../../styles/Comanda.css'
+import '../../styles/Command.css'
 // import { useState } from 'react'
 import iconDelete from '../../Assets/icons/delete.png'
 import iconAdd from '../../Assets/icons/add.png'
 import iconLess from '../../Assets/icons/less.png'
 import { useEffect } from 'react'
 
-export const Comanda = ({ totalOrders, order, setOrder, setMain, setAside }) => {
+export const Command = ({ totalOrders, order, setOrder, setMain, setAside }) => {
   const dataInfo = order
 
   const { productos } = order
-  const totalPrices = productos.map((producto) => {
-    return producto.price * producto.cantidad
+  const totalPrices = productos.map((product) => {
+    return product.price * product.cantidad
   })
-  const valorinicial = 0
-  const totalCuenta = totalPrices.reduce((a, b) => a + b, valorinicial)
+  const initialValue = 0
+  const fullAccount = totalPrices.reduce((a, b) => a + b, initialValue)
 
-  const cantidadProductos = productos.map((producto) => {
-    return producto.cantidad
+  const quantityProducts = productos.map((product) => {
+    return product.cantidad
   })
-  const cantidadInicial = 0
-  const totalCantidad = cantidadProductos.reduce(
+  const initialQuantity = 0
+  const totalQuantity = quantityProducts.reduce(
     (a, b) => a + b,
-    cantidadInicial
+    initialQuantity
   )
 
   const prueba = {
@@ -38,26 +38,26 @@ export const Comanda = ({ totalOrders, order, setOrder, setMain, setAside }) => 
   useEffect(() => {
     // si hay ordenes, extrae el numero total y agrega 1 al contador OrderId
     if (totalOrders.length) {
-      setOrder({ ...order, orderId: totalOrders[totalOrders.length - 1].orderId + 1, totalProducts: totalCantidad, totalPrice: totalCuenta })
+      setOrder({ ...order, orderId: totalOrders[totalOrders.length - 1].orderId + 1, totalProducts: totalQuantity, totalPrice: fullAccount })
     }
-  }, [totalCuenta, totalCantidad])
+  }, [fullAccount, totalQuantity])
 
-  const postComanda = () => {
+  const postCommand = () => {
     fetch('http://localhost:4000/orders', prueba)
       .then((response) => response.json())
       .then((data) => console.log(data))
   }
 
-  const handleSubmitComanda = (e) => {
+  const handleSubmitCommand = (e) => {
     e.preventDefault()
-    postComanda()
+    postCommand()
     setMain('Mesas')
     setAside('null')
   }
 
   const handleAdd = (currentProduct) => {
-    const id = order.productos.findIndex((producto) => {
-      return producto.id === currentProduct.id
+    const id = order.productos.findIndex((product) => {
+      return product.id === currentProduct.id
     })
     const updatedOrder = [...order.productos]
     for (const property in updatedOrder[id]) {
@@ -86,11 +86,11 @@ export const Comanda = ({ totalOrders, order, setOrder, setMain, setAside }) => 
   }
 
   return (
-    <div className='contenedor_de_comanda'>
+    <div className='container_of_command'>
       <h1 className='orderTitle'> Orden # {order.orderId} </h1>
       <select
-        className='mesa'
-        id='table'
+        className='table'
+        id='table_id'
         onChange={(e) => setOrder({ ...order, table: e.target.value })}
       >
         <option>Seleccionar mesa </option>
@@ -105,52 +105,52 @@ export const Comanda = ({ totalOrders, order, setOrder, setMain, setAside }) => 
       <input
         type='text'
         placeholder='Nombre del Cliente'
-        className='input_comanda_form'
-        id='inputNombre'
+        className='input_command_form'
+        id='inputName'
         onChange={(e) => setOrder({ ...order, clientName: e.target.value })}
       ></input>
-      <div className='titulo_productos'>
+      <div className='title_products'>
         <p>Producto</p>
-        <div className='titulo_total'>
+        <div className='title_total'>
           <p>Total</p>
           <p>Eliminar</p>
         </div>
       </div>
-      <section className='contenedor_productos'>
-        {productos.map((producto, index) => (
-          <section className='producto_orden' key={`${index}${producto.id}`}>
+      <section className='container_products'>
+        {productos.map((product, index) => (
+          <section className='producto_order' key={`${index}${product.id}`}>
             <img
               src={iconDelete}
               alt='Delete'
               className='icon_tabcell'
               id='background_yelow'
-              onClick={() => handleDelete(producto, true)}
+              onClick={() => handleDelete(product, true)}
             />
-            <div className='product_name'>{producto.name}</div>
-            <section className='contenedor_botones'>
+            <div className='product_name'>{product.name}</div>
+            <section className='container_buttons'>
               <img
                 src={iconAdd}
                 alt='Add'
                 className='icon_tabcell'
                 id='background_gray'
-                onClick={() => handleAdd(producto)}
+                onClick={() => handleAdd(product)}
               />
-              <div className='producto_cantidad'> {producto.cantidad}</div>
+              <div className='product_quantity'> {product.cantidad}</div>
               <img
                 src={iconLess}
                 alt='Add'
                 className='icon_tabcell'
                 id='background_yelow'
-                onClick={() => handleDelete(producto)}
+                onClick={() => handleDelete(product)}
               />
             </section>
           </section>
         ))}
       </section>
 
-      <section className='section_resumen'>
-        <div className='total'>Total $ {totalCuenta}</div>
-        <button className='btn_comanda' onClick={(e) => handleSubmitComanda(e)}>
+      <section className='section_resume'>
+        <div className='total'>Total $ {fullAccount}</div>
+        <button className='btn_command' onClick={(e) => handleSubmitCommand(e)}>
           Enviar Comanda{' '}
         </button>
       </section>

@@ -28,19 +28,19 @@ export const Product = ({ product, setOrder, order }) => {
   return (
     // <div className='tarjeta_producto' key={product.id} onClick={() => { setOrder(oldArrat => [...oldArrat, { name: product.name, price: product.price, id: product.id, cant: 1 }]) }}>
     <div
-      className='tarjeta_producto'
+      className='card_product'
       key={product.id}
       onClick={() => {
         handleAddProduct(product)
       }}
     >
-      <img className='imagen_producto' src={product.urlImg}></img>
-      <div className='descripcion_producto'>
-        <div className='datos_producto'>
-          <h2 className='nombre_producto'>{product.name}</h2>
-          <p className='tiempo_producto'>{product.melPrep}</p>
+      <img className='img_product' src={product.urlImg}></img>
+      <div className='product_description'>
+        <div className='data_product'>
+          <h2 className='name_product'>{product.name}</h2>
+          <p className='time_product'>{product.melPrep}</p>
         </div>
-        <div className='precio_producto'>${product.price}</div>
+        <div className='price_product'>${product.price}</div>
       </div>
     </div>
   )

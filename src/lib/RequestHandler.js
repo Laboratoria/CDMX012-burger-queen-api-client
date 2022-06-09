@@ -14,7 +14,7 @@ export const getProducts = async () => {
  console.log(order)
  console.log(client)
  const arrayProducts=order.products.map(function(product){
-  return {productId:product.id, qty:product.qty,name:product.name, img:product.image}
+  return {productId:product.id, qty:product.qty,name:product.name, img:product.image,price:product.price}
 })
      const testOrder = { userId:"user", client:client, products:arrayProducts}
  

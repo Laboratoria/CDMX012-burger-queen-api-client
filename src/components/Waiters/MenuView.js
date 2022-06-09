@@ -8,13 +8,15 @@ import "../../css/Menu.css";
 import Header from "../Header";
 import AsideMenu from "./asideMenu";
 import { DateOrder } from "./DateOrder";
+import AsideOrders from "./AsideOrders";
 export default function Menu() {
   const [products, setProducts] = useState({});
   const [typeMenu, setTypeMenu] = useState("");
   const [orderMenu, setOrder] = useState({});
   const [changeView, setChangeView] = useState(true);
   const [comandasOrders, setComandasOrders] = useState([]);
-
+  const [isDrawerOpenOrder, setIsDrawerOpenOrder] = useState(false);
+  const[selectedOder, setSelectedOrder] = useState({});
 
   useEffect(() => {
 
@@ -103,6 +105,8 @@ export default function Menu() {
               order={order}
               // order={order.products}
               updateComanda={setComandasOrders}
+              setIsDrawerOpenOrder= {setIsDrawerOpenOrder}
+              setSelectedOrder = {setSelectedOrder}
        ></DateOrder>
         );
       })
@@ -111,6 +115,11 @@ export default function Menu() {
     <AsideMenu
     order={orderMenu} 
     updateOrder={setOrder}
+    />
+    <AsideOrders
+    isDrawerOpenOrder= {isDrawerOpenOrder}
+    setIsDrawerOpenOrder= {setIsDrawerOpenOrder}
+    selectedOder={selectedOder}
     />
   </div>
     </section >

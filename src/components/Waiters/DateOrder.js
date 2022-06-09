@@ -1,9 +1,12 @@
-import { tooltipClasses } from "@mui/material";
+
 
 export function DateOrder(props) {
-    const {order, updateComanda } = props
+    const {order, updateComanda,setIsDrawerOpenOrder,setSelectedOrder } = props
+    // const [isDrawerOpenOrder, setIsDrawerOpenOrder]= props
 const edit = ()=>{
-    
+   setIsDrawerOpenOrder(true)
+   setSelectedOrder(order)
+   console.log(order)
 }
     return (
 <section>  

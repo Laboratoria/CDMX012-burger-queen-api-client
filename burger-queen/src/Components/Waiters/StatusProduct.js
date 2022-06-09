@@ -1,13 +1,13 @@
-import { PedidosListos } from '../Meseros/PedidosListos'
+import { OrdersReady } from '../Waiters/OrdersReady'
 import '../../styles/ProductsControl.css'
 
-export const StatusProducto = ({ rol, mesas }) => {
+export const StatusProduct = ({ rol, mesas }) => {
   return (
     <>
-      <div className='mesas_contenedor'>
+      <div className='tabless_container'>
         {mesas &&
           mesas.map((mesa) => (
-            <PedidosListos
+            <OrdersReady
               rol={rol}
               table={mesa.table}
               products={mesa.productos}

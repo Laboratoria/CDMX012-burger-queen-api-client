@@ -2,14 +2,14 @@ import '../styles/HomePage.css'
 import LogoBQB from '../Assets/Images/BQBlack.png'
 import LogOut from '../Assets/icons/logOut.png'
 import { ListProducts } from '../Components/ListProducts'
-import CreateUsers from '../Components/Administrador/Empleados/CreateUsers'
-import { Mesas } from '../Components/Meseros/Mesas'
-import { Comanda } from '../Components/Meseros/Comanda'
-import { ComandasActivas } from '../Components/Cocinero/ComandasActivas'
-import { Staff } from '../Components/Administrador/Empleados/Staff'
+import CreateUsers from '../Components/Administrador/Employees/CreateUsers'
+import { TablesOrders } from '../Components/Waiters/TablesOrders'
+import { Command } from '../Components/Waiters/Command'
+import { ActiveCommands } from '../Components/Chefs/ActiveCommands'
+import { Staff } from '../Components/Administrador/Employees/Staff'
 import { useState, useEffect } from 'react'
-import { ProductsControl } from '../Components/Meseros/ProductsControl'
-import { ProductosListos } from '../Components/Cocinero/ProductosListos'
+import { ProductsControl } from '../Components/Waiters/ProductsControl'
+import { ReadyProducts } from '../Components/Chefs/ReadyProducts'
 
 // eslint-disable-next-line react/prop-types
 export default function HomePage({ handleExit, currentUser, rol }) {
@@ -25,8 +25,8 @@ export default function HomePage({ handleExit, currentUser, rol }) {
     const getFetchData = await fetch(url).then((resul) => resul.json())
     setTotalOrders(getFetchData)
     if (rol === 'mesero') {
-      const mesaFiltrada = getFetchData.filter((mesa) => mesa.waiterId === currentUser.uid)
-      setMesas(mesaFiltrada)
+      const filteredTable = getFetchData.filter((mesa) => mesa.waiterId === currentUser.uid)
+      setMesas(filteredTable)
     } else {
       setMesas(getFetchData)
     }
@@ -56,32 +56,32 @@ export default function HomePage({ handleExit, currentUser, rol }) {
   // hace renderizado condicional en main
   const handleMainRender = (handleMain) => {
     if (handleMain === 'Empleados') {
-      return <Staff setAside={setHandleAside}/>
+      return <Staff setAside={setHandleAside} />
     }
     if (handleMain === 'Mesas') {
-      return <Mesas setMain={setHandleMain} setAside={setHandleAside} mesas={mesas} setMesas={setMesas}/>
+      return <TablesOrders setMain={setHandleMain} setAside={setHandleAside} mesas={mesas} setMesas={setMesas} />
     }
     if (handleMain === 'Menu') {
       return <ListProducts order={order} setOrder={setOrder} />
     }
     if (handleMain === 'Comandas') {
-      return <ComandasActivas mesas={mesas} setMesas={setMesas} />
+      return <ActiveCommands mesas={mesas} setMesas={setMesas} />
     }
   }
 
   // hace renderizado condicional en Aside
   const handleAsideRender = (handleMain) => {
     if (handleMain === 'Comanda') {
-      return <Comanda totalOrders={totalOrders} order={order} setOrder={setOrder} setMain={setHandleMain} setAside={setHandleAside}/>
+      return <Command totalOrders={totalOrders} order={order} setOrder={setOrder} setMain={setHandleMain} setAside={setHandleAside} />
     }
     if (handleMain === 'CreateUsers') {
       return <CreateUsers setAside={setHandleAside} />
     }
     if (handleMain === 'ProductsControl') {
-      return <ProductsControl rol ={ rol } mesas={mesas} setMesas={setMesas}/>
+      return <ProductsControl rol={rol} mesas={mesas} setMesas={setMesas} />
     }
     if (handleMain === 'ProductsListos') {
-      return <ProductosListos rol ={ rol } mesas={mesas} setMesas={setMesas}/>
+      return <ReadyProducts rol={rol} mesas={mesas} setMesas={setMesas} />
     }
   }
   const [order, setOrder] = useState({
@@ -106,19 +106,17 @@ export default function HomePage({ handleExit, currentUser, rol }) {
 
         {rol === 'admin' && (
           <p
-            className={`${
-              handleMain === 'Empleados' ? 'activeB' : 'inactiveB'
-            }`}
-            onClick={() => { setHandleMain('Empleados'); setHandleAside('null') } }
+            className={`${handleMain === 'Empleados' ? 'activeB' : 'inactiveB'
+              }`}
+            onClick={() => { setHandleMain('Empleados'); setHandleAside('null') }}
           >
             Empleados{' '}
           </p>
         )}
         {rol === 'admin' && (
           <p
-            className={`${
-              handleMain === 'Menu' ? 'activeB' : 'inactiveB'
-            }`}
+            className={`${handleMain === 'Menu' ? 'activeB' : 'inactiveB'
+              }`}
             onClick={() => { setHandleMain('Menu'); setHandleAside('null') }}
           >
             {' '}
@@ -155,7 +153,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
         {rol === 'cocinero' && (
           <p
             className={`${handleMain === 'Recetas' ? 'activeB' : 'inactiveB'}`}
-            onClick={() => { setHandleMain('Menu'); setHandleAside('null') }}
+            onClick={() => { setHandleMain('Recetas'); setHandleAside('null') }}
           >
             {' '}
             Recetas

@@ -1,10 +1,10 @@
-import { ProductsDelivered } from '../Meseros/ProductsDelivered'
+import { ProductsDelivered } from '../Waiters/ProductsDelivered'
 import '../../styles/ProductsControl.css'
 
 export const Delivered = ({ mesas }) => {
   return (
     <>
-      <div className='mesas_contenedor'>
+      <div className='tables_container'>
         {mesas &&
           mesas.map((mesa) => (
             <ProductsDelivered

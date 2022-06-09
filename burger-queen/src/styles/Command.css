@@ -1,4 +1,4 @@
-.contenedor_de_comanda {
+.container_of_command {
     width: 100%;
     height: 100%;
     display: flex;
@@ -13,7 +13,7 @@
     font-weight: bold;
 }
 
-.mesa {
+.table {
     width: 100%;
     height: 5%;
     /* margin: 2.5% 0; */
@@ -22,7 +22,7 @@
     background-color: #E5E5E5;
 }
 
-.input_comanda_form {
+.input_command_form {
     width: 90%;
     height: 5%;
     margin: 2.5% 0;
@@ -31,7 +31,7 @@
     background-color: #E5E5E5;
 }
 
-.titulo_productos {
+.title_products {
     width: 100%;
     height: 4%;
     margin: 2.5% 0;
@@ -43,13 +43,13 @@
     justify-content: space-between;
 }
 
-.titulo_total {
+.title_total {
     width: 30%;
     display: flex;
     justify-content: space-between;
 }
 
-.section_resumen {
+.section_resume {
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -70,7 +70,7 @@
     padding-left: 8%;
 }
 
-.btn_comanda {
+.btn_command {
     background-color: #FFC700;
     width: 100%;
     height: 7%;
@@ -80,7 +80,7 @@
     font-size: 1.2em;
 }
 
-.producto_orden {
+.producto_order {
     height: 2rem;
     background-color: #E5E5E5;
     display: flex;
@@ -91,19 +91,19 @@
     margin: 0.2rem
 }
 
-.contenedor_productos {
+.container_products {
     display: flex;
     width: 100%;
     flex-direction: column;
 }
 
-#background_yelow{
-    background-color:#FFC700;
+#background_yelow {
+    background-color: #FFC700;
     width: 2rem;
     height: 2rem;
 }
 
-#background_gray{
+#background_gray {
     background-color: #232021;
     width: 2rem;
     height: 2rem;
@@ -122,13 +122,14 @@
     font-size: 16px;
 }
 
-.product_name{
-text-align: left;
-margin: 0;
-padding: 0;
+.product_name {
+    text-align: left;
+    margin: 0;
+    padding: 0;
 
 }
-.producto_cantidad {
+
+.product_quantity {
     width: 45%;
     height: 100%;
     margin: 0;
@@ -138,7 +139,7 @@ padding: 0;
     align-items: center;
 }
 
-.contenedor_botones {
+.container_buttons {
     width: 30%;
     display: flex;
     flex-direction: row;

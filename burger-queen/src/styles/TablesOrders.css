@@ -1,4 +1,4 @@
-.icon_Add{
+.icon_Add {
   width: 5rem;
   height: 5rem;
   border: .5rem solid #FFC700;
@@ -6,7 +6,8 @@
   left: 55%;
   bottom: 4rem;
 }
-.mesas-contenedor{
+
+.tables_container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

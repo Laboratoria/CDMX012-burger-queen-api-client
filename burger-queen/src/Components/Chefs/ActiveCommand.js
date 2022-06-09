@@ -1,5 +1,5 @@
 import { useState } from 'react'
-export const ComandaActiva = ({ mesa }) => {
+export const ActiveCommand = ({ mesa }) => {
   const [productStatus, SetProductStatus] = useState({
     id: mesa.id,
     orderId: mesa.orderId,
@@ -30,32 +30,32 @@ export const ComandaActiva = ({ mesa }) => {
     fetchProductos({ ...productStatus, productos: [...updatedMesa] })
     SetProductStatus({ ...productStatus, productos: [...updatedMesa] })
   }
-  const fetchProductos = async(productStats) => {
+  const fetchProductos = async (productStats) => {
     await fetch(`http://localhost:4000/orders/${mesa.id}`, {
       method: 'PATCH',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(productStats)
     }).then(response => response.json()).then(console.log('actualizado'))
   }
-  const handleSubmit = async(producto) => {
-    updateStatus(producto, mesa)
+  const handleSubmit = async (product) => {
+    updateStatus(product, mesa)
   }
 
   return (
-  <div className= 'mesa-contenedor' key={mesa.id}>
-    <table className='datos-mesa'>
-    <thead>
-    <tr><th id='titulo-mesa'>Mesa<br/>{mesa.table} </th><th id='titulo-tiempo'>{mesa.startTime}</th></tr>
-    </thead>
-    { mesa && mesa.productos.map((producto) => (
-      (producto.productStatus === 'kitchen')
-        ? (<tbody key={producto.name}>
-      <tr><td>{producto.cantidad}</td><td>{producto.name}<button onClick={ () => { handleSubmit(producto) }}>-</button></td></tr>
-      </tbody>)
-        : undefined
-    ))
-      }
-        </table>
-  </div>
+    <div className='container_table' key={mesa.id}>
+      <table className='data_table'>
+        <thead>
+          <tr><th id='title_table'>Mesa<br />{mesa.table} </th><th id='time_title'>{mesa.startTime}</th></tr>
+        </thead>
+        {mesa && mesa.productos.map((product) => (
+          (product.productStatus === 'kitchen')
+            ? (<tbody key={product.name}>
+              <tr><td>{product.cantidad}</td><td>{product.name}<button onClick={() => { handleSubmit(product) }}>-</button></td></tr>
+            </tbody>)
+            : undefined
+        ))
+        }
+      </table>
+    </div>
   )
 }

@@ -13,7 +13,6 @@ const PrivateRoutes = () => {
     if (user) {
       const userEmail = user.email;
       const initial = userEmail[0];
-      console.log(typeof initial);
 
       if (initial === "a") {
         setRoleAdmin("admin");
@@ -23,8 +22,6 @@ const PrivateRoutes = () => {
         setRole("chef");
       }
     }
-    console.log(user);
-    console.log(role);
   });
 
   if (roleAdmin === "admin") {

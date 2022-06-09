@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router";
 import {
   Drawer,
   Box,
@@ -11,29 +10,29 @@ import {
 import { useState } from "react";
 import PersonAddAltRoundedIcon from "@mui/icons-material/PersonAddAltRounded";
 
-import { signUpWithEmail } from "../../lib/firebase-config";
+import { signUpWithEmail, getAuth } from "../../lib/firebase-config";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
+import DateTime from "../DateTime";
 
 const AsideRegister = () => {
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
   const [user, setUserName] = useState("");
-  const [position, setPosition] = useState(" ");
-  const [turn, setTurn] = useState(" ");
+  const [position, setPosition] = useState("");
+  const [turn, setTurn] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const navigate = useNavigate();
+  const auth = getAuth();
+  const userData = auth.currentUser;
 
   const positionHandler = (event, newValue) => {
     console.log(newValue);
-    let dataPosition = newValue.value;
-    setPosition(newValue);
+    setPosition(newValue.value);
   };
   const turnHandler = (event, newValue) => {
     console.log(newValue);
-    let dataTurn = newValue.value;
-    setTurn(newValue);
+    setTurn(newValue.value);
   };
 
   const resgiterUser = (e) => {
@@ -87,20 +86,29 @@ const AsideRegister = () => {
   // };
 
   const optionsRoles = [
+    // { label: "", value: "" },
     { label: "Admin", value: "Admin" },
     { label: "Waiter", value: "Waiter" },
     { label: "Chef", value: "Chef" },
   ];
   const optionsTurns = [
+    // { label: "", value: "" },
     { label: "Morning shift", value: "Morning shift" },
     { label: "Afternoon shift", value: "Afternoon shift" },
     { label: "Night shift", value: "Night shift" },
   ];
 
+  const drawerHandler = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+    setEmail("");
+    setTurn("");
+    setPosition("");
+  };
+
   return (
     <div>
       <IconButton
-        onClick={() => setIsDrawerOpen(true)}
+        onClick={drawerHandler}
         size="large"
         edge="start"
         color="inherit"
@@ -110,11 +118,7 @@ const AsideRegister = () => {
           <PersonAddAltRoundedIcon id="shopping" sx={{ fontSize: 50 }} />
         </section>
       </IconButton>
-      <Drawer
-        anchor="right"
-        open={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
-      >
+      <Drawer anchor="right" open={isDrawerOpen} onClose={drawerHandler}>
         <Box
           p={5}
           width="400px"
@@ -128,6 +132,8 @@ const AsideRegister = () => {
         >
           <header>
             <h1>Register new employee</h1>
+            <DateTime />
+            <p>Employee: {userData.displayName}</p>
           </header>
 
           <section>
@@ -168,22 +174,33 @@ const AsideRegister = () => {
             <Autocomplete
               id="input-rol"
               options={optionsRoles}
-              getOptionLabel={(option) => option.value || ""}
+              getOptionLabel={(option) => option.value ?? option}
+              isOptionEqualToValue={(option, value) => option.value === value}
               value={position}
               sx={{ width: 300 }}
               autoComplete={false}
-              renderInput={(params) => <TextField {...params} label="Role" />}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Role"
+                  autoComplete="off"
+                  helperText=" "
+                />
+              )}
               onChange={positionHandler}
             />
             <br></br>
             <Autocomplete
               id="input-turn"
               options={optionsTurns}
-              getOptionLabel={(option) => option.value || ""}
+              getOptionLabel={(option) => option.value ?? option}
+              isOptionEqualToValue={(option, value) => option.value === value}
               value={turn}
               sx={{ width: 300 }}
               autoComplete={false}
-              renderInput={(params) => <TextField {...params} label="Turn" />}
+              renderInput={(params) => (
+                <TextField {...params} label="Turn" autoComplete="off" />
+              )}
               onChange={turnHandler}
             />
           </section>

@@ -17,11 +17,10 @@ import {
   orderBy,
   limit,
 } from "firebase/firestore";
-
 export {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
-  getAuth,
+  getAuth, 
 } from "@firebase/auth";
 
 export const firebaseConfig = {
@@ -83,6 +82,7 @@ export const signUpWithEmail = (
 ) => {
   setErrorEmail("");
   setErrorPassword("");
+
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       setIsDrawerOpen(false);
@@ -93,24 +93,17 @@ export const signUpWithEmail = (
         displayName: user,
       });
       saveData(position, user, turn);
-      console.log(position, user, turn);
       setIsDrawerOpen(false);
-      console.log(user);
     })
     .catch((error) => {
-      console.log(error.message);
       //const errorMessage = error.message;
       if (error.code === "auth/invalid-email") {
-        console.log(error.code);
         setErrorEmail("Invalid email");
       } else if (error.code === "auth/email-already-in-use") {
-        console.log(error.code);
         setErrorEmail("Email already in use");
       } else if (error.code === "auth/wrong-password") {
-        console.log(error.code);
         setErrorPassword("Invalid password");
       } else if (error.code === "auth/weak-password") {
-        console.log(error.code);
         setErrorPassword(" Password should be at least 6 characters ");
       }
     });

@@ -126,7 +126,7 @@ const AsideRegister = () => {
           <section>
             <TextField
               helperText=" "
-              id="demo-helper-text-aligned-no-helper"
+              id="input-name"
               label="Name"
               sx={{ width: 300 }}
               autoComplete="off"
@@ -135,7 +135,7 @@ const AsideRegister = () => {
 
             <TextField
               helperText=" "
-              id="demo-helper-text-aligned-no-helper"
+              id="input-email"
               label="Email"
               sx={{ width: 300 }}
               autoComplete="off"
@@ -146,7 +146,7 @@ const AsideRegister = () => {
             </section>
             <TextField
               helperText=" "
-              id="demo-helper-text-aligned-no-helper"
+              id="input-password"
               label="Password"
               type={"password"}
               sx={{ width: 300 }}
@@ -159,39 +159,27 @@ const AsideRegister = () => {
               )}
             </section>
             <Autocomplete
-              id="combo-box-demo"
+              id="input-rol"
               options={optionsRoles}
-              getOptionLabel={(option) => option.value}
+              getOptionLabel={(option) => option.value || ""}
               value={position}
               sx={{ width: 300 }}
-              autoComplete="off"
-              renderInput={(params) => (
-                <TextField {...params} label="Role" />
-              )}
+              autoComplete={false}
+              renderInput={(params) => <TextField {...params} label="Role" />}
               onChange={positionHandler}
             />
             <br></br>
             <Autocomplete
-              id="combo-box-demo"
+              id="input-turn"
               options={optionsTurns}
-              getOptionLabel={(option) => option.value}
+              getOptionLabel={(option) => option.value || ""}
               value={turn}
               sx={{ width: 300 }}
-              autoComplete="off"
-              renderInput={(params) => (
-                <TextField {...params} label="Turn" />
-              )}
+              autoComplete={false}
+              renderInput={(params) => <TextField {...params} label="Turn" />}
               onChange={turnHandler}
             />
-            {/* <Autocomplete
-              disablePortal
-              id="combo-box-demo"
-              options={optionsTurns}
-              sx={{ width: 300 }}
-              renderInput={(params) => <TextField {...params} label="Turn" />}
-              autoComplete="off"
-              onChange={(e) => setTurn(optionsTurns[e.target.value])}
-            /> */}
+           
           </section>
           <Button
             variant="contained"

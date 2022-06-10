@@ -1,5 +1,17 @@
 import '../styles/Product.css'
-export const Product = ({ product, setOrder, order }) => {
+export const Product = ({ setSingleProduct, rol, product, setOrder, order, setAside }) => {
+  const setToRender = () => {
+    setSingleProduct(product)
+    if (rol === 'admin') {
+      setAside('Productos')
+    }
+    if (rol === 'mesero') {
+      handleAddProduct(product)
+    }
+    if (rol === 'cocinero') {
+      setAside('Productos')
+    }
+  }
   const handleAddProduct = (currentProduct) => {
     // entra a la orden luego a producto y busca el producto en el array , si el seleccionado coincide con el id
     const id = order.productos.findIndex((producto) => {
@@ -31,7 +43,7 @@ export const Product = ({ product, setOrder, order }) => {
       className='card_product'
       key={product.id}
       onClick={() => {
-        handleAddProduct(product)
+        setToRender()
       }}
     >
       <img className='img_product' src={product.urlImg}></img>

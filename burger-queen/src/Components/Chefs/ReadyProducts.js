@@ -8,7 +8,7 @@ export const ReadyProducts = ({ rol, mesas, setMesas }) => {
         <p className='productsControl_title'>
           <b>Productos Listos</b>
         </p>
-        <div className='Products_table'>
+        <div className='Products_table1'>
           <p className='productsControl_subtittle'> Mesa | Producto</p>
           <p className='productsControl_subtittle1'> Cantidad | Tiempo</p>
         </div>

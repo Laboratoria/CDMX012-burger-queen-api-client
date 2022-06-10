@@ -29,6 +29,16 @@
   margin-bottom: .5rem;
 }
 
+.Products_table1 {
+  width: 100%;
+  height: 5%;
+  background-color: rgb(215, 215, 215);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
+
 .productsControl_subtittle {
   font-size: 1rem;
   padding-left: .5rem;

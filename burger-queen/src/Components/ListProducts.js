@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { Product } from './Product'
 import Add from '../Assets/icons/yelowAdd.png'
 
-export const ListProducts = ({ order, setOrder, setMain, setAside, handleMain }) => {
+export const ListProducts = ({ singleProduct, setSingleProduct, rol, order, setOrder, setMain, setAside, handleMain, createOrEdit, SetCreateOrEdit }) => {
   const [menu, setMenu] = useState('breakfast')
   const [products, setProducts] = useState(null)
 
@@ -38,12 +38,9 @@ export const ListProducts = ({ order, setOrder, setMain, setAside, handleMain })
       <div className='products_container'>
         {products &&
           products.map((product) => (
-            <Product product={product} key={product.id} setOrder={setOrder} order={order} handleMain={handleMain} />
+            <Product singleProduct={singleProduct} setSingleProduct={setSingleProduct} rol={rol} product={product} key={product.id} setOrder={setOrder} order={order} handleMain={handleMain} setAside={setAside} />
           ))}
-       <img src={Add} alt='Add' className='icon_Add' onClick={() => {
-         handleAside()
-       }}
-      />
+        {rol === 'admin' && (<img src={Add} alt='Add' className='icon_Add' onClick={() => { handleAside() }} />)}
       </div>
     </>
   )

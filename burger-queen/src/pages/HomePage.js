@@ -22,6 +22,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
   const [totalOrders, setTotalOrders] = useState([])
   const [editStaff, setEditStaff] = useState(null)
   const [newProduct, setNewProduct] = useState(null)
+  const [singleProduct, setSingleProduct] = useState(null)
   const getMesas = async () => {
     const url = 'http://localhost:4000/orders'
     const getFetchData = await fetch(url).then((resul) => resul.json())
@@ -58,13 +59,13 @@ export default function HomePage({ handleExit, currentUser, rol }) {
   // hace renderizado condicional en main
   const handleMainRender = (handleMain) => {
     if (handleMain === 'Empleados') {
-      return <Staff editStaff = {editStaff} setEditStaff= {setEditStaff} setAside={setHandleAside} />
+      return <Staff editStaff={editStaff} setEditStaff={setEditStaff} setAside={setHandleAside} />
     }
     if (handleMain === 'Mesas') {
       return <TablesOrders setMain={setHandleMain} setAside={setHandleAside} mesas={mesas} setMesas={setMesas} />
     }
     if (handleMain === 'Menu') {
-      return <ListProducts order={order} setOrder={setOrder} setMain={setHandleMain} setAside={setHandleAside} handleMain ={handleMain} />
+      return <ListProducts singleProduct={singleProduct} setSingleProduct={setSingleProduct} rol={rol} order={order} setOrder={setOrder} setMain={setHandleMain} setAside={setHandleAside} handleMain={handleMain} />
     }
     if (handleMain === 'Comandas') {
       return <ActiveCommands mesas={mesas} setMesas={setMesas} />
@@ -77,7 +78,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
       return <Command totalOrders={totalOrders} order={order} setOrder={setOrder} setMain={setHandleMain} setAside={setHandleAside} />
     }
     if (handleMain === 'CreateUsers') {
-      return <CreateUsers editStaff = {editStaff} setEditStaff= {setEditStaff} setAside={setHandleAside} />
+      return <CreateUsers editStaff={editStaff} setEditStaff={setEditStaff} setAside={setHandleAside} />
     }
     if (handleMain === 'ProductsControl') {
       return <ProductsControl rol={rol} mesas={mesas} setMesas={setMesas} />
@@ -86,7 +87,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
       return <ReadyProducts rol={rol} mesas={mesas} setMesas={setMesas} />
     }
     if (handleMain === 'Productos') {
-      return <Products newProduct={newProduct} setNewProduct={setNewProduct} setMain={setHandleMain} setAside={setHandleAside} />
+      return <Products singleProduct={singleProduct} newProduct={newProduct} setNewProduct={setNewProduct} setMain={setHandleMain} setAside={setHandleAside} />
     }
   }
   const [order, setOrder] = useState({

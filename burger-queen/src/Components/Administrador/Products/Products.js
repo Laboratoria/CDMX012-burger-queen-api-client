@@ -67,6 +67,11 @@ export default function Products({ singleProduct, newProduct, setNewProduct, set
       .then((response) => response.json())
       .then((data) => console.log(data))
   }
+  const deleteProduct = () => {
+    fetch(`http://localhost:4000/products/${singleProduct.id}`, {
+      method: 'DELETE'
+    }).then(response => response.json()).then(console.log('ELIMINADO'))
+  }
 
   return (
     <section>
@@ -123,6 +128,7 @@ export default function Products({ singleProduct, newProduct, setNewProduct, set
           placeholder='www.tuimagen.com'
           onChange={(e) => setTheOnChange(e)} />
         <button onClick={(e) => { setTheFunction(e) }}>Agregar producto</button>
+        <button onClick={(e) => { deleteProduct() }}>Borrar producto</button>
       </form>
     </section>
   )

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Order from "./Order";
 import { addOrder } from "../../lib/RequestHandler";
+import DateTime from "./DateTime";
 
 export default function AsideMenu(props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -26,9 +27,9 @@ export default function AsideMenu(props) {
     updateOrder({})
     setName("")
     // setTotal("")
-    
   
 }
+
 
 return (
 
@@ -67,8 +68,8 @@ return (
               alt="clockIcon"
               src={require("../../assets/Clock.png")}
             />
-            <p>Fecha del dia</p>
-            <p>Hora</p>
+             <DateTime/>
+            
             <p>Rol y nombre</p>
             <hr />
           </header>

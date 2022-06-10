@@ -2,12 +2,13 @@ import { Drawer, Box, IconButton } from "@mui/material";
 import {useState} from "react";
 import Order from "./Order";
 import { addOrder } from "../../lib/RequestHandler";
-import { DateOrder } from "./DateOrder";
+import DateTime from "./DateTime";
 
 export default function AsideOrders(props) {
     
     const { isDrawerOpenOrder, setIsDrawerOpenOrder,selectedOder } = props
     const [name, setName] = useState("");
+   
     return (
 
         <aside className="aside">
@@ -37,8 +38,7 @@ export default function AsideOrders(props) {
                   alt="clockIcon"
                   src={require("../../assets/Clock.png")}
                 />
-                <p>Fecha del dia</p>
-                <p>Hora</p>
+                <DateTime/>
                 <p>Waitress y nombre</p>
                 <hr />
               </header>
@@ -52,6 +52,7 @@ export default function AsideOrders(props) {
                     return (
                       <Order
                         key={product.productId}
+                        client={product.client}
                         name={product.name}
                         price={product.price}
                         qty={product.qty}

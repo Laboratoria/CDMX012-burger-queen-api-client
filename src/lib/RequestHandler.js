@@ -30,4 +30,7 @@ export const getProducts = async () => {
   return res.data;
 }
  
- 
+export const deleteOrder= async()=>{
+  const res= await axios.delete(urlBurguerApi+"orders")
+  return res.data;
+} 

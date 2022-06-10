@@ -1,26 +1,20 @@
 import React from "react";
-import {
-  Drawer,
-  Box,
-  TextField,
-  Autocomplete,
-  IconButton,
-  Button,
-} from "@mui/material";
+import { Drawer, Box, TextField, Autocomplete, Button } from "@mui/material";
 import { useState } from "react";
-import PersonAddAltRoundedIcon from "@mui/icons-material/PersonAddAltRounded";
 
 import { signUpWithEmail, getAuth } from "../../lib/firebase-config";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
-import DateTime from "../DateTime";
 
-const AsideRegister = () => {
+const AsideRegister = (props) => {
+  const { open, closeHandler, data } = props;
+  const [isCreateMode, setIsCreateMode] = useState(!data);
+
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
-  const [user, setUserName] = useState("");
-  const [position, setPosition] = useState("");
-  const [turn, setTurn] = useState("");
-  const [email, setEmail] = useState("");
+  const [user, setUserName] = useState(data?.displayName || "");
+  const [position, setPosition] = useState(data?.rol || "");
+  const [turn, setTurn] = useState(data?.turn || "");
+  const [email, setEmail] = useState(data?.email || "");
   const [password, setPassword] = useState("");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const auth = getAuth();
@@ -48,42 +42,6 @@ const AsideRegister = () => {
       setIsDrawerOpen
     );
   };
-  // const signUpWithEmail = (e) => {
-  //   e.preventDefault();
-  //   setErrorEmail("");
-  //   setErrorPassword("");
-  //   createUserWithEmailAndPassword(auth, email, password)
-  //     .then((userCredential) => {
-  //       setIsDrawerOpen(false);
-  //       updateProfile(auth.currentUser, {
-  //         email: email,
-  //         password: password,
-  //         photoURL: "https://random.imagecdn.app/300/300",
-  //         displayName: user,
-  //       });
-  //       saveData(position, user, turn);
-  //       console.log(position, user, turn);
-  //       setIsDrawerOpen(false);
-  //       console.log(user);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error.message);
-  //       //const errorMessage = error.message;
-  //       if (error.code === "auth/invalid-email") {
-  //         console.log(error.code);
-  //         setErrorEmail("Invalid email");
-  //       } else if (error.code === "auth/email-already-in-use") {
-  //         console.log(error.code);
-  //         setErrorEmail("Email already in use");
-  //       } else if (error.code === "auth/wrong-password") {
-  //         console.log(error.code);
-  //         setErrorPassword("Invalid password");
-  //       } else if (error.code === "auth/weak-password") {
-  //         console.log(error.code);
-  //         setErrorPassword(" Password should be at least 6 characters ");
-  //       }
-  //     });
-  // };
 
   const optionsRoles = [
     // { label: "", value: "" },
@@ -107,18 +65,7 @@ const AsideRegister = () => {
 
   return (
     <div>
-      <IconButton
-        onClick={drawerHandler}
-        size="large"
-        edge="start"
-        color="inherit"
-        aria-label="logo"
-      >
-        <section>
-          <PersonAddAltRoundedIcon id="shopping" sx={{ fontSize: 50 }} />
-        </section>
-      </IconButton>
-      <Drawer anchor="right" open={isDrawerOpen} onClose={drawerHandler}>
+      <Drawer anchor="right" open={open} onClose={closeHandler}>
         <Box
           p={5}
           width="400px"
@@ -132,7 +79,7 @@ const AsideRegister = () => {
         >
           <header>
             <h1>Register new employee</h1>
-            <DateTime />
+           
             <p>Employee: {userData.displayName}</p>
           </header>
 
@@ -141,6 +88,7 @@ const AsideRegister = () => {
               helperText=" "
               id="input-name"
               label="Name"
+              value={user}
               sx={{ width: 300 }}
               autoComplete="off"
               onChange={(e) => setUserName(e.target.value)}
@@ -150,6 +98,7 @@ const AsideRegister = () => {
               helperText=" "
               id="input-email"
               label="Email"
+              value={email}
               sx={{ width: 300 }}
               autoComplete="off"
               onChange={(e) => setEmail(e.target.value)}
@@ -157,15 +106,18 @@ const AsideRegister = () => {
             <section className="title-error-sec">
               {errorEmail && <p className="title-error blink">{errorEmail}</p>}
             </section>
-            <TextField
-              helperText=" "
-              id="input-password"
-              label="Password"
-              type={"password"}
-              sx={{ width: 300 }}
-              autoComplete="off"
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            {isCreateMode && (
+              <TextField
+                helperText=" "
+                id="input-password"
+                label="Password"
+                value={password}
+                type={"password"}
+                sx={{ width: 300 }}
+                autoComplete="off"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            )}
             <section className="title-error-sec">
               {errorPassword && (
                 <p className="title-error blink">{errorPassword}</p>
@@ -204,13 +156,24 @@ const AsideRegister = () => {
               onChange={turnHandler}
             />
           </section>
-          <Button
-            variant="contained"
-            startIcon={<HowToRegIcon />}
-            onClick={resgiterUser}
-          >
-            Register
-          </Button>
+          {isCreateMode && (
+            <Button
+              variant="contained"
+              startIcon={<HowToRegIcon />}
+              onClick={resgiterUser}
+            >
+              Register
+            </Button>
+          )}
+          {!isCreateMode && (
+            <Button
+              variant="contained"
+              startIcon={<HowToRegIcon />}
+              onClick={resgiterUser}
+            >
+              Update
+            </Button>
+          )}
         </Box>
       </Drawer>
     </div>

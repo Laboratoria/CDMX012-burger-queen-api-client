@@ -9,7 +9,6 @@ export const Chefs = ({ deleteStaff, setAside, editStaff, setEditStaff }) => {
     setAside('CreateUsers')
     setEditStaff(chef)
   }
-  console.log(editStaff)
   const getChef = async () => {
     const q = query(collection(db, 'User'), where('rol', '==', 'cocinero'))
     onSnapshot(q, (querySnapShot) => {

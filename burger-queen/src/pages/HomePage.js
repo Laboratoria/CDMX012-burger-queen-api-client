@@ -10,6 +10,7 @@ import { Staff } from '../Components/Administrador/Employees/Staff'
 import { useState, useEffect } from 'react'
 import { ProductsControl } from '../Components/Waiters/ProductsControl'
 import { ReadyProducts } from '../Components/Chefs/ReadyProducts'
+import Products from '../Components/Administrador/Products/Products'
 
 // eslint-disable-next-line react/prop-types
 export default function HomePage({ handleExit, currentUser, rol }) {
@@ -20,6 +21,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
   const [mesas, setMesas] = useState([])
   const [totalOrders, setTotalOrders] = useState([])
   const [editStaff, setEditStaff] = useState(null)
+  const [newProduct, setNewProduct] = useState(null)
   const getMesas = async () => {
     const url = 'http://localhost:4000/orders'
     const getFetchData = await fetch(url).then((resul) => resul.json())
@@ -62,7 +64,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
       return <TablesOrders setMain={setHandleMain} setAside={setHandleAside} mesas={mesas} setMesas={setMesas} />
     }
     if (handleMain === 'Menu') {
-      return <ListProducts order={order} setOrder={setOrder} />
+      return <ListProducts order={order} setOrder={setOrder} setMain={setHandleMain} setAside={setHandleAside} handleMain ={handleMain} />
     }
     if (handleMain === 'Comandas') {
       return <ActiveCommands mesas={mesas} setMesas={setMesas} />
@@ -82,6 +84,9 @@ export default function HomePage({ handleExit, currentUser, rol }) {
     }
     if (handleMain === 'ProductsListos') {
       return <ReadyProducts rol={rol} mesas={mesas} setMesas={setMesas} />
+    }
+    if (handleMain === 'Productos') {
+      return <Products newProduct={newProduct} setNewProduct={setNewProduct} setMain={setHandleMain} setAside={setHandleAside} />
     }
   }
   const [order, setOrder] = useState({

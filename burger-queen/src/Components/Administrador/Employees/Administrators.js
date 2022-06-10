@@ -3,8 +3,13 @@ import { useState, useEffect } from 'react'
 import { onSnapshot, collection, query, where } from 'firebase/firestore'
 import { db } from '../../../Lib/firebase-keys'
 
-export const Administrators = ({ deleteStaff }) => {
+export const Administrators = ({ deleteStaff, setAside, editStaff, setEditStaff }) => {
   const [staff, setStaff] = useState([])
+
+  const handleEditStaff = (admin) => {
+    setAside('CreateUsers')
+    setEditStaff(admin)
+  }
 
   const getAdministrator = async () => {
     const q = query(collection(db, 'User'), where('rol', '==', 'admin'))
@@ -29,7 +34,7 @@ export const Administrators = ({ deleteStaff }) => {
         <section className='employee_card' key={admin.uid}>
           <button id={admin.id} className='btn_employee' onClick={() => deleteStaff(admin.id).then(console.log('lo quite amix'))}>-</button>
           <p>{admin.name}</p>
-          <button id={admin.uid} className='btn_employee'>+</button>
+          <button id={admin.uid} className='btn_employee' onClick={() => { handleEditStaff(admin) }}>+</button>
         </section>
       )
     })}

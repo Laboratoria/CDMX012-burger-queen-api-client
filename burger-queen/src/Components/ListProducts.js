@@ -1,10 +1,16 @@
 import '../styles/ListProducts.css'
 import { useState, useEffect } from 'react'
 import { Product } from './Product'
+import Add from '../Assets/icons/yelowAdd.png'
 
-export const ListProducts = ({ order, setOrder, setMain, setAside }) => {
+export const ListProducts = ({ order, setOrder, setMain, setAside, handleMain }) => {
   const [menu, setMenu] = useState('breakfast')
   const [products, setProducts] = useState(null)
+
+  const handleAside = () => {
+    setMain('Menu')
+    setAside('Productos')
+  }
 
   const getData = async () => {
     const url = 'http://localhost:4000/products'
@@ -32,9 +38,12 @@ export const ListProducts = ({ order, setOrder, setMain, setAside }) => {
       <div className='products_container'>
         {products &&
           products.map((product) => (
-            <Product product={product} key={product.id} setOrder={setOrder} order={order} />
+            <Product product={product} key={product.id} setOrder={setOrder} order={order} handleMain={handleMain} />
           ))}
-
+       <img src={Add} alt='Add' className='icon_Add' onClick={() => {
+         handleAside()
+       }}
+      />
       </div>
     </>
   )

@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react'
 import { onSnapshot, collection, query, where } from 'firebase/firestore'
 import { db } from '../../../Lib/firebase-keys'
-import { deleteStaff } from '../../../Lib/Providers'
 
-export const Waiters = () => {
+export const Waiters = ({ deleteStaff, setAside, editStaff, setEditStaff }) => {
   const [staff, setStaff] = useState([])
+
+  const handleEditStaff = (waiter) => {
+    setAside('CreateUsers')
+    setEditStaff(waiter)
+  }
 
   const getWaiter = async () => {
     const q = query(collection(db, 'User'), where('rol', '==', 'mesero'))
@@ -28,7 +32,7 @@ export const Waiters = () => {
         <section className='employee_card' key={waiter.uid}>
           <button id={waiter.uid} className='btn_employee' onClick={() => deleteStaff(waiter.id).then(console.log('lo quite amix'))}>-</button>
           <p>{waiter.name}</p>
-          <button id={waiter.uid} className='btn_employee'>+</button>
+          <button id={waiter.uid} className='btn_employee' onClick={() => { handleEditStaff(waiter) }}>+</button>
         </section>
       )
     })}

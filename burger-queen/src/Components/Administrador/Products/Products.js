@@ -1,4 +1,6 @@
+/* eslint-disable indent */
 import { useState } from 'react'
+import './Products.css'
 
 export default function Products({ singleProduct, newProduct, setNewProduct, setMain, setAside, products }) {
   // Este es el componente de aside que crea productos
@@ -74,12 +76,11 @@ export default function Products({ singleProduct, newProduct, setNewProduct, set
   }
 
   return (
-    <section>
+    <section className='form_products'>
       <h2>Agregar producto</h2>
       <form onSubmit={() => { setTheFunction() }}>
         <input type='text' id='productName'
-          name='name'
-          className='input_product'
+          name='name' className='input_product'
           value={editingProduct.name}
           placeholder='Huevos'
           onChange={(e) => setTheOnChange(e)} />
@@ -89,7 +90,8 @@ export default function Products({ singleProduct, newProduct, setNewProduct, set
           value={editingProduct.price}
           placeholder='$8'
           onChange={(e) => setTheOnChange(e)} />
-        <select placeholder='5min -10min'
+        <select className='select_product'
+          placeholder='5min -10min'
           name='melPrep'
           value={editingProduct.melPrep}
           onChange={(e) => setTheOnChange(e)}>
@@ -106,14 +108,15 @@ export default function Products({ singleProduct, newProduct, setNewProduct, set
           value={editingProduct.description}
           placeholder='Huevos, cebolla, tomate, cilantro'
           onChange={(e) => setTheOnChange(e)} />
-        <textarea id='recipe'
+        <textarea className='textarea_product'
+          id='recipe'
           name='recipe'
-          className='input_product'
           value={editingProduct.recipe}
           placeholder='Deliciosos huevos revueltos super cremosos con tomate, cebolla y cilantro.'
           onChange={(e) => setTheOnChange(e)} />
         <select
           name='category'
+          className='select_product'
           value={editingProduct.category}
           onChange={(e) => setTheOnChange(e)}>
           <option value='breakfast'>Desayuno</option>
@@ -127,8 +130,8 @@ export default function Products({ singleProduct, newProduct, setNewProduct, set
           value={editingProduct.urlImg}
           placeholder='www.tuimagen.com'
           onChange={(e) => setTheOnChange(e)} />
-        <button onClick={(e) => { setTheFunction(e) }}>Agregar producto</button>
-        <button onClick={(e) => { deleteProduct() }}>Borrar producto</button>
+        <button className='btn_products' onClick={(e) => { setTheFunction(e) }}>Agregar producto</button>
+        <button className='btn_products' id='btn_delete_products' onClick={(e) => { deleteProduct() }}>Borrar producto</button>
       </form>
     </section>
   )

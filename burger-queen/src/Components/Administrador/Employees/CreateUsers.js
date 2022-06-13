@@ -9,6 +9,7 @@ import { doc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore'
 
 function CreateUsers({ deleteStaff, editStaff, setAside }) {
   const [employe, setEmploye] = useState(editStaff)
+  console.log(employe)
   const setOnChange = (e) => {
     e.preventDefault()
     const { name, value } = e.target
@@ -68,15 +69,17 @@ function CreateUsers({ deleteStaff, editStaff, setAside }) {
           <div className='form_new_user'>
             <h2>Agregar usuario:</h2>
             <form onSubmit={handleNewUser}>
-            <input className='input_form' type='text' id="name" placeholder='Juanito' />
-            <input className='input_form' type='text' id="email" placeholder='jesusR@burguerqueen.com' />
-            <input className='input_form' type='password' id="password" placeholder='**********' />
-            <select className='input_form' id="rol" placeholder='Empleado'>
+            <input className='input_form' type='text' id="name" placeholder='Nombre del empleado' />
+            <input className='input_form' type='text' id="email" placeholder='Correo electronico' />
+            <input className='input_form' type='password' id="password" placeholder='Contraseña' />
+            <select className='input_form' id="rol" placeholder='Puesto'>
+              <option value='mesero' className="label">Puesto</option>
               <option value="admin">Admin</option>
               <option value="mesero">Mesero</option>
               <option value="cocinero">Cocinero</option>
             </select>
-            <select className='input_form' id="turn" placeholder='Matutino'>
+            <select className='input_form' id="turn" placeholder='Turno'>
+              <option value='matutino' className="label">Turno</option>
               <option value="matutino">Matutino</option>
               <option value="vespertino">Vespertino</option>
             </select>
@@ -98,7 +101,7 @@ function CreateUsers({ deleteStaff, editStaff, setAside }) {
                   <option value="cocinero">Cocinero</option>
                 </select>
                 <select className='input_form' name='turn' value={employe.turn} onChange={(e) => { setOnChange(e) }}>
-                  <option disabled>Turno</option>
+                  <option disabled >Turno</option>
                   <option value="matutino">Matutino</option>
                   <option value="vespertino">Vespertino</option>
                 </select>

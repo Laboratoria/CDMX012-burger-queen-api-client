@@ -126,13 +126,13 @@ export default function HomePage({ handleExit, currentUser, rol }) {
 
         {rol === 'mesero' && (
           <p className={`${handleMain === 'Mesas' ? 'activeB' : 'inactiveB'}`}
-            onClick={() => { setHandleMain('Mesas'); setHandleAside('null') }}>
+            onClick={() => { setHandleMain('Mesas') }} >
             Mesas
           </p>
         )}
         {rol === 'mesero' && (
           <p className={`${handleMain === 'Menu' ? 'activeB' : 'inactiveB'}`}
-            onClick={() => { setHandleMain('Menu'); setHandleAside('null') }}>
+            onClick={() => { setHandleMain('Menu') }}>
             Menu
           </p>
         )}

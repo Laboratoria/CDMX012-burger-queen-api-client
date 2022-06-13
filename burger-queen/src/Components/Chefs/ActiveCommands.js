@@ -1,6 +1,5 @@
 import { ActiveCommand } from './ActiveCommand'
 export const ActiveCommands = ({ mesas, setMesas }) => {
-  console.log(mesas)
   return (
     <div className='tables_container'>{
       mesas && mesas.map((mesa) => (

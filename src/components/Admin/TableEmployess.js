@@ -3,9 +3,11 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 import AsideRegister from "./AsideRegister";
+import { deleteUser } from "../../lib/firebase-config";
+import Swal from "sweetalert2";
 
 const TableEmployess = (props) => {
-  const { displayName, rol, email, turn } = props;
+  const { displayName, rol, email, turn, id } = props;
   const [showEditMode, setShowEditMode] = useState(false);
   const drawerHandler = () => {
     setShowEditMode(!showEditMode);
@@ -25,7 +27,10 @@ const TableEmployess = (props) => {
             </IconButton>
           </td>
           <td style={{ width: "180px", padding: "10px" }}>
-            <IconButton aria-label="delete">
+            <IconButton
+              aria-label="delete"
+              onClick={() => confirmDelete(id, displayName)}
+            >
               <DeleteIcon />
             </IconButton>
           </td>
@@ -44,3 +49,21 @@ const TableEmployess = (props) => {
 };
 
 export default TableEmployess;
+
+const confirmDelete = (id, displayName) => {
+  Swal.fire({
+    title: `Hi ${displayName}, Are you sure?`,
+    text: "You won't be able to revert this!",
+    icon: "question",
+    showCancelButton: true,
+    confirmButtonColor: "#006494",
+    cancelButtonColor: "#DE1344",
+    confirmButtonText: "Yes, delete it!",
+    cancelButtonText: "Cancel",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      //llamamos a la fcion para eliminar
+      deleteUser(id);
+    }
+  });
+};

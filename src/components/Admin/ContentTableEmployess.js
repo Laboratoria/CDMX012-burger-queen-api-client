@@ -35,6 +35,7 @@ const ContentTableEmployess = () => {
               rol={employee.rol}
               email={employee.email}
               turn={employee.turn}
+              id={employee.id}
             />
           ))}
       </table>

@@ -18,7 +18,7 @@ import {
   limit,
   updateDoc,
   doc,
-  getDoc,
+  getDoc,deleteDoc
 } from "firebase/firestore";
 export { onAuthStateChanged, getAuth } from "@firebase/auth";
 
@@ -162,6 +162,11 @@ export const editUser= async(id, name, rol, turn, drawerHandler)=> {
   drawerHandler();
   console.log("funciona");
 }
+
+export const deleteUser = (id) => {
+  
+  deleteDoc(doc(db, "profile", id));
+};
 
 export const logOut = async () => {
   const auth = getAuth();

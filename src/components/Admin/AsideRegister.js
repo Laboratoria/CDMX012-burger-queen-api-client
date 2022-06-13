@@ -3,7 +3,7 @@ import { Drawer, Box, TextField, Autocomplete, Button } from "@mui/material";
 import { useState, useEffect} from "react";
 
 
-import { signUpWithEmail, getAuth, editUser,getUserById} from "../../lib/firebase-config";
+import { signUpWithEmail, getAuth, editUser ,getUserById} from "../../lib/firebase-config";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 
 const AsideRegister = (props) => {
@@ -48,10 +48,10 @@ const AsideRegister = (props) => {
     );
   };
 
-  const editDataUser = (e) => {
-    e.preventDefault();
-    editUser(data.id, user, position, turn,drawerHandler );
-  };
+  // const editDataUser = (e) => {
+  //   e.preventDefault();
+  //   editUser(data.id, user, position, turn,drawerHandler );
+  // };
   
   
   // useEffect(() => {
@@ -184,7 +184,7 @@ const AsideRegister = (props) => {
             <Button
               variant="contained"
               startIcon={<HowToRegIcon />}
-              onClick={editDataUser}
+              onClick={()=>editUser(data.id, user, position, turn,drawerHandler)}
             >
               Update
             </Button>

@@ -1,7 +1,7 @@
 import '../../styles/TablesOrders.css'
 import Add from '../../Assets/icons/yelowAdd.png'
 import { TableOrder } from './TableOrder'
-export const TablesOrders = ({ setMain, setAside, mesas, setMesas }) => {
+export const TablesOrders = ({ onOff, setOnOff, setMain, setAside, mesas, setMesas }) => {
   const handleOrder = () => {
     setMain('Menu')
     setAside('Comanda')
@@ -17,6 +17,7 @@ export const TablesOrders = ({ setMain, setAside, mesas, setMesas }) => {
         className='icon_Add'
         onClick={() => {
           handleOrder()
+          setOnOff(true)
         }}
       />
     </div>

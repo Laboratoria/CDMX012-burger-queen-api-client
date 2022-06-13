@@ -346,6 +346,36 @@
       "endtTime": "",
       "totalTime": "",
       "id": 5
+    },
+    {
+      "orderId": 6,
+      "table": "2",
+      "clientName": "Monze",
+      "productos": [
+        {
+          "id": 4,
+          "name": "Jugo de frutas natural",
+          "price": "7",
+          "productStatus": "kitchen",
+          "cantidad": 3
+        },
+        {
+          "id": 15,
+          "name": "Porridge de Avena",
+          "price": 50,
+          "productStatus": "kitchen",
+          "cantidad": 1
+        }
+      ],
+      "totalProducts": 4,
+      "totalPrice": 71,
+      "TableStatus": "kitchen",
+      "waiter": "Panchito",
+      "waiterId": "4RMnnNuNYxZgUGWVgfoOl5OBf5G2",
+      "startTime": "15:32",
+      "endtTime": "",
+      "totalTime": "",
+      "id": 6
     }
   ]
 }

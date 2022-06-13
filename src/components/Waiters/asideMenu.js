@@ -7,9 +7,9 @@ import DateTime from "./DateTime";
 
 export default function AsideMenu(props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { order, updateOrder } = props
+  const { order, updateOrder,total,setTotal } = props
   const [name, setName] = useState("");
-  const [total, setTotal] = useState("");
+  
 
   const ClientName = (event) => {
     setName(event.target.value);

@@ -1,8 +1,7 @@
 import React from "react";
 
 export default function Order(props) {
-    const { name, price,qty } = props
-
+    const { name, price,qty} = props
     return (
         <section className="boxOrders">
 

@@ -1,6 +1,6 @@
 // import { useNavigate } from "react-router-dom";
 
-import { getMenu,getOrder } from "../../lib/RequestHandler";
+import { getMenu,getOrder, deleteOrder } from "../../lib/RequestHandler";
 import React,{ useEffect, useState } from "react";
 
 import CardsMenu from "./CardsMenu";
@@ -17,6 +17,8 @@ export default function Menu() {
   const [comandasOrders, setComandasOrders] = useState([]);
   const [isDrawerOpenOrder, setIsDrawerOpenOrder] = useState(false);
   const[selectedOder, setSelectedOrder] = useState({});
+  const [total, setTotal] = useState("");
+  
 
   useEffect(() => {
 
@@ -54,6 +56,12 @@ export default function Menu() {
     setComandasOrders(arrayOrders)
       // setOrder(arrayOrders);
    
+  }
+  const handleDelete = async(id)=>{
+    const orderDelete = await  deleteOrder(id)
+    const arrayOrders= await getOrder();
+    setComandasOrders(arrayOrders)
+  
   }
 
   return (
@@ -107,6 +115,7 @@ export default function Menu() {
               updateComanda={setComandasOrders}
               setIsDrawerOpenOrder= {setIsDrawerOpenOrder}
               setSelectedOrder = {setSelectedOrder}
+              deleteOrder={handleDelete}
        ></DateOrder>
         );
       })
@@ -115,11 +124,15 @@ export default function Menu() {
     <AsideMenu
     order={orderMenu} 
     updateOrder={setOrder}
+    total={total}
+    setTotal={setTotal}
     />
     <AsideOrders
     isDrawerOpenOrder= {isDrawerOpenOrder}
     setIsDrawerOpenOrder= {setIsDrawerOpenOrder}
     selectedOder={selectedOder}
+    total={total}
+    
     />
   </div>
     </section >

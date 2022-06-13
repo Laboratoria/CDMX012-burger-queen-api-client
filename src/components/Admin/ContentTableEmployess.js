@@ -26,17 +26,17 @@ const ContentTableEmployess = () => {
             <th style={{ width: "180px", padding: "10px" }}>Delete</th>
           </tr>
         </thead>
-        <tbody>
+        
+          
           {employee.map((employee) => (
             <TableEmployess
               key={employee.uid}
               displayName={employee.displayName}
-              rol={employee.rol.value}
+              rol={employee.rol}
               email={employee.email}
-              turn={employee.turn.value}
+              turn={employee.turn}
             />
           ))}
-        </tbody>
       </table>
     </section>
   );

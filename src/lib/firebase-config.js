@@ -16,12 +16,11 @@ import {
   query,
   orderBy,
   limit,
+  updateDoc,
+  doc,
+  getDoc,
 } from "firebase/firestore";
-export {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  getAuth, 
-} from "@firebase/auth";
+export { onAuthStateChanged, getAuth } from "@firebase/auth";
 
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_APIKEY,
@@ -78,14 +77,14 @@ export const signUpWithEmail = (
   position,
   setErrorEmail,
   setErrorPassword,
-  setIsDrawerOpen
+  drawerHandler
 ) => {
   setErrorEmail("");
   setErrorPassword("");
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      setIsDrawerOpen(false);
+      drawerHandler();
       updateProfile(auth.currentUser, {
         email: email,
         password: password,
@@ -93,7 +92,7 @@ export const signUpWithEmail = (
         displayName: user,
       });
       saveData(position, user, turn);
-      setIsDrawerOpen(false);
+      drawerHandler();
     })
     .catch((error) => {
       //const errorMessage = error.message;
@@ -109,7 +108,7 @@ export const signUpWithEmail = (
     });
 };
 
-export let saveData = async (rol, name, turn) => {
+let saveData = async (rol, name, turn) => {
   const auth = getAuth();
   const user = auth.currentUser;
   if (user) {
@@ -140,6 +139,29 @@ export const getData = (setEmployee) => {
     setEmployee(employeeArray);
   });
 };
+
+export const getUserById = async (id, setUserName, setPosition, setTurn) => {
+  console.log("hfvdfv");
+
+  const dataRef = await getDoc(doc(db, "profile", id));
+  if (dataRef.exists()) {
+    console.log(dataRef.data());
+    setUserName(dataRef.data().displayName);
+    setPosition(dataRef.data().rol);
+    setTurn(dataRef.data().turn);
+    console.log("holi");
+  } else {
+    console.log("no existe");
+  }
+};
+
+export const editUser= async(id, name, rol, turn, drawerHandler)=> {
+  const dataRef = doc(db, "profile", id);
+  const data = { displayName: name, rol: rol, turn: turn };
+  await updateDoc(dataRef, data);
+  drawerHandler();
+  console.log("funciona");
+}
 
 export const logOut = async () => {
   const auth = getAuth();

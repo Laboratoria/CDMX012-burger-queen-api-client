@@ -13,6 +13,25 @@ const TableEmployess = (props) => {
 
   return (
     <>
+      <tbody>
+        <tr>
+          <td style={{ width: "180px", padding: "5px 10px" }}>{displayName}</td>
+          <td style={{ width: "130px", padding: "5px 10px" }}>{rol}</td>
+          <td style={{ width: "180px", padding: "5px 10px" }}> {email} </td>
+          <td style={{ width: "180px", padding: "5px 10px" }}> {turn} </td>
+          <td style={{ width: "180px", padding: "10px" }}>
+            <IconButton aria-label="edit" onClick={drawerHandler}>
+              <ModeEditOutlineIcon />
+            </IconButton>
+          </td>
+          <td style={{ width: "180px", padding: "10px" }}>
+            <IconButton aria-label="delete">
+              <DeleteIcon />
+            </IconButton>
+          </td>
+        </tr>
+      </tbody>
+
       {showEditMode && (
         <AsideRegister
           open={showEditMode}
@@ -20,23 +39,6 @@ const TableEmployess = (props) => {
           data={props}
         />
       )}
-      <tr>
-        <td style={{ width: "180px", padding: "5px 10px" }}>{displayName}</td>
-        <td style={{ width: "130px", padding: "5px 10px" }}>{rol}</td>
-        <td style={{ width: "180px", padding: "5px 10px" }}> {email} </td>
-        <td style={{ width: "180px", padding: "5px 10px" }}> {turn} </td>
-        <td style={{ width: "180px", padding: "10px" }}>
-          <IconButton aria-label="edit" onClick={drawerHandler}>
-            <ModeEditOutlineIcon />
-          </IconButton>
-        </td>
-        <td style={{ width: "180px", padding: "10px" }}>
-          <IconButton aria-label="delete">
-            <DeleteIcon />
-          </IconButton>
-        </td>
-      </tr>
-     
     </>
   );
 };

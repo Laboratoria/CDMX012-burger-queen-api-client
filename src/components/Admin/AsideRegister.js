@@ -1,8 +1,9 @@
 import React from "react";
 import { Drawer, Box, TextField, Autocomplete, Button } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 
-import { signUpWithEmail, getAuth } from "../../lib/firebase-config";
+
+import { signUpWithEmail, getAuth, editUser,getUserById} from "../../lib/firebase-config";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 
 const AsideRegister = (props) => {
@@ -19,6 +20,10 @@ const AsideRegister = (props) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const auth = getAuth();
   const userData = auth.currentUser;
+
+  const drawerHandler = () => {
+    setIsDrawerOpen(closeHandler);
+  };
 
   const positionHandler = (event, newValue) => {
     console.log(newValue);
@@ -39,9 +44,25 @@ const AsideRegister = (props) => {
       position,
       setErrorEmail,
       setErrorPassword,
-      setIsDrawerOpen
+      drawerHandler
     );
   };
+
+  const editDataUser = (e) => {
+    e.preventDefault();
+    editUser(data.id, user, position, turn,drawerHandler );
+  };
+  
+  
+  // useEffect(() => {
+  //  getUserById(data.id, setUserName, setPosition, setTurn);
+  //   // eslint-disable-next-line
+  // }, []);
+
+  console.log(user);
+  console.log(email);
+  console.log(position);
+  console.log(turn);
 
   const optionsRoles = [
     // { label: "", value: "" },
@@ -55,13 +76,6 @@ const AsideRegister = (props) => {
     { label: "Afternoon shift", value: "Afternoon shift" },
     { label: "Night shift", value: "Night shift" },
   ];
-
-  const drawerHandler = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-    setEmail("");
-    setTurn("");
-    setPosition("");
-  };
 
   return (
     <div>
@@ -79,7 +93,7 @@ const AsideRegister = (props) => {
         >
           <header>
             <h1>Register new employee</h1>
-           
+
             <p>Employee: {userData.displayName}</p>
           </header>
 
@@ -93,6 +107,7 @@ const AsideRegister = (props) => {
               autoComplete="off"
               onChange={(e) => setUserName(e.target.value)}
             />
+         
 
             <TextField
               helperText=" "
@@ -169,7 +184,7 @@ const AsideRegister = (props) => {
             <Button
               variant="contained"
               startIcon={<HowToRegIcon />}
-              onClick={resgiterUser}
+              onClick={editDataUser}
             >
               Update
             </Button>

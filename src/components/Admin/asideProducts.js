@@ -3,9 +3,17 @@ import React from "react";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import axios from "axios";
 import { urlBurguerApi } from "../../lib/RequestHandler";
+import DateTime from "../Waiters/DateTime";
 
 export default function AsideProducts(props) {
-  const { stock, updateStock, openDrawer, closeDrawer, productStock, updateProductStock } = props;
+  const {
+    stock,
+    updateStock,
+    openDrawer,
+    closeDrawer,
+    productStock,
+    updateProductStock,
+  } = props;
   const arrayData = productStock; //catching the new object with data for API
 
   const inputsInfo = (e) => {
@@ -63,8 +71,7 @@ export default function AsideProducts(props) {
               alt="clockIcon"
               src={require("../../assets/Clock.png")}
             />
-            <p>Fecha del dia</p>
-            <p>Hora</p>
+            <DateTime />
             <p>Rol y nombre</p>
             <hr />
           </header>

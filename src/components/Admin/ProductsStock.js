@@ -3,13 +3,17 @@ import MaterialTable from "material-table";
 import AsideProducts from "./asideProducts";
 import AsideProductsEdit from "./asideProductsEdit";
 import { getProducts } from "../../lib/RequestHandler";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { deleteStock } from "../../lib/RequestHandler";
 
 export default function ProductsStock() {
-  const [products, setProducts] = useState([]);
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [drawerEdit, setDrawerEdit] = useState(false);
-  const [drawerDelete, setDrawerDelete] = useState(false);
+  const [products, setProducts] = useState([]); //datos obtenidos del get API
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false); //cerrar y abrir drawer MUI para registrar
+  const [drawerEdit, setDrawerEdit] = useState(false); //drawer de editado
+  const [drawerDelete, setDrawerDelete] = useState(false); //modal de delete
   const [newProduct, setNewProduct] = useState({
+    //estado para nuevos productos
     // id: "",
     name: "",
     price: Number,
@@ -17,6 +21,8 @@ export default function ProductsStock() {
     type: "",
     dateEntry: Date,
   });
+
+  const MySwal = withReactContent(Swal);
 
   const getData = async () => {
     const dataOfProducts = await getProducts(); //ARRAY OF PRODUCTS IN API
@@ -34,6 +40,34 @@ export default function ProductsStock() {
   const pickProduct = (newProduct, selection) => {
     setNewProduct(newProduct);
     selection === "Edit" ? openCloseDrawerEdit() : openCloseDrawerDelete();
+  };
+
+  const deleteProduct = async () => {
+    await deleteStock(newProduct)
+      .then((response) => {
+        setProducts(products.filter((product) => product.id !== newProduct.id));
+        openCloseDrawerDelete();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const confirmDelete = (id) => {
+    MySwal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#FFB000",
+      cancelButtonColor: "#DE1344",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteProduct();
+        MySwal.fire("Deleted!", "Your file has been deleted.", "success");
+      }
+    });
   };
 
   useEffect(() => {
@@ -72,9 +106,7 @@ export default function ProductsStock() {
             size: "small",
             tooltip: "Product delete",
             icon: "delete",
-            onClick: (event, rowData) => {
-              console.log(rowData);
-            },
+            onClick: () => confirmDelete(),
           }),
         ]}
         options={{

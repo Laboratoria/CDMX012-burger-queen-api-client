@@ -10,6 +10,7 @@ import { Staff } from '../Components/Administrador/Employees/Staff'
 import { useState, useEffect } from 'react'
 import { ProductsControl } from '../Components/Waiters/ProductsControl'
 import { ReadyProducts } from '../Components/Chefs/ReadyProducts'
+import { Recipes } from '../Components/Chefs/Recipes'
 import FormProducts from '../Components/Administrador/Products/FormProducts'
 import { deleteStaff } from '../Lib/Providers'
 
@@ -70,6 +71,9 @@ export default function HomePage({ handleExit, currentUser, rol }) {
     if (handleMain === 'Comandas') {
       return <ActiveCommands mesas={mesas} setMesas={setMesas} />
     }
+    if (handleMain === 'Recetas') {
+      return <Menu rol={rol} setNewProduct={setNewProduct} order={order} setOrder={setOrder} setMain={setHandleMain} setAside={setHandleAside} handleMain={handleMain} />
+    }
   }
 
   // hace renderizado condicional en Aside
@@ -88,6 +92,9 @@ export default function HomePage({ handleExit, currentUser, rol }) {
     }
     if (handleMain === 'FormProducts') {
       return <FormProducts newProduct={newProduct} setNewProduct={setNewProduct} setMain={setHandleMain} setAside={setHandleAside} />
+    }
+    if (handleMain === 'VerReceta') {
+      return <Recipes newProduct={newProduct} setNewProduct={setNewProduct} setMain={setHandleMain} setAside={setHandleAside} />
     }
   }
   const [order, setOrder] = useState({

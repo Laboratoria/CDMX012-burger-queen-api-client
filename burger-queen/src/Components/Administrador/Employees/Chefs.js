@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { onSnapshot, collection, query, where } from 'firebase/firestore'
 import { db } from '../../../Lib/firebase-keys'
 
-export const Chefs = ({ deleteStaff, setAside, editStaff, setEditStaff }) => {
+export const Chefs = ({ setAside, setEditStaff }) => {
   const [staff, setStaff] = useState([])
 
   const handleEditStaff = (chef) => {
@@ -29,7 +29,6 @@ export const Chefs = ({ deleteStaff, setAside, editStaff, setEditStaff }) => {
     {staff.map((chef) => {
       return (
         <section className='employee_card' key={chef.uid}>
-          <button id={chef.id} className='btn_employee' onClick={() => deleteStaff(chef.id).then(console.log('lo quite amix'))}>-</button>
           <p>{chef.name}</p>
           <button id={chef.uid} className='btn_employee' onClick={() => { handleEditStaff(chef) }}>+</button>
         </section>

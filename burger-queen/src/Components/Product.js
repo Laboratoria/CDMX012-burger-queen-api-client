@@ -1,15 +1,15 @@
 import '../styles/Product.css'
-export const Product = ({ setSingleProduct, rol, product, setOrder, order, setAside }) => {
+export const Product = ({ setNewProduct, rol, product, setOrder, order, setAside }) => {
   const setToRender = () => {
-    setSingleProduct(product)
+    setNewProduct(product)
     if (rol === 'admin') {
-      setAside('Productos')
+      setAside('FormProducts')
     }
     if (rol === 'mesero') {
       handleAddProduct(product)
     }
     if (rol === 'cocinero') {
-      setAside('Productos')
+      setAside('VerReceta')
     }
   }
   const handleAddProduct = (currentProduct) => {
@@ -38,7 +38,6 @@ export const Product = ({ setSingleProduct, rol, product, setOrder, order, setAs
     }
   }
   return (
-    // <div className='tarjeta_producto' key={product.id} onClick={() => { setOrder(oldArrat => [...oldArrat, { name: product.name, price: product.price, id: product.id, cant: 1 }]) }}>
     <div
       className='card_product'
       key={product.id}

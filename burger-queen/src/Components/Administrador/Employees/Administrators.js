@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react'
 import { onSnapshot, collection, query, where } from 'firebase/firestore'
 import { db } from '../../../Lib/firebase-keys'
 
-export const Administrators = ({ deleteStaff, setAside, editStaff, setEditStaff }) => {
+export const Administrators = ({ setAside, setEditStaff }) => {
   const [staff, setStaff] = useState([])
 
   const handleEditStaff = (admin) => {
-    setAside('CreateUsers')
+    console.log(admin)
     setEditStaff(admin)
+    setAside('CreateUsers')
   }
 
   const getAdministrator = async () => {
@@ -32,9 +33,8 @@ export const Administrators = ({ deleteStaff, setAside, editStaff, setEditStaff 
     {staff.map((admin) => {
       return (
         <section className='employee_card' key={admin.uid}>
-          <button id={admin.id} className='btn_employee' onClick={() => deleteStaff(admin.id).then(console.log('lo quite amix'))}>-</button>
           <p>{admin.name}</p>
-          <button id={admin.uid} className='btn_employee' onClick={() => { handleEditStaff(admin) }}>+</button>
+          <button className='btn_employee' onClick={() => { handleEditStaff(admin) }}>+</button>
         </section>
       )
     })}

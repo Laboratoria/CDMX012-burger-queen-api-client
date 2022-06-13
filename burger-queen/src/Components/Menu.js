@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react'
 import { Product } from './Product'
 import Add from '../Assets/icons/yelowAdd.png'
 
-export const ListProducts = ({ singleProduct, setSingleProduct, rol, order, setOrder, setMain, setAside, handleMain, createOrEdit, SetCreateOrEdit }) => {
+export const Menu = ({ setNewProduct, rol, order, setOrder, setMain, setAside, handleMain }) => {
   const [menu, setMenu] = useState('breakfast')
   const [products, setProducts] = useState(null)
 
   const handleAside = () => {
     setMain('Menu')
-    setAside('Productos')
+    setAside('FormProducts')
   }
 
   const getData = async () => {
@@ -38,7 +38,7 @@ export const ListProducts = ({ singleProduct, setSingleProduct, rol, order, setO
       <div className='products_container'>
         {products &&
           products.map((product) => (
-            <Product singleProduct={singleProduct} setSingleProduct={setSingleProduct} rol={rol} product={product} key={product.id} setOrder={setOrder} order={order} handleMain={handleMain} setAside={setAside} />
+            <Product setNewProduct={setNewProduct} rol={rol} product={product} key={product.id} setOrder={setOrder} order={order} handleMain={handleMain} setAside={setAside} />
           ))}
         {rol === 'admin' && (<img src={Add} alt='Add' className='icon_Add' onClick={() => { handleAside() }} />)}
       </div>

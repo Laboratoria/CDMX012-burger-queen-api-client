@@ -3,7 +3,6 @@ import './Staff.css'
 import { Waiters } from './Waiters'
 import { Chefs } from './Chefs'
 import { Administrators } from './Administrators'
-import { deleteStaff } from '../../../Lib/Providers'
 import Add from '../../../Assets/icons/yelowAdd.png'
 
 export const Staff = ({ setAside, editStaff, setEditStaff }) => {
@@ -16,9 +15,9 @@ export const Staff = ({ setAside, editStaff, setEditStaff }) => {
   }
   return (
     <section className='tables_employees_container'>
-      <Waiters editStaff = {editStaff} setEditStaff= {setEditStaff} setAside={ setAside } deleteStaff={deleteStaff} />
-      <Chefs editStaff = {editStaff} setEditStaff= {setEditStaff} setAside= { setAside }deleteStaff={deleteStaff} />
-      <Administrators editStaff = {editStaff} setEditStaff= {setEditStaff} setAside={ setAside }deleteStaff={deleteStaff} />
+      <Waiters editStaff = {editStaff} setEditStaff= {setEditStaff} setAside={ setAside } />
+      <Chefs editStaff = {editStaff} setEditStaff= {setEditStaff} setAside= { setAside } />
+      <Administrators editStaff = {editStaff} setEditStaff= {setEditStaff} setAside={ setAside } />
       <img src={Add} alt='Add' className='icon_Add' onClick={() => {
         handleStaff()
       }}

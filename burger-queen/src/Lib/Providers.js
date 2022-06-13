@@ -4,7 +4,7 @@ import { deleteDoc, doc } from 'firebase/firestore'
 
 export const exit = () => signOut(auth)
 
-export const deleteStaff = async(id) => {
-  await deleteDoc(doc(db, 'User', id))
-  return console.log('hi')
+export const deleteStaff = async(uid) => {
+  await deleteDoc(doc(db, 'User', uid))
+  return console.log('borrado pasiempre')
 }

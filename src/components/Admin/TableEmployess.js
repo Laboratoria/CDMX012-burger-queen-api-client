@@ -3,12 +3,15 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 import AsideRegister from "./AsideRegister";
-import { deleteUser } from "../../lib/firebase-config";
+import { deleteUser,getAuth} from "../../lib/firebase-config";
 import Swal from "sweetalert2";
 
 const TableEmployess = (props) => {
   const { displayName, rol, email, turn, id } = props;
   const [showEditMode, setShowEditMode] = useState(false);
+  const auth = getAuth();
+  const userData = auth.currentUser;
+
   const drawerHandler = () => {
     setShowEditMode(!showEditMode);
   };
@@ -29,7 +32,7 @@ const TableEmployess = (props) => {
           <td style={{ width: "180px", padding: "10px" }}>
             <IconButton
               aria-label="delete"
-              onClick={() => confirmDelete(id, displayName)}
+              onClick={() => confirmDelete(id, userData.displayName)}
             >
               <DeleteIcon />
             </IconButton>
@@ -50,9 +53,9 @@ const TableEmployess = (props) => {
 
 export default TableEmployess;
 
-const confirmDelete = (id, displayName) => {
+const confirmDelete = (id, name) => {
   Swal.fire({
-    title: `Hi ${displayName}, Are you sure?`,
+    title: `Hi ${name}, Are you sure?`,
     text: "You won't be able to revert this!",
     icon: "question",
     showCancelButton: true,

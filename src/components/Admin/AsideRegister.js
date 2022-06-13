@@ -1,8 +1,6 @@
 import React from "react";
 import { Drawer, Box, TextField, Autocomplete, Button } from "@mui/material";
-import { useState, useEffect} from "react";
-
-
+import { useState} from "react";
 import { signUpWithEmail, getAuth, editUser ,getUserById} from "../../lib/firebase-config";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 

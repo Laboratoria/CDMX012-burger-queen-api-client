@@ -140,20 +140,6 @@ export const getData = (setEmployee) => {
   });
 };
 
-export const getUserById = async (id, setUserName, setPosition, setTurn) => {
-  console.log("hfvdfv");
-
-  const dataRef = await getDoc(doc(db, "profile", id));
-  if (dataRef.exists()) {
-    console.log(dataRef.data());
-    setUserName(dataRef.data().displayName);
-    setPosition(dataRef.data().rol);
-    setTurn(dataRef.data().turn);
-    console.log("holi");
-  } else {
-    console.log("no existe");
-  }
-};
 
 export const editUser= async(id, name, rol, turn, drawerHandler)=> {
   const dataRef = doc(db, "profile", id);

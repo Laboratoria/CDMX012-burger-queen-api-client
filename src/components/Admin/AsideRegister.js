@@ -1,8 +1,14 @@
 import React from "react";
 import { Drawer, Box, TextField, Autocomplete, Button } from "@mui/material";
-import { useState} from "react";
-import { signUpWithEmail, getAuth, editUser ,getUserById} from "../../lib/firebase-config";
+import { useState } from "react";
+import {
+  signUpWithEmail,
+  getAuth,
+  editUser,
+  getUserById,
+} from "../../lib/firebase-config";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
+import DateTime from "../Waiters/DateTime";
 
 const AsideRegister = (props) => {
   const { open, closeHandler, data } = props;
@@ -50,8 +56,7 @@ const AsideRegister = (props) => {
   //   e.preventDefault();
   //   editUser(data.id, user, position, turn,drawerHandler );
   // };
-  
-  
+
   // useEffect(() => {
   //  getUserById(data.id, setUserName, setPosition, setTurn);
   //   // eslint-disable-next-line
@@ -91,7 +96,7 @@ const AsideRegister = (props) => {
         >
           <header>
             <h1>Register new employee</h1>
-
+            <DateTime />
             <p>Employee: {userData.displayName}</p>
           </header>
 
@@ -105,7 +110,6 @@ const AsideRegister = (props) => {
               autoComplete="off"
               onChange={(e) => setUserName(e.target.value)}
             />
-         
 
             <TextField
               helperText=" "
@@ -182,7 +186,9 @@ const AsideRegister = (props) => {
             <Button
               variant="contained"
               startIcon={<HowToRegIcon />}
-              onClick={()=>editUser(data.id, user, position, turn,drawerHandler)}
+              onClick={() =>
+                editUser(data.id, user, position, turn, drawerHandler)
+              }
             >
               Update
             </Button>

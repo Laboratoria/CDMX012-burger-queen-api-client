@@ -1,53 +1,45 @@
 import { Drawer, Box, IconButton } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import axios from "axios";
-import { getProducts, urlBurguerApi } from "../../lib/RequestHandler";
+import { urlBurguerApi } from "../../lib/RequestHandler";
+import DateTime from "../Waiters/DateTime";
 
-// import { handleAddProduct } from "../../lib/RequestHandler";
-
-export default function AsideProducts() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [newProduct, setNewProduct] = useState({
-    // id: "",
-    name: "",
-    price: Number,
-    image: URL,
-    type: "",
-    dateEntry: Date,
-  });
-  const [products, setProducts] = useState([]);
-  const arrayData = newProduct; //catching the new object with data for API
-  console.log(arrayData);
+export default function AsideProducts(props) {
+  const {
+    stock,
+    updateStock,
+    openDrawer,
+    closeDrawer,
+    productStock,
+    updateProductStock,
+  } = props;
+  const arrayData = productStock; //catching the new object with data for API
 
   const inputsInfo = (e) => {
     const { name, value } = e.target;
-    setNewProduct((prevState) => ({
+    updateProductStock((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   };
 
-  const handlePost = async () => {
+  const handlePost = async (e) => {
+    e.preventDefault();
     await axios
       .post(urlBurguerApi + "/Stock", arrayData)
       .then((response) => {
-        setProducts(products.concat(response.data));
-        console.log(setProducts);
+        updateStock(stock.concat(response.data));
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  useEffect(() => {
-    getProducts();
-  }, []);
-
   return (
     <aside className="aside">
       <IconButton
-        onClick={() => setIsDrawerOpen(true)}
+        onClick={() => closeDrawer(true)}
         size="large"
         edge="start"
         color="inherit"
@@ -59,8 +51,8 @@ export default function AsideProducts() {
       </IconButton>
       <Drawer
         anchor="right"
-        open={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
+        open={openDrawer}
+        onClose={() => closeDrawer(false)}
       >
         <Box
           p={2}
@@ -79,23 +71,12 @@ export default function AsideProducts() {
               alt="clockIcon"
               src={require("../../assets/Clock.png")}
             />
-            <p>Fecha del dia</p>
-            <p>Hora</p>
+            <DateTime />
             <p>Rol y nombre</p>
             <hr />
           </header>
           <section className="form-container">
-            <form className="box">
-              {/* <label>Id Product:</label>
-              <input
-                type="text"
-                className="inputProducts"
-                placeholder="id of the Product:"
-                name="id"
-                //   value={name}
-                autoComplete="off"
-                onChange={inputsInfo}
-              /> */}
+            <form className="box" onSubmit={handlePost}>
               <label>Name Product:</label>
               <input
                 type="text"
@@ -152,7 +133,7 @@ export default function AsideProducts() {
                 onChange={inputsInfo}
               ></input>
 
-              <button onClick={() => handlePost()}>Add product</button>
+              <input type="submit" value="Add Product" />
             </form>
           </section>
         </Box>

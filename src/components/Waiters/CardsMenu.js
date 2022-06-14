@@ -1,5 +1,4 @@
 import React from "react";
-
 export default function CardsMenu(props){
 const {id, imgProducts, name, price, order, updateOrder}=props
 const add=(event)=>{
@@ -30,6 +29,8 @@ const add=(event)=>{
     console.log(order)
 
 }
+
+
 return (
     <section className="boxCards">
         <img 

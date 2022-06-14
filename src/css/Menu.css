@@ -68,6 +68,7 @@
     font: normal 700 20px/30px 'Poppins';
     color: #FFFFFF;
     margin-bottom: 10px;
+    cursor: pointer;
   }
 
   #btnOrder{
@@ -79,6 +80,7 @@
     border-radius: 10px;
     font: normal 700 20px/30px 'Poppins';
     color: #FFFFFF;
+    cursor: pointer;
   }
 
   .btnOut{
@@ -135,6 +137,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: fit-content;
 }
 
 .breakAndDinner{
@@ -146,6 +149,7 @@
   margin-bottom: 20px;
   color: #004668;
   font: normal 700 20px/30px 'Poppins';
+  cursor: pointer;
 }
 
 .breakAndDinner:hover{
@@ -194,13 +198,14 @@
 
 .boxCards button{
   margin-top: 8px;
-  width: 45%;
+  width: 70px;
   height: 25px;
   background: #0DBADC;
   border: 1px solid #0DBADC;
   border-radius: 6px;
   font: normal 700 12px/18px 'Poppins';
   color: #5B2448;
+  cursor: pointer;
 }
 
 .aside{
@@ -208,6 +213,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  
 
 }
 
@@ -235,12 +241,36 @@ color: #004668;
 }
 
 /* ASIDE MENU */
+.MuiBox-root{ 
+  background-color: #004668;
+  color: #FFFFFF;
+}
 .inputOrder{
   margin: 10px 0 10px 0;
+  width: 220px;
+  height: 25px;
+  border-radius: 5px;
 }
 .allOrders{
   display: flex;
   flex-direction: column;
+}
+.btnOrder{
+  background: transparent;
+  color:white;
+  width: 25px;
+  height: 25px;
+  
+  
+}
+.btonTotal{
+  color:#004668;
+  background-color: white;
+  border-radius: 30px;
+  width: 200px;
+  height: 48px;
+  margin-top: 20px;
+  font-size: medium;
 }
 .boxOrders{
   display: grid;
@@ -277,4 +307,9 @@ color: #004668;
   grid-row: 1/4;
   height: 40px;
   width: auto;
+}
+.buttonsContainer{
+  flex-direction: row;
+  display:flex;
+  gap:10px;
 }

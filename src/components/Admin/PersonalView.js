@@ -20,9 +20,11 @@ const Personal = () => {
       <Header updateComandaOrders ={ getTable} updateComandaOrders2={getEmployee}/>
       <h1>Vista de Administrador</h1>
 
+
       {changeViewEmployees && (<Employees />)}
 
       {changeViewProducts&&(<ProductsStock/>)}
+
     </div>
   );
 };

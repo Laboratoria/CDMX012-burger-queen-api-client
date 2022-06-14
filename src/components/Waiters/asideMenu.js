@@ -7,9 +7,9 @@ import DateTime from "./DateTime";
 
 export default function AsideMenu(props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { order, updateOrder } = props
-  const [name, setName] = useState("");
-  const [total, setTotal] = useState("");
+  const { order, updateOrder,total,setTotal,setWatchBton } = props
+  const [name, setName] = useState("");  
+  
 
   const ClientName = (event) => {
     setName(event.target.value);
@@ -27,6 +27,7 @@ export default function AsideMenu(props) {
     updateOrder({})
     setName("")
     // setTotal("")
+    
   
 }
 
@@ -57,7 +58,7 @@ return (
           role="presentation"
           textAlign="center"
           sx={{
-            backgroundColor: "primary.dark",
+
             width: 400,
             height: 1000,
           }}
@@ -93,12 +94,16 @@ return (
                     name={product.name}
                     price={product.price}
                     qty={product.qty}
+                    order={order}
+                    updateOrder={updateOrder}
+                    id={product.id}
+                    watchBtm={true}
                   ></Order>
                 );
               })}
             <p>Total:$...{total}</p>
           </section>
-          <button onClick={Total}>Process Order</button>
+          <button className="btonTotal" onClick={Total}>Process Order</button>
           {/* <Typography variant="h6" component="div">
             Side Panel
           </Typography> */}

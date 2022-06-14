@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 export default function Header(props) {
   const [role, setRole] = useState(null);
   const navigate = useNavigate();
-  const { updateComandaOrders } = props;
+  const { updateComandaOrders, updateComandaOrders2 } = props;
   const auth = getAuth();
   const userData = auth.currentUser;
 
@@ -23,7 +23,6 @@ export default function Header(props) {
       }
     }
   }, []);
-  console.log(role);
 
   const returnLogin = () => {
     logOut();
@@ -39,8 +38,8 @@ export default function Header(props) {
           src={require("../assets/burger4.png")}
         />
         <p className="menu">MENU</p>
-        <button id="btnMenu">Employees</button>
-        <button id="btnOrder">Product</button>
+        <button id="btnMenu" onClick={updateComandaOrders}>Employees</button>
+        <button id="btnOrder" onClick={updateComandaOrders2}>Product</button>
         <button className="btnOut" onClick={returnLogin} />
       </header>
     );

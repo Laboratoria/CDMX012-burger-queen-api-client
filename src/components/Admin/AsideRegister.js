@@ -69,6 +69,7 @@ const AsideRegister = (props) => {
           width="400px"
           role="presentation"
           textAlign="center"
+          alignItems={"center"}
           sx={{
             width: 400,
             height: 1000,
@@ -126,7 +127,7 @@ const AsideRegister = (props) => {
               getOptionLabel={(option) => option.value ?? option}
               isOptionEqualToValue={(option, value) => option.value === value}
               value={position}
-              sx={{ width: 300 }}
+              sx={{ width: 300}}
               autoComplete={false}
               renderInput={(params) => (
                 <TextField

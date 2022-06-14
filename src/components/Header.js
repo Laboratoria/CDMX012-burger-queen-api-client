@@ -10,7 +10,7 @@ export default function Header(props) {
   const auth = getAuth();
   const userData = auth.currentUser;
 
-  useEffect(()=>{
+  useEffect(() => {
     if (userData) {
       const userEmail = userData.email;
       const initial = userEmail[0];
@@ -22,7 +22,7 @@ export default function Header(props) {
         setRole("chef");
       }
     }
-  },[])
+  }, []);
   console.log(role);
 
   const returnLogin = () => {
@@ -73,20 +73,4 @@ export default function Header(props) {
       </header>
     );
   }
-
-  // return (
-  //   <header className="header-container">
-  //     <img
-  //       className="logo"
-  //       alt="logoBQ"
-  //       src={require("../assets/burger4.png")}
-  //     />
-  //     <p className="menu">MENU</p>
-  //     <button id="btnMenu">Menu</button>
-  //     <button id="btnOrder" onClick={updateComandaOrders}>
-  //       Order
-  //     </button>
-  //     <button className="btnOut" onClick={returnLogin} />
-  //   </header>
-  // );
-  }
+}

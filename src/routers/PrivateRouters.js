@@ -4,6 +4,7 @@ import Menu from "../components/Waiters/MenuView";
 import { auth, onAuthStateChanged } from "../lib/firebase-config";
 import Chef from "../components/chef/Chef";
 import Personal from "../components/Admin/PersonalView";
+import PersonalView from "../components/Admin/PersonalView";
 
 const PrivateRoutes = () => {
   const [roleAdmin, setRoleAdmin] = useState(null);
@@ -27,7 +28,7 @@ const PrivateRoutes = () => {
   if (roleAdmin === "admin") {
     return (
       <Routes>
-        <Route path="/" element={<Personal />} />
+        <Route path="/" element={<Personal/>} />
       </Routes>
     );
   } else if (role === "waiter") {

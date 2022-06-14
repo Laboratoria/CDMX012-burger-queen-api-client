@@ -1,14 +1,10 @@
 import React from "react";
 import { Drawer, Box, TextField, Autocomplete, Button } from "@mui/material";
 import { useState } from "react";
-import {
-  signUpWithEmail,
-  getAuth,
-  editUser,
-  getUserById,
-} from "../../lib/firebase-config";
+import { signUpWithEmail, getAuth, editUser } from "../../lib/firebase-config";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import DateTime from "../Waiters/DateTime";
+ import "../../css/admin.css";
 
 const AsideRegister = (props) => {
   const { open, closeHandler, data } = props;
@@ -52,21 +48,6 @@ const AsideRegister = (props) => {
     );
   };
 
-  // const editDataUser = (e) => {
-  //   e.preventDefault();
-  //   editUser(data.id, user, position, turn,drawerHandler );
-  // };
-
-  // useEffect(() => {
-  //  getUserById(data.id, setUserName, setPosition, setTurn);
-  //   // eslint-disable-next-line
-  // }, []);
-
-  console.log(user);
-  console.log(email);
-  console.log(position);
-  console.log(turn);
-
   const optionsRoles = [
     // { label: "", value: "" },
     { label: "Admin", value: "Admin" },
@@ -89,7 +70,6 @@ const AsideRegister = (props) => {
           role="presentation"
           textAlign="center"
           sx={{
-            backgroundColor: "secondary.main",
             width: 400,
             height: 1000,
           }}

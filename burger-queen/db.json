@@ -22,13 +22,33 @@
     },
     {
       "name": "Jugo de frutas natural",
-      "price": 7,
+      "price": "7",
       "melPrep": "5min - 10min",
       "description": "Delicioso jugo de fruta de su elección preparada al momento con la mejor selección de ingredientes frescos y naturales.",
       "recipe": "Verter el zumo de la fruta o frutas de elección, licuar por 3 minutos aproximadamente, decorar con rebanada de fruta y servir",
       "id": 4,
       "urlImg": "https://raw.githubusercontent.com/MonzerratBanuelos/burger-queen/Candy/burger-queen/src/Assets/Images/Menu/JugoFrutas.jpg",
-      "category": "breakfast"
+      "category": "breakfast",
+      "newProduct": {
+        "name": "Jugo de frutas natural",
+        "price": "7",
+        "melPrep": "5min - 10min",
+        "description": "Delicioso jugo de fruta de su elección preparada al momento con la mejor selección de ingredientes frescos y naturales.",
+        "recipe": "Verter el zumo de la fruta o frutas de elección, licuar por 3 minutos aproximadamente, decorar con rebanada de fruta y servir",
+        "id": 4,
+        "urlImg": "https://raw.githubusercontent.com/MonzerratBanuelos/burger-queen/Candy/burger-queen/src/Assets/Images/Menu/JugoFrutas.jpg",
+        "category": "breakfast",
+        "newProduct": {
+          "name": "Jugo de frutas natural",
+          "price": "7",
+          "melPrep": "5min - 10min",
+          "description": "Delicioso jugo de fruta de su elección preparada al momento con la mejor selección de ingredientes frescos y naturales.",
+          "recipe": "Verter el zumo de la fruta o frutas de elección, licuar por 3 minutos aproximadamente, decorar con rebanada de fruta y servir",
+          "id": 4,
+          "urlImg": "https://raw.githubusercontent.com/MonzerratBanuelos/burger-queen/Candy/burger-queen/src/Assets/Images/Menu/JugoFrutas.jpg",
+          "category": "breakfast"
+        }
+      }
     },
     {
       "name": "Sandwich de jamón y queso ",
@@ -151,14 +171,14 @@
           "id": 15,
           "name": "Porridge de Avena",
           "price": 50,
-          "productStatus": "kitchen",
+          "productStatus": "ready",
           "cantidad": 1
         },
         {
           "id": 1,
           "name": "Café americano",
           "price": 5,
-          "productStatus": "kitchen",
+          "productStatus": "ready",
           "cantidad": 1
         }
       ],
@@ -181,7 +201,7 @@
           "id": 3,
           "name": "Sandwich de jamón y queso ",
           "price": 10,
-          "productStatus": "kitchen",
+          "productStatus": "ready",
           "cantidad": 1
         },
         {
@@ -195,7 +215,7 @@
           "id": 2,
           "name": "Café con leche",
           "price": 5,
-          "productStatus": "kitchen",
+          "productStatus": "ready",
           "cantidad": 1
         },
         {
@@ -215,6 +235,147 @@
       "endtTime": "",
       "totalTime": "",
       "id": 2
+    },
+    {
+      "orderId": 3,
+      "table": "",
+      "clientName": "",
+      "productos": [
+        {
+          "id": 13,
+          "name": "Huevos Revueltos",
+          "price": "40",
+          "productStatus": "ready",
+          "cantidad": 1
+        },
+        {
+          "id": 1,
+          "name": "Café americano",
+          "price": 5,
+          "productStatus": "kitchen",
+          "cantidad": 2
+        },
+        {
+          "id": 3,
+          "name": "Sandwich de jamón y queso ",
+          "price": 10,
+          "productStatus": "kitchen",
+          "cantidad": 1
+        },
+        {
+          "id": 15,
+          "name": "Porridge de Avena",
+          "price": 50,
+          "productStatus": "kitchen",
+          "cantidad": 3
+        }
+      ],
+      "totalProducts": 7,
+      "totalPrice": 210,
+      "TableStatus": "kitchen",
+      "waiter": "Anna Li",
+      "waiterId": "wVhBMXIFNhbdwT8UExRgDDPJH5h1",
+      "startTime": "18:7",
+      "endtTime": "",
+      "totalTime": "",
+      "id": 3
+    },
+    {
+      "orderId": 4,
+      "table": "1",
+      "clientName": "ana",
+      "productos": [
+        {
+          "id": 4,
+          "name": "Jugo de frutas natural",
+          "price": "7",
+          "productStatus": "delivery",
+          "cantidad": 2
+        },
+        {
+          "id": 15,
+          "name": "Porridge de Avena",
+          "price": 50,
+          "productStatus": "delivery",
+          "cantidad": 1
+        }
+      ],
+      "totalProducts": 3,
+      "totalPrice": 64,
+      "TableStatus": "kitchen",
+      "waiter": "Candy Lopez",
+      "waiterId": "V5fnPB0yW5as6anpPERYaTbxEo13",
+      "startTime": "12:36",
+      "endtTime": "",
+      "totalTime": "",
+      "id": 4
+    },
+    {
+      "orderId": 5,
+      "table": "7",
+      "clientName": "dadi yanki",
+      "productos": [
+        {
+          "id": 5,
+          "name": "Hamburguesa simple",
+          "price": 10,
+          "productStatus": "delivery",
+          "cantidad": 1
+        },
+        {
+          "id": 9,
+          "name": "Agua de 500ml",
+          "price": 5,
+          "productStatus": "kitchen",
+          "cantidad": 1
+        },
+        {
+          "id": 12,
+          "name": "Bebida/gaseosa 750ml",
+          "price": 10,
+          "productStatus": "delivery",
+          "cantidad": 1
+        }
+      ],
+      "totalProducts": 3,
+      "totalPrice": 25,
+      "TableStatus": "kitchen",
+      "waiter": "Candy Lopez",
+      "waiterId": "V5fnPB0yW5as6anpPERYaTbxEo13",
+      "startTime": "13:44",
+      "endtTime": "",
+      "totalTime": "",
+      "id": 5
+    },
+    {
+      "orderId": 6,
+      "table": "2",
+      "clientName": "Monze",
+      "productos": [
+        {
+          "id": 4,
+          "name": "Jugo de frutas natural",
+          "price": "7",
+          "productStatus": "kitchen",
+          "cantidad": 3
+        },
+        {
+          "id": 15,
+          "name": "Porridge de Avena",
+          "price": 50,
+          "productStatus": "kitchen",
+          "cantidad": 1
+        }
+      ],
+      "totalProducts": 4,
+      "totalPrice": 71,
+      "TableStatus": "kitchen",
+      "waiter": "Panchito",
+      "waiterId": "4RMnnNuNYxZgUGWVgfoOl5OBf5G2",
+      "startTime": "15:32",
+      "endtTime": "",
+      "totalTime": "",
+      "id": 6
     }
   ]
 }

@@ -2,28 +2,38 @@
 import '../../../styles/HomePage.css'
 import '../../../styles/CreateUsers.css'
 import { auth, db } from '../../../Lib/firebase-keys'
+import { useState } from 'react'
 import { createUserWithEmailAndPassword, updateProfile, updateCurrentUser } from 'firebase/auth'
 // eslint-disable-next-line no-unused-vars
-import { doc, setDoc, updateDoc } from 'firebase/firestore'
-function CreateUsers({ setAside, editStaff, setEditStaff }) {
-  console.log(editStaff)
-  const handleNewUser = (e) => {
+import { doc, setDoc, updateDoc, deleteDoc } from 'firebase/firestore'
+
+function CreateUsers({ deleteStaff, editStaff, setAside }) {
+  const [employe, setEmploye] = useState(editStaff)
+  console.log(employe)
+  const setOnChange = (e) => {
     e.preventDefault()
-    const email = e.target.elements.email.value
-    const password = e.target.elements.password.value
-    const rol = e.target.elements.rol.value
-    const name = e.target.elements.name.value
-    const turn = e.target.elements.turn.value
-    newEmployee(email, password, rol, name, turn)
-    setAside('null')
-  }
-  const handleEditStaff = async (e) => {
-    e.preventDefault()
-    const docRef = doc(db, `User/${editStaff.uid}`)
-    await updateDoc(docRef, editStaff)
-    setAside('null')
+    const { name, value } = e.target
+    setEmploye({ ...employe, [name]: value })
   }
 
+  const handleEditStaff = async (e) => {
+    e.preventDefault()
+    const docRef = doc(db, `User/${employe.uid}`)
+    await updateDoc(docRef, employe)
+    setAside('null')
+    console.log('usuario: ' + employe.name + '  editado')
+  }
+
+  const handleNewUser = async (e) => {
+    e?.preventDefault()
+    const email = e?.target.elements?.email.value
+    const password = e?.target.elements?.password.value
+    const rol = e?.target.elements?.rol.value
+    const name = e?.target.elements?.name.value
+    const turn = e?.target.elements?.turn.value
+    await newEmployee(email, password, rol, name, turn)
+    setAside('null')
+  }
   const userInDisplay = auth.currentUser
   // eslint-disable-next-line no-unused-vars
   async function newEmployee(email, password, rol, name, turn) {
@@ -47,46 +57,60 @@ function CreateUsers({ setAside, editStaff, setEditStaff }) {
         return user
       })
   }
+  const handleDeleteStaff = () => {
+     deleteDoc(doc(db, 'User', employe.uid))
+    setAside('null')
+  }
+
   return (
-    <div className='form_new_user'>
-      <h2>Agregar usuario:</h2>
+    <>
       {(editStaff === null)
         ? (
-          <form onSubmit={handleNewUser}>
-            <input className='input_form' type='text' id="name" placeholder='Juanito' />
-            <input className='input_form' type='text' id="email" placeholder='jesusR@burguerqueen.com' />
-            <input className='input_form' type='password' id="password" placeholder='**********' />
-            <select className='input_form' id="rol" placeholder='Empleado'>
+          <div className='form_new_user'>
+            <h2>Agregar usuario:</h2>
+            <form onSubmit={handleNewUser}>
+            <input className='input_form' type='text' id="name" placeholder='Nombre del empleado' />
+            <input className='input_form' type='text' id="email" placeholder='Correo electronico' />
+            <input className='input_form' type='password' id="password" placeholder='Contraseña' />
+            <select className='input_form' id="rol" placeholder='Puesto'>
+              <option value='mesero' className="label">Puesto</option>
               <option value="admin">Admin</option>
               <option value="mesero">Mesero</option>
               <option value="cocinero">Cocinero</option>
             </select>
-            <select className='input_form' id="turn" placeholder='Matutino'>
+            <select className='input_form' id="turn" placeholder='Turno'>
+              <option value='matutino' className="label">Turno</option>
               <option value="matutino">Matutino</option>
               <option value="vespertino">Vespertino</option>
             </select>
-            <button id='newUser' onClick={() => { handleNewUser() }}>Nuevo Usuario</button>
+            <button id='newUser' onClick={ () => { handleNewUser() }}>Nuevo Usuario</button>
           </form>
+          </div>
         )
         : (
-          <form onSubmit={handleEditStaff}>
-            <input className='input_form' type='text' id="name" placeholder='Juanito' value={editStaff.name} onChange={(e) => setEditStaff({ ...editStaff, name: e.target.value })} />
-            <input className='input_form' type='text' id="email" placeholder='jesusR@burguerqueen.com' value={editStaff.email} />
-            <input className='input_form' type='text' id="password" placeholder='**********' value={editStaff.password} />
-            <select className='input_form' id="rol" placeholder='Empleado' value={editStaff.rol} onChange={(e) => setEditStaff({ ...editStaff, rol: e.target.value })}>
-              <option value="admin">Admin</option>
-              <option value="mesero">Mesero</option>
-              <option value="cocinero">Cocinero</option>
-            </select>
-            <select className='input_form' id="turn" placeholder='Matutino' value={editStaff.turn} onChange={(e) => setEditStaff({ ...editStaff, turn: e.target.value })}>
-              <option value="matutino">Matutino</option>
-              <option value="vespertino">Vespertino</option>
-            </select>
-            <button id='newUser' onClick={(e) => { handleEditStaff(e) }}>Actualizar Usuario</button>
-          </form>
+          <div className='form_new_user' >
+            <h2>Actualizar empleado</h2>
+              <form>
+                <input className='input_form' type='text' name='name' placeholder='Nombre del empleado' value={employe.name} onChange={(e) => { setOnChange(e) }} />
+                <input className='input_form' type='text' name='email' placeholder='Correo electronico' value={employe.email} onChange={(e) => { setOnChange(e) }}/>
+                <input className='input_form' type='password' name='password' placeholder='Contraseña' value={employe.password} onChange={(e) => { setOnChange(e) }}/>
+                <select className='input_form' name='rol' value={employe.rol} onChange={(e) => { setOnChange(e) }}>
+                  <option disabled >Puesto</option>
+                  <option value="admin">Admin</option>
+                  <option value="mesero">Mesero</option>
+                  <option value="cocinero">Cocinero</option>
+                </select>
+                <select className='input_form' name='turn' value={employe.turn} onChange={(e) => { setOnChange(e) }}>
+                  <option disabled >Turno</option>
+                  <option value="matutino">Matutino</option>
+                  <option value="vespertino">Vespertino</option>
+                </select>
+                <button id='newUser' onClick={(e) => { handleEditStaff(e) }}>Actualizar empleado</button>
+                <button className='btn_products' id='btn_delete_products' onClick={ () => { handleDeleteStaff() }} > Eliminar empleado </button>
+              </form>
+            </div>
         )}
-    </div>
-
+</>
   )
 }
 export default CreateUsers

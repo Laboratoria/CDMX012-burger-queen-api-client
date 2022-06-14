@@ -9,6 +9,7 @@ import Header from "../Header";
 import AsideMenu from "./asideMenu";
 import { DateOrder } from "./DateOrder";
 import AsideOrders from "./AsideOrders";
+
 export default function Menu() {
   const [products, setProducts] = useState({});
   const [typeMenu, setTypeMenu] = useState("");

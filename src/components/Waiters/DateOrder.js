@@ -1,3 +1,8 @@
+
+import { tooltipClasses } from "@mui/material";
+import React from "react";
+
+
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content"; 
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
@@ -57,8 +62,9 @@ const dateTotal = () => {
 
 
 
-{/* <p> Order:{order} </p>
+
+      {/* <p> Order:{order} </p>
 <p>Quantity:{qty}</p> */}
-</section>
-    );
+    </section>
+  );
 }

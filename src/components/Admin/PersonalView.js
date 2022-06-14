@@ -11,10 +11,11 @@ const Personal = () => {
     <div>
       <Header />
       <h1>Vista de Administrador</h1>
+
       <ProductsStock />
       <AsideRegister/>
-    </div>
 
+    </div>
   );
 };
 

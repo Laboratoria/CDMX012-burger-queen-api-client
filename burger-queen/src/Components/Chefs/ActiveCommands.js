@@ -1,9 +1,12 @@
 import { ActiveCommand } from './ActiveCommand'
-export const ActiveCommands = ({ mesas, setMesas }) => {
+
+export const ActiveCommands = ({ mesas }) => {
   return (
-    <div className='tables_container'>{
-      mesas && mesas.map((mesa) => (
-        <ActiveCommand mesa={mesa} mesas={mesas} setMesas={setMesas} key={mesa.id} mesaId={mesa.id} />
+    <div className='tables_container'>
+      {mesas && mesas.map((mesa) => (
+        (mesa.TableStatus === 'kitchen')
+          ? (<ActiveCommand mesa={mesa} key={mesa.id}/>)
+          : null
       ))}
     </div>
   )

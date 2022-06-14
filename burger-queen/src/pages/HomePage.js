@@ -40,6 +40,9 @@ export default function HomePage({ handleExit, currentUser, rol }) {
     getMesas()
   }, [DateHour])
 
+  // useEffect(() => {
+  // }, [])
+
   // da valor al handle de renderizado segun el rol
   const setFristRender = () => {
     if (rol === 'admin') {

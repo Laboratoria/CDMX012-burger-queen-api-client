@@ -1,7 +1,9 @@
 // import { useNavigate } from "react-router-dom";
 
+
 import { getMenu,getOrder, deleteOrder } from "../../lib/RequestHandler";
 import React,{ useEffect, useState } from "react";
+
 
 import CardsMenu from "./CardsMenu";
 import "../../css/Menu.css";
@@ -17,44 +19,43 @@ export default function Menu() {
   const [changeView, setChangeView] = useState(true);
   const [comandasOrders, setComandasOrders] = useState([]);
   const [isDrawerOpenOrder, setIsDrawerOpenOrder] = useState(false);
+
   const[selectedOder, setSelectedOrder] = useState({});
   const [total, setTotal] = useState("");
   const[watchBton, setWatchBton]=useState(true);
   
 
-  useEffect(() => {
 
-    typesProducts()
-  }, [])
+  useEffect(() => {
+    typesProducts();
+  }, []);
   const typesProducts = async () => {
     const products = await getMenu();
-    let productsByTypes = {}
+    let productsByTypes = {};
     for (let i = 0; i < products.length; i++) {
-
       let type = products[i].type;
 
       if (!Object.prototype.hasOwnProperty.call(productsByTypes, type)) {
-        productsByTypes[type] = []
+        productsByTypes[type] = [];
       }
       productsByTypes[type].push(products[i]);
-
-
     }
-    console.log(productsByTypes)
-    setProducts(productsByTypes)
-  }
+    console.log(productsByTypes);
+    setProducts(productsByTypes);
+  };
   const breakfast = () => {
-    setTypeMenu("desayuno")
+    setTypeMenu("desayuno");
     setChangeView(true);
-  }
+  };
   const dinner = () => {
-    setTypeMenu("cena")
+    setTypeMenu("cena");
     setChangeView(true);
-  }
-  const ordersComanda = async()=>{
-    const arrayOrders= await getOrder();
-    console.log(arrayOrders)
+  };
+  const ordersComanda = async () => {
+    const arrayOrders = await getOrder();
+    console.log(arrayOrders);
     setChangeView(false);
+
     setComandasOrders(arrayOrders)
     console.log(arrayOrders)
       // setOrder(arrayOrders);
@@ -67,12 +68,10 @@ export default function Menu() {
   
   }
 
+
   return (
     <main className="menu-container">
-      <Header
-       updateComandaOrders={ordersComanda}
-       
-       />
+      <Header updateComandaOrders={ordersComanda} />
       <section>
         <section className="search">
           <img
@@ -82,6 +81,7 @@ export default function Menu() {
           />
           <input type="text" placeholder="Search..." />
         </section>
+
 
   <div className="btnsAndMenu-container">
     <section className="btnsOfMenu">
@@ -141,8 +141,6 @@ export default function Menu() {
   </div>
     </section >
   </main >
+
   );
 }
-        
-        
-    

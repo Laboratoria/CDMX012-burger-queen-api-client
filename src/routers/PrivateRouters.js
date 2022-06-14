@@ -13,7 +13,6 @@ const PrivateRoutes = () => {
     if (user) {
       const userEmail = user.email;
       const initial = userEmail[0];
-      console.log(typeof initial);
 
       if (initial === "a") {
         setRoleAdmin("admin");
@@ -23,14 +22,12 @@ const PrivateRoutes = () => {
         setRole("chef");
       }
     }
-    console.log(user);
-    console.log(role);
   });
 
   if (roleAdmin === "admin") {
     return (
       <Routes>
-        <Route path="/" element={<Personal />} />
+        <Route path="/" element={<Personal/>} />
       </Routes>
     );
   } else if (role === "waiter") {
@@ -45,7 +42,7 @@ const PrivateRoutes = () => {
         <Route path="/" element={<Chef />} />
       </Routes>
     );
-  }
+  } 
 };
 
 export default PrivateRoutes;

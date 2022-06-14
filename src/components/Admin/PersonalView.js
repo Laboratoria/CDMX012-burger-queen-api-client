@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../Header";
-import AsideRegister from "./AsideRegister";
-
-// import Products from "./Products";
-// import ProductsTable from "./ProductsTable";
+import Employees from "./Employees";
 import ProductsStock from "./ProductsStock";
 
 const Personal = () => {
+  const [changeViewEmployees, setChangeViewEmployees] = useState(true);
+  const [changeViewProducts, setChangeViewProducts] = useState(false);
+
+  const getEmployee = () => {
+    setChangeViewEmployees(false);
+    setChangeViewProducts(true)
+  };
+  const getTable = () => {
+    setChangeViewEmployees(false);
+    setChangeViewProducts(true)
+  };
   return (
     <div>
-      <Header />
+      <Header updateComandaOrders ={ getTable} updateComandaOrders2={getEmployee}/>
       <h1>Vista de Administrador</h1>
 
-      <ProductsStock />
-      <AsideRegister/>
+
+      {changeViewEmployees && (<Employees />)}
+
+      {changeViewProducts&&(<ProductsStock/>)}
 
     </div>
   );

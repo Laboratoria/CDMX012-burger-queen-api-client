@@ -1,13 +1,18 @@
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content"; 
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from '@mui/icons-material/Delete';
+import { grey } from '@mui/material/colors';
 
 export function DateOrder(props) {
-    const {order, updateComanda,setIsDrawerOpenOrder,setSelectedOrder,deleteOrder, setTotal} = props
+    const {order, updateComanda,setIsDrawerOpenOrder,setSelectedOrder,deleteOrder, setTotal,btonWatch} = props
     const MySwal = withReactContent(Swal); 
 const seeOrder = ()=>{
    setIsDrawerOpenOrder(true)
    setSelectedOrder(order)
    console.log(order)
+   btonWatch(false)
 }
 const clickDeleteOrder = ()=>{
 deleteOrder(order.id)
@@ -37,15 +42,19 @@ const dateTotal = () => {
     });
   };
     return (
-<section>  
+<section className="boxCards">  
 <img 
         className="conteiner-img"
         src={require("../../assets/chef.png")}
         alt= "imgFood" />
- <p>Client:{order.client}</p>   
- <p>id:{order.id}</p>  
- <button className= "addproduct" onClick={seeOrder}>see order</button> 
- <button className= "deletorder" onClick={confirmDelete}>Delete Order</button> 
+ <p className="name">Client:{order.client}</p>   
+ <p className="price">id:{order.id}</p>  
+ <div className="buttonsContainer">
+
+ <button className= "buttonOrder" onClick={seeOrder}>Watch</button> 
+ <button className= "buttonOrder" onClick={confirmDelete}>Delete</button> 
+  </div>
+
 
 
 {/* <p> Order:{order} </p>

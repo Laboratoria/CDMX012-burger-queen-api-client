@@ -1,7 +1,7 @@
 import {React, useState} from "react";
 
 export default function Order(props) {
-    const { name, price,qty,id, order, updateOrder} = props
+    const { name, price,qty,id, order, updateOrder,btonWatch} = props
     const [stateQuantity, setStateQuantity] = useState(qty);
     
     const addProduct=(event)=>{
@@ -27,7 +27,7 @@ export default function Order(props) {
            }
            if(encontreProducto === false){
                order.products.push({id:id, qty:1,name:name, price:price})
-               
+               btonWatch(true)
            }
           
         }
@@ -43,7 +43,7 @@ export default function Order(props) {
                    setStateQuantity(order.products[i].qty)
                    if(order.products[i].qty === 0){
                        order.products.splice(i,1)
-                        
+                       btonWatch(true)
                        
 
                    }
@@ -59,11 +59,11 @@ export default function Order(props) {
 
             <p className="order" id="p1">{name}
             </p>
-            <button onClick={subtractProducts}>-</button>
+            <button className="btnOrder" onClick={subtractProducts}>-</button>
 
             <p className="order" id="p2">cant. {stateQuantity}
             </p>
-            <button onClick={addProduct}>+</button>
+            <button className="btnOrder" onClick={addProduct}>+</button>
 
             <p className="order" id="p3">${price}
             </p>

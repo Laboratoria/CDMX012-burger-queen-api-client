@@ -6,10 +6,9 @@ import DateTime from "./DateTime";
 
 export default function AsideOrders(props) {
 
-  const { isDrawerOpenOrder, setIsDrawerOpenOrder, selectedOder, total,setTotal} = props
+  const { isDrawerOpenOrder, setIsDrawerOpenOrder, selectedOder, total,setTotal,btonWatch} = props
   const [name, setName] = useState("");
  
-  
 
   return (
 
@@ -29,7 +28,7 @@ export default function AsideOrders(props) {
           role="presentation"
           textAlign="center"
           sx={{
-            backgroundColor: "primary.dark",
+
             width: 400,
             height: 1000,
           }}
@@ -59,6 +58,7 @@ export default function AsideOrders(props) {
                     price={product.price}
                     qty={product.qty}
                     total= {setTotal}
+                    btonWatch={false}
                   ></Order>
                 );
               })}

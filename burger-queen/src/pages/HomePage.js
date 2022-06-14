@@ -10,8 +10,10 @@ import { Staff } from '../Components/Administrador/Employees/Staff'
 import { useState, useEffect } from 'react'
 import { ProductsControl } from '../Components/Waiters/ProductsControl'
 import { ReadyProducts } from '../Components/Chefs/ReadyProducts'
+import { Recipes } from '../Components/Chefs/Recipes'
 import FormProducts from '../Components/Administrador/Products/FormProducts'
 import { deleteStaff } from '../Lib/Providers'
+import { Descriptions } from '../Components/Waiters/Descriptions'
 
 // eslint-disable-next-line react/prop-types
 export default function HomePage({ handleExit, currentUser, rol }) {
@@ -23,6 +25,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
   const [totalOrders, setTotalOrders] = useState([])
   const [editStaff, setEditStaff] = useState(null)
   const [newProduct, setNewProduct] = useState(null)
+  const [onOff, setOnOff] = useState(false)
   const getMesas = async () => {
     const url = 'http://localhost:4000/orders'
     const getFetchData = await fetch(url).then((resul) => resul.json())
@@ -65,13 +68,16 @@ export default function HomePage({ handleExit, currentUser, rol }) {
       return <Staff editStaff={editStaff} setEditStaff={setEditStaff} setAside={setHandleAside} />
     }
     if (handleMain === 'Mesas') {
-      return <TablesOrders setMain={setHandleMain} setAside={setHandleAside} mesas={mesas} setMesas={setMesas} />
+      return <TablesOrders onOff={onOff} setOnOff={setOnOff} setMain={setHandleMain} setAside={setHandleAside} mesas={mesas} setMesas={setMesas} />
     }
     if (handleMain === 'Menu') {
-      return <Menu rol={rol} setNewProduct={setNewProduct} order={order} setOrder={setOrder} setMain={setHandleMain} setAside={setHandleAside} handleMain={handleMain} />
+      return <Menu onOff={onOff} rol={rol} setNewProduct={setNewProduct} order={order} setOrder={setOrder} setMain={setHandleMain} setAside={setHandleAside} handleMain={handleMain} />
     }
     if (handleMain === 'Comandas') {
       return <ActiveCommands mesas={mesas} setMesas={setMesas} />
+    }
+    if (handleMain === 'Recetas') {
+      return <Menu rol={rol} setNewProduct={setNewProduct} order={order} setOrder={setOrder} setMain={setHandleMain} setAside={setHandleAside} handleMain={handleMain} />
     }
   }
 
@@ -91,6 +97,12 @@ export default function HomePage({ handleExit, currentUser, rol }) {
     }
     if (handleMain === 'FormProducts') {
       return <FormProducts newProduct={newProduct} setNewProduct={setNewProduct} setMain={setHandleMain} setAside={setHandleAside} />
+    }
+    if (handleMain === 'VerReceta') {
+      return <Recipes newProduct={newProduct} setNewProduct={setNewProduct} setMain={setHandleMain} setAside={setHandleAside} />
+    }
+    if (handleMain === 'Descripciones') {
+      return <Descriptions newProduct={newProduct} setNewProduct={setNewProduct} setMain={setHandleMain} setAside={setHandleAside} />
     }
   }
   const [order, setOrder] = useState({
@@ -135,7 +147,7 @@ export default function HomePage({ handleExit, currentUser, rol }) {
         )}
         {rol === 'mesero' && (
           <p className={`${handleMain === 'Menu' ? 'activeB' : 'inactiveB'}`}
-            onClick={() => { setHandleMain('Menu') }}>
+            onClick={() => { setHandleMain('Menu'); setOnOff(false) }}>
             Menu
           </p>
         )}

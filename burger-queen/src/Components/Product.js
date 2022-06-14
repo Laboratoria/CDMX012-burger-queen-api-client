@@ -1,12 +1,15 @@
 import '../styles/Product.css'
-export const Product = ({ setNewProduct, rol, product, setOrder, order, setAside }) => {
+export const Product = ({ onOff, setNewProduct, rol, product, setOrder, order, setAside }) => {
   const setToRender = () => {
     setNewProduct(product)
     if (rol === 'admin') {
       setAside('FormProducts')
     }
-    if (rol === 'mesero') {
+    if (rol === 'mesero' && onOff === true) {
       handleAddProduct(product)
+    }
+    if (rol === 'mesero' && onOff === false) {
+      setAside('Descripciones')
     }
     if (rol === 'cocinero') {
       setAside('VerReceta')

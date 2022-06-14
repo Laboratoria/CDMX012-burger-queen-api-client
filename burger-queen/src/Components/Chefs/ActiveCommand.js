@@ -35,10 +35,11 @@ export const ActiveCommand = ({ mesa }) => {
     if (nowIsReady === true) {
       productNewStatus.TableStatus = 'ready'
       SetProductNewStatus({ ...productNewStatus, TableStatus: 'ready' })
+      fetchProductos({ ...productNewStatus, productos: [...updatedMesa], TableStatus: 'ready' })
+    } else {
+      fetchProductos({ ...productNewStatus, productos: [...updatedMesa] })
     }
-    fetchProductos({ ...productNewStatus, productos: [...updatedMesa], TableStatus: 'ready' })
   }
-
   const fetchProductos = async (productStats) => {
     await fetch(`http://localhost:4000/orders/${mesa.id}`, {
       method: 'PATCH',
@@ -51,6 +52,7 @@ export const ActiveCommand = ({ mesa }) => {
   const handleSubmit = async (product) => {
     updateStatus(product, mesa)
   }
+
   return (
     <div className='container_table' key={mesa.id}>
       <table className='data_table'>

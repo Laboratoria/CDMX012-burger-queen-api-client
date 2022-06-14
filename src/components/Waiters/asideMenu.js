@@ -93,6 +93,9 @@ return (
                     name={product.name}
                     price={product.price}
                     qty={product.qty}
+                    order={order}
+                    updateOrder={updateOrder}
+                    id={product.id}
                   ></Order>
                 );
               })}

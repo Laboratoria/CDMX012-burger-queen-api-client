@@ -111,7 +111,6 @@ export default function Menu() {
             <DateOrder
               key={order.id}
               order={order}
-              // order={order.products}
               updateComanda={setComandasOrders}
               setIsDrawerOpenOrder= {setIsDrawerOpenOrder}
               setSelectedOrder = {setSelectedOrder}

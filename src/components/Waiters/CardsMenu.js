@@ -30,6 +30,8 @@ const add=(event)=>{
     console.log(order)
 
 }
+
+
 return (
     <section className="boxCards">
         <img 

@@ -1,4 +1,6 @@
+
 import React, { useState, useEffect } from "react";
+
 
 export default function DateTime() {
   let [date, setDate] = useState(new Date());
@@ -12,7 +14,11 @@ export default function DateTime() {
 
   return (
     <div>
-      {date.toDateString()} {date.toLocaleTimeString()}
+
+    
+        {date.toDateString()} {date.toLocaleTimeString()}
+      
     </div>
   );
 }
+

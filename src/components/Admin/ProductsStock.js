@@ -37,16 +37,15 @@ export default function ProductsStock() {
     setDrawerDelete(!drawerDelete);
   };
 
-  const pickProduct = (newProduct, selection) => {
+  const pickProduct = (newProduct) => {
     setNewProduct(newProduct);
-    selection === "Edit" ? openCloseDrawerEdit() : openCloseDrawerDelete();
+    openCloseDrawerEdit();
   };
 
   const deleteProduct = async () => {
     await deleteStock(newProduct)
       .then((response) => {
         setProducts(products.filter((product) => product.id !== newProduct.id));
-        openCloseDrawerDelete();
       })
       .catch((error) => {
         console.log(error);
@@ -54,6 +53,7 @@ export default function ProductsStock() {
   };
 
   const confirmDelete = (id) => {
+    openCloseDrawerDelete();
     MySwal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -100,7 +100,7 @@ export default function ProductsStock() {
             size: "small",
             tooltip: "Product edit",
             icon: "edit",
-            onClick: (event, rowData) => pickProduct(rowData, "Edit"),
+            onClick: (event, rowData) => pickProduct(rowData),
           }),
           () => ({
             size: "small",

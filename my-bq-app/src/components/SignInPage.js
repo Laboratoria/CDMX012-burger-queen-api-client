@@ -3,8 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -13,6 +11,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Image from '../assets/bq.png';
+import { useAuth } from "../context/authContext.js";
+import { useNavigate } from "react-router-dom"; 
+import { useState } from "react";
 
 function Copyright(props) {
   return (
@@ -30,6 +31,42 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInSide() {
+
+  const [user, setUser] = useState({
+    email:'',
+    password:'',
+})
+
+const {logIn} = useAuth();
+
+const navigate = useNavigate();  
+
+const [error, setError] = useState();
+
+const handleChange = ({target: {name, value}}) => 
+    setUser({...user, [name]: value})
+
+    {/* to submit the login form with error messages*/}
+const handleSubmitError = async (e) => {
+    e.preventDefault()
+    setError('');
+    try {
+       await logIn(user.email, user.password);
+        navigate("/");
+    }
+    catch (error) {
+        console.log(error.code);
+        if (error.code === 'auth/user-not-found') {
+            setError("Error: User not found.")
+        }
+        else if (error.code === 'auth/invalid-email') {
+            setError("Error: Invalid email.")
+        }
+        else if (error.code === 'auth/wrong-password') {
+            setError("Error: Wrong password.")
+        }
+    }
+}
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -83,6 +120,7 @@ export default function SignInSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={handleChange}
               />
               <TextField
                 margin="normal"
@@ -93,19 +131,22 @@ export default function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={handleChange}
               />
+              {error && <p style={{ color: '#f44336' }}>{error}</p> }
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2, bgcolor: '#424242' }}
+                onClick={handleSubmitError}
               >
                 Sign In
               </Button>
               <Grid container>
                 <Grid item>
                 {'Do not have an account yet? '}
-                  <Link href="#" variant="body2">
+                  <Link href="/signUpPage" variant="body2">
                     {" Sign Up here"}
                   </Link>
                 </Grid>

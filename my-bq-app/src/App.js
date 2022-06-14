@@ -1,15 +1,13 @@
 import * as React from 'react';
 import { Routes, Route } from "react-router-dom";
 import Home from '../src/components/Home.js';
-import Login from '../src/components/Login.js';
-import Register from '../src/components/Register.js';
 import NotFoundPage from '../src/components/NotFoundPage.js'
 import AuthProvider from './context/authContext.js';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import SignInSide from './components/SignInPage.js';
 import SignUp from './components/SignUpPage.js';
-import Album from './components/Orders.js';
+import Album from './components/OrdersPage.js';
 
 function App() {
   return (
@@ -20,8 +18,6 @@ function App() {
           <Routes>
             {/* public routes */}
             <Route path="/" element={<Home />}> </Route>
-            <Route path="/login" element= {<Login />}> </Route>
-            <Route path="/register" element= {<Register />}> </Route>
             <Route path="*" element= {<NotFoundPage />}> </Route>
             <Route path="/signInPage" element= {<SignInSide />}> </Route>
             <Route path="/signUpPage" element= {<SignUp />}> </Route>

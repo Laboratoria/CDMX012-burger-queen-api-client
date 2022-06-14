@@ -43,7 +43,7 @@ export default function ProductsStock() {
   };
 
   const deleteProduct = async () => {
-    await deleteStock(newProduct)
+    await deleteStock(newProduct.id)
       .then((response) => {
         setProducts(products.filter((product) => product.id !== newProduct.id));
       })
@@ -52,7 +52,7 @@ export default function ProductsStock() {
       });
   };
 
-  const confirmDelete = (id) => {
+  const confirmDelete = () => {
     openCloseDrawerDelete();
     MySwal.fire({
       title: "Are you sure?",

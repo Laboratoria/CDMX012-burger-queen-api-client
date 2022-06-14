@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import AsideProducts from "./asideProducts";
 import AsideProductsEdit from "./asideProductsEdit";
-import { getProducts } from "../../lib/RequestHandler";
+import { getProducts,deleteStock } from "../../lib/RequestHandler";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { deleteStock } from "../../lib/RequestHandler";
+
 
 export default function ProductsStock() {
   const [products, setProducts] = useState([]); //datos obtenidos del get API
@@ -33,27 +33,32 @@ export default function ProductsStock() {
     setDrawerEdit(!drawerEdit);
   };
 
-  const openCloseDrawerDelete = () => {
-    setDrawerDelete(!drawerDelete);
-  };
+  // const openCloseDrawerDelete = () => {
+  //   setDrawerDelete(!drawerDelete);
+  // };
 
   const pickProduct = (newProduct) => {
     setNewProduct(newProduct);
     openCloseDrawerEdit();
   };
 
-  const deleteProduct = async () => {
-    await deleteStock(newProduct.id)
-      .then((response) => {
-        setProducts(products.filter((product) => product.id !== newProduct.id));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const deleteProduct = async () => {
+  //   await deleteStock(id)
+  //     .then((response) => {
+  //       setProducts(products.filter((product) => product.id !== id));
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+  const deleteProducts =(id)=>{
+    deleteStock(id)
+    setProducts(products.filter((product) => product.id !== id));
+    
+  }
 
-  const confirmDelete = () => {
-    openCloseDrawerDelete();
+  const confirmDelete = (rawproduct) => {
+    console.log(rawproduct)
     MySwal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -64,11 +69,11 @@ export default function ProductsStock() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteProduct();
+        deleteProducts(rawproduct.id);
         MySwal.fire("Deleted!", "Your file has been deleted.", "success");
       }
     });
-  };
+  }
 
   useEffect(() => {
     getData();
@@ -106,7 +111,7 @@ export default function ProductsStock() {
             size: "small",
             tooltip: "Product delete",
             icon: "delete",
-            onClick: () => confirmDelete(),
+            onClick: (event, rowData) => confirmDelete(rowData),
           }),
         ]}
         options={{

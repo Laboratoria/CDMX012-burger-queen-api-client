@@ -1,9 +1,13 @@
 import {React, useState} from "react";
+import AsideMenu from "./asideMenu";
+import AsideOrders from "./AsideOrders";
 
 export default function Order(props) {
-    const { name, price,qty,id, order, updateOrder,btonWatch} = props
+    const { name, price,qty,id, order, updateOrder,watchBtm} = props
     const [stateQuantity, setStateQuantity] = useState(qty);
-    
+   
+
+   
     const addProduct=(event)=>{
         if(!order.hasOwnProperty("products")){
             console.log("esta orden no tiene nada")
@@ -27,13 +31,13 @@ export default function Order(props) {
            }
            if(encontreProducto === false){
                order.products.push({id:id, qty:1,name:name, price:price})
-               btonWatch(true)
+               
            }
           
         }
         
         updateOrder(order)
-    
+        
     }
     const subtractProducts=(event)=>{
         console.log(id)
@@ -43,7 +47,7 @@ export default function Order(props) {
                    setStateQuantity(order.products[i].qty)
                    if(order.products[i].qty === 0){
                        order.products.splice(i,1)
-                       btonWatch(true)
+                    
                        
 
                    }
@@ -52,19 +56,27 @@ export default function Order(props) {
            }
         
         updateOrder(order)
-    
+        
     }
     return (
         <section className="boxOrders">
 
             <p className="order" id="p1">{name}
             </p>
-            <button className="btnOrder" onClick={subtractProducts}>-</button>
+            {
+                watchBtm &&
+                    <button className="btnOrder" onClick={subtractProducts}>-</button>     
+                
+            }
+            
 
             <p className="order" id="p2">cant. {stateQuantity}
             </p>
-            <button className="btnOrder" onClick={addProduct}>+</button>
+            {
+                watchBtm &&
 
+            <button className="btnOrder" onClick={addProduct}>+</button>
+            }
             <p className="order" id="p3">${price}
             </p>
           

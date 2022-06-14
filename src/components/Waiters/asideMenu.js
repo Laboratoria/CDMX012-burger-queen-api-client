@@ -7,7 +7,7 @@ import DateTime from "./DateTime";
 
 export default function AsideMenu(props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { order, updateOrder,total,setTotal,btonWatch } = props
+  const { order, updateOrder,total,setTotal,setWatchBton } = props
   const [name, setName] = useState("");  
   
 
@@ -27,6 +27,7 @@ export default function AsideMenu(props) {
     updateOrder({})
     setName("")
     // setTotal("")
+    
   
 }
 
@@ -96,7 +97,7 @@ return (
                     order={order}
                     updateOrder={updateOrder}
                     id={product.id}
-                    bton={btonWatch}
+                    watchBtm={true}
                   ></Order>
                 );
               })}

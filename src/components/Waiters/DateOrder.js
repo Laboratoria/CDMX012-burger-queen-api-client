@@ -11,13 +11,13 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { grey } from '@mui/material/colors';
 
 export function DateOrder(props) {
-    const {order, updateComanda,setIsDrawerOpenOrder,setSelectedOrder,deleteOrder, setTotal,btonWatch} = props
+    const {order, updateComanda,setIsDrawerOpenOrder,setSelectedOrder,deleteOrder, setTotal} = props
     const MySwal = withReactContent(Swal); 
 const seeOrder = ()=>{
    setIsDrawerOpenOrder(true)
    setSelectedOrder(order)
    console.log(order)
-   btonWatch(false)
+   
 }
 const clickDeleteOrder = ()=>{
 deleteOrder(order.id)

@@ -1,14 +1,15 @@
-import { Drawer, Box, IconButton } from "@mui/material";
+import { Drawer, Box} from "@mui/material";
 import { useState } from "react";
 import Order from "./Order";
 import DateTime from "./DateTime";
 
 
+
 export default function AsideOrders(props) {
 
-  const { isDrawerOpenOrder, setIsDrawerOpenOrder, selectedOder, total,setTotal,btonWatch} = props
+  const { isDrawerOpenOrder, setIsDrawerOpenOrder, selectedOder, total,setTotal,setWatchBton} = props
   const [name, setName] = useState("");
- 
+  
 
   return (
 
@@ -44,7 +45,7 @@ export default function AsideOrders(props) {
             <hr />
           </header>
           <section>
-            <p>Client: </p>
+            <p>Client:{selectedOder.client} </p>
 
           </section>
           <section className="allOrders">
@@ -53,12 +54,12 @@ export default function AsideOrders(props) {
                 return (
                   <Order
                     key={product.productId}
-                    client={product.client}
+                    client={selectedOder.client}
                     name={product.name}
                     price={product.price}
                     qty={product.qty}
                     total= {setTotal}
-                    btonWatch={false}
+                    watchBtm={false}
                   ></Order>
                 );
               })}

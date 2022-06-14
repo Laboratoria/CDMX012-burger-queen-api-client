@@ -19,6 +19,7 @@ export default function Menu() {
   const [isDrawerOpenOrder, setIsDrawerOpenOrder] = useState(false);
   const[selectedOder, setSelectedOrder] = useState({});
   const [total, setTotal] = useState("");
+  const[watchBton, setWatchBton]=useState(true);
   
 
   useEffect(() => {
@@ -55,6 +56,7 @@ export default function Menu() {
     console.log(arrayOrders)
     setChangeView(false);
     setComandasOrders(arrayOrders)
+    console.log(arrayOrders)
       // setOrder(arrayOrders);
    
   }
@@ -126,12 +128,14 @@ export default function Menu() {
     updateOrder={setOrder}
     total={total}
     setTotal={setTotal}
+    
     />
     <AsideOrders
     isDrawerOpenOrder= {isDrawerOpenOrder}
     setIsDrawerOpenOrder= {setIsDrawerOpenOrder}
     selectedOder={selectedOder}
     total={total}
+  
     
     />
   </div>

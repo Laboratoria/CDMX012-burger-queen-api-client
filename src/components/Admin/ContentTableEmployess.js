@@ -1,16 +1,13 @@
 import React from "react";
-import {
-  getData
-} from "../../lib/firebase-config";
+import { getData } from "../../lib/firebase-config";
 import { useState, useEffect } from "react";
 import TableEmployess from "./TableEmployess";
 
 const ContentTableEmployess = () => {
   const [employee, setEmployee] = useState([]);
-  
 
   useEffect(() => {
-    getData(setEmployee)
+    getData(setEmployee);
   }, []);
 
   return (
@@ -26,18 +23,17 @@ const ContentTableEmployess = () => {
             <th style={{ width: "180px", padding: "10px" }}>Delete</th>
           </tr>
         </thead>
-        
-          
-          {employee.map((employee) => (
-            <TableEmployess
-              key={employee.uid}
-              displayName={employee.displayName}
-              rol={employee.rol}
-              email={employee.email}
-              turn={employee.turn}
-              id={employee.id}
-            />
-          ))}
+
+        {employee.map((employee) => (
+          <TableEmployess
+            key={employee.uid}
+            displayName={employee.displayName}
+            rol={employee.rol}
+            email={employee.email}
+            turn={employee.turn}
+            id={employee.id}
+          />
+        ))}
       </table>
     </section>
   );

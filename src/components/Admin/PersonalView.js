@@ -9,22 +9,23 @@ const Personal = () => {
 
   const getEmployee = () => {
     setChangeViewEmployees(false);
-    setChangeViewProducts(true)
+    setChangeViewProducts(true);
   };
   const getTable = () => {
     setChangeViewEmployees(false);
-    setChangeViewProducts(true)
+    setChangeViewProducts(true);
   };
   return (
     <div>
-      <Header updateComandaOrders ={ getTable} updateComandaOrders2={getEmployee}/>
+      <Header
+        updateComandaOrders={getTable}
+        updateComandaOrders2={getEmployee}
+      />
       <h1>Vista de Administrador</h1>
 
+      {changeViewEmployees && <Employees />}
 
-      {changeViewEmployees && (<Employees />)}
-
-      {changeViewProducts&&(<ProductsStock/>)}
-
+      {changeViewProducts && <ProductsStock />}
     </div>
   );
 };

@@ -1,22 +1,27 @@
-import { Drawer, Box} from "@mui/material";
-import { useState } from "react";
+import { Drawer, Box } from "@mui/material";
+import React, { useState } from "react";
 import Order from "./Order";
 import DateTime from "./DateTime";
 
-
-
 export default function AsideOrders(props) {
-
-  const { isDrawerOpenOrder, setIsDrawerOpenOrder, selectedOder, total,setTotal,setWatchBton} = props
+  const {
+    isDrawerOpenOrder,
+    setIsDrawerOpenOrder,
+    selectedOder,
+    total,
+    setTotal,
+    setWatchBton,
+  } = props;
   const [name, setName] = useState("");
-  
 
   return (
-
     <aside className="aside">
       <section className="countAndCart">
-        <button onClick={setIsDrawerOpenOrder}
-          id="shopping" sx={{ fontSize: 50 }} />
+        <button
+          onClick={setIsDrawerOpenOrder}
+          id="shopping"
+          sx={{ fontSize: 50 }}
+        />
       </section>
       <Drawer
         anchor="right"
@@ -29,7 +34,6 @@ export default function AsideOrders(props) {
           role="presentation"
           textAlign="center"
           sx={{
-
             width: 400,
             height: 1000,
           }}
@@ -46,7 +50,6 @@ export default function AsideOrders(props) {
           </header>
           <section>
             <p>Client:{selectedOder.client} </p>
-
           </section>
           <section className="allOrders">
             {selectedOder.products &&
@@ -58,7 +61,7 @@ export default function AsideOrders(props) {
                     name={product.name}
                     price={product.price}
                     qty={product.qty}
-                    total= {setTotal}
+                    total={setTotal}
                     watchBtm={false}
                   ></Order>
                 );

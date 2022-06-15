@@ -4,7 +4,7 @@ import { useState } from "react";
 import { signUpWithEmail, getAuth, editUser } from "../../lib/firebase-config";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import DateTime from "../Waiters/DateTime";
- import "../../css/admin.css";
+import "../../css/admin.css";
 
 const AsideRegister = (props) => {
   const { open, closeHandler, data } = props;
@@ -127,7 +127,7 @@ const AsideRegister = (props) => {
               getOptionLabel={(option) => option.value ?? option}
               isOptionEqualToValue={(option, value) => option.value === value}
               value={position}
-              sx={{ width: 300}}
+              sx={{ width: 300 }}
               autoComplete={false}
               renderInput={(params) => (
                 <TextField

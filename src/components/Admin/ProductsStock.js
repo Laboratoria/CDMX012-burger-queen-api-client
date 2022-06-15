@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import AsideProducts from "./asideProducts";
 import AsideProductsEdit from "./asideProductsEdit";
-import { getProducts,deleteStock } from "../../lib/RequestHandler";
+import { getProducts, deleteStock } from "../../lib/RequestHandler";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-
 
 export default function ProductsStock() {
   const [products, setProducts] = useState([]); //datos obtenidos del get API
@@ -42,23 +41,23 @@ export default function ProductsStock() {
     openCloseDrawerEdit();
   };
 
-  // const deleteProduct = async () => {
-  //   await deleteStock(id)
-  //     .then((response) => {
-  //       setProducts(products.filter((product) => product.id !== id));
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-  const deleteProducts =(id)=>{
-    deleteStock(id)
-    setProducts(products.filter((product) => product.id !== id));
-    
-  }
+  const deleteProduct = async (id) => {
+    await deleteStock(id)
+      .then((response) => {
+        setProducts(products.filter((product) => product.id !== id));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  // const deleteProducts =(id)=>{
+  //   deleteStock(id)
+  //   setProducts(products.filter((product) => product.id !== id));
+
+  // }
 
   const confirmDelete = (rawproduct) => {
-    console.log(rawproduct)
+    console.log(rawproduct);
     MySwal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -69,11 +68,11 @@ export default function ProductsStock() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteProducts(rawproduct.id);
+        deleteProduct(rawproduct.id);
         MySwal.fire("Deleted!", "Your file has been deleted.", "success");
       }
     });
-  }
+  };
 
   useEffect(() => {
     getData();

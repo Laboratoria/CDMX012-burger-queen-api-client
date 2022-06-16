@@ -11,7 +11,7 @@ export default function Header(props) {
   const userData = auth.currentUser;
 
   useEffect(() => {
-    
+    if(userData){
       const userEmail = userData.email;
       const initial = userEmail[0];
       if (initial === "a") {
@@ -21,8 +21,8 @@ export default function Header(props) {
       } else if (initial === "c") {
         setRole("chef");
       }
-    
-  }, [userData]);
+    }
+  }, []);
 
   const returnLogin = () => {
     logOut();

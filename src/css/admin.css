@@ -2,3 +2,43 @@
   background-color: #004668;
   color: white;
 }
+/* button on drawer EDIT and REGISTER */
+button-register-edit {
+  background-color: white;
+}
+.css-sghohy-MuiButtonBase-root-MuiButton-root {
+  background-color: white;
+}
+
+/* botton add employees */
+.content-button-register {
+  display: flex;
+  justify-content: end;
+  margin-right: 10%;
+}
+/* tabla */
+.table-container {
+  background-color: #c6d2d9;
+  border-radius: 20px;
+  padding: 2%;
+  width: 80%;
+  margin: 0 8%;
+  border: red;
+}
+
+.input-table-big {
+  width: 2000px;
+  padding: 5px 10px;
+}
+
+.input-table-medium {
+  width: 100px;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.input-table-small {
+  width: 10px;
+  padding: 5px 10px;
+  text-align: center;
+}

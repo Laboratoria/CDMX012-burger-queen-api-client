@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import AsideRegister from "./AsideRegister";
 import ContentTableEmployess from "./ContentTableEmployess";
 import { IconButton } from "@mui/material";
@@ -12,12 +11,14 @@ const Employees = () => {
 
   return (
     <div>
+      <section className="content-button-register">
       <IconButton
         onClick={drawerHandler}
         size="large"
         edge="start"
         color="inherit"
         aria-label="logo"
+        
       >
         <section>
           <PersonAddAltRoundedIcon id="shopping" sx={{ fontSize: 50 }} />
@@ -27,7 +28,7 @@ const Employees = () => {
 
       {isModalShown && (
         <AsideRegister open={isModalShown} closeHandler={drawerHandler} />
-      )}
+      )}</section>
       <ContentTableEmployess />
     </div>
   );

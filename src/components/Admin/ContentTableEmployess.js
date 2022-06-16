@@ -14,8 +14,8 @@ const ContentTableEmployess = () => {
   }, []);
 
   return (
-    <section className="table-container">
-      <table style={{ border: "none", borderRadius: "20px", padding: "10px" }}>
+    <section >
+      <table className="table-container" style={{ }}>
         <thead>
           <tr>
             <th style={{ width: "180px", padding: "10px" }}>Name</th>

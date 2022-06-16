@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Image2 from '../assets/blackCoffee.png';
 
 function Copyright() {
   return (
@@ -37,11 +38,11 @@ export default function Album() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar position="relative" sx={{ bgcolor: '#424242'}} >
+      <AppBar position="relative" sx={{ bgcolor: "#342D29"}} >
         <Toolbar>
           <CameraIcon sx={{ mr: 2 }} />
           <Typography variant="h6" color="inherit" noWrap>
-            Album layout
+            Burger Queen
           </Typography>
         </Toolbar>
       </AppBar>
@@ -64,6 +65,15 @@ export default function Album() {
             >
               Breakfast
             </Typography>
+            <Typography
+              component="h1"
+              variant="h2"
+              align="center"
+              color="text.primary"
+              gutterBottom
+            >
+              Lunch & Dinner
+            </Typography>
             <Typography variant="h5" align="left" color="text.secondary" paragraph>
               Choose the food choices to place the order and send it to the kitchen:
             </Typography>
@@ -73,8 +83,8 @@ export default function Album() {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained" sx={{ bgcolor: '#424242'}}>Place Order</Button>
-              <Button variant="text">Log Out</Button>
+              <Button variant="contained" sx={{ bgcolor:"#342D29"}}>Place Order</Button>
+              <Button variant="text" >Log Out</Button>
             </Stack>
           </Container>
         </Box>
@@ -84,28 +94,29 @@ export default function Album() {
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
                 <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                  sx={{ height: '100%', display: 'flex', flexDirection: 'column'}}
                 >
                   <CardMedia
                     component="img"
                     sx={{
                       // 16:9
-                      pt: '56.25%',
+                      bgcolor: "#342D29",
+                      p: '15%',
                     }}
-                    image="https://source.unsplash.com/random"
-                    alt="random"
+                    image={Image2}
+                    alt="blackCoffee"
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom variant="h5" component="h2" >
                       Black Coffee
                     </Typography>
-                    <Typography>
+                    <Typography >
                       $5.00 
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small">View</Button>
-                    <Button size="small">Edit</Button>
+                    <Button size="small" sx={{ '&:hover': { bgcolor: "#E7F5F4" } }} >View</Button>
+                    <Button size="small" sx={{ '&:hover': { bgcolor: "#E7F5F4" } }} >Edit</Button>
                   </CardActions>
                 </Card>
               </Grid>

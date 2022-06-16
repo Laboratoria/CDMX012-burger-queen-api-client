@@ -78,7 +78,7 @@ const handleSubmitError = async (e) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: '100vh', width: '100vw' }}>
+      <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
           item
@@ -143,14 +143,6 @@ const handleSubmitError = async (e) => {
               >
                 Sign In
               </Button>
-              <Grid container>
-                <Grid item>
-                {'Do not have an account yet? '}
-                  <Link href="/signUpPage" variant="body2">
-                    {" Sign Up here"}
-                  </Link>
-                </Grid>
-              </Grid>
               <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>

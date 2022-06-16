@@ -27,13 +27,12 @@ export default function AsideMenu(props) {
     addOrder(order,name)
     updateOrder({})
     setName("")
-    // setTotal("")
+  
     
   
 }
   const auth = getAuth();
   const userData = auth.currentUser;
-console.log(userData)
 const nameEmployee=userData.displayName;
 
 return (
@@ -104,6 +103,7 @@ return (
                     updateOrder={updateOrder}
                     id={product.id}
                     watchBtm={true}
+                    total={Total}
                   ></Order>
                 );
               })}

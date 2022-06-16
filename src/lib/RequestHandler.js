@@ -20,6 +20,7 @@ export const addOrder = async (order, client) => {
       qty: product.qty,
       name: product.name,
       img: product.image,
+      price:product.price
     };
   });
   const testOrder = { userId: "user", client: client, products: arrayProducts };

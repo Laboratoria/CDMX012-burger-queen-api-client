@@ -118,6 +118,7 @@ export default function Menu() {
               setIsDrawerOpenOrder= {setIsDrawerOpenOrder}
               setSelectedOrder = {setSelectedOrder}
               deleteOrder={handleDelete}
+              setTotal={setTotal}
        ></DateOrder>
         );
       })

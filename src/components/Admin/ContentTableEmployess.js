@@ -15,15 +15,15 @@ const ContentTableEmployess = () => {
 
   return (
     <section >
-      <table className="table-container" style={{ }}>
+      <table className="table-container" border="1" rules="rows">
         <thead>
           <tr>
-            <th style={{ width: "180px", padding: "10px" }}>Name</th>
-            <th style={{ width: "80px", padding: "10px" }}>Role</th>
-            <th style={{ width: "180px", padding: "10px" }}>E-mail</th>
-            <th style={{ width: "180px", padding: "10px" }}>Turn</th>
-            <th style={{ width: "180px", padding: "10px" }}>Edit</th>
-            <th style={{ width: "180px", padding: "10px" }}>Delete</th>
+            <th >Name</th>
+            <th >Role</th>
+            <th >E-mail</th>
+            <th >Turn</th>
+            <th >Edit</th>
+            <th >Delete</th>
           </tr>
         </thead>
         

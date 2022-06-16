@@ -19,7 +19,7 @@ const TableEmployess = (props) => {
 
   return (
     <>
-      <tbody>
+      <tbody >
         <tr displayName="content-table">
           <td className="input-table-big" >{displayName}</td>
           <td className="input-table-medium">{rol}</td>

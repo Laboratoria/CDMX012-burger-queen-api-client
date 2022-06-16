@@ -19,7 +19,7 @@ export default function Menu() {
   const [changeView, setChangeView] = useState(true);
   const [comandasOrders, setComandasOrders] = useState([]);
   const [isDrawerOpenOrder, setIsDrawerOpenOrder] = useState(false);
-
+  const[contador,setContador]=useState(0)
   const[selectedOder, setSelectedOrder] = useState({});
   const [total, setTotal] = useState("");
   const[watchBton, setWatchBton]=useState(true);
@@ -103,6 +103,8 @@ export default function Menu() {
               order={orderMenu}
               id={product.id}
               updateOrder={setOrder}
+              contador={contador}
+              setContador={setContador}
             ></CardsMenu>
           );
         })
@@ -129,6 +131,7 @@ export default function Menu() {
     updateOrder={setOrder}
     total={total}
     setTotal={setTotal}
+    contador={contador}
     
     />
     <AsideOrders

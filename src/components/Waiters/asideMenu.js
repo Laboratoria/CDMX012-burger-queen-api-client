@@ -8,7 +8,7 @@ import { getAuth} from "@firebase/auth";
 
 export default function AsideMenu(props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { order, updateOrder,total,setTotal } = props
+  const { order, updateOrder,total,setTotal,contador } = props
   const [name, setName] = useState("");  
   
 
@@ -46,7 +46,7 @@ return (
         aria-label="logo"
       >
         <section className="countAndCart">
-          <p></p>
+          <p>{contador}</p>
           <ShoppingCartIcon id="shopping" sx={{ fontSize: 50 }} />
         </section>
       </IconButton>

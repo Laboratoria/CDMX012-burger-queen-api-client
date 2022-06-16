@@ -4,10 +4,11 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Order from "./Order";
 import { addOrder } from "../../lib/RequestHandler";
 import DateTime from "./DateTime";
+import { getAuth} from "@firebase/auth";
 
 export default function AsideMenu(props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { order, updateOrder,total,setTotal,setWatchBton } = props
+  const { order, updateOrder,total,setTotal } = props
   const [name, setName] = useState("");  
   
 
@@ -30,7 +31,10 @@ export default function AsideMenu(props) {
     
   
 }
-
+  const auth = getAuth();
+  const userData = auth.currentUser;
+console.log(userData)
+const nameEmployee=userData.displayName;
 
 return (
 
@@ -43,7 +47,7 @@ return (
         aria-label="logo"
       >
         <section className="countAndCart">
-          <p>32</p>
+          <p></p>
           <ShoppingCartIcon id="shopping" sx={{ fontSize: 50 }} />
         </section>
       </IconButton>
@@ -71,7 +75,9 @@ return (
             />
              <DateTime/>
             
-            <p>Rol y nombre</p>
+
+          
+            <p>Waitress: { nameEmployee}</p>
             <hr />
           </header>
           <section>

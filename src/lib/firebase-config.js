@@ -144,6 +144,7 @@ export const getData = (setEmployee) => {
 export const editUser= async(id, name, rol, turn, drawerHandler)=> {
   const dataRef = doc(db, "profile", id);
   const data = { displayName: name, rol: rol, turn: turn };
+  
   await updateDoc(dataRef, data);
   drawerHandler();
   console.log("funciona");

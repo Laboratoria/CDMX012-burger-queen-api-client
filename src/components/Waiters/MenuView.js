@@ -71,7 +71,10 @@ export default function Menu() {
 
   return (
     <main className="menu-container">
-      <Header updateComandaOrders={ordersComanda} />
+      <Header 
+      updateComandaOrders={ordersComanda}
+      
+       />
       <section>
         <section className="search">
           <img
@@ -79,7 +82,7 @@ export default function Menu() {
             alt="searchIcon"
             src={require("../../assets/Search.png")}
           />
-          <input type="text" placeholder="Search..." />
+          <input type="text" placeholder="Search..."/>
         </section>
 
 
@@ -121,6 +124,7 @@ export default function Menu() {
               setSelectedOrder = {setSelectedOrder}
               deleteOrder={handleDelete}
               setTotal={setTotal}
+              setContador={setContador}
        ></DateOrder>
         );
       })
@@ -139,6 +143,7 @@ export default function Menu() {
     setIsDrawerOpenOrder= {setIsDrawerOpenOrder}
     selectedOder={selectedOder}
     total={total}
+    setContador={setContador}
   
     
     />

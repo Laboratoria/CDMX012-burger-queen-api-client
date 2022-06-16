@@ -8,7 +8,7 @@ import withReactContent from "sweetalert2-react-content";
 
 
 export function DateOrder(props) {
-    const {order, setIsDrawerOpenOrder,setSelectedOrder,deleteOrder, setTotal} = props
+    const {order, setIsDrawerOpenOrder,setSelectedOrder,deleteOrder, setTotal,setContador} = props
     const MySwal = withReactContent(Swal); 
 const seeOrder = ()=>{
    setIsDrawerOpenOrder(true)
@@ -21,6 +21,8 @@ const seeOrder = ()=>{
       suma += product.price * product.qty;
     }
     setTotal(suma)
+  
+    setContador(0)
    
 }
 const clickDeleteOrder = ()=>{

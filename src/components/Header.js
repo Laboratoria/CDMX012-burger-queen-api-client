@@ -44,6 +44,7 @@ export default function Header(props) {
       </header>
     );
   } else if (role === "waiter") {
+    
     return (
       <header className="header-container">
         <img

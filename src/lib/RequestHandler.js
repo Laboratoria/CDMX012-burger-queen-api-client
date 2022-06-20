@@ -6,6 +6,7 @@ export const getMenu = async () => {
   const res = await axios.get(urlBurguerApi + "/products");
   return res.data;
 };
+
 export const getProducts = async () => {
   const res = await axios.get(urlBurguerApi + "/Stock");
   return res.data;
@@ -14,7 +15,7 @@ export const getProducts = async () => {
 export const addOrder = async (order, client) => {
   console.log(order);
   console.log(client);
-  const arrayProducts = order.products.map(function(product) {
+  const arrayProducts = order.products.map(function (product) {
     return {
       productId: product.id,
       qty: product.qty,
@@ -30,7 +31,6 @@ export const addOrder = async (order, client) => {
   return res.data;
 };
 
-
 export const addProduct = async (newProduct) => {
   const res = await axios.put(
     urlBurguerApi + "/Stock/" + newProduct.id,
@@ -45,15 +45,18 @@ export const deleteStock = async (id) => {
   return res.data;
 };
 
-
- export const getOrder= async() =>{
-  const res = await axios.get( urlBurguerApi+"/orders")
+export const getOrder = async () => {
+  const res = await axios.get(urlBurguerApi + "/orders");
   console.log(res);
   return res.data;
-}
- 
-export const deleteOrder= async(id)=>{
-  const res= await axios.delete(urlBurguerApi+"/orders/"+ id)
-  return res.data;
-} 
+};
 
+export const deleteOrder = async (id) => {
+  const res = await axios.delete(urlBurguerApi + "/orders/" + id);
+  return res.data;
+};
+
+export const getOrderKitchen = async () => {
+  const res = await axios.get(urlBurguerApi + "/orders");
+  return res.data;
+};

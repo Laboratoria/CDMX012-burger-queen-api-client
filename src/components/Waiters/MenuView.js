@@ -1,9 +1,7 @@
 // import { useNavigate } from "react-router-dom";
 
-
-import { getMenu,getOrder, deleteOrder } from "../../lib/RequestHandler";
-import React,{ useEffect, useState } from "react";
-
+import { getMenu, getOrder, deleteOrder } from "../../lib/RequestHandler";
+import React, { useEffect, useState } from "react";
 
 import CardsMenu from "./CardsMenu";
 import "../../css/Menu.css";
@@ -20,15 +18,14 @@ export default function Menu() {
   const [comandasOrders, setComandasOrders] = useState([]);
   const [isDrawerOpenOrder, setIsDrawerOpenOrder] = useState(false);
 
-  const[selectedOder, setSelectedOrder] = useState({});
+  const [selectedOder, setSelectedOrder] = useState({});
   const [total, setTotal] = useState("");
-  const[watchBton, setWatchBton]=useState(true);
-  
-
+  const [watchBton, setWatchBton] = useState(true);
 
   useEffect(() => {
     typesProducts();
   }, []);
+
   const typesProducts = async () => {
     const products = await getMenu();
     let productsByTypes = {};
@@ -43,6 +40,7 @@ export default function Menu() {
     console.log(productsByTypes);
     setProducts(productsByTypes);
   };
+
   const breakfast = () => {
     setTypeMenu("desayuno");
     setChangeView(true);
@@ -56,18 +54,15 @@ export default function Menu() {
     console.log(arrayOrders);
     setChangeView(false);
 
-    setComandasOrders(arrayOrders)
-    console.log(arrayOrders)
-      // setOrder(arrayOrders);
-   
-  }
-  const handleDelete = async(id)=>{
-    const orderDelete = await  deleteOrder(id)
-    const arrayOrders= await getOrder();
-    setComandasOrders(arrayOrders)
-  
-  }
-
+    setComandasOrders(arrayOrders);
+    console.log(arrayOrders);
+    // setOrder(arrayOrders);
+  };
+  const handleDelete = async (id) => {
+    const orderDelete = await deleteOrder(id);
+    const arrayOrders = await getOrder();
+    setComandasOrders(arrayOrders);
+  };
 
   return (
     <main className="menu-container">
@@ -82,65 +77,60 @@ export default function Menu() {
           <input type="text" placeholder="Search..." />
         </section>
 
-
-  <div className="btnsAndMenu-container">
-    <section className="btnsOfMenu">
-      <button className="breakAndDinner" onClick={breakfast} >Breakfast</button>
-      <button className="breakAndDinner" onClick={dinner}> Dinner</button>
-    </section>
-    <section className="cards-container">
-      
-     { 
-     changeView &&
-     products[typeMenu] &&
-        products[typeMenu].map((product) => {
-          return (
-            <CardsMenu
-              key={product.id}
-              imgProducts={product.image}
-              name={product.name}
-              price={product.price}
-              order={orderMenu}
-              id={product.id}
-              updateOrder={setOrder}
-            ></CardsMenu>
-          );
-        })
-      }
-     { 
-     !changeView &&
-        comandasOrders.map((order) => {
-          return (
-            <DateOrder
-              key={order.id}
-              order={order}
-              updateComanda={setComandasOrders}
-              setIsDrawerOpenOrder= {setIsDrawerOpenOrder}
-              setSelectedOrder = {setSelectedOrder}
-              deleteOrder={handleDelete}
-       ></DateOrder>
-        );
-      })
-      }
-    </section>
-    <AsideMenu
-    order={orderMenu} 
-    updateOrder={setOrder}
-    total={total}
-    setTotal={setTotal}
-    
-    />
-    <AsideOrders
-    isDrawerOpenOrder= {isDrawerOpenOrder}
-    setIsDrawerOpenOrder= {setIsDrawerOpenOrder}
-    selectedOder={selectedOder}
-    total={total}
-  
-    
-    />
-  </div>
-    </section >
-  </main >
-
+        <div className="btnsAndMenu-container">
+          <section className="btnsOfMenu">
+            <button className="breakAndDinner" onClick={breakfast}>
+              Breakfast
+            </button>
+            <button className="breakAndDinner" onClick={dinner}>
+              {" "}
+              Dinner
+            </button>
+          </section>
+          <section className="cards-container">
+            {changeView &&
+              products[typeMenu] &&
+              products[typeMenu].map((product) => {
+                return (
+                  <CardsMenu
+                    key={product.id}
+                    imgProducts={product.image}
+                    name={product.name}
+                    price={product.price}
+                    order={orderMenu}
+                    id={product.id}
+                    updateOrder={setOrder}
+                  ></CardsMenu>
+                );
+              })}
+            {!changeView &&
+              comandasOrders.map((order) => {
+                return (
+                  <DateOrder
+                    key={order.id}
+                    order={order}
+                    updateComanda={setComandasOrders}
+                    setIsDrawerOpenOrder={setIsDrawerOpenOrder}
+                    setSelectedOrder={setSelectedOrder}
+                    deleteOrder={handleDelete}
+                  ></DateOrder>
+                );
+              })}
+          </section>
+          <AsideMenu
+            order={orderMenu}
+            updateOrder={setOrder}
+            total={total}
+            setTotal={setTotal}
+          />
+          <AsideOrders
+            isDrawerOpenOrder={isDrawerOpenOrder}
+            setIsDrawerOpenOrder={setIsDrawerOpenOrder}
+            selectedOder={selectedOder}
+            total={total}
+          />
+        </div>
+      </section>
+    </main>
   );
 }

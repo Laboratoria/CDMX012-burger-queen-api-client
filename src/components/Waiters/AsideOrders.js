@@ -1,4 +1,5 @@
 import { Drawer, Box} from "@mui/material";
+
 import Order from "./Order";
 import DateTime from "./DateTime";
 import { getAuth } from "@firebase/auth";
@@ -7,12 +8,12 @@ import { getAuth } from "@firebase/auth";
 
 export default function AsideOrders(props) {
 
-  const { isDrawerOpenOrder, setIsDrawerOpenOrder, selectedOder, total,setTotal,setWatchBton} = props
+  const { isDrawerOpenOrder, setIsDrawerOpenOrder, selectedOder, total} = props
  
   
   const auth = getAuth();
   const userData = auth.currentUser;
-console.log(userData)
+
 const nameEmployee=userData.displayName;
 
   return (
@@ -62,8 +63,8 @@ const nameEmployee=userData.displayName;
                     name={product.name}
                     price={product.price}
                     qty={product.qty}
-                    total= {setTotal}
                     watchBtm={false}
+                  
                   ></Order>
                 );
               })}

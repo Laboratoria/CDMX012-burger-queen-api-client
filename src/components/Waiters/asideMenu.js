@@ -8,7 +8,7 @@ import { getAuth} from "@firebase/auth";
 
 export default function AsideMenu(props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { order, updateOrder,total,setTotal } = props
+  const { order, updateOrder,total,setTotal,contador } = props
   const [name, setName] = useState("");  
   
 
@@ -27,13 +27,12 @@ export default function AsideMenu(props) {
     addOrder(order,name)
     updateOrder({})
     setName("")
-    // setTotal("")
+  
     
   
 }
   const auth = getAuth();
   const userData = auth.currentUser;
-console.log(userData)
 const nameEmployee=userData.displayName;
 
 return (
@@ -47,7 +46,7 @@ return (
         aria-label="logo"
       >
         <section className="countAndCart">
-          <p></p>
+          <p>{contador}</p>
           <ShoppingCartIcon id="shopping" sx={{ fontSize: 50 }} />
         </section>
       </IconButton>
@@ -104,6 +103,7 @@ return (
                     updateOrder={updateOrder}
                     id={product.id}
                     watchBtm={true}
+                    total={Total}
                   ></Order>
                 );
               })}

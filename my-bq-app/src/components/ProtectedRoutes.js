@@ -2,6 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { Routes, Route } from "react-router-dom";
+import BreakfastPage from "./BreakfastPage";
+import LunchPage from "./LunchPage";
+import SignInSide from "./SignInPage";
 
 const auth = getAuth(firebaseApp);
 const firestore = getFirestore(firebaseApp);
@@ -29,8 +32,10 @@ export const ProtectedRoutes = () => {
     if(role === "waiter") {
         return (
             <Routes>
-                <Route path="/" element={<Home />}></Route>
-                <Route path="/orders" element={<Orders />}></Route>
+                <Route path="/signInPage" element={<SignInSide />}></Route>
+                <Route path="/breakfastPage" element={<BreakfastPage />}></Route>
+                <Route path="/lunchPage" element={<LunchPage />}></Route>
+                <Route path="/ordersReadyPage" element={<OrdersReadyPage />}></Route>
             </Routes>
         )
     }
@@ -47,8 +52,9 @@ export const ProtectedRoutes = () => {
     if (role === 'kitchen') {
         return (
             <Routes>
-                <Route path="/" element={<Home />}></Route>
-                <Route path="/orders" element={<Orders />}></Route>
+                <Route path="/signInPage" element={<SignInSide />}></Route>
+                <Route path="/kitchenPage" element={<KitchenPage />}></Route>
+                <Route path="/ordersReadyPage" element={<OrdersReadyPage />}></Route>
             </Routes>
         )
     }

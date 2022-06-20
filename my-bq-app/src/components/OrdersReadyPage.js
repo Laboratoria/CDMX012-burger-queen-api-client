@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { useState } from "react";
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -14,8 +14,16 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
+import LogoutIcon from '@mui/icons-material/Logout';
+import CheckIcon from '@mui/icons-material/Check';
+import AccessAlarmsIcon from '@mui/icons-material/AccessAlarms';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import { useNavigate } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useAuth } from "../context/authContext.js";
 import Image2 from '../assets/blackCoffee.png';
+import Image3 from '../assets/oliveBranch.png';
 
 function Copyright() {
   return (
@@ -30,20 +38,37 @@ function Copyright() {
   );
 }
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards = [1, 2, 3, 4];
 
 const theme = createTheme();
 
-export default function Album() {
+export default function OrdersReadyPage() {
+  const navigate = useNavigate();
+
+
+    const handleLogOut = async () => {
+       await logOut()
+       navigate('/signInPage');
+    }
+
+    const {user, logOut} = useAuth();
+    console.log(user);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppBar position="relative" sx={{ bgcolor: "#342D29"}} >
-        <Toolbar>
-          <CameraIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
+        <Toolbar >
+          <img src={Image3} sx={{ mr: 2 }} alt='oliveBranch' />
+          <Typography variant="h3" color="inherit" sx={{ mr: 2 }}>
             Burger Queen
           </Typography>
+          <Typography variant="h5" align="right" sx={{ mr: 2 }} >
+            Welcome {/* user.email */}
+          </Typography>
+          <Button variant="text" startIcon={<LogoutIcon/>} size="large"
+          sx={{  fontWeight:'bold', '&:hover': { color: "#EAFCFA" }}} 
+          onClick={handleLogOut}>Log Out</Button>
         </Toolbar>
       </AppBar>
       <main>
@@ -56,36 +81,9 @@ export default function Album() {
           }}
         >
           <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Breakfast
+            <Typography variant="h5" align="left" color="text.secondary" paragraph  sx={{ pt: 4 }}>
+              These food choices have been sent:
             </Typography>
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Lunch & Dinner
-            </Typography>
-            <Typography variant="h5" align="left" color="text.secondary" paragraph>
-              Choose the food choices to place the order and send it to the kitchen:
-            </Typography>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button variant="contained" sx={{ bgcolor:"#342D29"}}>Place Order</Button>
-              <Button variant="text" >Log Out</Button>
-            </Stack>
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
@@ -115,8 +113,19 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" sx={{ '&:hover': { bgcolor: "#E7F5F4" } }} >View</Button>
-                    <Button size="small" sx={{ '&:hover': { bgcolor: "#E7F5F4" } }} >Edit</Button>
+                  <Stack
+                  sx={{ pt: 4 }}
+                  direction="row"
+                  spacing={2}
+                  justifyContent="center">
+                    <Button startIcon={<CheckIcon/>} size="small" sx={{bgcolor: "#359A4B",
+                     color:"whitesmoke", '&:hover': { bgcolor: "#359A4B",
+                     color:"whitesmoke" }}} 
+                     >Ready</Button>
+                    <Button startIcon={<CheckIcon/>} size="small" sx={{'&:hover': { bgcolor: "#359A4B",
+                     color:"whitesmoke" }, '&:active':{bgcolor: "#359A4B", color:"whitesmoke"}}} 
+                     >Sent</Button>  
+                  </Stack>
                   </CardActions>
                 </Card>
               </Grid>

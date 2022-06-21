@@ -4,9 +4,9 @@ import { logOut, getAuth } from "../lib/firebase-config";
 import React, { useEffect, useState } from "react";
 
 export default function Header(props) {
+  const { updateComandaOrders, updateComandaOrders2 } = props;
   const [role, setRole] = useState(null);
   const navigate = useNavigate();
-  const { updateComandaOrders, updateComandaOrders2 } = props;
   const auth = getAuth();
   const userData = auth.currentUser;
 

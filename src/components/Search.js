@@ -2,7 +2,7 @@ import React from "react";
 
 const Search = () => {
   return (
-    <section>
+    <>
       <section className="search">
         <img
           className="Search"
@@ -11,7 +11,7 @@ const Search = () => {
         />
         <input type="text" placeholder="Search..." />
       </section>
-    </section>
+    </>
   );
 };
 

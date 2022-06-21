@@ -21,10 +21,9 @@ const ChefView = () => {
   }, []);
 
   return (
-    <>
+    <main className="menu-container">
       <Header />
       <Search />
-      <h1>Vista de chef</h1>
       <div className="orders-container">
         {showData &&
           orders.map((order) => {
@@ -32,8 +31,8 @@ const ChefView = () => {
             return <CardsOrders name={order.client} key={order.id} />;
           })}
       </div>
-      {/* <button onClick={getData}>data</button> */}
-    </>
+     
+    </main>
   );
 };
 

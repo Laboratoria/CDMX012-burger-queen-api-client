@@ -4,28 +4,26 @@ import Employees from "./Employees";
 import ProductsStock from "./ProductsStock";
 
 const Personal = () => {
-  const [changeViewEmployees, setChangeViewEmployees] = useState(true);
-  const [changeViewProducts, setChangeViewProducts] = useState(false);
+  const [changeView, setChangeView] = useState(true);
 
   const getEmployee = () => {
-    setChangeViewEmployees(false);
-    setChangeViewProducts(true)
+    setChangeView(false);
   };
-  const getTable = () => {
-    setChangeViewEmployees(false);
-    setChangeViewProducts(true)
+  const getProduct = () => {
+    setChangeView(true);
   };
   return (
-    <div>
-      <Header updateComandaOrders ={ getTable} updateComandaOrders2={getEmployee}/>
+    <main className="menu-container">
+      <Header
+        updateComandaOrders={getProduct}
+        updateComandaOrders2={getEmployee}
+      />
       <h1>Vista de Administrador</h1>
 
+      {changeView && <Employees />}
 
-      {changeViewEmployees && (<Employees />)}
-
-      {changeViewProducts&&(<ProductsStock/>)}
-
-    </div>
+      {!changeView && <ProductsStock />}
+    </main>
   );
 };
 

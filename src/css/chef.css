@@ -15,7 +15,7 @@ body {
   height: 100%;
   align-items: center;
 }
-
+/* content all in the chef view */
 .menu-container {
   width: 100%;
   height: 100vh;
@@ -23,6 +23,7 @@ body {
   flex-direction: column; */
 }
 
+/* Cards orders */
 .orders-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -36,6 +37,8 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+/* one card of data */
 
 .boxCards {
   position: relative;

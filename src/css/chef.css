@@ -28,7 +28,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 90%;
-  margin: 5% 5%;
+  margin: 2% 5%;
   border: 2px solid #006494;
   filter: drop-shadow(0px 4px 4px #ffffff);
   border-radius: 10px;
@@ -40,7 +40,7 @@ body {
 
 /* one card of data */
 
-.boxCards {
+.boxCardsOrders {
   position: relative;
   text-align: center;
   align-items: center;
@@ -57,4 +57,24 @@ body {
   justify-content: flex-end;
   padding-bottom: 10px;
   margin-top: 12px;
+}
+.conteiner-img{
+  position: absolute;
+  margin-bottom: 48%;
+}
+.clock-img {
+  position: absolute;
+  margin-bottom: 30%;
+}
+
+.boxCardsOrders button {
+  margin-top: 8px;
+  width: 70px;
+  height: 25px;
+  background: #0dbadc;
+  border: 1px solid #0dbadc;
+  border-radius: 6px;
+  font: normal 700 12px/18px "Poppins";
+  color: #5b2448;
+  cursor: pointer;
 }

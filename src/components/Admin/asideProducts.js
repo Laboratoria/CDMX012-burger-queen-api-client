@@ -1,19 +1,27 @@
 import { Drawer, Box, IconButton } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import axios from "axios";
-import { urlBurguerApi } from "../../lib/RequestHandler";
+import { postStock, urlBurguerApi } from "../../lib/RequestHandler";
 import DateTime from "../Waiters/DateTime";
 
-export default function AsideProducts(props) {
-  const {
-    stock,
-    updateStock,
-    openDrawer,
-    closeDrawer,
-    productStock,
-    updateProductStock,
-  } = props;
+export default function AsideProducts({
+  stock,
+  updateStock,
+  openDrawer,
+  closeDrawer,
+  productStock,
+  updateProductStock,
+}) {
+  // const {
+  //   stock,
+  //   updateStock,
+  //   openDrawer,
+  //   closeDrawer,
+  //   productStock,
+  //   updateProductStock,
+  // } = props;
+
   const arrayData = productStock; //catching the new object with data for API
 
   const inputsInfo = (e) => {
@@ -22,18 +30,23 @@ export default function AsideProducts(props) {
       ...prevState,
       [name]: value,
     }));
+    console.log(productStock);
   };
 
   const handlePost = async (e) => {
     e.preventDefault();
-    await axios
-      .post(urlBurguerApi + "/Stock", arrayData)
+
+    await postStock(arrayData)
       .then((response) => {
         updateStock(stock.concat(response.data));
+        closeDrawer(!openDrawer);
       })
       .catch((error) => {
         console.log(error);
       });
+  };
+  const handleImageSelect = (event) => {
+    arrayData.image(event.target.files[0]);
   };
 
   return (
@@ -97,18 +110,16 @@ export default function AsideProducts(props) {
                 autoComplete="off"
                 onChange={inputsInfo}
               />
-              <label>
-                Image Product:
-                <input
-                  type="file"
-                  className="inputProducts"
-                  placeholder="Price of the Product:"
-                  //   value={name}
-                  autoComplete="off"
-                  //   onChange={ClientName}
-                />
-                <input type="submit" value="Send image"></input>
-              </label>
+              <label>Image Product: </label>
+              <input
+                type="text"
+                className="inputProducts"
+                placeholder="Image of the Product:"
+                name="image"
+                //   value={name}
+                onChange={inputsInfo}
+              />
+
               <label>Type Product:</label>
               <select
                 id="typeMenu"

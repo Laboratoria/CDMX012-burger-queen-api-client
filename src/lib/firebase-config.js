@@ -18,8 +18,10 @@ import {
   limit,
   updateDoc,
   doc,
-  getDoc,deleteDoc
+  getDoc,
+  deleteDoc,
 } from "firebase/firestore";
+
 export { onAuthStateChanged, getAuth } from "@firebase/auth";
 
 export const firebaseConfig = {
@@ -140,17 +142,15 @@ export const getData = (setEmployee) => {
   });
 };
 
-
-export const editUser= async(id, name, rol, turn, drawerHandler)=> {
+export const editUser = async (id, name, rol, turn, drawerHandler) => {
   const dataRef = doc(db, "profile", id);
   const data = { displayName: name, rol: rol, turn: turn };
   await updateDoc(dataRef, data);
   drawerHandler();
   console.log("funciona");
-}
+};
 
 export const deleteUser = (id) => {
-  
   deleteDoc(doc(db, "profile", id));
 };
 

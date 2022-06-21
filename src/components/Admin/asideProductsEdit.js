@@ -15,7 +15,7 @@ export default function AsideProductsEdit(props) {
   } = props;
 
   const arrayData = productStock; //catching the new object with data for API
-  console.log(arrayData);
+  // console.log(arrayData);
 
   const inputsInfo = (e) => {
     const { name, value } = e.target;

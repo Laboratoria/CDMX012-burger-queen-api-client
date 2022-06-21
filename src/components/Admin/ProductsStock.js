@@ -16,7 +16,7 @@ export default function ProductsStock() {
     // id: "",
     name: "",
     price: Number,
-    image: URL,
+    image: "",
     type: "",
     dateEntry: Date,
   });
@@ -56,8 +56,8 @@ export default function ProductsStock() {
 
   // }
 
-  const confirmDelete = (rawproduct) => {
-    console.log(rawproduct);
+  const confirmDelete = (rowProduct) => {
+    console.log(rowProduct);
     MySwal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -68,7 +68,7 @@ export default function ProductsStock() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteProduct(rawproduct.id);
+        deleteProduct(rowProduct.id);
         MySwal.fire("Deleted!", "Your file has been deleted.", "success");
       }
     });
@@ -81,15 +81,27 @@ export default function ProductsStock() {
   const columns = [
     {
       field: "id", //datos api
-      title: "#", //title table
+      title: "#",
+      cellStyle: {
+        backgroundColor: "#C6D2D9",
+        color: "#5B2448",
+      },
     },
     {
       field: "name",
       title: "Product",
+      cellStyle: {
+        backgroundColor: "#C6D2D9",
+        color: "#5B2448",
+      },
     },
     {
       field: "price",
       title: "Price",
+      cellStyle: {
+        backgroundColor: "#C6D2D9",
+        color: "#5B2448",
+      },
     },
   ];
 
@@ -104,6 +116,12 @@ export default function ProductsStock() {
             size: "small",
             tooltip: "Product edit",
             icon: "edit",
+            iconProps: {
+              cellStyle: {
+                backgroundColor: "#C6D2D9",
+                color: "#5B2448",
+              },
+            },
             onClick: (event, rowData) => pickProduct(rowData),
           }),
           () => ({
@@ -115,6 +133,11 @@ export default function ProductsStock() {
         ]}
         options={{
           actionsColumnIndex: -1,
+          actionsCellStyle: { backgroundColor: "#C6D2D9", color: "#5B2448" },
+          headerStyle: {
+            backgroundColor: "#C6D2D9",
+            color: "#5B2448",
+          },
         }}
       />
       <AsideProducts

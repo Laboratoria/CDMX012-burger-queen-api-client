@@ -30,7 +30,6 @@ export const addOrder = async (order, client) => {
   return res.data;
 };
 
-
 export const addProduct = async (newProduct) => {
   const res = await axios.put(
     urlBurguerApi + "/Stock/" + newProduct.id,
@@ -39,21 +38,26 @@ export const addProduct = async (newProduct) => {
   return res.data;
 };
 
+export const postStock = async (arrayData) => {
+  const res = await axios.post(urlBurguerApi + "/Stock", arrayData);
+
+  return res;
+};
+
 export const deleteStock = async (id) => {
+  
   const res = await axios.delete(urlBurguerApi + "/Stock/" + id);
   console.log(res.data);
   return res.data;
 };
 
-
- export const getOrder= async() =>{
-  const res = await axios.get( urlBurguerApi+"/orders")
+export const getOrder = async () => {
+  const res = await axios.get(urlBurguerApi + "/orders");
   console.log(res);
   return res.data;
-}
- 
-export const deleteOrder= async(id)=>{
-  const res= await axios.delete(urlBurguerApi+"/orders/"+ id)
-  return res.data;
-} 
+};
 
+export const deleteOrder = async (id) => {
+  const res = await axios.delete(urlBurguerApi + "/orders/" + id);
+  return res.data;
+};

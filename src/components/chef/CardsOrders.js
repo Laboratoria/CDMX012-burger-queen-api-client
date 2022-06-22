@@ -1,7 +1,10 @@
 import React from "react";
+import AsideOrders from "../Waiters/AsideOrders";
 
 const CardsOrders = (props) => {
-  const { name } = props;
+  const { name, setIsDrawerOpenOrder, doneOrder } = props;
+
+  
   return (
     <section className="boxCardsOrders">
       <img
@@ -9,13 +12,28 @@ const CardsOrders = (props) => {
         src={require("../../assets/chef.png")}
         alt="imgFood"
       />
-       <img
-        className="clock-img"
-        src={require("../../assets/clock-blue.png")}
-        alt="imgFood"
-      />
+      {!doneOrder && (
+        <img
+          className="clock-img"
+          src={require("../../assets/clock-blue.png")}
+          alt="imgFood"
+        />
+      )}
+      {doneOrder && (
+        <img
+          className="clock-img"
+          src={require("../../assets/campana.png")}
+          alt="imgFood"
+        />
+      )}
       <p>Client: {name}</p>
-      <button>See Order</button>
+      <button
+        onClick={() => {
+          setIsDrawerOpenOrder(true);
+        }}
+      >
+        See Order
+      </button>
     </section>
   );
 };

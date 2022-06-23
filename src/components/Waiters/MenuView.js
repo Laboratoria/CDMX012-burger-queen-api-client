@@ -110,7 +110,7 @@ export default function Menu() {
      { 
      !changeView &&
         comandasOrders.map((order) => {
-          return (
+           return (
             <DateOrder
               key={order.id}
               order={order}

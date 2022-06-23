@@ -1,10 +1,15 @@
 import React from "react";
-import AsideOrders from "../Waiters/AsideOrders";
 
 const CardsOrders = (props) => {
-  const { name, setIsDrawerOpenOrder, doneOrder } = props;
+  const { name, setIsDrawerOpenOrder, doneOrder, orders, setSelectedOrder } =
+    props;
 
-  
+  const seeOrder = () => {
+    console.log(orders);
+    setSelectedOrder(orders);
+    setIsDrawerOpenOrder(true);
+  };
+
   return (
     <section className="boxCardsOrders">
       <img
@@ -27,13 +32,7 @@ const CardsOrders = (props) => {
         />
       )}
       <p>Client: {name}</p>
-      <button
-        onClick={() => {
-          setIsDrawerOpenOrder(true);
-        }}
-      >
-        See Order
-      </button>
+      <button onClick={seeOrder}>See Order</button>
     </section>
   );
 };

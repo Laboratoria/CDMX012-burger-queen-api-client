@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import DateTime from "../Waiters/DateTime";
 import { IconButton, Drawer, Box } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { getAuth } from "@firebase/auth";
+import OrdersTaken from "./OrdersTaken";
 
 const AsideOrders = (props) => {
-  const { isDrawerOpenOrder, setIsDrawerOpenOrder } = props;
+  const { isDrawerOpenOrder, setIsDrawerOpenOrder, showData, selectedOrder } =
+    props;
   const auth = getAuth();
   const userData = auth.currentUser;
-
   const nameEmployee = userData.displayName;
-
+  console.log(showData);
+  console.log(selectedOrder);
 
   return (
     <aside className="aside">
@@ -50,6 +52,15 @@ const AsideOrders = (props) => {
             <p>Chef: {nameEmployee}</p>
             <hr />
           </header>
+          <section className="allOrders">
+            <p>client: {selectedOrder.client}</p>
+            {showData &&
+              selectedOrder.map((order) => {
+                return (
+                  <OrdersTaken key={order.productId} name={order.name} />
+                );
+              })}
+          </section>
         </Box>
       </Drawer>
     </aside>

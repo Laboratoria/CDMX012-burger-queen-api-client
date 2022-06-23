@@ -1,13 +1,21 @@
 import React from "react";
 
 const CardsOrders = (props) => {
-  const { name, setIsDrawerOpenOrder, doneOrder, orders, setSelectedOrder } =
-    props;
+  const {
+    name,
+    setIsDrawerOpenOrder,
+    doneOrder,
+    orders,
+    setSelectedOrder,
+    setNameClient,
+    client,
+  } = props;
 
   const seeOrder = () => {
     console.log(orders);
     setSelectedOrder(orders);
     setIsDrawerOpenOrder(true);
+    setNameClient(client);
   };
 
   return (

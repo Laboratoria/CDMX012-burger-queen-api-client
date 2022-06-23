@@ -12,11 +12,14 @@ const ChefView = () => {
   const [isDrawerOpenOrder, setIsDrawerOpenOrder] = useState(false);
   const [doneOrder, setDoneOrder] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState({});
+  const [nameClient, setNameClient] = useState({});
 
   const getData = async () => {
     const dataOfProducts = await getOrderKitchen(); //ARRAY OF PRODUCTS IN API
     setOrders(dataOfProducts);
   };
+  console.log(orders);
+  console.log(nameClient);
 
   useEffect(() => {
     console.log("loading data");
@@ -39,7 +42,10 @@ const ChefView = () => {
                 setIsDrawerOpenOrder={setIsDrawerOpenOrder}
                 doneOrder={doneOrder}
                 orders={order.products}
+                client={order.client}
+                dataOrder={order}
                 setSelectedOrder={setSelectedOrder}
+                setNameClient={setNameClient}
               />
             );
           })}
@@ -49,6 +55,8 @@ const ChefView = () => {
             setIsDrawerOpenOrder={setIsDrawerOpenOrder}
             showData={showData}
             selectedOrder={selectedOrder}
+            orders={orders}
+            nameClient= {nameClient}
           />
         )}
       </div>

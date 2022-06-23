@@ -1,14 +1,16 @@
 import React from "react";
 
 const OrdersTaken = (props) => {
-  const { name } = props;
+  const { name, qty } = props;
   console.log(name);
   return (
     <>
       <p className="order" id="p1">
         {name}
       </p>
-      <hr></hr>
+      <p>{qty}</p>
+      <p>Price: $</p>
+      <hr/>
     </>
   );
 };

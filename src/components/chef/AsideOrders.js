@@ -6,14 +6,20 @@ import { getAuth } from "@firebase/auth";
 import OrdersTaken from "./OrdersTaken";
 
 const AsideOrders = (props) => {
-  const { isDrawerOpenOrder, setIsDrawerOpenOrder, showData, selectedOrder } =
-    props;
+  const {
+    isDrawerOpenOrder,
+    setIsDrawerOpenOrder,
+    showData,
+    selectedOrder,
+    orders,
+    nameClient,
+  } = props;
   const auth = getAuth();
   const userData = auth.currentUser;
   const nameEmployee = userData.displayName;
   console.log(showData);
   console.log(selectedOrder);
-
+  console.log(orders);
   return (
     <aside className="aside">
       {/* <IconButton
@@ -53,14 +59,21 @@ const AsideOrders = (props) => {
             <hr />
           </header>
           <section className="allOrders">
-            <p>client: {selectedOrder.client}</p>
+            <p>Client: {nameClient}</p>
+            <br></br>
             {showData &&
               selectedOrder.map((order) => {
                 return (
-                  <OrdersTaken key={order.productId} name={order.name} />
+                  <OrdersTaken
+                    key={order.productId}
+                    name={order.name}
+                    qty={order.qty}
+                  />
                 );
               })}
+            <br></br>
           </section>
+          <button className="btonTotal">Order Done</button>
         </Box>
       </Drawer>
     </aside>

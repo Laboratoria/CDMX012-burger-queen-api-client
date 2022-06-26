@@ -1,7 +1,6 @@
 import React from "react";
 import DateTime from "../Waiters/DateTime";
-import { IconButton, Drawer, Box } from "@mui/material";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import { Drawer, Box } from "@mui/material";
 import { getAuth } from "@firebase/auth";
 import OrdersTaken from "./OrdersTaken";
 
@@ -13,6 +12,7 @@ const AsideOrders = (props) => {
     selectedOrder,
     orders,
     nameClient,
+    saveOrderDone,
   } = props;
   const auth = getAuth();
   const userData = auth.currentUser;
@@ -20,19 +20,9 @@ const AsideOrders = (props) => {
   console.log(showData);
   console.log(selectedOrder);
   console.log(orders);
+
   return (
     <aside className="aside">
-      {/* <IconButton
-        onClick={() => setIsDrawerOpenOrder(true)}
-        size="large"
-        edge="start"
-        color="inherit"
-        aria-label="logo"
-      >
-        <section className="countAndCart">
-          <AddCircleOutlineIcon id="addProduct" sx={{ fontSize: 50 }} />
-        </section>
-      </IconButton> */}
       <Drawer
         anchor="right"
         open={isDrawerOpenOrder}
@@ -73,7 +63,9 @@ const AsideOrders = (props) => {
               })}
             <br></br>
           </section>
-          <button className="btonTotal">Order Done</button>
+          <button className="btonTotal" onClick={saveOrderDone}>
+            Order Done
+          </button>
         </Box>
       </Drawer>
     </aside>

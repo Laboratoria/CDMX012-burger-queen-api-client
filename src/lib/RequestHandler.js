@@ -16,13 +16,17 @@ export const addOrder = async (order, client) => {
   console.log(order);
   console.log(client);
   const arrayProducts = order.products.map(function (product) {
-    return {
-      productId: product.id,
-      qty: product.qty,
-      name: product.name,
-      img: product.image,
-      price:product.price
-    };
+    if (product.client == client) {
+      return {
+        productId: product.id,
+        qty: product.qty,
+        name: product.name,
+        img: product.image,
+        price: product.price,
+      };
+    } else {
+      console.log("no funciona");
+    }
   });
   const testOrder = { userId: "user", client: client, products: arrayProducts };
 
@@ -59,5 +63,18 @@ export const deleteOrder = async (id) => {
 
 export const getOrderKitchen = async () => {
   const res = await axios.get(urlBurguerApi + "/orders");
+  return res.data;
+};
+
+export const addOrderDone = async (client, orderId, selectedOrder) => {
+  const testOrderDone = {
+    orderId: orderId,
+    client: client,
+    products: selectedOrder,
+  };
+
+  console.log(testOrderDone);
+  const res = await axios.post(urlBurguerApi + "/ordersDone", testOrderDone);
+
   return res.data;
 };

@@ -9,6 +9,7 @@ const CardsOrders = (props) => {
     setSelectedOrder,
     setNameClient,
     client,
+    setOrderId, orderId
   } = props;
 
   const seeOrder = () => {
@@ -16,6 +17,7 @@ const CardsOrders = (props) => {
     setSelectedOrder(orders);
     setIsDrawerOpenOrder(true);
     setNameClient(client);
+    setOrderId(orderId)
   };
 
   return (
@@ -40,6 +42,7 @@ const CardsOrders = (props) => {
         />
       )}
       <p>Client: {name}</p>
+      <p>Order: {orderId}</p>
       <button onClick={seeOrder}>See Order</button>
     </section>
   );

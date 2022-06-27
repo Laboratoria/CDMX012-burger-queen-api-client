@@ -12,15 +12,12 @@ const AsideOrders = (props) => {
     selectedOrder,
     orders,
     nameClient,
-    saveOrderDone,
+    saveOrderDone,doneOrder
   } = props;
   const auth = getAuth();
   const userData = auth.currentUser;
   const nameEmployee = userData.displayName;
-  console.log(showData);
-  console.log(selectedOrder);
-  console.log(orders);
-
+ 
   return (
     <aside className="aside">
       <Drawer
@@ -63,9 +60,11 @@ const AsideOrders = (props) => {
               })}
             <br></br>
           </section>
-          <button className="btonTotal" onClick={saveOrderDone}>
-            Order Done
+          {/* {!doneOrder&&  */}
+          <button className="btonTotal" onClick={saveOrderDone}> Order Done
           </button>
+          {/* } */}
+           {/* {doneOrder&& <h2>Order Done</h2>} */}
         </Box>
       </Drawer>
     </aside>

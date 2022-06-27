@@ -53,9 +53,9 @@ export default function Header(props) {
           src={require("../assets/burger4.png")}
         />
         <p className="menu">MENU</p>
-        <button id="btnMenu">Menu</button>
+        <button id="btnMenu" onClick={updateComandaOrders2}>Finished orders</button>
         <button id="btnOrder" onClick={updateComandaOrders}>
-          Order
+          Orders
         </button>
         <button className="btnOut" onClick={returnLogin} />
       </header>

@@ -9,26 +9,29 @@ import { addOrderDone } from "../../lib/RequestHandler";
 
 const ChefView = () => {
   const [orders, setOrders] = useState([]);
-  const [products, setProducts] = useState([]);
   const [showData, setShowData] = useState(false);
   const [isDrawerOpenOrder, setIsDrawerOpenOrder] = useState(false);
   const [doneOrder, setDoneOrder] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState({});
   const [nameClient, setNameClient] = useState({});
   const [orderId, setOrderId] = useState({});
-  console.log(orders);
-  console.log(selectedOrder);
+  const [cardCliend, setCarClient] = useState({});
 
   const getData = async () => {
     const dataOfProducts = await getOrderKitchen(); //ARRAY OF PRODUCTS IN API
     setOrders(dataOfProducts);
   };
-
-  console.log(nameClient, orderId, selectedOrder);
+  console.log(cardCliend, nameClient, orderId, selectedOrder);
 
   let saveOrderDone = () => {
     addOrderDone(nameClient, orderId, selectedOrder);
-    setDoneOrder(true);
+    setIsDrawerOpenOrder(false);
+    if (cardCliend !== nameClient) {
+      setDoneOrder(true);
+    } else if (cardCliend === nameClient) {
+      console.log("no funciona la imagen");
+      setDoneOrder(false);
+    }
 
     console.log(" nofunciona");
   };
@@ -59,6 +62,7 @@ const ChefView = () => {
                 setSelectedOrder={setSelectedOrder}
                 setNameClient={setNameClient}
                 setOrderId={setOrderId}
+                setCarClient={setCarClient}
               />
             );
           })}
@@ -72,6 +76,7 @@ const ChefView = () => {
             nameClient={nameClient}
             orderId={orderId}
             saveOrderDone={saveOrderDone}
+            doneOrder={doneOrder}
           />
         )}
       </div>

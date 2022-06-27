@@ -9,15 +9,17 @@ const CardsOrders = (props) => {
     setSelectedOrder,
     setNameClient,
     client,
-    setOrderId, orderId
+    setOrderId,
+    orderId,
+    setCarClient,
   } = props;
 
   const seeOrder = () => {
-    console.log(orders);
     setSelectedOrder(orders);
     setIsDrawerOpenOrder(true);
     setNameClient(client);
-    setOrderId(orderId)
+    setOrderId(orderId);
+    setCarClient(name);
   };
 
   return (

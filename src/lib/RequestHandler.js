@@ -78,3 +78,8 @@ export const addOrderDone = async (client, orderId, selectedOrder) => {
 
   return res.data;
 };
+
+export const getOrdersDone = async () => {
+  const res = await axios.get(urlBurguerApi + "/ordersDone");
+  return res.data;
+};

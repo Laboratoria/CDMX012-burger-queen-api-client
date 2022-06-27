@@ -13,6 +13,7 @@ const MenuView = () => {
   const ordersComanda = async () => {
     const arrayOrders = await getOrder();
     setChangeView(false);
+    setChangeButtonView(false)
     setComandasOrders(arrayOrders);
     // setOrder(arrayOrders);
   };

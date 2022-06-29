@@ -6,11 +6,12 @@ import { getProducts, deleteStock } from "../../lib/RequestHandler";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
+
 export default function ProductsStock() {
   const [products, setProducts] = useState([]); //datos obtenidos del get API
   const [isDrawerOpen, setIsDrawerOpen] = useState(false); //cerrar y abrir drawer MUI para registrar
   const [drawerEdit, setDrawerEdit] = useState(false); //drawer de editado
-  const [drawerDelete, setDrawerDelete] = useState(false); //modal de delete
+
   const [newProduct, setNewProduct] = useState({
     //estado para nuevos productos
     // id: "",
@@ -85,6 +86,12 @@ export default function ProductsStock() {
       cellStyle: {
         backgroundColor: "#C6D2D9",
         color: "#5B2448",
+        border: "solid 1px #004668",
+      },
+      headerStyle: {
+        fontSize: "larger",
+        fontWeight: "bold",
+        textAlign: "center",
       },
     },
     {
@@ -93,6 +100,12 @@ export default function ProductsStock() {
       cellStyle: {
         backgroundColor: "#C6D2D9",
         color: "#5B2448",
+        border: "solid 1px #004668",
+      },
+      headerStyle: {
+        fontSize: "larger",
+        fontWeight: "bold",
+        textAlign: "center",
       },
     },
     {
@@ -101,13 +114,33 @@ export default function ProductsStock() {
       cellStyle: {
         backgroundColor: "#C6D2D9",
         color: "#5B2448",
+        border: "solid 1px #004668",
+      },
+      headerStyle: {
+        fontSize: "larger",
+        fontWeight: "bold",
+        textAlign: "center",
       },
     },
   ];
 
   return (
-    <section>
+    <section className="table-container">
+      <AsideProducts
+        stock={products}
+        updateStock={setProducts}
+        openDrawer={isDrawerOpen}
+        closeDrawer={setIsDrawerOpen}
+        productStock={newProduct}
+        updateProductStock={setNewProduct}
+      />
       <MaterialTable
+        style={{
+          backgroundColor: "#C6D2D9",
+          color: "#5B2448",
+          // fontSize: "larger",
+          // fontWeight: "bold",
+        }}
         title={"Stock of products"}
         columns={columns}
         data={products}
@@ -133,21 +166,21 @@ export default function ProductsStock() {
         ]}
         options={{
           actionsColumnIndex: -1,
-          actionsCellStyle: { backgroundColor: "#C6D2D9", color: "#5B2448" },
+          actionsCellStyle: {
+            backgroundColor: "#C6D2D9",
+            color: "#5B2448",
+            border: "solid 1px #004668",
+          },
           headerStyle: {
             backgroundColor: "#C6D2D9",
             color: "#5B2448",
+            border: "solid 1px #004668",
+            fontSize: "large",
+            fontWeight: "bold",
           },
         }}
       />
-      <AsideProducts
-        stock={products}
-        updateStock={setProducts}
-        openDrawer={isDrawerOpen}
-        closeDrawer={setIsDrawerOpen}
-        productStock={newProduct}
-        updateProductStock={setNewProduct}
-      />
+
       <AsideProductsEdit
         stock={products}
         updateStock={setProducts}

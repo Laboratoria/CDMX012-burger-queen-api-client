@@ -11,14 +11,12 @@ import { DateOrder } from "./DateOrder";
 import AsideOrders from "./AsideOrders";
 
 export default function Menu(props) {
-  const { changeView, setChangeView, comandasOrders, setComandasOrders } =
+  const { changeView, setChangeView, comandasOrders, setComandasOrders,isDrawerOpenOrder, setIsDrawerOpenOrder } =
     props;
   const [products, setProducts] = useState({});
   const [typeMenu, setTypeMenu] = useState("");
   const [orderMenu, setOrder] = useState({});
-
-  const [isDrawerOpenOrder, setIsDrawerOpenOrder] = useState(false);
-  const [contador, setContador] = useState(0);
+ const [contador, setContador] = useState(0);
   const [selectedOder, setSelectedOrder] = useState({});
   const [total, setTotal] = useState("");
   const [watchBton, setWatchBton] = useState(true);

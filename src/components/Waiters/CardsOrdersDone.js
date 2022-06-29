@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useEffect } from "react";
 
-const CardsOrdersDone = (props)=> {
-  const {name, orderId}=props
+const CardsOrdersDone = (props) => {
+  const { name, orderId, setIsDrawerOpenOrder, ordersDone, setProducts,client, setNameClient} =
+    props;
+
+  const seeOrder = () => {
+    setIsDrawerOpenOrder(true);
+    setProducts(ordersDone);
+    setNameClient(client)
+  };
+
   return (
     <section className="boxCardsOrders">
       <img
@@ -10,16 +18,15 @@ const CardsOrdersDone = (props)=> {
         alt="imgFood"
       />
       <img
-          className="clock-img"
-          src={require("../../assets/campana.png")}
-          alt="imgFood"
-        />
-         <p>Client: {name}</p>
+        className="clock-img"
+        src={require("../../assets/campana.png")}
+        alt="imgFood"
+      />
+      <p>Client: {name}</p>
       <p>Order: {orderId}</p>
-      <button >See Order</button>
+      <button onClick={seeOrder}>See Order</button>
     </section>
-  )
-}
+  );
+};
 
-
-export default CardsOrdersDone
+export default CardsOrdersDone;

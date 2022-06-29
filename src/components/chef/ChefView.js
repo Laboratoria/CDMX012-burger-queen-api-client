@@ -5,37 +5,38 @@ import Search from "../Search";
 import CardsOrders from "./CardsOrders";
 import "../../css/chef.css";
 import AsideOrders from "../chef/AsideOrders";
-import { addOrderDone } from "../../lib/RequestHandler";
+import { addOrderDone, editOrderKitchen } from "../../lib/RequestHandler";
 
 const ChefView = () => {
   const [orders, setOrders] = useState([]);
   const [showData, setShowData] = useState(false);
   const [isDrawerOpenOrder, setIsDrawerOpenOrder] = useState(false);
-  const [doneOrder, setDoneOrder] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState({});
   const [nameClient, setNameClient] = useState({});
   const [orderId, setOrderId] = useState({});
-  const [cardCliend, setCarClient] = useState({});
+  const [orderEditById, setOrderEditById] = useState();
 
   const getData = async () => {
     const dataOfProducts = await getOrderKitchen(); //ARRAY OF PRODUCTS IN API
     setOrders(dataOfProducts);
   };
-  console.log(cardCliend, nameClient, orderId, selectedOrder);
 
   let saveOrderDone = () => {
     addOrderDone(nameClient, orderId, selectedOrder);
     setIsDrawerOpenOrder(false);
-    if (cardCliend !== nameClient) {
-      setDoneOrder(true);
-    } else if (cardCliend === nameClient) {
-      console.log("no funciona la imagen");
-      setDoneOrder(false);
-    }
-
-    console.log(" nofunciona");
   };
 
+  const editData = async (orderId) => {
+      let editData = await editOrderKitchen(orderId);
+        setOrderEditById(editData);
+
+   if (orderEditById.id ===orderId){
+  return "ho"}else{
+  return "nollll"}
+
+  };
+  
+  // editData(orderId)
   useEffect(() => {
     getData();
     setShowData(true);
@@ -44,8 +45,7 @@ const ChefView = () => {
   return (
     <main className="menu-container">
       <Header />
-      <Search />
-
+      
       <div className="orders-container">
         {showData &&
           orders.map((order) => {
@@ -54,7 +54,6 @@ const ChefView = () => {
                 name={order.client}
                 key={order.id}
                 setIsDrawerOpenOrder={setIsDrawerOpenOrder}
-                doneOrder={doneOrder}
                 orders={order.products}
                 client={order.client}
                 orderId={order.id}
@@ -62,7 +61,6 @@ const ChefView = () => {
                 setSelectedOrder={setSelectedOrder}
                 setNameClient={setNameClient}
                 setOrderId={setOrderId}
-                setCarClient={setCarClient}
               />
             );
           })}
@@ -76,7 +74,6 @@ const ChefView = () => {
             nameClient={nameClient}
             orderId={orderId}
             saveOrderDone={saveOrderDone}
-            doneOrder={doneOrder}
           />
         )}
       </div>

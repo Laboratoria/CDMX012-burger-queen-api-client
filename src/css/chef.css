@@ -28,6 +28,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 90%;
+  height: 500px;
   margin: 2% 5%;
   border: 2px solid #006494;
   filter: drop-shadow(0px 4px 4px #ffffff);
@@ -36,6 +37,7 @@ body {
   gap: 30px;
   padding-top: 20px;
   padding-bottom: 20px;
+  overflow-y: scroll;
 }
 
 /* one card of data */

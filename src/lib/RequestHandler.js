@@ -66,14 +66,18 @@ export const getOrderKitchen = async () => {
   return res.data;
 };
 
+export const editOrderKitchen = async (id) => {
+  const res = await axios.put(urlBurguerApi + "/orders/" + id);
+  return res.data;
+};
+
+
 export const addOrderDone = async (client, orderId, selectedOrder) => {
   const testOrderDone = {
     orderId: orderId,
     client: client,
     products: selectedOrder,
   };
-
-  console.log(testOrderDone);
   const res = await axios.post(urlBurguerApi + "/ordersDone", testOrderDone);
 
   return res.data;
@@ -83,3 +87,4 @@ export const getOrdersDone = async () => {
   const res = await axios.get(urlBurguerApi + "/ordersDone");
   return res.data;
 };
+

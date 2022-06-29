@@ -2,22 +2,14 @@ import React from "react";
 import DateTime from "../Waiters/DateTime";
 import { Drawer, Box } from "@mui/material";
 import { getAuth } from "@firebase/auth";
-import OrdersTaken from "./OrdersTaken";
+import OrderSendDone from "./OrderSendDone";
 
-const AsideOrders = (props) => {
-  const {
-    isDrawerOpenOrder,
-    setIsDrawerOpenOrder,
-    showData,
-    selectedOrder,
-    orders,
-    nameClient,
-    saveOrderDone,doneOrder
-  } = props;
+const AsideOrdersDone = (props) => {
+  const { isDrawerOpenOrder, setIsDrawerOpenOrder, showData,ordersDone, products, nameClient } =
+    props;
   const auth = getAuth();
   const userData = auth.currentUser;
   const nameEmployee = userData.displayName;
- 
   return (
     <aside className="aside">
       <Drawer
@@ -46,27 +38,27 @@ const AsideOrders = (props) => {
             <hr />
           </header>
           <section className="allOrders">
-            <p>Client: {nameClient}</p>
+           
+            <h1 className="order-deliver blink">This order is ready for delivery to the client</h1>
             <br></br>
+            <p><strong>Client:</strong> {nameClient} </p>
+            <hr />
             {showData &&
-              selectedOrder.map((order) => {
+             products.map((order) => {
                 return (
-                  <OrdersTaken
-                    key={order.productId}
-                    name={order.name}
-                    qty={order.qty}
-                  />
+                  <OrderSendDone
+                  key={order.productId}
+                  name={order.name}
+                  qty={order.qty}/>
                 );
               })}
             <br></br>
+            
           </section>
-              <button className="btonTotal" onClick={saveOrderDone}> Order Done
-          </button>
-      
         </Box>
       </Drawer>
     </aside>
   );
 };
 
-export default AsideOrders;
+export default AsideOrdersDone;

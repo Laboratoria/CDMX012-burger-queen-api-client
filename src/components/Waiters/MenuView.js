@@ -9,6 +9,8 @@ const MenuView = () => {
   const [changeButtonsView, setChangeButtonView] = useState(false);
   const [changeView, setChangeView] = useState(true);
   const [comandasOrders, setComandasOrders] = useState([]);
+  const [isDrawerOpenOrder, setIsDrawerOpenOrder] = useState(false);
+  
 
   const ordersComanda = async () => {
     const arrayOrders = await getOrder();
@@ -28,16 +30,20 @@ const MenuView = () => {
         updateComandaOrders={ordersComanda}
         updateComandaOrders2={clickButtonHeader}
       />
-      <Search />
+     
       {!changeButtonsView && (
         <Menu
           changeView={changeView}
           setChangeView={setChangeView}
           comandasOrders={comandasOrders}
           setComandasOrders={setComandasOrders}
+          isDrawerOpenOrder={isDrawerOpenOrder}
+          setIsDrawerOpenOrder={setIsDrawerOpenOrder}
         />
       )}
-      {changeButtonsView && <OrdersDone />}
+      {changeButtonsView && <OrdersDone
+      isDrawerOpenOrder={isDrawerOpenOrder}
+      setIsDrawerOpenOrder={setIsDrawerOpenOrder} />}
     </main>
   );
 };

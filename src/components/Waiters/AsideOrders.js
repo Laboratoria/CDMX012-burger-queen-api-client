@@ -1,18 +1,17 @@
 import { Drawer, Box } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import Order from "./Order";
 import DateTime from "./DateTime";
+import { getAuth } from "@firebase/auth";
 
 export default function AsideOrders(props) {
-  const {
-    isDrawerOpenOrder,
-    setIsDrawerOpenOrder,
-    selectedOder,
-    total,
-    setTotal,
-    setWatchBton,
-  } = props;
-  const [name, setName] = useState("");
+  const { isDrawerOpenOrder, setIsDrawerOpenOrder, selectedOder, total } =
+    props;
+
+  const auth = getAuth();
+  const userData = auth.currentUser;
+
+  const nameEmployee = userData.displayName;
 
   return (
     <aside className="aside">
@@ -45,7 +44,7 @@ export default function AsideOrders(props) {
               src={require("../../assets/Clock.png")}
             />
             <DateTime />
-            <p>Waitress y nombre</p>
+            <p>Waitress: {nameEmployee}</p>
             <hr />
           </header>
           <section>
@@ -61,7 +60,6 @@ export default function AsideOrders(props) {
                     name={product.name}
                     price={product.price}
                     qty={product.qty}
-                    total={setTotal}
                     watchBtm={false}
                   ></Order>
                 );

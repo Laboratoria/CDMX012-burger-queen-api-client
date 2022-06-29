@@ -1,6 +1,5 @@
 import {React, useState} from "react";
-import AsideMenu from "./asideMenu";
-import AsideOrders from "./AsideOrders";
+
 
 export default function Order(props) {
     const { name, price,qty,id, order, updateOrder,watchBtm} = props

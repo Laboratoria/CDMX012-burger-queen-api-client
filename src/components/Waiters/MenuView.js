@@ -19,7 +19,7 @@ export default function Menu() {
   const [changeView, setChangeView] = useState(true);
   const [comandasOrders, setComandasOrders] = useState([]);
   const [isDrawerOpenOrder, setIsDrawerOpenOrder] = useState(false);
-
+  const[contador,setContador]=useState(0)
   const[selectedOder, setSelectedOrder] = useState({});
   const [total, setTotal] = useState("");
   const[watchBton, setWatchBton]=useState(true);
@@ -71,7 +71,10 @@ export default function Menu() {
 
   return (
     <main className="menu-container">
-      <Header updateComandaOrders={ordersComanda} />
+      <Header 
+      updateComandaOrders={ordersComanda}
+      
+       />
       <section>
         <section className="search">
           <img
@@ -79,7 +82,7 @@ export default function Menu() {
             alt="searchIcon"
             src={require("../../assets/Search.png")}
           />
-          <input type="text" placeholder="Search..." />
+          <input type="text" placeholder="Search..."/>
         </section>
 
 
@@ -103,6 +106,8 @@ export default function Menu() {
               order={orderMenu}
               id={product.id}
               updateOrder={setOrder}
+              contador={contador}
+              setContador={setContador}
             ></CardsMenu>
           );
         })
@@ -118,6 +123,8 @@ export default function Menu() {
               setIsDrawerOpenOrder= {setIsDrawerOpenOrder}
               setSelectedOrder = {setSelectedOrder}
               deleteOrder={handleDelete}
+              setTotal={setTotal}
+              setContador={setContador}
        ></DateOrder>
         );
       })
@@ -128,6 +135,7 @@ export default function Menu() {
     updateOrder={setOrder}
     total={total}
     setTotal={setTotal}
+    contador={contador}
     
     />
     <AsideOrders
@@ -135,6 +143,7 @@ export default function Menu() {
     setIsDrawerOpenOrder= {setIsDrawerOpenOrder}
     selectedOder={selectedOder}
     total={total}
+    setContador={setContador}
   
     
     />

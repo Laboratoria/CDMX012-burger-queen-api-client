@@ -11,16 +11,16 @@ const ContentTableEmployess = () => {
   }, []);
 
   return (
-    <section >
-      <table className="table-container" border="1" rules="rows">
+    <section>
+      <table className="table-container-Employees" border="1" rules="rows">
         <thead>
           <tr>
-            <th >Name</th>
-            <th >Role</th>
-            <th >E-mail</th>
-            <th >Turn</th>
-            <th >Edit</th>
-            <th >Delete</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>E-mail</th>
+            <th>Turn</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
 

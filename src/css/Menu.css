@@ -210,14 +210,12 @@ body {
   cursor: pointer;
 }
 
-
 /* .aside {
   width: 20%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
 } */
-
 
 .countAndCart {
   display: flex;
@@ -312,6 +310,7 @@ body {
   flex-direction: row;
   display: flex;
   gap: 10px;
+}
 
 /* mendaje de orden terminada destellante */
 .order-deliver {

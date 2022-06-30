@@ -15,13 +15,12 @@ export default function AsideOrders(props) {
 
   return (
     <aside className="aside">
-      <section className="countAndCart">
-        <button
-          onClick={setIsDrawerOpenOrder}
-          id="shopping"
-          sx={{ fontSize: 50 }}
-        />
-      </section>
+
+      {/* <section className="countAndCart">
+        <button onClick={setIsDrawerOpenOrder}
+          id="shopping" sx={{ fontSize: 50 }} />
+      </section> */}
+
       <Drawer
         anchor="right"
         open={isDrawerOpenOrder}

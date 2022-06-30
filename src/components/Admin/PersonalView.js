@@ -4,10 +4,10 @@ import Employees from "./Employees";
 import ProductsStock from "./ProductsStock";
 
 const Personal = () => {
-  const [changeViewEmployees, setChangeViewEmployees] = useState(true);
-  const [changeViewProducts, setChangeViewProducts] = useState(false);
+  const [changeView, setChangeView] = useState(true);
 
   const getEmployee = () => {
+
     setChangeViewEmployees(false);
     setChangeViewProducts(true);
   };
@@ -19,14 +19,16 @@ const Personal = () => {
     <div>
       <Header
         updateComandaOrders={getTable}
+
         updateComandaOrders2={getEmployee}
       />
       <h1>Vista de Administrador</h1>
 
-      {changeViewEmployees && <Employees />}
 
-      {changeViewProducts && <ProductsStock />}
-    </div>
+      {changeView && <Employees />}
+
+      {!changeView && <ProductsStock />}
+    </main>
   );
 };
 

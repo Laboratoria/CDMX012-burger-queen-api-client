@@ -49,6 +49,7 @@ button-register-edit {
   margin-right: 10%;
   border-color: white;
 }
+
 /* Products table view*/
 .addingProduct {
   width: fit-content;
@@ -57,7 +58,9 @@ button-register-edit {
   font-weight: 700;
 }
 
+/* tabla */
 .table-container {
+  /*background-color: #c6d2d9;*/
   padding: 2%;
   width: 80%;
   margin: 0 8%;
@@ -80,6 +83,7 @@ button-register-edit {
   padding: 5px 10px;
   text-align: center;
 }
+
 /* form aside  */
 #pAdmin {
   margin-bottom: 25px;
@@ -143,3 +147,4 @@ div .MuiFormControl-root,
 .editInputs {
   margin-bottom: 20px;
 }
+

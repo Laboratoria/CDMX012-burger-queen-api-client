@@ -6,48 +6,19 @@ import {
 } from "../lib/firebase-config";
 import React, { useEffect, useState } from "react";
 import "../css/Login.css";
-// import logo from "../assets/burger4.png";
 
 export default function Login() {
   const [errorEmail, setErrorEmail] = useState(false);
   const [errorPassword, setErrorPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //
+  
 
   const login = (e) => {
     e.preventDefault();
     LoginWithEmail(setErrorEmail, setErrorPassword, email, password);
   };
-  // const LoginWithEmail = (e) => {
-  //   e.preventDefault();
-  //   setErrorEmail("");
-  //   setErrorPassword("");
-  //   signInWithEmailAndPassword(auth, email, password)
-  //     .then((userCredential) => {
-  //       // Signed in
-  //       const user = userCredential.user;
-  //       // navigate("/menu");
-  //     })
-  //     .catch((error) => {
-  //       // const errorMessage = error.message;
-  //       console.log(error.message);
-  //       if (error.code === "auth/invalid-email") {
-  //         console.log(error.code);
-  //         setErrorEmail("Invalid email");
-  //       } else if (error.code === "auth/wrong-password") {
-  //         console.log(error.code);
-  //         setErrorPassword("Invalid password");
-  //       } else if (error.code === "auth/internal-error") {
-  //         console.log(error.code);
-  //         setErrorPassword("Enter a password");
-  //       } else if (error.code === "auth/user-not-found") {
-  //         console.log(error.code);
-  //         setErrorEmail("User not found");
-  //       }
-  //     });
-  // };
-
+ 
   useEffect(() => {
     onAuthStateChanged(auth, handleUserStateChanged);
   }, []);

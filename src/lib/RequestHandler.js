@@ -8,7 +8,7 @@ export const getMenu = async () => {
 };
 
 export const getProducts = async () => {
-  const res = await axios.get(urlBurguerApi + "/Stock");
+  const res = await axios.get(urlBurguerApi + "/products");
   return res.data;
 };
 
@@ -38,14 +38,20 @@ export const addOrder = async (order, client) => {
 
 export const addProduct = async (newProduct) => {
   const res = await axios.put(
-    urlBurguerApi + "/Stock/" + newProduct.id,
+    urlBurguerApi + "/products/" + newProduct.id,
     newProduct
   );
   return res.data;
 };
 
+export const postStock = async (arrayData) => {
+  const res = await axios.post(urlBurguerApi + "/products", arrayData);
+
+  return res;
+};
+
 export const deleteStock = async (id) => {
-  const res = await axios.delete(urlBurguerApi + "/Stock/" + id);
+  const res = await axios.delete(urlBurguerApi + "/products/" + id);
   console.log(res.data);
   return res.data;
 };
@@ -55,6 +61,7 @@ export const getOrder = async () => {
   console.log(res);
   return res.data;
 };
+
 
 export const deleteOrder = async (id) => {
   const res = await axios.delete(urlBurguerApi + "/orders/" + id);

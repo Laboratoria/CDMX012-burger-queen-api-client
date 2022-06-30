@@ -2,22 +2,21 @@ import React, { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 import AsideProducts from "./asideProducts";
 import AsideProductsEdit from "./asideProductsEdit";
-import { getProducts,deleteStock } from "../../lib/RequestHandler";
+import { getProducts, deleteStock } from "../../lib/RequestHandler";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-
 
 export default function ProductsStock() {
   const [products, setProducts] = useState([]); //datos obtenidos del get API
   const [isDrawerOpen, setIsDrawerOpen] = useState(false); //cerrar y abrir drawer MUI para registrar
   const [drawerEdit, setDrawerEdit] = useState(false); //drawer de editado
-  const [drawerDelete, setDrawerDelete] = useState(false); //modal de delete
+
   const [newProduct, setNewProduct] = useState({
     //estado para nuevos productos
     // id: "",
     name: "",
     price: Number,
-    image: URL,
+    image: "",
     type: "",
     dateEntry: Date,
   });
@@ -42,38 +41,38 @@ export default function ProductsStock() {
     openCloseDrawerEdit();
   };
 
-  // const deleteProduct = async () => {
-  //   await deleteStock(id)
-  //     .then((response) => {
-  //       setProducts(products.filter((product) => product.id !== id));
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-  const deleteProducts =(id)=>{
-    deleteStock(id)
-    setProducts(products.filter((product) => product.id !== id));
-    
-  }
+  const deleteProduct = async (id) => {
+    await deleteStock(id)
+      .then((response) => {
+        setProducts(products.filter((product) => product.id !== id));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  // const deleteProducts =(id)=>{
+  //   deleteStock(id)
+  //   setProducts(products.filter((product) => product.id !== id));
 
-  const confirmDelete = (rawproduct) => {
-    console.log(rawproduct)
+  // }
+
+  const confirmDelete = (rowProduct) => {
+    console.log(rowProduct);
     MySwal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#FFB000",
-      cancelButtonColor: "#DE1344",
+      confirmButtonColor: "#004668",
+      cancelButtonColor: "#5B2448",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteProducts(rawproduct.id);
+        deleteProduct(rowProduct.id);
         MySwal.fire("Deleted!", "Your file has been deleted.", "success");
       }
     });
-  }
+  };
 
   useEffect(() => {
     getData();
@@ -82,21 +81,65 @@ export default function ProductsStock() {
   const columns = [
     {
       field: "id", //datos api
-      title: "#", //title table
+      title: "#",
+      cellStyle: {
+        backgroundColor: "#C6D2D9",
+        color: "#5B2448",
+        border: "solid 1px #004668",
+      },
+      headerStyle: {
+        fontSize: "larger",
+        fontWeight: "bold",
+        textAlign: "center",
+      },
     },
     {
       field: "name",
       title: "Product",
+      cellStyle: {
+        backgroundColor: "#C6D2D9",
+        color: "#5B2448",
+        border: "solid 1px #004668",
+      },
+      headerStyle: {
+        fontSize: "larger",
+        fontWeight: "bold",
+        textAlign: "center",
+      },
     },
     {
       field: "price",
       title: "Price",
+      cellStyle: {
+        backgroundColor: "#C6D2D9",
+        color: "#5B2448",
+        border: "solid 1px #004668",
+      },
+      headerStyle: {
+        fontSize: "larger",
+        fontWeight: "bold",
+        textAlign: "center",
+      },
     },
   ];
 
   return (
-    <section>
+    <section className="table-container">
+      <AsideProducts
+        stock={products}
+        updateStock={setProducts}
+        openDrawer={isDrawerOpen}
+        closeDrawer={setIsDrawerOpen}
+        productStock={newProduct}
+        updateProductStock={setNewProduct}
+      />
       <MaterialTable
+        style={{
+          backgroundColor: "#C6D2D9",
+          color: "#5B2448",
+          // fontSize: "larger",
+          // fontWeight: "bold",
+        }}
         title={"Stock of products"}
         columns={columns}
         data={products}
@@ -105,6 +148,12 @@ export default function ProductsStock() {
             size: "small",
             tooltip: "Product edit",
             icon: "edit",
+            iconProps: {
+              cellStyle: {
+                backgroundColor: "#C6D2D9",
+                color: "#5B2448",
+              },
+            },
             onClick: (event, rowData) => pickProduct(rowData),
           }),
           () => ({
@@ -116,16 +165,21 @@ export default function ProductsStock() {
         ]}
         options={{
           actionsColumnIndex: -1,
+          actionsCellStyle: {
+            backgroundColor: "#C6D2D9",
+            color: "#5B2448",
+            border: "solid 1px #004668",
+          },
+          headerStyle: {
+            backgroundColor: "#C6D2D9",
+            color: "#5B2448",
+            border: "solid 1px #004668",
+            fontSize: "large",
+            fontWeight: "bold",
+          },
         }}
       />
-      <AsideProducts
-        stock={products}
-        updateStock={setProducts}
-        openDrawer={isDrawerOpen}
-        closeDrawer={setIsDrawerOpen}
-        productStock={newProduct}
-        updateProductStock={setNewProduct}
-      />
+
       <AsideProductsEdit
         stock={products}
         updateStock={setProducts}

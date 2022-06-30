@@ -7,18 +7,23 @@ const Personal = () => {
   const [changeView, setChangeView] = useState(true);
 
   const getEmployee = () => {
-    setChangeView(false);
+
+    setChangeViewEmployees(false);
+    setChangeViewProducts(true);
   };
-  const getProduct = () => {
-    setChangeView(true);
+  const getTable = () => {
+    setChangeViewEmployees(false);
+    setChangeViewProducts(true);
   };
   return (
-    <main className="menu-container">
+    <div>
       <Header
-        updateComandaOrders={getProduct}
+        updateComandaOrders={getTable}
+
         updateComandaOrders2={getEmployee}
       />
       <h1>Vista de Administrador</h1>
+
 
       {changeView && <Employees />}
 

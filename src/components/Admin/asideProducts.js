@@ -1,19 +1,22 @@
-import { Drawer, Box, IconButton } from "@mui/material";
+import { Drawer, Box, IconButton, TextField, Button } from "@mui/material";
 import React from "react";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import axios from "axios";
-import { urlBurguerApi } from "../../lib/RequestHandler";
+import { postStock } from "../../lib/RequestHandler";
 import DateTime from "../Waiters/DateTime";
+import { getAuth } from "../../lib/firebase-config";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import "../../css/admin.css";
 
-export default function AsideProducts(props) {
-  const {
-    stock,
-    updateStock,
-    openDrawer,
-    closeDrawer,
-    productStock,
-    updateProductStock,
-  } = props;
+export default function AsideProducts({
+  stock,
+  updateStock,
+  openDrawer,
+  closeDrawer,
+  productStock,
+  updateProductStock,
+}) {
+  const auth = getAuth();
+  const userData = auth.currentUser;
   const arrayData = productStock; //catching the new object with data for API
 
   const inputsInfo = (e) => {
@@ -22,19 +25,32 @@ export default function AsideProducts(props) {
       ...prevState,
       [name]: value,
     }));
+    console.log(productStock);
   };
 
   const handlePost = async (e) => {
     e.preventDefault();
-    await axios
-      .post(urlBurguerApi + "/Stock", arrayData)
+
+    await postStock(arrayData)
       .then((response) => {
         updateStock(stock.concat(response.data));
+        closeDrawer(!openDrawer);
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#FFFFFF",
+      },
+      secondary: {
+        main: "#004668",
+      },
+    },
+  });
 
   return (
     <aside className="aside">
@@ -45,74 +61,92 @@ export default function AsideProducts(props) {
         color="inherit"
         aria-label="logo"
       >
-        <section className="countAndCart">
-          <AddCircleOutlineIcon id="addProduct" sx={{ fontSize: 50 }} />
+        <section className="addingProduct">
+          <AddCircleOutlineIcon fontSize="large" />
         </section>
       </IconButton>
-      <Drawer
-        anchor="right"
-        open={openDrawer}
-        onClose={() => closeDrawer(false)}
-      >
-        <Box
-          p={2}
-          width="400px"
-          role="presentation"
-          textAlign="center"
-          sx={{
-            backgroundColor: "primary.dark",
-            width: 400,
-            height: 1000,
-          }}
+      <div>
+        <Drawer
+          anchor="right"
+          open={openDrawer}
+          onClose={() => closeDrawer(false)}
         >
-          <header>
-            <img
+          <Box
+            p={5}
+            width="400px"
+            role="presentation"
+            textAlign="center"
+            alignItems={"center"}
+            display={"flex"}
+            flexDirection={"column"}
+            alignContent={"center"}
+            marginTop={"0"}
+            sx={{
+              width: 400,
+              height: 1000,
+            }}
+          >
+            <header>
+              <h1>Add new Product</h1>
+              <DateTime />{" "}
+              {/* <img
               className="icons"
               alt="clockIcon"
               src={require("../../assets/Clock.png")}
-            />
-            <DateTime />
-            <p>Rol y nombre</p>
-            <hr />
-          </header>
-          <section className="form-container">
-            <form className="box" onSubmit={handlePost}>
-              <label>Name Product:</label>
-              <input
+            /> */}
+              <p>Admin: {userData.displayName}</p>
+              <hr id="pAdmin" />
+            </header>
+            {/* <section className="form-container-aside"> */}
+            <form className="formAside" onSubmit={handlePost}>
+              <TextField
                 type="text"
-                className="inputProducts"
-                placeholder="Name of the Product:"
+                id="input-nameP"
+                label="Name Product:"
+                sx={{
+                  width: 300,
+                  height: 56,
+                  marginTop: 20,
+                }}
+                // className="inputProducts"
+                // placeholder="Name of the Product:"
                 name="name"
                 //   value={name}
                 autoComplete="off"
                 onChange={inputsInfo}
               />
-              <label>Price Product:</label>
-              <input
+
+              <TextField
                 type="number"
-                className="inputProducts"
-                placeholder="Price of the Product:"
+                id="input-price"
+                label="Price Product:"
+                sx={{
+                  width: 300,
+                  height: 56,
+                }}
                 name="price"
-                //   value={name}
                 autoComplete="off"
                 onChange={inputsInfo}
               />
-              <label>
-                Image Product:
-                <input
-                  type="file"
-                  className="inputProducts"
-                  placeholder="Price of the Product:"
-                  //   value={name}
-                  autoComplete="off"
-                  //   onChange={ClientName}
-                />
-                <input type="submit" value="Send image"></input>
-              </label>
-              <label>Type Product:</label>
+
+              <TextField
+                type="text"
+                id="input-image"
+                sx={{
+                  width: 300,
+                  height: 56,
+                }}
+                // className="inputProducts"
+                label="Image Produuct:"
+                name="image"
+                //   value={name}
+                onChange={inputsInfo}
+              />
+
+              <label className="labels">Type Product:</label>
               <select
                 id="typeMenu"
-                className="inputProducts"
+                // className="inputProducts"
                 placeholder="Price of the Product:"
                 name="type"
                 //   value={name}
@@ -122,9 +156,11 @@ export default function AsideProducts(props) {
                 <option value="cena">Dinner</option>
                 <option value="desayuno">Breakfast</option>
               </select>
-              <label>Date entry:</label>
+
+              <label className="labels">Date entry:</label>
 
               <input
+                id="inputDate"
                 type="date"
                 name="dateEntry"
                 value="2022-06-03"
@@ -133,11 +169,22 @@ export default function AsideProducts(props) {
                 onChange={inputsInfo}
               ></input>
 
-              <input type="submit" value="Add Product" />
+              {/* <ThemeProvider theme={theme}> */}
+              <button
+                id="buttonAddP"
+                type="submit"
+                className="btonTotal"
+                // variant="contained"
+                startIcon={<AddCircleOutlineIcon />}
+              >
+                Add Product
+              </button>
+              {/* </ThemeProvider> */}
             </form>
-          </section>
-        </Box>
-      </Drawer>
+            {/* </section> */}
+          </Box>
+        </Drawer>
+      </div>
     </aside>
   );
 }

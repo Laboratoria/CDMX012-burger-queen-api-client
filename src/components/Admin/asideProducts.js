@@ -169,16 +169,17 @@ export default function AsideProducts({
                 onChange={inputsInfo}
               ></input>
 
-              <ThemeProvider theme={theme}>
-                <Button
-                  id="buttonAddP"
-                  type="submit"
-                  variant="contained"
-                  startIcon={<AddCircleOutlineIcon />}
-                >
-                  Add Product
-                </Button>
-              </ThemeProvider>
+              {/* <ThemeProvider theme={theme}> */}
+              <button
+                id="buttonAddP"
+                type="submit"
+                className="btonTotal"
+                // variant="contained"
+                startIcon={<AddCircleOutlineIcon />}
+              >
+                Add Product
+              </button>
+              {/* </ThemeProvider> */}
             </form>
             {/* </section> */}
           </Box>

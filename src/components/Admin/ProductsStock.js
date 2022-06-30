@@ -6,7 +6,6 @@ import { getProducts, deleteStock } from "../../lib/RequestHandler";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-
 export default function ProductsStock() {
   const [products, setProducts] = useState([]); //datos obtenidos del get API
   const [isDrawerOpen, setIsDrawerOpen] = useState(false); //cerrar y abrir drawer MUI para registrar
@@ -64,8 +63,8 @@ export default function ProductsStock() {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#FFB000",
-      cancelButtonColor: "#DE1344",
+      confirmButtonColor: "#004668",
+      cancelButtonColor: "#5B2448",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {

@@ -136,15 +136,16 @@ export default function AsideProductsEdit(props) {
               />
 
               <ThemeProvider theme={theme}>
-                <Button
-                  id="buttonEdit"
+                <button
+                  // id="buttonEdit"
+                  className="btonTotal"
                   // className="buttonAddP"
-                  variant="contained"
+                  // variant="contained"
                   startIcon={<AddCircleOutlineIcon />}
                   onClick={() => editProducts()}
                 >
                   Edit
-                </Button>
+                </button>
               </ThemeProvider>
             </div>
             {/* </section> */}

@@ -60,7 +60,14 @@ button-register-edit {
 
 /* tabla */
 .table-container {
-  /*background-color: #c6d2d9;*/
+  padding: 2%;
+  width: 80%;
+  margin: 0 8%;
+  border: #004668;
+}
+
+.table-container-Employees {
+  background-color: #c6d2d9;
   padding: 2%;
   width: 80%;
   margin: 0 8%;
@@ -147,4 +154,3 @@ div .MuiFormControl-root,
 .editInputs {
   margin-bottom: 20px;
 }
-

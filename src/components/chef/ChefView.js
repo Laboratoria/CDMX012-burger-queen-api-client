@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import Header from "../Header";
 import { getOrderKitchen } from "../../lib/RequestHandler";
-import Search from "../Search";
 import CardsOrders from "./CardsOrders";
 import "../../css/chef.css";
 import AsideOrders from "../chef/AsideOrders";
-import { addOrderDone, editOrderKitchen } from "../../lib/RequestHandler";
+import { addOrderDone } from "../../lib/RequestHandler";
 
 const ChefView = () => {
   const [orders, setOrders] = useState([]);
@@ -15,6 +14,8 @@ const ChefView = () => {
   const [nameClient, setNameClient] = useState({});
   const [orderId, setOrderId] = useState({});
   const [orderEditById, setOrderEditById] = useState();
+  const [sectionElement, setSectionElement] = useState();
+
 
   const getData = async () => {
     const dataOfProducts = await getOrderKitchen(); //ARRAY OF PRODUCTS IN API
@@ -24,19 +25,15 @@ const ChefView = () => {
   let saveOrderDone = () => {
     addOrderDone(nameClient, orderId, selectedOrder);
     setIsDrawerOpenOrder(false);
+    hiddenBoxCard();
   };
 
-  const editData = async (orderId) => {
-      let editData = await editOrderKitchen(orderId);
-        setOrderEditById(editData);
+  const hiddenBoxCard = () => {
+   let hidden= orderEditById
+      return  hidden.style.display="none"
+     };
 
-   if (orderEditById.id ===orderId){
-  return "ho"}else{
-  return "nollll"}
 
-  };
-  
-  // editData(orderId)
   useEffect(() => {
     getData();
     setShowData(true);
@@ -45,7 +42,7 @@ const ChefView = () => {
   return (
     <main className="menu-container">
       <Header />
-      
+
       <div className="orders-container">
         {showData &&
           orders.map((order) => {
@@ -61,6 +58,7 @@ const ChefView = () => {
                 setSelectedOrder={setSelectedOrder}
                 setNameClient={setNameClient}
                 setOrderId={setOrderId}
+                setOrderEditById={setOrderEditById}
               />
             );
           })}

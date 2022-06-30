@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 const CardsOrders = (props) => {
   const {
@@ -10,9 +10,13 @@ const CardsOrders = (props) => {
     client,
     setOrderId,
     orderId,
+    setOrderEditById,
   } = props;
 
+  const sectionRef = useRef();
+  let currentById = sectionRef.current;
   const seeOrder = () => {
+    setOrderEditById(currentById);
     setSelectedOrder(orders);
     setIsDrawerOpenOrder(true);
     setNameClient(client);
@@ -20,9 +24,20 @@ const CardsOrders = (props) => {
     
   };
 
+  const seeElement = () => {
+    setOrderEditById(currentById);
+    setSelectedOrder(orders);
+    setIsDrawerOpenOrder(false);
+    setNameClient(client);
+    setOrderId(orderId);
+    
+  };
 
+  useEffect(()=>{
+  seeElement()
+  },[])
   return (
-    <section className="boxCardsOrders">
+    <section className="boxCardsOrders" ref={sectionRef} id={orderId}>
       <img
         className="conteiner-img"
         src={require("../../assets/chef.png")}

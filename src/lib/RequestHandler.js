@@ -66,12 +66,6 @@ export const getOrderKitchen = async () => {
   return res.data;
 };
 
-export const editOrderKitchen = async (id) => {
-  const res = await axios.put(urlBurguerApi + "/orders/" + id);
-  return res.data;
-};
-
-
 export const addOrderDone = async (client, orderId, selectedOrder) => {
   const testOrderDone = {
     orderId: orderId,
@@ -87,4 +81,3 @@ export const getOrdersDone = async () => {
   const res = await axios.get(urlBurguerApi + "/ordersDone");
   return res.data;
 };
-

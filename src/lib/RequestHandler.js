@@ -12,21 +12,18 @@ export const getProducts = async () => {
   return res.data;
 };
 
+
 export const addOrder = async (order, client) => {
   console.log(order);
   console.log(client);
   const arrayProducts = order.products.map(function (product) {
-    if (product.client == client) {
-      return {
-        productId: product.id,
-        qty: product.qty,
-        name: product.name,
-        img: product.image,
-        price: product.price,
-      };
-    } else {
-      console.log("no funciona");
-    }
+    return {
+      productId: product.id,
+      qty: product.qty,
+      name: product.name,
+      img: product.image,
+      price: product.price,
+    };
   });
   const testOrder = { userId: "user", client: client, products: arrayProducts };
 
@@ -35,6 +32,7 @@ export const addOrder = async (order, client) => {
 
   return res.data;
 };
+ 
 
 export const addProduct = async (newProduct) => {
   const res = await axios.put(

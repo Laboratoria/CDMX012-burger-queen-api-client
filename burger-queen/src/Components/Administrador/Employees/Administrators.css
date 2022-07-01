@@ -1,0 +1,29 @@
+.employees_table_title {
+    background-color: #FFC700;
+    margin: 0;
+    padding-left: 8%;
+}
+
+.employees_container {
+    background-color: #FBFBFB;
+    color: black;
+    width: 45%;
+    margin-bottom: 3%;
+}
+
+.employee_card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+section.employee_card:nth-child(even) {
+    background-color: #F7F7F7;
+}
+
+.btn_employee {
+    background-color: #504A4C;
+    color: #F7F7F7;
+    font-weight: bold;
+    border-color: #504A4C;
+}

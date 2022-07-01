@@ -1,0 +1,156 @@
+.MuiBox-root {
+  background-color: #004668;
+  color: white;
+}
+/* button on drawer EDIT and REGISTER */
+button-register-edit {
+  background-color: white;
+}
+.css-sghohy-MuiButtonBase-root-MuiButton-root {
+  background-color: white;
+}
+
+/* input texField */
+#input-name,
+#input-email,
+#input-password,
+#input-rol,
+#input-price,
+#input-image,
+#input-type,
+#input-nameP,
+#input-typeP,
+#input-date,
+#input-turn {
+  color: white;
+  border-color: white;
+}
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline,
+.css-1in441m,
+#input-name-label,
+#input-email-label,
+#input-rol-label,
+#input-turn-label,
+#input-price-label,
+#input-image-label,
+#input-nameP-label,
+#input-typeP-label,
+#input-date-label,
+#input-password-label {
+  color: white;
+  border-color: white;
+  height: 56px;
+}
+
+/* botton add employees */
+.content-button-register {
+  display: flex;
+  justify-content: end;
+  margin-right: 10%;
+  border-color: white;
+}
+
+/* Products table view*/
+.addingProduct {
+  width: fit-content;
+  height: fit-content;
+  color: #004668;
+  font-weight: 700;
+}
+
+/* tabla */
+.table-container {
+  padding: 2%;
+  width: 80%;
+  margin: 0 8%;
+  border: #004668;
+}
+
+.table-container-Employees {
+  background-color: #c6d2d9;
+  padding: 2%;
+  width: 80%;
+  margin: 0 8%;
+  border: #004668;
+}
+
+.input-table-big {
+  width: 2000px;
+  padding: 5px 10px;
+}
+
+.input-table-medium {
+  width: 100px;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.input-table-small {
+  width: 10px;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+/* form aside  */
+#pAdmin {
+  margin-bottom: 25px;
+}
+.formAside {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+}
+#typeMenu,
+#inputDate {
+  width: 300px;
+  height: 50px;
+}
+
+#buttonAddP {
+  margin-top: 30px;
+  height: 50px;
+  font-size: large;
+  font-weight: bold;
+}
+
+#buttonEdit {
+  color: white;
+  background-color: #004668;
+  margin-top: 30px;
+  font-size: large;
+  font-weight: bold;
+  height: 50px;
+}
+/* .MuiButton-root,
+.MuiButton-text {
+  height: 40px;
+  color: white;
+} */
+
+#buttonAddP2 {
+  margin-top: 20px;
+}
+
+.labels {
+  margin: 20px 0 20px;
+}
+
+/* edit drawer */
+.headerEdit {
+  width: 100%;
+  height: auto;
+}
+.formAside2 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+div .MuiFormControl-root,
+.MuiTextField-root,
+.editInputs {
+  margin-bottom: 20px;
+}

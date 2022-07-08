@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const urlBurguerApi = "http://localhost:5000";
+export const urlBurguerApi = "https://62c7694b74e1381c0a76a8ef.mockapi.io";
 
 export const getMenu = async () => {
   const res = await axios.get(urlBurguerApi + "/products");

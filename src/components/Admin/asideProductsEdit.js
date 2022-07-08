@@ -1,6 +1,6 @@
 import { Drawer, Box } from "@mui/material";
 import React from "react";
-import { TextField, Button } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import DateTime from "../Waiters/DateTime";
 import { addProduct } from "../../lib/RequestHandler";
 import { getAuth } from "../../lib/firebase-config";
@@ -42,6 +42,7 @@ export default function AsideProductsEdit(props) {
             product.type = arrayData.type;
             product.dateEntry = arrayData.dateEntry;
           }
+          return newDataProduct;
         });
         updateStock(newDataProduct);
         closeDrawer(!openDrawer);
